@@ -1,0 +1,8 @@
+User-agent: *
+Allow: *
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: SiteSucker
+Disallow: /
