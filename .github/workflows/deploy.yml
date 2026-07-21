@@ -25,12 +25,12 @@ jobs:
             --exclude '.git*' \
             --exclude 'node_modules' \
             --exclude '.vscode' \
-            ./ ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/var/www/html/intranet/
+            ./ ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/var/www/cu-intranet-2026/
 
       - name: Install dependencies and Restart PM2 Backend
         run: |
           ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} << 'EOF'
-            cd /var/www/html/intranet/intranet
+            cd /var/www/cu-intranet-2026/intranet
             
             # Install production dependencies
             npm install --production

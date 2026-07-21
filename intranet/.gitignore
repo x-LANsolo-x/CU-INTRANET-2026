@@ -1,3 +1,7 @@
 # Ignore large zip deployment archives that exceed GitHub limit
 erp_ready_portal.zip
 erp_clubs_only_portal.zip
+
+# Private keys and local environment variables
+*.pem
+*.env
