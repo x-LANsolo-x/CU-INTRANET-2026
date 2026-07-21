@@ -11,12 +11,11 @@
       ]
     }
   ],
-  "redirects": [
-    { "source": "/", "destination": "/clubs", "permanent": false }
-  ],
   "rewrites": [
-    { "source": "/clubs", "destination": "/clubs.html" },
-    { "source": "/clubv2", "destination": "/clubv2.html" },
+    { "source": "/clubs", "destination": "/index.html" },
+    { "source": "/clubs.html", "destination": "/index.html" },
+    { "source": "/clubv2", "destination": "/index.html" },
+    { "source": "/clubv2.html", "destination": "/index.html" },
     { "source": "/communities", "destination": "/communities.html" },
     { "source": "/departmental-societies", "destination": "/departmental-societies.html" },
     { "source": "/professional-societies", "destination": "/professional-societies.html" }
