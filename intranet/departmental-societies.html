@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -290,7 +290,19 @@
                 zoom: 142.857142857% !important;
             }
         }
-    </style>
+    
+/* Avoid blank space in top social bar by auto-fitting the width */
+.headerTopSocial {
+    width: auto !important;
+    gap: 25px !important;
+}
+@media only screen and (max-width: 1199px) {
+    .headerTopSocial {
+        width: 100% !important;
+        justify-content: space-between !important;
+    }
+}
+</style>
 
     
 
@@ -697,30 +709,9 @@
                                 style="font-size: 12px"></i><span>360<sup>o</sup></span></a></li>
                 </ul>
                 <ul class="header__top-right social-sub w-auto d-flex list-unstyled p-0 m-0 align-items-center">
-                    <li><a rel="nofollow" href="https://www.facebook.com/chandigarhuniversitygharuan" target="_blank"
-                            aria-label="Go to Chandigarh University's Facebook Page"><i
-                                class="fa-brands fa-facebook-f"></i></a></li>
-
-                    <li><a rel="nofollow" href="https://www.twitter.com/chandigarh_uni" target="_blank"
-                            aria-label="Go to Chandigarh University's Twitter (X) Page">
-                            <i class="fa-brands fa-x-twitter"></i></a></li>
-
-                    <li><a rel="nofollow" href="https://www.linkedin.com/school/chandigarh-university/" target="_blank"
-                            aria-label="Go to Chandigarh University's Linkedin Page"><i
-                                class="fa-brands fa-linkedin-in"></i></a></li>
-
-                    <li><a rel="nofollow" href="https://www.instagram.com/chandigarhuniversity" target="_blank"
-                            aria-label="Go to Chandigarh University's Instagram Page"><i
-                                class="fa-brands fa-instagram"></i></a></li>
-
-                    <li><a rel="nofollow" href="https://www.youtube.com/user/chandigarhuniversity" target="_blank"
-                            aria-label="Go to Chandigarh University's Youtube Page"><i
-                                class="fa-brands fa-youtube"></i></a></li>
-
-                    <li><a rel="nofollow" href="https://www.threads.net/@chandigarhuniversity" target="_blank"
-                            aria-label="Go to Chandigarh University's Threads Page">
-                            <i class="fa-brands fa-threads"></i></a></li>
-                </ul>
+<li><a aria-label="Go to Chandigarh University's Linkedin Page" href="https://www.linkedin.com/school/chandigarh-university/" rel="nofollow" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+<li><a aria-label="Go to Chandigarh University's Instagram Page" href="https://www.instagram.com/chandigarhuniversity" rel="nofollow" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+</ul>
             </div>
         </div>
         <div class="navbar-brand p-0 mt-0">
@@ -4153,7 +4144,7 @@
             <li class="shadow">
                 <a href="https://cucet.cuchd.in/index.aspx?utm_source=Website&amp;utm_medium=cuchd" target="_blank">
                     <h6>CUCET 2026</h6>
-                    <p>₹200 Crore in Scholarships Await!</p>
+                    <p>â‚¹200 Crore in Scholarships Await!</p>
                     <span class="btn btn-md text-link">Apply Now !</span>
                 </a>
             </li>
@@ -4855,3 +4846,5 @@
 </script>
 </body>
 </html>
+
+
