@@ -976,14 +976,36 @@
             }
         });
 
+        if (!valid) return false;
+
+        // Email validation (domain-agnostic check)
+        const emailEl = document.getElementById('f_email');
+        const emailVal = emailEl.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailVal)) {
+            emailEl.style.borderColor = 'var(--red)';
+            alert('Please enter a valid email address.');
+            return false;
+        }
+
+        // Contact number validation (exactly 10 digits)
+        const contactEl = document.getElementById('f_contact');
+        const contactVal = contactEl.value.trim();
+        const contactRegex = /^[0-9]{10}$/;
+        if (!contactRegex.test(contactVal)) {
+            contactEl.style.borderColor = 'var(--red)';
+            alert('Please enter a valid 10-digit mobile number.');
+            return false;
+        }
+
         const genderChecked = document.querySelector('input[name="entry.570413037"]:checked');
         const boardingChecked = document.querySelector('input[name="entry.1101553007"]:checked');
         if (!genderChecked || !boardingChecked) {
-            valid = false;
             if (!genderChecked) alert('Please select your Gender.');
             else if (!boardingChecked) alert('Please select your Boarding Status.');
+            return false;
         }
-        return valid;
+        return true;
     }
 
     // Live input border reset
