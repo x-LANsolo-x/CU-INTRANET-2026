@@ -153,9 +153,12 @@
         .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 64px; }
         .overview-text p { font-size: 17px; line-height: 1.8; color: #444; margin-bottom: 20px; }
         .overview-visual { background: var(--cream2); border-radius: 24px; padding: 50px; display: flex; flex-direction: column; gap: 24px; }
-        .ov-card { background: #fff; border-radius: 14px; padding: 24px; display: flex; gap: 18px; align-items: flex-start; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: 0.3s; }
-        .ov-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
-        .ov-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(227,27,35,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 22px; color: var(--red); }
+        .ov-card { background: #fff; border-radius: 14px; padding: 24px; display: flex; gap: 0px; align-items: flex-start; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .ov-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); gap: 18px; }
+        .ov-icon { width: 0px; height: 48px; border-radius: 12px; background: rgba(227,27,35,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 22px; color: var(--red); opacity: 0; transform: scale(0); overflow: hidden; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .ov-card:hover .ov-icon { width: 48px; opacity: 1; transform: scale(1); }
+        .ov-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; transform: scale(1.4) rotate(-5deg); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .ov-card:hover .ov-icon img { transform: scale(1) rotate(0deg); }
         .ov-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
         .ov-card p { font-size: 14px; color: var(--grey); line-height: 1.55; }
 
@@ -193,13 +196,15 @@
         /* ── PILLARS ── */
         .pillars-section { background: var(--cream); }
         .pillars-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; margin-top: 60px; }
-        .pillar-card { background: var(--cream2); border-radius: 20px; padding: 44px; transition: 0.4s; position: relative; overflow: hidden; }
+        .pillar-card { background: var(--cream2); border-radius: 20px; padding: 44px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
         .pillar-card::before { content: attr(data-num); position: absolute; top: -20px; right: 20px; font-size: 120px; font-weight: 700; color: rgba(0,0,0,0.05); line-height: 1; }
         .pillar-card:hover { background: var(--black); }
-        .pillar-card:hover .pillar-icon { background: var(--red); color: #fff; }
         .pillar-card:hover h3, .pillar-card:hover p { color: #fff; }
         .pillar-card:hover p { color: rgba(255,255,255,0.7); }
-        .pillar-icon { width: 60px; height: 60px; border-radius: 16px; background: rgba(227,27,35,0.1); display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--red); margin-bottom: 24px; transition: 0.3s; }
+        .pillar-icon { width: 60px; height: 0px; border-radius: 16px; background: rgba(227,27,35,0.1); display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--red); margin-bottom: 0px; opacity: 0; transform: scale(0); overflow: hidden; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .pillar-card:hover .pillar-icon { height: 60px; margin-bottom: 24px; opacity: 1; transform: scale(1); background: var(--red); color: #fff; }
+        .pillar-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; transform: scale(1.4) rotate(5deg); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .pillar-card:hover .pillar-icon img { transform: scale(1) rotate(0deg); }
         .pillar-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 14px; transition: 0.3s; }
         .pillar-card p { font-size: 15px; color: var(--grey); line-height: 1.7; transition: 0.3s; }
 
@@ -209,10 +214,12 @@
         .values-section .section-h2 { color: #fff; }
         .values-section .section-h2 em { color: var(--yellow); }
         .values-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 60px; }
-        .value-card { background: rgba(255,255,255,0.05); border-radius: 16px; padding: 32px 24px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; }
+        .value-card { background: rgba(255,255,255,0.05); border-radius: 16px; padding: 32px 24px; border: 1px solid rgba(255,255,255,0.08); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .value-card:hover { background: var(--red); border-color: var(--red); transform: translateY(-4px); }
-        .value-card:hover .value-icon { background: rgba(255,255,255,0.2); color: #fff; }
-        .value-icon { width: 50px; height: 50px; border-radius: 12px; background: rgba(227,27,35,0.15); color: var(--red); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; transition: 0.3s; }
+        .value-icon { width: 50px; height: 0px; border-radius: 12px; background: rgba(227,27,35,0.15); color: var(--red); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 0px; opacity: 0; transform: scale(0); overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .value-card:hover .value-icon { height: 50px; margin-bottom: 18px; opacity: 1; transform: scale(1); background: rgba(255,255,255,0.2); color: #fff; }
+        .value-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; transform: scale(1.4) rotate(-5deg); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .value-card:hover .value-icon img { transform: scale(1) rotate(0deg); }
         .value-card h4 { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 10px; }
         .value-card p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.6; }
 
