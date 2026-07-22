@@ -101,6 +101,35 @@
         }
         .card-mini-carousel img.active { opacity: 1; }
 
+        /* Initials placeholder for cards with no logo or media */
+        .card-initials-placeholder {
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            position: relative; overflow: hidden;
+        }
+        .card-initials-placeholder::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(227,27,35,0.08) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(227,27,35,0.08) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        .card-initials-placeholder::after {
+            content: ''; position: absolute;
+            width: 120px; height: 120px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(227,27,35,0.15) 0%, transparent 70%);
+            top: 50%; left: 50%; transform: translate(-50%,-50%);
+        }
+        .card-initials-placeholder .initials-text {
+            font-family: var(--font-head);
+            font-size: clamp(22px, 4vw, 32px);
+            font-weight: 900;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 2px;
+            position: relative; z-index: 1;
+            text-shadow: 0 2px 12px rgba(227,27,35,0.4);
+        }
+
         /* ── MOBILE RESPONSIVE ── */
 
         /* Tablet: make type-tabs scrollable */
@@ -548,6 +577,17 @@ document.addEventListener('DOMContentLoaded', () => {
         render(filtered);
     }
 
+    function getInitialsPlaceholder(title) {
+        const words = (title || '').trim().split(/\s+/).filter(Boolean);
+        let initials;
+        if (words.length === 1) {
+            initials = words[0].substring(0, 3).toUpperCase();
+        } else {
+            initials = words.slice(0, 3).map(w => w[0]).join('').toUpperCase();
+        }
+        return `<div class="card-initials-placeholder"><span class="initials-text">${initials}</span></div>`;
+    }
+
     function render(list) {
         container.innerHTML = '';
         if (list.length === 0) {
@@ -561,20 +601,26 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'entity-card';
             card.setAttribute('data-reveal', 'scale');
 
-            const hasLogo = !!e.logo;
-            const logoUrl = hasLogo ? e.logo : 'logos/default.png';
+            // A "real" logo means a non-empty path that isn't the generic default placeholder
+            const hasRealLogo = e.logo && e.logo.trim() && e.logo !== 'logos/default.png';
+            const logoUrl = hasRealLogo ? e.logo : null;
             const mediaList = (e.media || []).filter(m => m && m.trim());
             const mainTag = e.categories && e.categories[0] ? e.categories[0] : 'General';
 
-            // If no logo but has media — show mini image carousel on the card
+            // Card image area logic:
+            // 1. Has real logo → show it
+            // 2. No logo but has media → mini cycling carousel
+            // 3. Neither → styled initials placeholder
             let cardImgHtml;
-            if (!hasLogo && mediaList.length > 0) {
+            if (hasRealLogo) {
+                cardImgHtml = `<img src="${logoUrl}" class="blur-image" onload="this.classList.add('loaded')" onerror="this.parentElement.innerHTML=getInitialsPlaceholder('${e.title.replace(/'/g,"\\'")}')+this.parentElement.querySelector('.card-badge').outerHTML;" alt="${e.title}">`;
+            } else if (mediaList.length > 0) {
                 const imgTags = mediaList.map((m, i) =>
-                    `<img src="${m}" class="${i === 0 ? 'active' : ''}" alt="${e.title}" loading="lazy">`
+                    `<img src="${m}" class="${i === 0 ? 'active' : ''}" alt="${e.title} photo ${i+1}" loading="lazy" onerror="this.style.display='none'">`
                 ).join('');
                 cardImgHtml = `<div class="card-mini-carousel" data-idx="0">${imgTags}</div>`;
             } else {
-                cardImgHtml = `<img src="${logoUrl}" class="blur-image" onload="this.classList.add('loaded')" onerror="this.src='logos/default.png'; this.classList.add('loaded');" alt="${e.title}">`;
+                cardImgHtml = getInitialsPlaceholder(e.title);
             }
 
             card.innerHTML = `
@@ -596,21 +642,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            // Auto-cycle mini carousel on card hover
-            if (!hasLogo && mediaList.length > 1) {
+            // Auto-cycle mini carousel continuously (not just on hover)
+            if (!hasRealLogo && mediaList.length > 1) {
                 const mc = card.querySelector('.card-mini-carousel');
-                let mcTimer;
-                card.addEventListener('mouseenter', () => {
-                    mcTimer = setInterval(() => {
-                        const imgs = mc.querySelectorAll('img');
+                if (mc) {
+                    // Start auto-cycling immediately
+                    const autoTimer = setInterval(() => {
+                        const imgs = mc.querySelectorAll('img:not([style*="display:none"])');
+                        if (!imgs.length) return;
                         let i = parseInt(mc.dataset.idx) || 0;
-                        imgs[i].classList.remove('active');
+                        imgs[i % imgs.length].classList.remove('active');
                         i = (i + 1) % imgs.length;
                         imgs[i].classList.add('active');
                         mc.dataset.idx = i;
-                    }, 1400);
-                });
-                card.addEventListener('mouseleave', () => clearInterval(mcTimer));
+                    }, 2000);
+                    // Store timer on element so it can be cleared if needed
+                    mc._timer = autoTimer;
+                }
             }
 
             // Keyboard + focus support for cards
