@@ -836,24 +836,62 @@ body::before {
     .sys-stats-bar { grid-template-columns: repeat(2, 1fr); }
     .sys-nav { display: none !important; }
     .sys-hamburger { display: flex; }
-    .sys-header-cta { display: none; }
+    
+    /* Show register button as a round icon-only button on tablet/mobile screens */
+    .sys-header-cta {
+        display: flex !important;
+        width: 36px;
+        height: 36px;
+        padding: 0 !important;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50% !important;
+        font-size: 0 !important; /* Hide text */
+        flex-shrink: 0;
+        box-shadow: 0 4px 12px var(--red-glow);
+    }
+    .sys-header-cta i {
+        font-size: 14px !important;
+        margin: 0 !important;
+    }
+    
+    /* Responsive logos for tablet */
+    .sys-logo img:first-child { height: 32px; }
+    .sys-logo img:last-child { height: 30px; }
+    .sys-logo .divider { height: 24px; }
+    .sys-logo { gap: 10px; }
+    
+    /* Typography optimizations for tablet */
+    h1, .sys-page-title { font-size: 36px !important; }
+    h2, .sys-h2 { font-size: 28px !important; }
+    .sys-page-desc { font-size: 15px !important; }
 }
 @media (max-width: 600px) {
-    .container { padding: 0 20px; }
-    .sys-section { padding: 70px 0; }
+    .container { padding: 0 16px; }
+    .sys-section { padding: 50px 0; }
     .sys-footer-inner { grid-template-columns: 1fr; gap: 32px; }
     .cards-grid-4, .cards-grid-3 { grid-template-columns: 1fr; }
-    .sys-filter-bar { flex-direction: column; align-items: stretch; }
+    .sys-filter-bar { flex-direction: column; align-items: stretch; gap: 16px; }
     .sys-search-wrap { max-width: 100%; }
-    .sys-modal-header { flex-direction: column; }
+    .sys-modal-header { flex-direction: column; gap: 16px; }
     .sys-modal-gallery { grid-template-columns: repeat(2, 1fr); }
     .sys-modal-info-grid { grid-template-columns: 1fr; }
-    .sys-stats-bar { grid-template-columns: repeat(2, 1fr); }
-    .sys-footer-bottom { flex-direction: column; text-align: center; }
-    .sys-logo img:first-child { height: 30px; }
-    .sys-logo img:last-child { height: 28px; }
-    .sys-logo .divider { height: 22px; }
+    .sys-stats-bar { grid-template-columns: 1fr; }
+    .sys-footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+    
+    /* Responsive logos for mobile */
+    .sys-logo img:first-child { height: 28px; }
+    .sys-logo img:last-child { height: 26px; }
+    .sys-logo .divider { height: 20px; }
     .sys-logo { gap: 8px; }
+    
+    /* Header padding optimization */
+    .sys-header-pill { padding: 8px 12px 8px 16px; }
+    
+    /* Typography optimizations for mobile */
+    h1, .sys-page-title { font-size: 28px !important; line-height: 1.25 !important; }
+    h2, .sys-h2 { font-size: 22px !important; }
+    .sys-page-desc { font-size: 14px !important; }
 }
 
 /* ── MOBILE NAVIGATION MENU ── */
