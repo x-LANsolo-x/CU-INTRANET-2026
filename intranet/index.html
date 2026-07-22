@@ -336,18 +336,20 @@
         .hero-img-grid {
             position: relative;
             width: 420px; height: 560px;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,0.05);
+            overflow: visible; 
         }
         .hero-img-grid img {
             position: absolute; inset: 0;
             width: 100%; height: 100%;
             object-fit: cover;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md), 0 0 0 1px rgba(0,0,0,0.04);
+            transform-origin: bottom center;
             opacity: 0;
-            will-change: opacity, transform;
+            will-change: transform, opacity;
+            background: var(--cream2);
+            backface-visibility: hidden;
         }
-        .hero-img-grid img.active { opacity: 1; }
         .hero-img-badge {
             position: absolute;
             bottom: -16px; left: -24px;
@@ -1870,20 +1872,77 @@
         countObserver.observe(el);
     });
 
-    /* ── HERO IMAGE KEN-BURNS CROSSFADE ── */
+    /* ── HERO IMAGE CARD STASH & SWIPE TRANSITION ── */
     const imgs = document.querySelectorAll('.hero-img-grid img');
     let cur = 0;
     if (imgs.length) {
         if (typeof gsap !== 'undefined') {
-            gsap.set(imgs, { opacity: 0, scale: 1.15 });
-            gsap.set(imgs[0], { opacity: 1, scale: 1 });
+            // Initial positioning of top 3 cards in the deck
+            gsap.set(imgs, { opacity: 0, x: 0, rotation: 0, scale: 0.94, y: 24, zIndex: 1 });
+            if (imgs[0]) gsap.set(imgs[0], { opacity: 1, x: 0, rotation: 0, scale: 1, y: 0, zIndex: 10 });
+            if (imgs[1]) gsap.set(imgs[1], { opacity: 1, x: 0, rotation: 3, scale: 0.98, y: 8, zIndex: 5 });
+            if (imgs[2]) gsap.set(imgs[2], { opacity: 1, x: 0, rotation: -2.5, scale: 0.96, y: 16, zIndex: 2 });
+
             setInterval(() => {
                 const prev = imgs[cur];
+                
+                // Advance pointer
                 cur = (cur + 1) % imgs.length;
+                
                 const next = imgs[cur];
-                gsap.to(prev, { opacity: 0, scale: 1.12, duration: 1.6, ease: 'power2.inOut' });
-                gsap.fromTo(next, { opacity: 0, scale: 1.18 }, { opacity: 1, scale: 1, duration: 2, ease: 'power2.out' });
-            }, 3800);
+                const third = imgs[(cur + 1) % imgs.length];
+                const fourth = imgs[(cur + 2) % imgs.length];
+                
+                // Swipe out current top card (flick to right)
+                gsap.to(prev, {
+                    x: '125%',
+                    rotation: 12,
+                    opacity: 0,
+                    duration: 0.85,
+                    ease: 'power2.inOut',
+                    onComplete: () => {
+                        // Reset card at the bottom of the stack deck
+                        gsap.set(prev, { x: 0, rotation: 0, scale: 0.94, y: 24, opacity: 0, zIndex: 1 });
+                    }
+                });
+                
+                // Bring secondary card to active top
+                gsap.to(next, {
+                    x: 0,
+                    y: 0,
+                    rotation: 0,
+                    scale: 1,
+                    zIndex: 10,
+                    duration: 0.85,
+                    ease: 'power2.out'
+                });
+                
+                // Bring tertiary card to secondary position
+                gsap.to(third, {
+                    x: 0,
+                    y: 8,
+                    rotation: 3,
+                    scale: 0.98,
+                    zIndex: 5,
+                    duration: 0.85,
+                    ease: 'power2.out'
+                });
+                
+                // Fade in/elevate next hidden card to tertiary position
+                gsap.fromTo(fourth,
+                    { opacity: 0, scale: 0.92, y: 24, rotation: 0 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        y: 16,
+                        rotation: -2.5,
+                        scale: 0.96,
+                        zIndex: 2,
+                        duration: 0.85,
+                        ease: 'power2.out'
+                    }
+                );
+            }, 3600);
         }
     }
 
