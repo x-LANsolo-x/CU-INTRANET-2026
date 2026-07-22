@@ -344,12 +344,17 @@
             document.querySelectorAll('a[href]').forEach(el => {
                 let href = el.getAttribute('href');
                 if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('javascript')) {
+                    if (href.startsWith('/')) {
+                        href = href.substring(1);
+                    }
                     const parts = href.split('#');
                     let path = parts[0];
                     const hash = parts[1] ? '#' + parts[1] : '';
                     
                     if (path && !path.includes('.') && path !== './' && path !== '/') {
                         el.setAttribute('href', path + '.html' + hash);
+                    } else if (path === '' || path === '/') {
+                        el.setAttribute('href', 'index.html' + hash);
                     }
                 }
             });

@@ -18,7 +18,11 @@
     { "source": "/clubv2.html", "destination": "/clubs.html" },
     { "source": "/communities", "destination": "/communities.html" },
     { "source": "/departmental-societies", "destination": "/departmental-societies.html" },
-    { "source": "/professional-societies", "destination": "/professional-societies.html" }
+    { "source": "/professional-societies", "destination": "/professional-societies.html" },
+    { "source": "/explore", "destination": "/explore.html" },
+    { "source": "/explore.html", "destination": "/explore.html" },
+    { "source": "/register", "destination": "/register.html" },
+    { "source": "/register.html", "destination": "/register.html" }
   ],
   "trailingSlash": false
 }
