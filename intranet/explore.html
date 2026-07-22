@@ -608,17 +608,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const mainTag = e.categories && e.categories[0] ? e.categories[0] : 'General';
 
             // Card image area logic:
-            // 1. Has real logo → show it
-            // 2. No logo but has media → mini cycling carousel
-            // 3. Neither → styled initials placeholder
+            // 1. Has media images -> show mini cycling carousel of photos
+            // 2. No media, but has real logo -> show logo
+            // 3. Neither -> styled initials placeholder
             let cardImgHtml;
-            if (hasRealLogo) {
-                cardImgHtml = `<img src="${logoUrl}" class="blur-image" onload="this.classList.add('loaded')" onerror="this.parentElement.innerHTML=getInitialsPlaceholder('${e.title.replace(/'/g,"\\'")}')+this.parentElement.querySelector('.card-badge').outerHTML;" alt="${e.title}">`;
-            } else if (mediaList.length > 0) {
+            if (mediaList.length > 0) {
                 const imgTags = mediaList.map((m, i) =>
                     `<img src="${m}" class="${i === 0 ? 'active' : ''}" alt="${e.title} photo ${i+1}" loading="lazy" onerror="this.style.display='none'">`
                 ).join('');
                 cardImgHtml = `<div class="card-mini-carousel" data-idx="0">${imgTags}</div>`;
+            } else if (hasRealLogo) {
+                cardImgHtml = `<img src="${logoUrl}" class="blur-image" onload="this.classList.add('loaded')" onerror="this.parentElement.innerHTML=getInitialsPlaceholder('${e.title.replace(/'/g,"\\'")}')+this.parentElement.querySelector('.card-badge').outerHTML;" alt="${e.title}">`;
             } else {
                 cardImgHtml = getInitialsPlaceholder(e.title);
             }
@@ -642,23 +642,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            // Auto-cycle mini carousel continuously (not just on hover)
-            if (!hasRealLogo && mediaList.length > 1) {
-                const mc = card.querySelector('.card-mini-carousel');
-                if (mc) {
-                    // Start auto-cycling immediately
-                    const autoTimer = setInterval(() => {
-                        const imgs = mc.querySelectorAll('img:not([style*="display:none"])');
-                        if (!imgs.length) return;
-                        let i = parseInt(mc.dataset.idx) || 0;
-                        imgs[i % imgs.length].classList.remove('active');
-                        i = (i + 1) % imgs.length;
-                        imgs[i].classList.add('active');
-                        mc.dataset.idx = i;
-                    }, 2000);
-                    // Store timer on element so it can be cleared if needed
-                    mc._timer = autoTimer;
-                }
+            // Auto-cycle mini carousel continuously for any card with media
+            const mc = card.querySelector('.card-mini-carousel');
+            if (mc) {
+                let slideIndex = 0;
+                const autoTimer = setInterval(() => {
+                    const imgs = Array.from(mc.querySelectorAll('img')).filter(img => img.style.display !== 'none');
+                    if (imgs.length <= 1) return;
+                    imgs[slideIndex % imgs.length].classList.remove('active');
+                    slideIndex = (slideIndex + 1) % imgs.length;
+                    imgs[slideIndex].classList.add('active');
+                    mc.dataset.idx = slideIndex;
+                }, 2200);
+                mc._timer = autoTimer;
             }
 
             // Keyboard + focus support for cards
@@ -666,7 +662,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('role', 'button');
             card.setAttribute('aria-label', `View details for ${e.title}`);
             card.style.transitionDelay = `${(idx % 8) * 0.05}s`;
-            const openFn = () => { _lastFocusedCard = card; openEntityModal(e, logoUrl); };
+            const openFn = () => { _lastFocusedCard = card; openEntityModal(e, logoUrl || (mediaList[0] || 'logos/default.png')); };
             card.addEventListener('click', openFn);
             card.addEventListener('keydown', (ev) => {
                 if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openFn(); }

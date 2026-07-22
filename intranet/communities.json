@@ -1,75 +1,75 @@
 [
-  {
-    "id": "engineering-community",
-    "title": "Engineering Community",
-    "category": "Social Impact & Community Development & Community Development",
-    "categories": [
-      "CSE"
-    ],
-    "shortDesc": "Official Communitie under CSE.",
-    "longDesc": "The Engineering Community is an officially recognized Communitie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Not Assigned",
-    "contact": "N/A",
-    "phone": "N/A",
-    "members": "150+",
-    "owner": "CSE",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ai-alliance-chandigarh-university-community",
-    "title": "AI-ALLIANCE CHANDIGARH UNIVERSITY COMMUNITY",
-    "category": "Social Impact & Community Development & Community Development",
-    "categories": [
-      "AIT CSE"
-    ],
-    "shortDesc": "Official Communitie under AIT CSE.",
-    "longDesc": "The AI-ALLIANCE CHANDIGARH UNIVERSITY COMMUNITY is an officially recognized Communitie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Er. Reshma",
-    "contact": "reshma.e4036@cumail.in",
-    "phone": "7888809322",
-    "members": "150+",
-    "owner": "AIT CSE",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "cbmp-chandigarh-university-community",
-    "title": "CBMP CHANDIGARH UNIVERSITY COMMUNITY",
-    "category": "Social Impact & Community Development & Community Development",
-    "categories": [
-      "USB",
-      "MBA"
-    ],
-    "shortDesc": "Official Communitie under MBA .",
-    "longDesc": "The CBMP CHANDIGARH UNIVERSITY COMMUNITY is an officially recognized Communitie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr Pardeep",
-    "contact": "N/A",
-    "phone": "9988006454",
-    "members": "150+",
-    "owner": "MBA",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "madhyastha-chandigarh-university-community",
-    "title": "MADHYASTHA CHANDIGARH UNIVERSITY COMMUNITY",
-    "category": "Social Impact & Community Development & Community Development",
-    "categories": [
-      "UILS"
-    ],
-    "shortDesc": "Official Communitie under UILS.",
-    "longDesc": "The MADHYASTHA CHANDIGARH UNIVERSITY COMMUNITY is an officially recognized Communitie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Prof. Seema Gupta",
-    "contact": "seema.e11622@cumail.in",
-    "phone": "9779059393",
-    "members": "150+",
-    "owner": "UILS",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  }
+    {
+        "id": "engineering-community",
+        "title": "Engineering Community",
+        "category": "Social Impact & Community Development & Community Development",
+        "categories": [
+            "CSE"
+        ],
+        "shortDesc": "Collaborative engineering hub for tech innovation, hackathons, and open-source software development.",
+        "longDesc": "The Engineering Community is a flagship student organization under CSE at Chandigarh University. It brings together passionate engineering minds to work on collaborative software projects, open-source development, competitive hackathons, and multi-disciplinary technical innovations aimed at solving real-world challenges.",
+        "faculty": "Not Assigned",
+        "contact": "N/A",
+        "phone": "N/A",
+        "members": "150+",
+        "owner": "CSE",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ai-alliance-chandigarh-university-community",
+        "title": "AI-ALLIANCE CHANDIGARH UNIVERSITY COMMUNITY",
+        "category": "Social Impact & Community Development & Community Development",
+        "categories": [
+            "AIT CSE"
+        ],
+        "shortDesc": "Advanced artificial intelligence, machine learning research, deep learning, and AI ethics forum.",
+        "longDesc": "The AI-Alliance Community under AIT-CSE is dedicated to advancing student capabilities in Artificial Intelligence, Machine Learning, Deep Learning architectures, Natural Language Processing, and Computer Vision. The community organizes hands-on workshops, AI research seminars, and kaggle-style coding competitions.",
+        "faculty": "Er. Reshma",
+        "contact": "reshma.e4036@cumail.in",
+        "phone": "7888809322",
+        "members": "150+",
+        "owner": "AIT CSE",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "cbmp-chandigarh-university-community",
+        "title": "CBMP CHANDIGARH UNIVERSITY COMMUNITY",
+        "category": "Social Impact & Community Development & Community Development",
+        "categories": [
+            "USB",
+            "MBA"
+        ],
+        "shortDesc": "Community of Business Management Professionals cultivating executive leadership and corporate strategy.",
+        "longDesc": "The Community of Business Management Professionals (CBMP) under the MBA department empowers future corporate leaders through strategic business case studies, executive mentorship, managerial simulations, financial analysis, and industry networking events.",
+        "faculty": "Dr Pardeep",
+        "contact": "N/A",
+        "phone": "9988006454",
+        "members": "150+",
+        "owner": "MBA",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "madhyastha-chandigarh-university-community",
+        "title": "MADHYASTHA CHANDIGARH UNIVERSITY COMMUNITY",
+        "category": "Social Impact & Community Development & Community Development",
+        "categories": [
+            "UILS"
+        ],
+        "shortDesc": "Legal mediation, arbitration, alternative dispute resolution (ADR), and legal aid awareness forum.",
+        "longDesc": "Madhyastha is a specialized legal community operating under the University Institute of Legal Studies (UILS). It focuses on alternative dispute resolution (ADR), mediation techniques, client counseling, mooting skills, and community legal aid awareness.",
+        "faculty": "Prof. Seema Gupta",
+        "contact": "seema.e11622@cumail.in",
+        "phone": "9779059393",
+        "members": "150+",
+        "owner": "UILS",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    }
 ]

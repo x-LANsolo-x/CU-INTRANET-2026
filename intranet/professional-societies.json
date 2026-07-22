@@ -1,689 +1,689 @@
 [
-  {
-    "id": "association-for-computing-machinery-acm",
-    "title": "Association for Computing Machinery (ACM)",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIC",
-      "MCA"
-    ],
-    "shortDesc": "Official Professional Societie under MCA.",
-    "longDesc": "The Association for Computing Machinery (ACM) is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Ms Harjeet Kaur",
-    "contact": "harjeet.e20036@cumail.in",
-    "phone": "9996952885",
-    "members": "150+",
-    "owner": "MCA",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "association-for-computing-machinery-women-acmw",
-    "title": "Association for Computing Machinery-Women (ACMW)",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIC",
-      "BCA"
-    ],
-    "shortDesc": "Official Professional Societie under BCA.",
-    "longDesc": "The Association for Computing Machinery-Women (ACMW) is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Manisha Malhotra",
-    "contact": "director.uic@cumail.in",
-    "phone": "8146651556",
-    "members": "150+",
-    "owner": "BCA",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "aesi-professional-society",
-    "title": "AESI Professional Society",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CORE",
-      "AEROSPACE"
-    ],
-    "shortDesc": "Official Professional Societie under AEROSPACE.",
-    "longDesc": "The AESI Professional Society is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Mr. Rahul Gupta",
-    "contact": "rahul.e16678@cumail.in",
-    "phone": "9817273747",
-    "members": "150+",
-    "owner": "AEROSPACE",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "asce-student-chapter-chandigarh-university",
-    "title": "ASCE STUDENT CHAPTER CHANDIGARH UNIVERSITY",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CORE",
-      "CIVIL ENG"
-    ],
-    "shortDesc": "Official Professional Societie under CIVIL ENG.",
-    "longDesc": "The ASCE STUDENT CHAPTER CHANDIGARH UNIVERSITY is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Ankit",
-    "contact": "ankit.e1409@cumail.in",
-    "phone": "9872683830",
-    "members": "150+",
-    "owner": "CIVIL ENG",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ashrae",
-    "title": "ASHRAE",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CORE",
-      "MECHANICAL"
-    ],
-    "shortDesc": "Official Professional Societie under MECHANICAL.",
-    "longDesc": "The ASHRAE is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr.Harpreet Lubana",
-    "contact": "brandingcoordinator.me@cumail.in",
-    "phone": "9463821870",
-    "members": "150+",
-    "owner": "MECHANICAL",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "asme",
-    "title": "ASME",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CORE",
-      "MECHANICAL"
-    ],
-    "shortDesc": "Official Professional Societie under MECHANICAL.",
-    "longDesc": "The ASME is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Er.Kiranpreet Singh",
-    "contact": "kiranpreet.e2014@cumail.in",
-    "phone": "9417340267",
-    "members": "150+",
-    "owner": "MECHANICAL",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "indian-institute-of-chemical-engg",
-    "title": "INDIAN INSTITUTE OF CHEMICAL ENGG.",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CORE",
-      "CHEMICAL ENG"
-    ],
-    "shortDesc": "Official Professional Societie under CHEMICAL ENG.",
-    "longDesc": "The INDIAN INSTITUTE OF CHEMICAL ENGG. is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr Ashok Prabhakar",
-    "contact": "ashok.e12360@cumail.in",
-    "phone": "9064270860",
-    "members": "150+",
-    "owner": "CHEMICAL ENG",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "iei",
-    "title": "IEI",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CORE",
-      "MECHANICAL"
-    ],
-    "shortDesc": "Official Professional Societie under MECHANICAL.",
-    "longDesc": "The IEI is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Narinder Singh",
-    "contact": "narinder.e1738@cumail.in",
-    "phone": "9501029975",
-    "members": "150+",
-    "owner": "MECHANICAL",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "csi",
-    "title": "CSI",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE",
-      "4TH YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE-4TH YEAR.",
-    "longDesc": "The CSI is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Navpreet Kaur Walia",
-    "contact": "ad4.cse@cumail.in",
-    "phone": "7508933744",
-    "members": "150+",
-    "owner": "CSE-4TH YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "idc",
-    "title": "IDC",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE",
-      "4TH YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE-4TH YEAR.",
-    "longDesc": "The IDC is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Er. Vishal Sharma",
-    "contact": "vishal.e17978@cumail.in",
-    "phone": "7889011929",
-    "members": "150+",
-    "owner": "CSE-4TH YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "gfg",
-    "title": "GFG",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE",
-      "4TH YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE-4TH YEAR.",
-    "longDesc": "The GFG is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Er. Anamika larhgotra",
-    "contact": "anamika.e15228@cumail.in",
-    "phone": "8196937580",
-    "members": "150+",
-    "owner": "CSE-4TH YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "iete",
-    "title": "IETE",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE",
-      "4TH YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE-4TH YEAR.",
-    "longDesc": "The IETE is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Parveen Bajaj",
-    "contact": "parveen.e15292@cumail.in",
-    "phone": "9416244697",
-    "members": "150+",
-    "owner": "CSE-4TH YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-computer-society",
-    "title": "IEEE COMPUTER SOCIETY",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE",
-      "2ND YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE-2ND YEAR.",
-    "longDesc": "The IEEE COMPUTER SOCIETY is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Ruchika Gupta",
-    "contact": "ad.uie@cumail.in",
-    "phone": "8511105298",
-    "members": "150+",
-    "owner": "CSE-2ND YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "iste",
-    "title": "ISTE",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE 3RD YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE 3RD YEAR.",
-    "longDesc": "The ISTE is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr Neetu Rani",
-    "contact": "neetu.e13849@cumail.in",
-    "phone": "9464831736",
-    "members": "150+",
-    "owner": "CSE 3RD YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-communication-society",
-    "title": "IEEE COMMUNICATION SOCIETY",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE 3RD YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE 3RD YEAR.",
-    "longDesc": "The IEEE COMMUNICATION SOCIETY is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Prof Dr Sandeep Singh Kang",
-    "contact": "ad1.cse@cumail.in",
-    "phone": "9781926200",
-    "members": "150+",
-    "owner": "CSE 3RD YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-consumer-technology-society",
-    "title": "IEEE CONSUMER TECHNOLOGY SOCIETY",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE",
-      "2ND YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE-2ND YEAR.",
-    "longDesc": "The IEEE CONSUMER TECHNOLOGY SOCIETY is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Puneet Kumar",
-    "contact": "director.iqac@cumail.in",
-    "phone": "9785893994",
-    "members": "150+",
-    "owner": "CSE-2ND YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-power-and-energy-society",
-    "title": "IEEE POWER AND ENERGY SOCIETY",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE",
-      "2ND YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE-2ND YEAR.",
-    "longDesc": "The IEEE POWER AND ENERGY SOCIETY is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Bobbinpreet Kaur",
-    "contact": "bobbinpreet.ece@cumail.in",
-    "phone": "8146433649",
-    "members": "150+",
-    "owner": "CSE-2ND YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "adc",
-    "title": "ADC",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE 4TH YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE 4TH YEAR.",
-    "longDesc": "The ADC is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Er. Shivam Sharma",
-    "contact": "shivam.e16516@cumail.in",
-    "phone": "8679680004",
-    "members": "150+",
-    "owner": "CSE 4TH YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "iei-cse",
-    "title": "IEI CSE",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE-CSE",
-      "CSE 3RD YEAR"
-    ],
-    "shortDesc": "Official Professional Societie under CSE 3RD YEAR .",
-    "longDesc": "The IEI CSE is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr Sanjay Singla",
-    "contact": "sanjay.e13538@cumail.in",
-    "phone": "9729376850",
-    "members": "150+",
-    "owner": "CSE 3RD YEAR",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-society-on-social-implications-of-technology",
-    "title": "IEEE SOCIETY ON SOCIAL IMPLICATIONS OF TECHNOLOGY",
-    "category": "Social Impact & Community Development & Community Development",
-    "categories": [
-      "UIE",
-      "ENGINEERING FOUNDATION 1"
-    ],
-    "shortDesc": "Official Professional Societie under ENGINEERING FOUNDATION 1.",
-    "longDesc": "The IEEE SOCIETY ON SOCIAL IMPLICATIONS OF TECHNOLOGY is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Navneet Kaur",
-    "contact": "navneet.e11384@cumail.in",
-    "phone": "9872014069",
-    "members": "150+",
-    "owner": "ENGINEERING FOUNDATION 1",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-women-in-engineering-affinity-group",
-    "title": "IEEE WOMEN IN ENGINEERING AFFINITY GROUP",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE",
-      "EF"
-    ],
-    "shortDesc": "Official Professional Societie under EF.",
-    "longDesc": "The IEEE WOMEN IN ENGINEERING AFFINITY GROUP is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Vikas Wasson",
-    "contact": "director.acadunits@cumail.in",
-    "phone": "7986809969",
-    "members": "150+",
-    "owner": "EF",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "codechef-cu-chapter",
-    "title": "CodeChef Cu Chapter",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "AIT",
-      "CSE"
-    ],
-    "shortDesc": "Official Professional Societie under AIT- CSE.",
-    "longDesc": "The CodeChef Cu Chapter is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Suresh Kaswan",
-    "contact": "Head.ir.aitcse@cumail.in",
-    "phone": "7876444448",
-    "members": "150+",
-    "owner": "AIT- CSE",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-computational-intelligence-society",
-    "title": "IEEE COMPUTATIONAL INTELLIGENCE SOCIETY",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "ME CSE"
-    ],
-    "shortDesc": "Official Professional Societie under ME CSE.",
-    "longDesc": "The IEEE COMPUTATIONAL INTELLIGENCE SOCIETY is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Rakesh Kumar",
-    "contact": "rakesh.e8623@cumail.in",
-    "phone": "8437715777",
-    "members": "150+",
-    "owner": "ME CSE",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-robotics-and-automation-society",
-    "title": "IEEE ROBOTICS AND AUTOMATION SOCIETY",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "ME CSE"
-    ],
-    "shortDesc": "Official Professional Societie under ME CSE.",
-    "longDesc": "The IEEE ROBOTICS AND AUTOMATION SOCIETY is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Meenu Gupta",
-    "contact": "meenu.e9406@cumail.in",
-    "phone": "8708951544",
-    "members": "150+",
-    "owner": "ME CSE",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-chandigarh-university-student-branch",
-    "title": "IEEE CHANDIGARH UNIVERSITY STUDENT BRANCH",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "ME CSE"
-    ],
-    "shortDesc": "Official Professional Societie under ME CSE.",
-    "longDesc": "The IEEE CHANDIGARH UNIVERSITY STUDENT BRANCH is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Rakesh Kumar",
-    "contact": "rakesh.e8623@cumail.in",
-    "phone": "8437715777",
-    "members": "150+",
-    "owner": "ME CSE",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "standards-club",
-    "title": "Standards Club",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIE",
-      "ENGINEERING FOUNDATION 5"
-    ],
-    "shortDesc": "Official Professional Societie under ENGINEERING FOUNDATION 5.",
-    "longDesc": "The Standards Club is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Anjana Sharma",
-    "contact": "anjana.e1643@cumail.in",
-    "phone": "8283859708",
-    "members": "150+",
-    "owner": "ENGINEERING FOUNDATION 5",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ashare-student-chapter",
-    "title": "ASHARE STUDENT CHAPTER",
-    "category": "Media, Culture & Communication",
-    "categories": [
-      "UIA",
-      "ARCHITECTURE"
-    ],
-    "shortDesc": "Official Professional Societie under ARCHITECTURE.",
-    "longDesc": "The ASHARE STUDENT CHAPTER is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Prof. Swati Behl",
-    "contact": "swati.e12160@cumail.in",
-    "phone": "8847544919",
-    "members": "150+",
-    "owner": "ARCHITECTURE",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "iia-student-chapter",
-    "title": "IIA STUDENT CHAPTER",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIA",
-      "ARCHITECTURE"
-    ],
-    "shortDesc": "Official Professional Societie under ARCHITECTURE.",
-    "longDesc": "The IIA STUDENT CHAPTER is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Manisha Jindal",
-    "contact": "manisha.e15713@cumail.in",
-    "phone": "8195811100",
-    "members": "150+",
-    "owner": "ARCHITECTURE",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "council-of-architecture",
-    "title": "COUNCIL OF ARCHITECTURE",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIA",
-      "ARCHITECTURE"
-    ],
-    "shortDesc": "Official Professional Societie under ARCHITECTURE.",
-    "longDesc": "The COUNCIL OF ARCHITECTURE is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Kapil Sinha",
-    "contact": "kapil.e17598@cumail.in",
-    "phone": "9806181263",
-    "members": "150+",
-    "owner": "ARCHITECTURE",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "english-language-teachers-association-of-india",
-    "title": "ENGLISH LANGUAGE TEACHERS' ASSOCIATION OF INDIA",
-    "category": "Media, Culture & Communication",
-    "categories": [
-      "UILAH"
-    ],
-    "shortDesc": "Official Professional Societie under UILAH.",
-    "longDesc": "The ENGLISH LANGUAGE TEACHERS' ASSOCIATION OF INDIA is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Aruna Bhat",
-    "contact": "aruna.e12964@cumail.in",
-    "phone": "9877878744",
-    "members": "150+",
-    "owner": "UILAH",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "asifa-india",
-    "title": "ASIFA India",
-    "category": "Media, Culture & Communication",
-    "categories": [
-      "UIFVA",
-      "ANIMATION"
-    ],
-    "shortDesc": "Official Professional Societie under ANIMATION.",
-    "longDesc": "The ASIFA India is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Prof. Pamil Arora",
-    "contact": "assistantdirector.uiam@cumail.in",
-    "phone": "9878725533",
-    "members": "150+",
-    "owner": "ANIMATION",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "pata-india-chandigarh-university-student-chapter",
-    "title": "PATA INDIA CHANDIGARH UNIVERSITY STUDENT CHAPTER",
-    "category": "Business & Management",
-    "categories": [
-      "UITHM",
-      "THM"
-    ],
-    "shortDesc": "Official Professional Societie under THM.",
-    "longDesc": "The PATA INDIA CHANDIGARH UNIVERSITY STUDENT CHAPTER is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr Harjot Kaur",
-    "contact": "ac.uithm.tm@cumail.in",
-    "phone": "9988446618",
-    "members": "150+",
-    "owner": "THM",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-prakash-bharti-scholar-chapter-chandigarh-university-ieee-pbsc-cu",
-    "title": "IEEE PRAKASH BHARTI SCHOLAR CHAPTER CHANDIGARH UNIVERSITY (IEEE PBSC CU)",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIS",
-      "PHYSICS"
-    ],
-    "shortDesc": "Official Professional Societie under PHYSICS.",
-    "longDesc": "The IEEE PRAKASH BHARTI SCHOLAR CHAPTER CHANDIGARH UNIVERSITY (IEEE PBSC CU) is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Jagdeep Kaur",
-    "contact": "Jagdeep.uis@cumail.in",
-    "phone": "9463696662",
-    "members": "150+",
-    "owner": "PHYSICS",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "american-chemical-society-international-student-chapter-acs-isc",
-    "title": "AMERICAN CHEMICAL SOCIETY-INTERNATIONAL STUDENT CHAPTER (ACS-ISC)",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIS",
-      "CHEMISTRY"
-    ],
-    "shortDesc": "Official Professional Societie under CHEMISTRY.",
-    "longDesc": "The AMERICAN CHEMICAL SOCIETY-INTERNATIONAL STUDENT CHAPTER (ACS-ISC) is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr. Ruchi Bharti",
-    "contact": "ruchi.uis@cumail.in",
-    "phone": "9973514903",
-    "members": "150+",
-    "owner": "CHEMISTRY",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-photonics-society",
-    "title": "IEEE PHOTONICS SOCIETY",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIS",
-      "PHYSICS"
-    ],
-    "shortDesc": "Official Professional Societie under PHYSICS.",
-    "longDesc": "The IEEE PHOTONICS SOCIETY is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr Shivani Singla",
-    "contact": "shivani.e11423@cumail.in",
-    "phone": "9915735656",
-    "members": "150+",
-    "owner": "PHYSICS",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  },
-  {
-    "id": "ieee-information-theory-society",
-    "title": "IEEE Information Theory society",
-    "category": "Science, Technology & Innovation",
-    "categories": [
-      "UIS",
-      "MATHEMATICS"
-    ],
-    "shortDesc": "Official Professional Societie under MATHEMATICS.",
-    "longDesc": "The IEEE Information Theory society is an officially recognized Professional Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
-    "faculty": "Dr Shilpee Sarvastav",
-    "contact": "shilpee.e12873@cumail.in",
-    "phone": "9910078696",
-    "members": "150+",
-    "owner": "MATHEMATICS",
-    "logo": "logos/default.png",
-    "media": [],
-    "hideMediaColumn": true
-  }
+    {
+        "id": "association-for-computing-machinery-acm",
+        "title": "Association for Computing Machinery (ACM)",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIC",
+            "MCA"
+        ],
+        "shortDesc": "International computing society empowering computer scientists with technical lectures, coding competitions, and research.",
+        "longDesc": "The ACM Student Chapter under MCA at Chandigarh University is affiliated with the world\u2019s largest educational and scientific computing society. It organizes competitive programming sprints, open-source workshops, research paper seminars, and expert guest lectures by computing leaders.",
+        "faculty": "Ms Harjeet Kaur",
+        "contact": "harjeet.e20036@cumail.in",
+        "phone": "9996952885",
+        "members": "150+",
+        "owner": "MCA",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "association-for-computing-machinery-women-acmw",
+        "title": "Association for Computing Machinery-Women (ACMW)",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIC",
+            "BCA"
+        ],
+        "shortDesc": "Supporting, celebrating, and advocating for women in computing through mentorship, bootcamps, and tech talks.",
+        "longDesc": "ACM-W Student Chapter under BCA supports and empowers female tech leaders in computing. The chapter provides specialized coding bootcamps, technical career mentorship, hackathons, and guest lectures to bridge the gender gap in tech.",
+        "faculty": "Dr. Manisha Malhotra",
+        "contact": "director.uic@cumail.in",
+        "phone": "8146651556",
+        "members": "150+",
+        "owner": "BCA",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "aesi-professional-society",
+        "title": "AESI Professional Society",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CORE",
+            "AEROSPACE"
+        ],
+        "shortDesc": "Aeronautical Society of India chapter advancing aerospace sciences, propulsion, and rocket design.",
+        "longDesc": "The AESI Student Chapter under Aerospace Engineering connects students with national aeronautical experts. Activities include drone building workshops, rocket propulsion seminars, aircraft safety simulations, and aerospace paper competitions.",
+        "faculty": "Mr. Rahul Gupta",
+        "contact": "rahul.e16678@cumail.in",
+        "phone": "9817273747",
+        "members": "150+",
+        "owner": "AEROSPACE",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "asce-student-chapter-chandigarh-university",
+        "title": "ASCE STUDENT CHAPTER CHANDIGARH UNIVERSITY",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CORE",
+            "CIVIL ENG"
+        ],
+        "shortDesc": "American Society of Civil Engineers chapter promoting structural engineering excellence and infrastructure design.",
+        "longDesc": "The ASCE Student Chapter under Civil Engineering provides national exposure through concrete canoe competitions, steel bridge design challenges, structural analysis workshops, and sustainable infrastructure symposiums.",
+        "faculty": "Dr. Ankit",
+        "contact": "ankit.e1409@cumail.in",
+        "phone": "9872683830",
+        "members": "150+",
+        "owner": "CIVIL ENG",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ashrae",
+        "title": "ASHRAE",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CORE",
+            "MECHANICAL"
+        ],
+        "shortDesc": "American Society of Heating, Refrigerating & Air-Conditioning Engineers promoting HVAC&R and green building design.",
+        "longDesc": "The ASHRAE Student Chapter under Mechanical Engineering focuses on thermal comfort, refrigeration technology, indoor air quality standards, and energy-efficient HVAC building systems.",
+        "faculty": "Dr.Harpreet Lubana",
+        "contact": "brandingcoordinator.me@cumail.in",
+        "phone": "9463821870",
+        "members": "150+",
+        "owner": "MECHANICAL",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "asme",
+        "title": "ASME",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CORE",
+            "MECHANICAL"
+        ],
+        "shortDesc": "American Society of Mechanical Engineers promoting CAD design, robotics, and mechanical engineering standards.",
+        "longDesc": "The ASME Student Chapter under Mechanical Engineering engages students in mechanical design competitions, human-powered vehicle challenges, CAD 3D modeling workshops, and thermal-fluids research.",
+        "faculty": "Er.Kiranpreet Singh",
+        "contact": "kiranpreet.e2014@cumail.in",
+        "phone": "9417340267",
+        "members": "150+",
+        "owner": "MECHANICAL",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "indian-institute-of-chemical-engg",
+        "title": "INDIAN INSTITUTE OF CHEMICAL ENGG.",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CORE",
+            "CHEMICAL ENG"
+        ],
+        "shortDesc": "IIChE chapter advancing chemical process safety, green chemistry, and industrial plant innovations.",
+        "longDesc": "The IIChE Student Chapter under Chemical Engineering focuses on industrial chemical processing, safety protocols, environmental remediation, green reaction kinetics, and chemical plant simulations.",
+        "faculty": "Dr Ashok Prabhakar",
+        "contact": "ashok.e12360@cumail.in",
+        "phone": "9064270860",
+        "members": "150+",
+        "owner": "CHEMICAL ENG",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "iei",
+        "title": "IEI",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CORE",
+            "MECHANICAL"
+        ],
+        "shortDesc": "Institution of Engineers (India) chapter fostering multi-disciplinary engineering excellence and technical research.",
+        "longDesc": "The IEI Mechanical Chapter promotes professional engineering ethics, interdisciplinary technical paper presentations, industrial site visits, and national engineering symposiums.",
+        "faculty": "Dr. Narinder Singh",
+        "contact": "narinder.e1738@cumail.in",
+        "phone": "9501029975",
+        "members": "150+",
+        "owner": "MECHANICAL",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "csi",
+        "title": "CSI",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE",
+            "4TH YEAR"
+        ],
+        "shortDesc": "Computer Society of India chapter aligning IT education with industry requirements and software engineering.",
+        "longDesc": "The CSI Student Chapter under CSE 4th Year connects computing students with IT industry standards, professional certifications, hackathons, and enterprise software engineering workshops.",
+        "faculty": "Dr. Navpreet Kaur Walia",
+        "contact": "ad4.cse@cumail.in",
+        "phone": "7508933744",
+        "members": "150+",
+        "owner": "CSE-4TH YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "idc",
+        "title": "IDC",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE",
+            "4TH YEAR"
+        ],
+        "shortDesc": "Institution's Innovation Council / Developer Club driving startup culture, patents, and technical prototype builds.",
+        "longDesc": "IDC Student Chapter under CSE 4th Year acts as a technological catalyst, guiding students through startup incubation, patent registration, product design thinking, and working prototype development.",
+        "faculty": "Er. Vishal Sharma",
+        "contact": "vishal.e17978@cumail.in",
+        "phone": "7889011929",
+        "members": "150+",
+        "owner": "CSE-4TH YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "gfg",
+        "title": "GFG",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE",
+            "4TH YEAR"
+        ],
+        "shortDesc": "GeeksforGeeks Student Chapter focusing on Data Structures, Algorithms, and interview preparation.",
+        "longDesc": "The GFG Student Chapter under CSE 4th Year is a dedicated competitive coding community conducting weekly DSA problem-solving sessions, interview prep bootcamps, and algorithmic contests.",
+        "faculty": "Er. Anamika larhgotra",
+        "contact": "anamika.e15228@cumail.in",
+        "phone": "8196937580",
+        "members": "150+",
+        "owner": "CSE-4TH YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "iete",
+        "title": "IETE",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE",
+            "4TH YEAR"
+        ],
+        "shortDesc": "Institution of Electronics & Telecommunication Engineers chapter specializing in IoT, wireless, and embedded systems.",
+        "longDesc": "The IETE Chapter under CSE 4th Year focuses on telecommunication technologies, signal processing, IoT hardware integration, microcontrollers, and wireless sensor network projects.",
+        "faculty": "Dr. Parveen Bajaj",
+        "contact": "parveen.e15292@cumail.in",
+        "phone": "9416244697",
+        "members": "150+",
+        "owner": "CSE-4TH YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-computer-society",
+        "title": "IEEE COMPUTER SOCIETY",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE",
+            "2ND YEAR"
+        ],
+        "shortDesc": "World's leading computer technical society advancing AI, cloud computing, cybersecurity, and software engineering.",
+        "longDesc": "The IEEE Computer Society Chapter under CSE 2nd Year connects students to global IEEE technical networks. It conducts hands-on workshops in artificial intelligence, cybersecurity, cloud architecture, and open-source software.",
+        "faculty": "Dr. Ruchika Gupta",
+        "contact": "ad.uie@cumail.in",
+        "phone": "8511105298",
+        "members": "150+",
+        "owner": "CSE-2ND YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "iste",
+        "title": "ISTE",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE 3RD YEAR"
+        ],
+        "shortDesc": "Indian Society for Technical Education chapter promoting skill development and innovative learning.",
+        "longDesc": "The ISTE Chapter under CSE 3rd Year promotes technical skill enhancement, faculty-student interactive seminars, technical quizzes, and instructional technology workshops.",
+        "faculty": "Dr Neetu Rani",
+        "contact": "neetu.e13849@cumail.in",
+        "phone": "9464831736",
+        "members": "150+",
+        "owner": "CSE 3RD YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-communication-society",
+        "title": "IEEE COMMUNICATION SOCIETY",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE 3RD YEAR"
+        ],
+        "shortDesc": "Advancing 5G/6G networks, wireless protocols, optical communication, and signal processing.",
+        "longDesc": "The IEEE ComSoc Chapter under CSE 3rd Year delves into mobile communication networks, 5G architectures, optical signal processing, information theory, and network security protocols.",
+        "faculty": "Prof Dr Sandeep Singh Kang",
+        "contact": "ad1.cse@cumail.in",
+        "phone": "9781926200",
+        "members": "150+",
+        "owner": "CSE 3RD YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-consumer-technology-society",
+        "title": "IEEE CONSUMER TECHNOLOGY SOCIETY",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE",
+            "2ND YEAR"
+        ],
+        "shortDesc": "Consumer electronics, smart home automation, wearable devices, and IoT hardware engineering.",
+        "longDesc": "The IEEE CTSoc Chapter under CSE 2nd Year explores user-facing technologies including smart home systems, wearable fitness gadgets, consumer IoT devices, and interactive UI/UX hardware.",
+        "faculty": "Dr. Puneet Kumar",
+        "contact": "director.iqac@cumail.in",
+        "phone": "9785893994",
+        "members": "150+",
+        "owner": "CSE-2ND YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-power-and-energy-society",
+        "title": "IEEE POWER AND ENERGY SOCIETY",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE",
+            "2ND YEAR"
+        ],
+        "shortDesc": "Clean energy grids, smart grid technologies, electric vehicles, and power electronic systems.",
+        "longDesc": "The IEEE PES Chapter under CSE 2nd Year focuses on renewable energy integration, smart electric grid management, electric vehicle charging infrastructure, and high-efficiency power electronics.",
+        "faculty": "Dr. Bobbinpreet Kaur",
+        "contact": "bobbinpreet.ece@cumail.in",
+        "phone": "8146433649",
+        "members": "150+",
+        "owner": "CSE-2ND YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "adc",
+        "title": "ADC",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE 4TH YEAR"
+        ],
+        "shortDesc": "App Developer Community specializing in Android, iOS, Flutter, React Native, and mobile backends.",
+        "longDesc": "ADC under CSE 4th Year is a practical mobile application development chapter. Members learn native Android (Kotlin), iOS (Swift), cross-platform Flutter/React Native, and cloud API backend integrations.",
+        "faculty": "Er. Shivam Sharma",
+        "contact": "shivam.e16516@cumail.in",
+        "phone": "8679680004",
+        "members": "150+",
+        "owner": "CSE 4TH YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "iei-cse",
+        "title": "IEI CSE",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE-CSE",
+            "CSE 3RD YEAR"
+        ],
+        "shortDesc": "Institution of Engineers (India) CSE chapter focusing on software standards and industrial research.",
+        "longDesc": "The IEI CSE Chapter under CSE 3rd Year nurtures software engineering standards, technical paper publishing, industrial automation software, and collaborative code reviews.",
+        "faculty": "Dr Sanjay Singla",
+        "contact": "sanjay.e13538@cumail.in",
+        "phone": "9729376850",
+        "members": "150+",
+        "owner": "CSE 3RD YEAR",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-society-on-social-implications-of-technology",
+        "title": "IEEE SOCIETY ON SOCIAL IMPLICATIONS OF TECHNOLOGY",
+        "category": "Social Impact & Community Development & Community Development",
+        "categories": [
+            "UIE",
+            "ENGINEERING FOUNDATION 1"
+        ],
+        "shortDesc": "Analyzing the ethical, social, environmental, and humanitarian impact of technology on society.",
+        "longDesc": "IEEE SSIT Chapter under Engineering Foundation 1 focuses on tech ethics, AI bias, environmental sustainability, digital privacy, and human-centric engineering solutions.",
+        "faculty": "Dr. Navneet Kaur",
+        "contact": "navneet.e11384@cumail.in",
+        "phone": "9872014069",
+        "members": "150+",
+        "owner": "ENGINEERING FOUNDATION 1",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-women-in-engineering-affinity-group",
+        "title": "IEEE WOMEN IN ENGINEERING AFFINITY GROUP",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE",
+            "EF"
+        ],
+        "shortDesc": "Inspiring and mentoring female engineers and scientists in STEM leadership and technical careers.",
+        "longDesc": "IEEE WIE Affinity Group under Engineering Foundation encourages female students in engineering and science fields through career mentorship, technical achievement awards, leadership summits, and STEM outreach.",
+        "faculty": "Dr. Vikas Wasson",
+        "contact": "director.acadunits@cumail.in",
+        "phone": "7986809969",
+        "members": "150+",
+        "owner": "EF",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "codechef-cu-chapter",
+        "title": "CodeChef Cu Chapter",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "AIT",
+            "CSE"
+        ],
+        "shortDesc": "Competitive programming community hosting monthly coding contests and algorithmic problem solving.",
+        "longDesc": "CodeChef CU Chapter under AIT-CSE cultivates a vibrant competitive coding culture. The chapter conducts monthly rated coding contests, data structure workshops, and interview problem breakdowns.",
+        "faculty": "Dr. Suresh Kaswan",
+        "contact": "Head.ir.aitcse@cumail.in",
+        "phone": "7876444448",
+        "members": "150+",
+        "owner": "AIT- CSE",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-computational-intelligence-society",
+        "title": "IEEE COMPUTATIONAL INTELLIGENCE SOCIETY",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "ME CSE"
+        ],
+        "shortDesc": "Neural networks, evolutionary algorithms, fuzzy systems, and deep learning research.",
+        "longDesc": "IEEE CIS Chapter under ME-CSE explores biologically inspired computational paradigms, deep neural networks, swarm intelligence, fuzzy logic controllers, and reinforcement learning.",
+        "faculty": "Dr. Rakesh Kumar",
+        "contact": "rakesh.e8623@cumail.in",
+        "phone": "8437715777",
+        "members": "150+",
+        "owner": "ME CSE",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-robotics-and-automation-society",
+        "title": "IEEE ROBOTICS AND AUTOMATION SOCIETY",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "ME CSE"
+        ],
+        "shortDesc": "Autonomous robotics, computer vision, kinematic control, and industrial automation systems.",
+        "longDesc": "IEEE RAS Chapter under ME-CSE focuses on robotic manipulator kinematics, ROS (Robot Operating System), computer vision object tracking, autonomous drone navigation, and industrial automation.",
+        "faculty": "Dr. Meenu Gupta",
+        "contact": "meenu.e9406@cumail.in",
+        "phone": "8708951544",
+        "members": "150+",
+        "owner": "ME CSE",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-chandigarh-university-student-branch",
+        "title": "IEEE CHANDIGARH UNIVERSITY STUDENT BRANCH",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "ME CSE"
+        ],
+        "shortDesc": "Parent IEEE student branch coordinating multi-track international conferences and technical summits.",
+        "longDesc": "IEEE CU Student Branch is the umbrella IEEE organization at Chandigarh University. It coordinates international technical conferences, multi-track symposiums, membership drives, and global IEEE network connects.",
+        "faculty": "Dr. Rakesh Kumar",
+        "contact": "rakesh.e8623@cumail.in",
+        "phone": "8437715777",
+        "members": "150+",
+        "owner": "ME CSE",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "standards-club",
+        "title": "Standards Club",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIE",
+            "ENGINEERING FOUNDATION 5"
+        ],
+        "shortDesc": "Bureau of Indian Standards (BIS) chapter promoting quality control, testing, and industrial safety.",
+        "longDesc": "Standards Club under Engineering Foundation 5 educates students on quality assurance, Bureau of Indian Standards (BIS) protocols, material testing compliance, and industrial product standardization.",
+        "faculty": "Dr. Anjana Sharma",
+        "contact": "anjana.e1643@cumail.in",
+        "phone": "8283859708",
+        "members": "150+",
+        "owner": "ENGINEERING FOUNDATION 5",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ashare-student-chapter",
+        "title": "ASHARE STUDENT CHAPTER",
+        "category": "Media, Culture & Communication",
+        "categories": [
+            "UIA",
+            "ARCHITECTURE"
+        ],
+        "shortDesc": "Promoting sustainable architectural climate control, energy efficiency, and indoor environmental quality.",
+        "longDesc": "ASHRAE Architecture Chapter focuses on green building certification standards (LEED/GRIHA), passive cooling architecture, building energy simulations, and sustainable HVAC integration.",
+        "faculty": "Prof. Swati Behl",
+        "contact": "swati.e12160@cumail.in",
+        "phone": "8847544919",
+        "members": "150+",
+        "owner": "ARCHITECTURE",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "iia-student-chapter",
+        "title": "IIA STUDENT CHAPTER",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIA",
+            "ARCHITECTURE"
+        ],
+        "shortDesc": "Indian Institute of Architects chapter fostering design excellence, urban planning, and heritage care.",
+        "longDesc": "IIA Student Chapter under Architecture connects students with practicing architects, architectural design competitions, urban planning forums, and building conservation workshops.",
+        "faculty": "Manisha Jindal",
+        "contact": "manisha.e15713@cumail.in",
+        "phone": "8195811100",
+        "members": "150+",
+        "owner": "ARCHITECTURE",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "council-of-architecture",
+        "title": "COUNCIL OF ARCHITECTURE",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIA",
+            "ARCHITECTURE"
+        ],
+        "shortDesc": "Promoting professional architectural ethics, building codes, and architectural practice standards.",
+        "longDesc": "Council of Architecture Chapter under Architecture emphasizes professional practice ethics, National Building Code (NBC) compliance, architectural documentation, and legal regulations in construction.",
+        "faculty": "Kapil Sinha",
+        "contact": "kapil.e17598@cumail.in",
+        "phone": "9806181263",
+        "members": "150+",
+        "owner": "ARCHITECTURE",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "english-language-teachers-association-of-india",
+        "title": "ENGLISH LANGUAGE TEACHERS' ASSOCIATION OF INDIA",
+        "category": "Media, Culture & Communication",
+        "categories": [
+            "UILAH"
+        ],
+        "shortDesc": "ELTAI chapter enhancing English language pedagogy, linguistics, and professional communication.",
+        "longDesc": "ELTAI Student Chapter under UILAH focuses on English language teaching methodologies, applied linguistics, public speaking, academic writing, and cross-cultural communication skills.",
+        "faculty": "Dr. Aruna Bhat",
+        "contact": "aruna.e12964@cumail.in",
+        "phone": "9877878744",
+        "members": "150+",
+        "owner": "UILAH",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "asifa-india",
+        "title": "ASIFA India",
+        "category": "Media, Culture & Communication",
+        "categories": [
+            "UIFVA",
+            "ANIMATION"
+        ],
+        "shortDesc": "International Animated Film Association chapter celebrating animation arts, VFX, and digital storytelling.",
+        "longDesc": "ASIFA India Chapter under Animation promotes international animation culture, 2D/3D animation masterclasses, visual effects breakdowns, character rigging workshops, and film festival screenings.",
+        "faculty": "Prof. Pamil Arora",
+        "contact": "assistantdirector.uiam@cumail.in",
+        "phone": "9878725533",
+        "members": "150+",
+        "owner": "ANIMATION",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "pata-india-chandigarh-university-student-chapter",
+        "title": "PATA INDIA CHANDIGARH UNIVERSITY STUDENT CHAPTER",
+        "category": "Business & Management",
+        "categories": [
+            "UITHM",
+            "THM"
+        ],
+        "shortDesc": "Pacific Asia Travel Association chapter advancing sustainable tourism, destination branding, and travel insights.",
+        "longDesc": "PATA Student Chapter under Tourism & Hospitality Management connects students to global travel networks, sustainable tourism marketing, destination branding campaigns, and hospitality insights.",
+        "faculty": "Dr Harjot Kaur",
+        "contact": "ac.uithm.tm@cumail.in",
+        "phone": "9988446618",
+        "members": "150+",
+        "owner": "THM",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-prakash-bharti-scholar-chapter-chandigarh-university-ieee-pbsc-cu",
+        "title": "IEEE PRAKASH BHARTI SCHOLAR CHAPTER CHANDIGARH UNIVERSITY (IEEE PBSC CU)",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIS",
+            "PHYSICS"
+        ],
+        "shortDesc": "Optics, photonics, laser physics, fiber optic communications, and optical sensor research.",
+        "longDesc": "IEEE PBSC Chapter under Physics focuses on optical physics, laser technology applications, fiber optic data transmission, nanophotonics, and experimental optical sensor research.",
+        "faculty": "Jagdeep Kaur",
+        "contact": "Jagdeep.uis@cumail.in",
+        "phone": "9463696662",
+        "members": "150+",
+        "owner": "PHYSICS",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "american-chemical-society-international-student-chapter-acs-isc",
+        "title": "AMERICAN CHEMICAL SOCIETY-INTERNATIONAL STUDENT CHAPTER (ACS-ISC)",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIS",
+            "CHEMISTRY"
+        ],
+        "shortDesc": "ACS chapter promoting chemical science research, green chemistry, and lab safety outreach.",
+        "longDesc": "ACS Student Chapter under Chemistry connects students with global chemical science networks, green chemistry experiments, industrial chemical safety drives, and chemistry outreach in schools.",
+        "faculty": "Dr. Ruchi Bharti",
+        "contact": "ruchi.uis@cumail.in",
+        "phone": "9973514903",
+        "members": "150+",
+        "owner": "CHEMISTRY",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-photonics-society",
+        "title": "IEEE PHOTONICS SOCIETY",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIS",
+            "PHYSICS"
+        ],
+        "shortDesc": "Quantum photonics, semiconductor lasers, biophotonics, and optical device engineering.",
+        "longDesc": "IEEE Photonics Society Chapter under Physics explores lightwave technology, semiconductor laser diodes, quantum optical computing, biophotonic imaging, and optoelectronic devices.",
+        "faculty": "Dr Shivani Singla",
+        "contact": "shivani.e11423@cumail.in",
+        "phone": "9915735656",
+        "members": "150+",
+        "owner": "PHYSICS",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    },
+    {
+        "id": "ieee-information-theory-society",
+        "title": "IEEE Information Theory society",
+        "category": "Science, Technology & Innovation",
+        "categories": [
+            "UIS",
+            "MATHEMATICS"
+        ],
+        "shortDesc": "Data compression, cryptography, error-correcting codes, and mathematical communications theory.",
+        "longDesc": "IEEE Information Theory Society Chapter under Mathematics investigates channel coding theorems, data encryption algorithms, information entropy, signal processing math, and error-correcting codes.",
+        "faculty": "Dr Shilpee Sarvastav",
+        "contact": "shilpee.e12873@cumail.in",
+        "phone": "9910078696",
+        "members": "150+",
+        "owner": "MATHEMATICS",
+        "logo": "logos/default.png",
+        "media": [],
+        "hideMediaColumn": true
+    }
 ]
