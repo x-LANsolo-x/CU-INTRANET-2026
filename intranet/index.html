@@ -1052,7 +1052,7 @@
 
         /* ── LOGOS MARQUEE ── */
         .logos-section {
-            background: var(--cream);
+            background: transparent;
             padding: 70px 0;
             overflow: hidden;
         }
@@ -1070,21 +1070,15 @@
             animation: marqueeAnim 22s linear infinite;
             width: max-content;
         }
-        .logos-track:hover { animation-play-state: paused; }
         .logos-track img {
             height: 76px; width: 76px;
             object-fit: contain;
             margin: 0 24px;
-            opacity: 0.5;
-            filter: grayscale(25%);
-            transition: var(--tr-med);
-            border-radius: var(--radius-sm);
-        }
-        .logos-track img:hover {
             opacity: 1;
             filter: none;
-            transform: scale(1.2) translateY(-6px);
-            box-shadow: var(--shadow-md);
+            transition: var(--tr-med);
+            border-radius: var(--radius-sm);
+            pointer-events: none;
         }
 
         /* ── CTA ── */
