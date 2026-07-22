@@ -813,11 +813,13 @@
         .pillar-card {
             background: var(--cream2);
             border-radius: var(--radius-lg);
-            padding: 48px;
+            padding: 0;
             transition: var(--tr-med);
             position: relative;
             overflow: hidden;
             border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
         }
         .pillar-card::before {
             content: attr(data-num);
@@ -828,6 +830,7 @@
             color: rgba(0,0,0,0.07);
             line-height: 1;
             transition: color 0.4s;
+            z-index: 2;
         }
         /* Color sweep on hover */
         .pillar-card::after {
@@ -842,25 +845,32 @@
         .pillar-card:hover::after { transform: translateY(0); }
         .pillar-card:hover { border-color: var(--black); }
         .pillar-card:hover::before { color: rgba(255,255,255,0.05); }
-        .pillar-icon {
-            width: 60px; height: 0;
-            border-radius: var(--radius-sm);
-            background: rgba(227,27,35,0.1);
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
+        
+        .pillar-img-wrap {
+            height: 200px;
+            width: 100%;
             overflow: hidden;
-            opacity: 0; transform: scale(0.7);
-            transition: var(--tr-med);
-            position: relative; z-index: 1;
-            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+            background: var(--border);
         }
-        .pillar-card:hover .pillar-icon {
-            height: 60px; opacity: 1;
-            transform: scale(1);
-            background: var(--red);
-            margin-bottom: 24px;
+        .pillar-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s var(--ease-spring);
         }
-        .pillar-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+        .pillar-card:hover .pillar-img-wrap img {
+            transform: scale(1.07);
+        }
+        .pillar-card-content {
+            padding: 32px 36px 36px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
         .pillar-card h3 {
             font-family: var(--font-head);
             font-size: 22px; font-weight: 800;
@@ -893,9 +903,12 @@
         .value-card {
             background: rgba(255,255,255,0.04);
             border-radius: var(--radius-md);
-            padding: 32px 24px;
+            padding: 0;
             border: 1px solid rgba(255,255,255,0.07);
             transition: var(--tr-med);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
         .value-card:hover {
             background: var(--red);
@@ -903,21 +916,28 @@
             transform: translateY(-5px);
             box-shadow: var(--shadow-red);
         }
-        .value-icon {
-            width: 50px; height: 0;
-            border-radius: var(--radius-sm);
-            display: flex; align-items: center; justify-content: center;
+        .value-img-wrap {
+            height: 130px;
+            width: 100%;
             overflow: hidden;
-            opacity: 0; transform: scale(0.7);
-            transition: var(--tr-med);
-            margin-bottom: 0;
+            position: relative;
+            background: rgba(255,255,255,0.02);
         }
-        .value-card:hover .value-icon {
-            height: 50px; opacity: 1; transform: scale(1);
-            background: rgba(255,255,255,0.2);
-            margin-bottom: 18px;
+        .value-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s var(--ease-spring);
         }
-        .value-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+        .value-card:hover .value-img-wrap img {
+            transform: scale(1.07);
+        }
+        .value-card-content {
+            padding: 24px 20px 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
         .value-card h4 {
             font-family: var(--font-head);
             color: #fff; font-size: 17px; font-weight: 700;
@@ -1471,24 +1491,40 @@
         <p class="section-lead fade-up">Every entity under the Office of Academic Affairs operates through four foundational pillars that ensure meaningful student engagement and measurable impact.</p>
         <div class="pillars-grid stagger-group">
             <div class="pillar-card stagger-item" data-num="01">
-                <div class="pillar-icon"><img src="media/Virtuonix/54aef43d-1251-48c1-bb7a-8141dcb23113.png" alt="icon" loading="lazy"></div>
-                <h3>Student-Led Governance</h3>
-                <p>Students lead their own organizations by planning events, managing operations, coordinating teams, and making strategic decisions while developing real-world leadership and management skills.</p>
+                <div class="pillar-img-wrap">
+                    <img src="media/Virtuonix/54aef43d-1251-48c1-bb7a-8141dcb23113.png" alt="Governance" loading="lazy">
+                </div>
+                <div class="pillar-card-content">
+                    <h3>Student-Led Governance</h3>
+                    <p>Students lead their own organizations by planning events, managing operations, coordinating teams, and making strategic decisions while developing real-world leadership and management skills.</p>
+                </div>
             </div>
             <div class="pillar-card stagger-item" data-num="02">
-                <div class="pillar-icon"><img src="media/Aeromeodelling/0ba32cbd-4ceb-463b-8db7-768e1e047ef5.png" alt="icon" loading="lazy"></div>
-                <h3>Faculty Mentorship</h3>
-                <p>Dedicated Faculty Champions and Advisors provide strategic guidance, academic support, quality assurance, and mentorship to ensure sustainable growth and excellence.</p>
+                <div class="pillar-img-wrap">
+                    <img src="media/Aeromeodelling/0ba32cbd-4ceb-463b-8db7-768e1e047ef5.png" alt="Mentorship" loading="lazy">
+                </div>
+                <div class="pillar-card-content">
+                    <h3>Faculty Mentorship</h3>
+                    <p>Dedicated Faculty Champions and Advisors provide strategic guidance, academic support, quality assurance, and mentorship to ensure sustainable growth and excellence.</p>
+                </div>
             </div>
             <div class="pillar-card stagger-item" data-num="03">
-                <div class="pillar-icon"><img src="media/Sci-Fi innovation/Picsart_25-09-11_19-13-17-715 (1).png" alt="icon" loading="lazy"></div>
-                <h3>Experiential Learning</h3>
-                <p>Structured annual calendars include workshops, hackathons, competitions, research initiatives, community outreach, innovation challenges, and interdisciplinary collaborations bridging theory with practice.</p>
+                <div class="pillar-img-wrap">
+                    <img src="media/Sci-Fi innovation/Picsart_25-09-11_19-13-17-715 (1).png" alt="Learning" loading="lazy">
+                </div>
+                <div class="pillar-card-content">
+                    <h3>Experiential Learning</h3>
+                    <p>Structured annual calendars include workshops, hackathons, competitions, research initiatives, community outreach, innovation challenges, and interdisciplinary collaborations bridging theory with practice.</p>
+                </div>
             </div>
             <div class="pillar-card stagger-item" data-num="04">
-                <div class="pillar-icon"><img src="media/Sci-Fi innovation/Picsart_25-09-11_19-19-40-645 (1).png" alt="icon" loading="lazy"></div>
-                <h3>Recognition &amp; Achievement</h3>
-                <p>Students receive official certifications, leadership appointments, awards, trophies, co-curricular credits, and institutional recognition that enhance both academic and professional portfolios.</p>
+                <div class="pillar-img-wrap">
+                    <img src="media/Sci-Fi innovation/Picsart_25-09-11_19-19-40-645 (1).png" alt="Achievement" loading="lazy">
+                </div>
+                <div class="pillar-card-content">
+                    <h3>Recognition &amp; Achievement</h3>
+                    <p>Students receive official certifications, leadership appointments, awards, trophies, co-curricular credits, and institutional recognition that enhance both academic and professional portfolios.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -1501,44 +1537,76 @@
         <h2 class="section-h2 word-reveal">The <em>Values</em> That Drive Us</h2>
         <div class="values-grid stagger-group">
             <div class="value-card stagger-item">
-                <div class="value-icon"><img src="media/Nexasoul/7a0f8e68-8493-45a6-b706-07409d7c34a4.png" alt="icon" loading="lazy"></div>
-                <h4>Leadership</h4>
-                <p>Empowering students to lead with confidence, responsibility, and vision.</p>
+                <div class="value-img-wrap">
+                    <img src="media/Nexasoul/7a0f8e68-8493-45a6-b706-07409d7c34a4.png" alt="Leadership" loading="lazy">
+                </div>
+                <div class="value-card-content">
+                    <h4>Leadership</h4>
+                    <p>Empowering students to lead with confidence, responsibility, and vision.</p>
+                </div>
             </div>
             <div class="value-card stagger-item">
-                <div class="value-icon"><img src="media/cloudstack/36df914b-807f-45d8-84f6-4ebd2892180b.png" alt="icon" loading="lazy"></div>
-                <h4>Excellence</h4>
-                <p>Striving for the highest standards in every initiative and achievement.</p>
+                <div class="value-img-wrap">
+                    <img src="media/cloudstack/36df914b-807f-45d8-84f6-4ebd2892180b.png" alt="Excellence" loading="lazy">
+                </div>
+                <div class="value-card-content">
+                    <h4>Excellence</h4>
+                    <p>Striving for the highest standards in every initiative and achievement.</p>
+                </div>
             </div>
             <div class="value-card stagger-item">
-                <div class="value-icon"><img src="media/Virtuonix/eccb1c58-a72d-48c7-be4f-aea512d15476.png" alt="icon" loading="lazy"></div>
-                <h4>Innovation</h4>
-                <p>Encouraging creativity, research, entrepreneurship, and problem-solving.</p>
+                <div class="value-img-wrap">
+                    <img src="media/Virtuonix/eccb1c58-a72d-48c7-be4f-aea512d15476.png" alt="Innovation" loading="lazy">
+                </div>
+                <div class="value-card-content">
+                    <h4>Innovation</h4>
+                    <p>Encouraging creativity, research, entrepreneurship, and problem-solving.</p>
+                </div>
             </div>
             <div class="value-card stagger-item">
-                <div class="value-icon"><img src="media/Aeromeodelling/0ba32cbd-4ceb-463b-8db7-768e1e047ef5.png" alt="icon" loading="lazy"></div>
-                <h4>Integrity</h4>
-                <p>Building a culture of ethics, transparency, professionalism, and accountability.</p>
+                <div class="value-img-wrap">
+                    <img src="media/Aeromeodelling/0ba32cbd-4ceb-463b-8db7-768e1e047ef5.png" alt="Integrity" loading="lazy">
+                </div>
+                <div class="value-card-content">
+                    <h4>Integrity</h4>
+                    <p>Building a culture of ethics, transparency, professionalism, and accountability.</p>
+                </div>
             </div>
             <div class="value-card stagger-item">
-                <div class="value-icon"><img src="media/Aeromeodelling/aircraft_modelling_high_quality.png" alt="icon" loading="lazy"></div>
-                <h4>Collaboration</h4>
-                <p>Promoting teamwork across students, faculty, industry, alumni, and society.</p>
+                <div class="value-img-wrap">
+                    <img src="media/Aeromeodelling/aircraft_modelling_high_quality.png" alt="Collaboration" loading="lazy">
+                </div>
+                <div class="value-card-content">
+                    <h4>Collaboration</h4>
+                    <p>Promoting teamwork across students, faculty, industry, alumni, and society.</p>
+                </div>
             </div>
             <div class="value-card stagger-item">
-                <div class="value-icon"><img src="media/UpCycle/6fa8d20c-599c-4de9-8d0e-4956e8d4761c.png" alt="icon" loading="lazy"></div>
-                <h4>Inclusivity</h4>
-                <p>Creating equal opportunities where every student can learn, contribute, and grow.</p>
+                <div class="value-img-wrap">
+                    <img src="media/UpCycle/6fa8d20c-599c-4de9-8d0e-4956e8d4761c.png" alt="Inclusivity" loading="lazy">
+                </div>
+                <div class="value-card-content">
+                    <h4>Inclusivity</h4>
+                    <p>Creating equal opportunities where every student can learn, contribute, and grow.</p>
+                </div>
             </div>
             <div class="value-card stagger-item">
-                <div class="value-icon"><img src="media/UpCycle/dd7e9394-f974-439a-99e8-0dc86c493645.png" alt="icon" loading="lazy"></div>
-                <h4>Service</h4>
-                <p>Making meaningful contributions to society through community engagement.</p>
+                <div class="value-img-wrap">
+                    <img src="media/UpCycle/dd7e9394-f974-439a-99e8-0dc86c493645.png" alt="Service" loading="lazy">
+                </div>
+                <div class="value-card-content">
+                    <h4>Service</h4>
+                    <p>Making meaningful contributions to society through community engagement.</p>
+                </div>
             </div>
             <div class="value-card stagger-item">
-                <div class="value-icon"><img src="media/Virtuonix/e6ac5e11-91e0-4c4b-ba04-7956227a54e0.png" alt="icon" loading="lazy"></div>
-                <h4>Growth</h4>
-                <p>Continuously evolving through learning, feedback, and courageous ambition.</p>
+                <div class="value-img-wrap">
+                    <img src="media/Virtuonix/e6ac5e11-91e0-4c4b-ba04-7956227a54e0.png" alt="Growth" loading="lazy">
+                </div>
+                <div class="value-card-content">
+                    <h4>Growth</h4>
+                    <p>Continuously evolving through learning, feedback, and courageous ambition.</p>
+                </div>
             </div>
         </div>
     </div>
