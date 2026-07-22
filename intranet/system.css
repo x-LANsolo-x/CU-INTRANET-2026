@@ -837,21 +837,23 @@ body::before {
     .sys-nav { display: none !important; }
     .sys-hamburger { display: flex; }
     
-    /* Show register button as a round icon-only button on tablet/mobile screens */
+    /* Show register button as a compact pill button on tablet/mobile screens */
     .sys-header-cta {
         display: flex !important;
-        width: 36px;
-        height: 36px;
-        padding: 0 !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 6px 12px !important;
         align-items: center;
         justify-content: center;
-        border-radius: 50% !important;
-        font-size: 0 !important; /* Hide text */
+        border-radius: 100px !important;
+        font-size: 11px !important; /* Keep text visible and compact */
+        font-weight: 700 !important;
+        gap: 5px !important;
         flex-shrink: 0;
         box-shadow: 0 4px 12px var(--red-glow);
     }
     .sys-header-cta i {
-        font-size: 14px !important;
+        font-size: 11px !important;
         margin: 0 !important;
     }
     

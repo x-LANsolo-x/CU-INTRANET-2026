@@ -1222,18 +1222,20 @@
             .header-logo { gap: 8px; }
             .header-cta {
                 display: flex !important;
-                width: 36px;
-                height: 36px;
-                padding: 0 !important;
+                width: auto !important;
+                height: auto !important;
+                padding: 6px 12px !important;
                 align-items: center;
                 justify-content: center;
-                border-radius: 50% !important;
-                font-size: 0 !important; /* Hide text */
+                border-radius: 100px !important;
+                font-size: 11px !important; /* Keep text visible and compact */
+                font-weight: 700 !important;
+                gap: 5px !important;
                 flex-shrink: 0;
                 box-shadow: 0 4px 12px var(--red-glow);
             }
             .header-cta i {
-                font-size: 14px !important;
+                font-size: 11px !important;
                 margin: 0 !important;
             }
         }
@@ -1262,9 +1264,9 @@
 <header class="header" id="mainHeader">
     <div class="header-pill">
         <div class="header-logo">
-            <img src="logos/cu-logo-dark-transparent.png?v=6.0" alt="Chandigarh University Logo">
+            <img src="logos/cu-logo-dark-transparent.png?v=7.0" alt="Chandigarh University Logo">
             <div class="divider"></div>
-            <img src="logos/oaa-logo.png?v=6.0" alt="OAA Logo">
+            <img src="logos/oaa-logo.png?v=7.0" alt="OAA Logo">
         </div>
         <nav class="header-nav">
             <ul>
@@ -1774,8 +1776,8 @@
 <!-- FOOTER -->
 <footer class="footer" id="contact">
     <div class="footer-logo">
-        <img src="logos/cu-logo-white-transparent.png?v=6.0" alt="CU Logo">
-        <img src="logos/oaa-logo-white.png?v=6.0" alt="OAA Logo" style="height:44px;">
+        <img src="logos/cu-logo-white-transparent.png?v=7.0" alt="CU Logo">
+        <img src="logos/oaa-logo-white.png?v=7.0" alt="OAA Logo" style="height:44px;">
     </div>
     <p>Chandigarh University — Student Co-Curricular Ecosystem</p>
     <p>NH-05, Chandigarh-Ludhiana Highway, Mohali, Punjab, India</p>
@@ -2083,6 +2085,6 @@
 
 })();
 </script>
-<script src="system.js?v=6.0"></script>
+<script src="system.js?v=7.0"></script>
 </body>
 </html>
