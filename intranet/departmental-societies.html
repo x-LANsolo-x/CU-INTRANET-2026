@@ -326,9 +326,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.preloadImages) {
                 const imgsToPreload = [];
                 allEntities.forEach(e => {
-                    if (e.logo) imgsToPreload.push(e.logo.startsWith('http') ? e.logo : 'https://cuchd-in-daa-page.vercel.app/' + e.logo);
+                    if (e.logo) imgsToPreload.push(e.logo);
                     if (e.media && e.media.length) {
-                        e.media.forEach(m => imgsToPreload.push(m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m));
+                        e.media.forEach(m => imgsToPreload.push(m));
                     }
                 });
                 window.preloadImages(imgsToPreload.slice(0, 16));
@@ -376,8 +376,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'entity-card';
             
-            const logoUrl = e.logo ? (e.logo.startsWith('http') ? e.logo : 'https://cuchd-in-daa-page.vercel.app/' + e.logo) : 'logos/default.png';
-            const mediaStr = (e.media || []).map(m => m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m).join(',');
+            const logoUrl = e.logo ? (e.logo) : 'logos/default.png';
+            const mediaStr = (e.media || []).map(m => m).join(',');
             const mainTag = e.categories && e.categories[0] ? e.categories[0] : 'Society';
 
             card.innerHTML = `

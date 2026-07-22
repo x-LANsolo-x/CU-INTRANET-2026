@@ -357,9 +357,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.preloadImages) {
                 const imgsToPreload = [];
                 allEntities.forEach(e => {
-                    if (e.logo) imgsToPreload.push(e.logo.startsWith('http') ? e.logo : 'https://cuchd-in-daa-page.vercel.app/' + e.logo);
+                    if (e.logo) imgsToPreload.push(e.logo);
                     if (e.media && e.media.length) {
-                        e.media.forEach(m => imgsToPreload.push(m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m));
+                        e.media.forEach(m => imgsToPreload.push(m));
                     }
                 });
                 window.preloadImages(imgsToPreload.slice(0, 16)); // Preload first 16 assets immediately
@@ -434,10 +434,10 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('data-reveal', 'scale');
 
             // Format logo path
-            const logoUrl = e.logo ? (e.logo.startsWith('http') ? e.logo : 'https://cuchd-in-daa-page.vercel.app/' + e.logo) : 'logos/default.png';
+            const logoUrl = e.logo ? (e.logo) : 'logos/default.png';
             
             // Format media array for modal passing
-            const mediaStr = (e.media || []).map(m => m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m).join(',');
+            const mediaStr = (e.media || []).map(m => m).join(',');
 
             // Tag badges
             const mainTag = e.categories && e.categories[0] ? e.categories[0] : 'General';
