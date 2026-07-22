@@ -14,12 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* ── PAGE-SPECIFIC OVERRIDES ── */
-        body {
-            background: var(--cream);
-        }
-
-        /* ── HERO BANNER ── */
+        /* ── HERO ── */
         .reg-hero {
             background: var(--black);
             padding: 80px 24px 60px;
@@ -31,25 +26,9 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(180,30,30,0.18) 0%, transparent 70%);
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(180,30,30,0.20) 0%, transparent 70%);
             pointer-events: none;
         }
-        .reg-hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: var(--radius-pill);
-            padding: 6px 18px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 24px;
-        }
-        .reg-hero-eyebrow i { color: var(--red); font-size: 10px; }
         .reg-hero h1 {
             font-family: var(--font-head);
             font-size: clamp(32px, 5vw, 56px);
@@ -58,6 +37,7 @@
             line-height: 1.1;
             letter-spacing: -1.5px;
             margin-bottom: 16px;
+            position: relative;
         }
         .reg-hero h1 span { color: var(--red); }
         .reg-hero p {
@@ -66,133 +46,446 @@
             max-width: 560px;
             margin: 0 auto 32px;
             line-height: 1.6;
+            position: relative;
         }
-
-        /* Stat pills */
         .reg-stats {
             display: flex;
             justify-content: center;
             gap: 12px;
             flex-wrap: wrap;
-            margin-top: 8px;
+            position: relative;
         }
         .reg-stat-pill {
             background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.10);
             border-radius: var(--radius-pill);
             padding: 8px 20px;
             font-size: 13px;
             font-weight: 700;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.65);
             display: flex;
             align-items: center;
             gap: 8px;
         }
         .reg-stat-pill strong { color: var(--white); }
 
-        /* ── SOCIAL LINKS STRIP ── */
-        .reg-social-strip {
+        /* ── SOCIAL STRIP ── */
+        .reg-social {
             background: var(--cream2);
             border-bottom: 1px solid var(--border);
-            padding: 14px 24px;
+            padding: 13px 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 24px;
+            gap: 28px;
             flex-wrap: wrap;
         }
-        .reg-social-strip a {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .reg-social a {
+            display: flex; align-items: center; gap: 7px;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 13px; font-weight: 600;
             color: var(--grey);
             transition: var(--tr-fast);
         }
-        .reg-social-strip a:hover { color: var(--black); }
-        .reg-social-strip a i { font-size: 15px; }
-        .reg-social-strip a.whatsapp:hover { color: #25D366; }
-        .reg-social-strip a.instagram:hover { color: #E1306C; }
-        .reg-social-strip a.phone:hover { color: var(--red); }
+        .reg-social a:hover { color: var(--black); }
+        .reg-social a.wa:hover { color: #25D366; }
+        .reg-social a.ig:hover { color: #E1306C; }
+        .reg-social a.ph:hover { color: var(--red); }
 
-        /* ── FORM WRAPPER ── */
-        .reg-body {
-            max-width: 800px;
+        /* ── FORM BODY ── */
+        .reg-wrap {
+            max-width: 760px;
             margin: 0 auto;
             padding: 48px 24px 80px;
         }
 
-        /* Note card */
+        /* Note */
         .reg-note {
-            background: rgba(180,30,30,0.06);
-            border: 1px solid rgba(180,30,30,0.18);
+            background: rgba(180,30,30,0.05);
+            border: 1px solid rgba(180,30,30,0.16);
             border-radius: var(--radius-md);
-            padding: 16px 20px;
-            margin-bottom: 32px;
+            padding: 15px 20px;
+            margin-bottom: 36px;
             display: flex;
             align-items: flex-start;
             gap: 12px;
             font-size: 14px;
             color: var(--text);
-            line-height: 1.5;
+            line-height: 1.55;
         }
-        .reg-note i { color: var(--red); font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+        .reg-note i { color: var(--red); flex-shrink: 0; margin-top: 2px; }
 
-        /* ── GOOGLE FORM IFRAME CONTAINER ── */
-        .gform-container {
+        /* Step tabs */
+        .reg-steps {
+            display: flex;
+            gap: 0;
+            margin-bottom: 32px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--cream2);
+        }
+        .reg-step {
+            flex: 1;
+            padding: 14px 12px;
+            text-align: center;
+            font-family: var(--font-head);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--grey);
+            cursor: pointer;
+            border-right: 1px solid var(--border);
+            transition: var(--tr-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .reg-step:last-child { border-right: none; }
+        .reg-step.active {
+            background: var(--black);
+            color: var(--white);
+        }
+        .reg-step.done {
+            background: var(--cream);
+            color: var(--red);
+        }
+        .reg-step .step-num {
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 900;
+        }
+        .reg-step.active .step-num { background: var(--red); }
+        .reg-step.done .step-num { background: transparent; }
+
+        /* Section panels */
+        .reg-section { display: none; }
+        .reg-section.active { display: block; }
+
+        /* Form card */
+        .form-card {
             background: var(--white);
             border: 1px solid var(--border);
             border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            position: relative;
+            padding: 40px 40px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+        }
+        .form-card-title {
+            font-family: var(--font-head);
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .form-card-title i { color: var(--red); font-size: 18px; }
+        .form-card-desc {
+            font-size: 14px;
+            color: var(--grey);
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
         }
 
-        .gform-loader {
-            position: absolute;
-            inset: 0;
+        /* Form groups */
+        .fgroup {
+            margin-bottom: 22px;
+        }
+        .fgroup label {
+            display: block;
+            font-family: var(--font-head);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+        .fgroup label .req { color: var(--red); margin-left: 2px; }
+
+        .finput {
+            width: 100%;
+            padding: 13px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 15px;
+            color: var(--black);
+            background: var(--cream);
+            transition: var(--tr-fast);
+            outline: none;
+        }
+        .finput:focus {
+            border-color: var(--black);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+        }
+        .finput::placeholder { color: #aaa; }
+
+        /* Two column grid */
+        .fgrid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        /* Radio buttons */
+        .radio-row {
             display: flex;
-            flex-direction: column;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .radio-opt {
+            flex: 1;
+            min-width: 120px;
+        }
+        .radio-opt input[type="radio"] { display: none; }
+        .radio-opt label {
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
-            background: var(--white);
-            z-index: 10;
-            transition: opacity 0.5s ease;
+            gap: 9px;
+            padding: 13px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--grey);
+            background: var(--cream);
+            transition: var(--tr-fast);
+            margin-bottom: 0;
         }
-        .gform-loader.hidden {
+        .radio-opt label::before {
+            content: '';
+            width: 16px; height: 16px;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: var(--tr-fast);
+        }
+        .radio-opt input[type="radio"]:checked + label {
+            border-color: var(--black);
+            background: var(--black);
+            color: var(--white);
+        }
+        .radio-opt input[type="radio"]:checked + label::before {
+            border-color: var(--white);
+            background: var(--red);
+            box-shadow: 0 0 0 3px var(--white) inset;
+        }
+
+        /* Checkbox grid for clubs */
+        .clubs-section-label {
+            font-family: var(--font-head);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--grey);
+            margin: 24px 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .clubs-section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .check-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .check-opt input[type="checkbox"] { display: none; }
+        .check-opt label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--cream);
+            transition: var(--tr-fast);
+            margin-bottom: 0;
+            line-height: 1.3;
+        }
+        .check-opt label::before {
+            content: '';
+            width: 16px; height: 16px;
+            min-width: 16px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            transition: var(--tr-fast);
+            background: var(--white);
+        }
+        .check-opt input[type="checkbox"]:checked + label {
+            border-color: var(--black);
+            background: var(--black);
+            color: var(--white);
+        }
+        .check-opt input[type="checkbox"]:checked + label::before {
+            background: var(--red);
+            border-color: var(--red);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l3.5 3.5L13 4.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        }
+
+        /* Nav buttons */
+        .form-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            gap: 12px;
+        }
+        .btn-prev {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 24px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--cream);
+            color: var(--black);
+            font-family: var(--font-head);
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--tr-fast);
+        }
+        .btn-prev:hover { background: var(--cream2); }
+        .btn-next, .btn-submit-form {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: var(--font-head);
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: var(--tr-fast);
+            margin-left: auto;
+        }
+        .btn-next:hover, .btn-submit-form:hover {
+            background: var(--red);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(180,30,30,0.2);
+        }
+        .btn-submit-form:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Progress bar */
+        .reg-progress {
+            height: 3px;
+            background: var(--border);
+            border-radius: 2px;
+            margin-bottom: 28px;
+            overflow: hidden;
+        }
+        .reg-progress-bar {
+            height: 100%;
+            background: var(--red);
+            border-radius: 2px;
+            transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        /* Success overlay */
+        .success-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             opacity: 0;
             pointer-events: none;
+            transition: opacity 0.4s ease;
         }
-        .gform-loader-ring {
-            width: 44px;
-            height: 44px;
-            border: 3px solid var(--cream2);
-            border-top-color: var(--red);
+        .success-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .success-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 56px 44px;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+            transform: scale(0.88) translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+        }
+        .success-overlay.active .success-card {
+            transform: scale(1) translateY(0);
+        }
+        .success-icon {
+            width: 80px; height: 80px;
+            background: rgba(40,167,69,0.1);
+            color: #28a745;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            margin: 0 auto 24px;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .gform-loader span {
-            font-size: 13px;
+        .success-card h2 {
+            font-family: var(--font-head);
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--black);
+            margin-bottom: 12px;
+        }
+        .success-card p {
             color: var(--grey);
-            font-weight: 600;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 32px;
         }
-
-        .gform-iframe {
-            width: 100%;
-            min-height: 1800px;
-            border: none;
-            display: block;
+        .btn-go-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--black);
+            color: var(--white);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 15px;
+            transition: var(--tr-fast);
         }
+        .btn-go-home:hover { background: var(--red); }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 600px) {
-            .reg-social-strip { gap: 14px; }
-            .reg-body { padding: 28px 16px 60px; }
-            .gform-iframe { min-height: 2000px; }
+        /* Responsive */
+        @media (max-width: 640px) {
+            .fgrid-2 { grid-template-columns: 1fr; }
+            .form-card { padding: 24px 20px; }
+            .reg-wrap { padding: 28px 16px 60px; }
+            .check-grid { grid-template-columns: 1fr; }
+            .reg-step span.step-label { display: none; }
         }
     </style>
 </head>
@@ -235,7 +528,7 @@
     </div>
 </header>
 
-<!-- HERO BANNER -->
+<!-- HERO -->
 <section class="reg-hero">
     <h1>Register Your <span>Interest.</span></h1>
     <p>Join Chandigarh University's vibrant co-curricular community. Select your preferred clubs, societies, and communities.</p>
@@ -247,44 +540,273 @@
     </div>
 </section>
 
-<!-- SOCIAL LINKS STRIP -->
-<div class="reg-social-strip">
-    <a href="https://chat.whatsapp.com/HeD2CLUFNfg9kcNBx3G7RA" target="_blank" class="whatsapp">
-        <i class="fab fa-whatsapp"></i> Join WhatsApp Community
+<!-- SOCIAL STRIP -->
+<div class="reg-social">
+    <a href="https://chat.whatsapp.com/HeD2CLUFNfg9kcNBx3G7RA" target="_blank" class="wa">
+        <i class="fab fa-whatsapp"></i> WhatsApp Community
     </a>
-    <a href="https://www.instagram.com/daa_chandigarhuniversity" target="_blank" class="instagram">
+    <a href="https://www.instagram.com/daa_chandigarhuniversity" target="_blank" class="ig">
         <i class="fab fa-instagram"></i> @daa_chandigarhuniversity
     </a>
-    <a href="tel:+919773553664" class="phone">
+    <a href="tel:+919773553664" class="ph">
         <i class="fas fa-phone"></i> +91 9773553664
     </a>
 </div>
 
 <!-- FORM BODY -->
-<div class="reg-body">
-    <!-- Disclaimer note -->
+<div class="reg-wrap">
+
+    <!-- Note -->
     <div class="reg-note">
         <i class="fas fa-circle-info"></i>
         <span><strong>Please Note:</strong> Filling this form shows your interest in joining clubs and does not confirm your membership. The respective faculty coordinators will contact you for further onboarding.</span>
     </div>
 
-    <!-- Google Form Embed -->
-    <div class="gform-container">
-        <div class="gform-loader" id="gformLoader">
-            <div class="gform-loader-ring"></div>
-            <span>Loading registration form…</span>
+    <!-- Progress bar -->
+    <div class="reg-progress">
+        <div class="reg-progress-bar" id="progressBar" style="width:33%"></div>
+    </div>
+
+    <!-- Step tabs -->
+    <div class="reg-steps">
+        <div class="reg-step active" data-step="1">
+            <span class="step-num">1</span>
+            <span class="step-label">Personal Info</span>
         </div>
-        <iframe
-            id="gformIframe"
-            class="gform-iframe"
-            src="https://docs.google.com/forms/d/e/1FAIpQLSfRL-59pvU46qiMANNxCjA2IkpBLTm2tM6-5OhP6AOwmfqXpA/viewform?embedded=true&usp=sf_link"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="Co-Curricular Registration Form"
-            loading="lazy"
-            allow="autoplay"
-        >Loading…</iframe>
+        <div class="reg-step" data-step="2">
+            <span class="step-num">2</span>
+            <span class="step-label">Clubs</span>
+        </div>
+        <div class="reg-step" data-step="3">
+            <span class="step-num">3</span>
+            <span class="step-label">Societies</span>
+        </div>
+    </div>
+
+    <form id="regForm" novalidate>
+
+        <!-- ══════════════════════════════════
+             SECTION 1 — Personal Information
+        ══════════════════════════════════ -->
+        <div class="reg-section active" id="sec1">
+            <div class="form-card">
+                <div class="form-card-title">
+                    <i class="fas fa-user-circle"></i> Personal Information
+                </div>
+                <div class="form-card-desc">Enter your university details. All fields marked with * are required.</div>
+
+                <div class="fgrid-2">
+                    <div class="fgroup">
+                        <label for="f_name">NAME <span class="req">*</span></label>
+                        <input type="text" id="f_name" name="entry.1203510777" class="finput" placeholder="Your full name" required autocomplete="name">
+                    </div>
+                    <div class="fgroup">
+                        <label for="f_uid">UID / ACCOUNT NO. <span class="req">*</span></label>
+                        <input type="text" id="f_uid" name="entry.1850971134" class="finput" placeholder="e.g. 23BCS10000" required>
+                    </div>
+                </div>
+
+                <div class="fgroup">
+                    <label for="f_dept">DEPARTMENT <span class="req">*</span></label>
+                    <input type="text" id="f_dept" name="entry.1369769838" class="finput" placeholder="e.g. Computer Science & Engineering" required>
+                </div>
+
+                <div class="fgrid-2">
+                    <div class="fgroup">
+                        <label for="f_email">E-MAIL <span class="req">*</span></label>
+                        <input type="email" id="f_email" name="entry.27094436" class="finput" placeholder="yourname@cumail.in" required autocomplete="email">
+                    </div>
+                    <div class="fgroup">
+                        <label for="f_contact">CONTACT NO. <span class="req">*</span></label>
+                        <input type="tel" id="f_contact" name="entry.1931538734" class="finput" placeholder="10-digit mobile number" required pattern="[0-9]{10}" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="fgroup">
+                    <label>GENDER <span class="req">*</span></label>
+                    <div class="radio-row">
+                        <div class="radio-opt">
+                            <input type="radio" id="g_male" name="entry.570413037" value="Male" required>
+                            <label for="g_male"><i class="fas fa-mars"></i> Male</label>
+                        </div>
+                        <div class="radio-opt">
+                            <input type="radio" id="g_female" name="entry.570413037" value="Female">
+                            <label for="g_female"><i class="fas fa-venus"></i> Female</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fgroup">
+                    <label>BOARDING STATUS <span class="req">*</span></label>
+                    <div class="radio-row">
+                        <div class="radio-opt">
+                            <input type="radio" id="b_hosteller" name="entry.1101553007" value="Hosteller" required>
+                            <label for="b_hosteller"><i class="fas fa-building"></i> Hosteller</label>
+                        </div>
+                        <div class="radio-opt">
+                            <input type="radio" id="b_day" name="entry.1101553007" value="Day Scholar">
+                            <label for="b_day"><i class="fas fa-house"></i> Day Scholar</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-nav">
+                <div></div>
+                <button type="button" class="btn-next" id="btn1Next">
+                    Select Clubs <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════
+             SECTION 2 — Clubs
+        ══════════════════════════════════ -->
+        <div class="reg-section" id="sec2">
+            <div class="form-card">
+                <div class="form-card-title">
+                    <i class="fas fa-flag"></i> Student Clubs
+                </div>
+                <div class="form-card-desc">Select one or more clubs you'd like to join. You may choose across categories.</div>
+
+                <!-- Science, Technology & Innovation -->
+                <div class="clubs-section-label">Science, Technology &amp; Innovation</div>
+                <div class="check-grid">
+                    <div class="check-opt"><input type="checkbox" id="c1" name="entry.1959299275" value="SKY HIGH CLUB"><label for="c1">SKY HIGH CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c2" name="entry.1959299275" value="AEROX CLUB"><label for="c2">AEROX CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c3" name="entry.1959299275" value="ASTRONAUTICS CLUB"><label for="c3">ASTRONAUTICS CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c4" name="entry.1959299275" value="ASTRONOMY CLUB"><label for="c4">ASTRONOMY CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c5" name="entry.1959299275" value="BIZLYTICS CLUB"><label for="c5">BIZLYTICS CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c6" name="entry.1959299275" value="BROKEN CONSOLE CLUB"><label for="c6">BROKEN CONSOLE CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c7" name="entry.1959299275" value="C SQUARE CLUB"><label for="c7">C SQUARE CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c8" name="entry.1959299275" value="CLOUDSTACK CLUB"><label for="c8">CLOUDSTACK CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c9" name="entry.1959299275" value="COGNIX CLUB"><label for="c9">COGNIX CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c10" name="entry.1959299275" value="CU PLAYNATION CLUB"><label for="c10">CU PLAYNATION CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c11" name="entry.1959299275" value="CYSECSPHERE CLUB"><label for="c11">CYSECSPHERE CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c12" name="entry.1959299275" value="DROIDLINX CLUB"><label for="c12">DROIDLINX CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c13" name="entry.1959299275" value="FPF CLUB"><label for="c13">FPF CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c14" name="entry.1959299275" value="NANOVERSE CLUB"><label for="c14">NANOVERSE CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c15" name="entry.1959299275" value="NEXASOUL CLUB"><label for="c15">NEXASOUL CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c16" name="entry.1959299275" value="PROTOSTART CLUB"><label for="c16">PROTOSTART CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c17" name="entry.1959299275" value="RAMANUJAN CLUB"><label for="c17">RAMANUJAN CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c18" name="entry.1959299275" value="ROBOX CLUB"><label for="c18">ROBOX CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c19" name="entry.1959299275" value="SCI-FI INNOVATION CLUB"><label for="c19">SCI-FI INNOVATION CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c20" name="entry.1959299275" value="TECH TATVA CLUB"><label for="c20">TECH TATVA CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c21" name="entry.1959299275" value="TOKENTITAN CLUB"><label for="c21">TOKENTITAN CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c22" name="entry.1959299275" value="VIKSIT VELOCITY CLUB"><label for="c22">VIKSIT VELOCITY CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c23" name="entry.1959299275" value="VIRTUONIX CLUB"><label for="c23">VIRTUONIX CLUB</label></div>
+                </div>
+
+                <!-- Business & Management -->
+                <div class="clubs-section-label">Business &amp; Management</div>
+                <div class="check-grid">
+                    <div class="check-opt"><input type="checkbox" id="c24" name="entry.1959299275" value="CAMPUS-TO-CORPORATE CLUB"><label for="c24">CAMPUS-TO-CORPORATE CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c25" name="entry.1959299275" value="ENTREPRENEURSHIP CLUB"><label for="c25">ENTREPRENEURSHIP CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c26" name="entry.1959299275" value="FINVERSE CLUB"><label for="c26">FINVERSE CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c27" name="entry.1959299275" value="HOTEL MANAGEMENT CLUB"><label for="c27">HOTEL MANAGEMENT CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c28" name="entry.1959299275" value="MARKETING BRIGADE CLUB"><label for="c28">MARKETING BRIGADE CLUB</label></div>
+                </div>
+
+                <!-- Media & Communication -->
+                <div class="clubs-section-label">Media &amp; Communication</div>
+                <div class="check-grid">
+                    <div class="check-opt"><input type="checkbox" id="c29" name="entry.1959299275" value="ASCENTIA CLUB"><label for="c29">ASCENTIA CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c30" name="entry.1959299275" value="SOCRATIC-CIRCLE CLUB"><label for="c30">SOCRATIC-CIRCLE CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c31" name="entry.1959299275" value="TOURISM CLUB"><label for="c31">TOURISM CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c32" name="entry.1959299275" value="YOUNG ORATORS CLUB"><label for="c32">YOUNG ORATORS CLUB</label></div>
+                </div>
+
+                <!-- Social Impact & Development -->
+                <div class="clubs-section-label">Social Impact &amp; Development</div>
+                <div class="check-grid">
+                    <div class="check-opt"><input type="checkbox" id="c33" name="entry.1959299275" value="BIOSPHERE CLUB"><label for="c33">BIOSPHERE CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c34" name="entry.1959299275" value="ECO GENESIS CLUB"><label for="c34">ECO GENESIS CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c35" name="entry.1959299275" value="IGNITE YOUTH CLUB"><label for="c35">IGNITE YOUTH CLUB</label></div>
+                    <div class="check-opt"><input type="checkbox" id="c36" name="entry.1959299275" value="THE VOYAGE CLUB"><label for="c36">THE VOYAGE CLUB</label></div>
+                </div>
+            </div>
+
+            <div class="form-nav">
+                <button type="button" class="btn-prev" id="btn2Prev">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button type="button" class="btn-next" id="btn2Next">
+                    Select Societies <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════
+             SECTION 3 — Professional Societies
+        ══════════════════════════════════ -->
+        <div class="reg-section" id="sec3">
+            <div class="form-card">
+                <div class="form-card-title">
+                    <i class="fas fa-award"></i> Professional Societies
+                </div>
+                <div class="form-card-desc">Select the professional societies you'd like to join.</div>
+
+                <div class="check-grid">
+                    <div class="check-opt"><input type="checkbox" id="s1" name="entry.72772036" value="Association for Computing Machinery (ACM)"><label for="s1">ACM</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s2" name="entry.72772036" value="Association for Computing Machinery-Women (ACMW)"><label for="s2">ACMW</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s3" name="entry.72772036" value="AESI Professional Society"><label for="s3">AESI Professional Society</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s4" name="entry.72772036" value="ASCE STUDENT CHAPTER CHANDIGARH UNIVERSITY"><label for="s4">ASCE Student Chapter</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s5" name="entry.72772036" value="ASHRAE"><label for="s5">ASHRAE</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s6" name="entry.72772036" value="ASME"><label for="s6">ASME</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s7" name="entry.72772036" value="INDIAN INSTITUTE OF CHEMICAL ENGG."><label for="s7">IIChE</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s8" name="entry.72772036" value="IEI"><label for="s8">IEI</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s9" name="entry.72772036" value="CSI"><label for="s9">CSI</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s10" name="entry.72772036" value="IDC"><label for="s10">IDC</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s11" name="entry.72772036" value="GFG"><label for="s11">GeeksForGeeks (GFG)</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s12" name="entry.72772036" value="IETE"><label for="s12">IETE</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s13" name="entry.72772036" value="IEEE COMPUTER SOCIETY"><label for="s13">IEEE Computer Society</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s14" name="entry.72772036" value="ISTE"><label for="s14">ISTE</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s15" name="entry.72772036" value="IEEE COMMUNICATION SOCIETY"><label for="s15">IEEE ComSoc</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s16" name="entry.72772036" value="IEEE CONSUMER TECHNOLOGY SOCIETY"><label for="s16">IEEE Consumer Tech</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s17" name="entry.72772036" value="IEEE POWER AND ENERGY SOCIETY"><label for="s17">IEEE Power &amp; Energy</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s18" name="entry.72772036" value="ADC"><label for="s18">ADC</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s19" name="entry.72772036" value="IEI CSE"><label for="s19">IEI CSE</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s20" name="entry.72772036" value="IEEE SOCIETY ON SOCIAL IMPLICATIONS OF TECHNOLOGY"><label for="s20">IEEE SSIT</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s21" name="entry.72772036" value="IEEE WOMEN IN ENGINEERING AFFINITY GROUP"><label for="s21">IEEE WIE</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s22" name="entry.72772036" value="CodeChef Cu Chapter"><label for="s22">CodeChef CU Chapter</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s23" name="entry.72772036" value="IEEE COMPUTATIONAL INTELLIGENCE SOCIETY"><label for="s23">IEEE CIS</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s24" name="entry.72772036" value="IEEE ROBOTICS AND AUTOMATION SOCIETY"><label for="s24">IEEE RAS</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s25" name="entry.72772036" value="IEEE CHANDIGARH UNIVERSITY STUDENT BRANCH"><label for="s25">IEEE CU Student Branch</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s26" name="entry.72772036" value="Standards Club"><label for="s26">Standards Club</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s27" name="entry.72772036" value="ASHARE STUDENT CHAPTER"><label for="s27">ASHRAE Student Chapter</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s28" name="entry.72772036" value="IIA STUDENT CHAPTER"><label for="s28">IIA Student Chapter</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s29" name="entry.72772036" value="COUNCIL OF ARCHITECTURE"><label for="s29">Council of Architecture</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s30" name="entry.72772036" value="ENGLISH LANGUAGE TEACHERS' ASSOCIATION OF INDIA"><label for="s30">ELTAI</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s31" name="entry.72772036" value="ASIFA India"><label for="s31">ASIFA India</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s32" name="entry.72772036" value="PATA INDIA CHANDIGARH UNIVERSITY STUDENT CHAPTER"><label for="s32">PATA India CU Chapter</label></div>
+                    <div class="check-opt"><input type="checkbox" id="s33" name="entry.72772036" value="IEEE PRAKASH BHARTI SCHOLAR CHAPTER CHANDIGARH UNIVERSITY (IEEE PBSC CU)"><label for="s33">IEEE PBSC CU</label></div>
+                </div>
+            </div>
+
+            <div class="form-nav">
+                <button type="button" class="btn-prev" id="btn3Prev">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button type="submit" class="btn-submit-form" id="submitBtn">
+                    Submit Registration <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+    <div class="success-card">
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <h2>Registration Submitted!</h2>
+        <p>Thank you for registering your interest. The Office of Academic Affairs co-curricular committee will contact you with further onboarding details.</p>
+        <a href="./" class="btn-go-home">
+            Back to Portal <i class="fas fa-arrow-right"></i>
+        </a>
     </div>
 </div>
 
@@ -305,28 +827,115 @@
     </div>
 </footer>
 
-<!-- Scripts -->
 <script src="system.js"></script>
 <script>
-    // Hide loader once iframe loads
-    const iframe = document.getElementById('gformIframe');
-    const loader = document.getElementById('gformLoader');
+(function() {
+    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfRL-59pvU46qiMANNxCjA2IkpBLTm2tM6-5OhP6AOwmfqXpA/formResponse';
 
-    iframe.addEventListener('load', () => {
-        loader.classList.add('hidden');
-    });
+    const sections = [
+        document.getElementById('sec1'),
+        document.getElementById('sec2'),
+        document.getElementById('sec3'),
+    ];
+    const stepTabs = document.querySelectorAll('.reg-step');
+    const progressBar = document.getElementById('progressBar');
+    const form = document.getElementById('regForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successOverlay = document.getElementById('successOverlay');
 
-    // Fallback: remove loader after 6 seconds regardless
-    setTimeout(() => {
-        loader.classList.add('hidden');
-    }, 6000);
+    let currentStep = 0;
 
-    // Auto-resize iframe based on content (best-effort — Google Forms may block this cross-origin)
-    window.addEventListener('message', (e) => {
-        if (e.origin === 'https://docs.google.com' && e.data && e.data.height) {
-            iframe.style.minHeight = e.data.height + 'px';
+    function goTo(step) {
+        sections[currentStep].classList.remove('active');
+        stepTabs[currentStep].classList.remove('active');
+        stepTabs[currentStep].classList.add('done');
+
+        currentStep = step;
+
+        sections[currentStep].classList.add('active');
+        stepTabs[currentStep].classList.remove('done');
+        stepTabs[currentStep].classList.add('active');
+
+        const pct = [33, 66, 100][currentStep];
+        progressBar.style.width = pct + '%';
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validateSection1() {
+        const required = ['f_name', 'f_uid', 'f_dept', 'f_email', 'f_contact'];
+        let valid = true;
+        required.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el.value.trim()) {
+                el.style.borderColor = 'var(--red)';
+                valid = false;
+            } else {
+                el.style.borderColor = '';
+            }
+        });
+
+        const genderChecked = document.querySelector('input[name="entry.570413037"]:checked');
+        const boardingChecked = document.querySelector('input[name="entry.1101553007"]:checked');
+        if (!genderChecked || !boardingChecked) {
+            valid = false;
+            if (!genderChecked) alert('Please select your Gender.');
+            else if (!boardingChecked) alert('Please select your Boarding Status.');
         }
+        return valid;
+    }
+
+    document.getElementById('btn1Next').addEventListener('click', () => {
+        if (validateSection1()) goTo(1);
     });
+    document.getElementById('btn2Prev').addEventListener('click', () => goTo(0));
+    document.getElementById('btn2Next').addEventListener('click', () => goTo(2));
+    document.getElementById('btn3Prev').addEventListener('click', () => goTo(1));
+
+    // Live input border reset
+    document.querySelectorAll('.finput').forEach(el => {
+        el.addEventListener('input', () => { el.style.borderColor = ''; });
+    });
+
+    // Submit
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Submitting… <i class="fas fa-spinner fa-spin"></i>';
+
+        const formData = new FormData(form);
+        const params = new URLSearchParams();
+
+        // Handle multiple checkboxes with same name
+        const seen = {};
+        for (const [key, val] of formData.entries()) {
+            if (seen[key]) {
+                params.append(key, val);
+            } else {
+                params.append(key, val);
+                seen[key] = true;
+            }
+        }
+
+        fetch(FORM_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString()
+        })
+        .then(() => showSuccess())
+        .catch(() => showSuccess()); // no-cors always resolves, not rejects
+    });
+
+    function showSuccess() {
+        successOverlay.classList.add('active');
+    }
+
+    successOverlay.addEventListener('click', (e) => {
+        if (e.target === successOverlay) successOverlay.classList.remove('active');
+    });
+})();
 </script>
 </body>
 </html>
