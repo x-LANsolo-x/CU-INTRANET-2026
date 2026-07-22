@@ -596,10 +596,11 @@
 <div class="mega-menu blue-gradient"><div class="container"><div class="row g-0">
 <div class="col-xl-7"><h3 class="text-white">Our Student Entities</h3>
 <div class="institute-list"><ul class="list-unstyled step-first-menu hover-header-list ps-0">
-<li class="active"><a href="clubs.html">Student Clubs</a></li>
-<li><a href="communities.html">Student Communities</a></li>
-<li><a href="departmental-societies.html">Departmental Societies</a></li>
-<li><a href="professional-societies.html">Professional Societies</a></li>
+<li style="border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:8px;margin-bottom:8px;"><a href="explore.html" style="font-weight:800;color:var(--cu-yellow);"><i class="fas fa-compass" style="margin-right:6px;"></i>Explore All Entities</a></li>
+<li><a href="explore.html#clubs">Student Clubs</a></li>
+<li><a href="explore.html#communities">Student Communities</a></li>
+<li><a href="explore.html#departmental-societies">Departmental Societies</a></li>
+<li><a href="explore.html#professional-societies">Professional Societies</a></li>
 </ul></div></div>
 </div></div></div>
 </div>
@@ -608,10 +609,117 @@
 <!-- ======= PAGE CONTENT ======= -->
 <div class="m-wrapper">
 
-<!-- BANNER -->
-<div class="banner cult-banner" style="background: none; height: auto;">
-    <img alt="University Banner" class="img-fluid w-100" decoding="async" loading="eager" fetchpriority="high" src="logos/hersosection-5.webp" style="object-fit: cover; display: block;">
-</div>
+<!-- ======= HERO BANNER REDESIGN (Inspired by cuchd.in) ======= -->
+<section class="cuchd-hero" style="background: linear-gradient(135deg, #111 0%, #222 100%); color: #fff; padding: 5rem 0 6rem; position: relative; overflow: hidden; border-bottom: 5px solid #fbc710;">
+    <!-- Abstract subtle grid overlay -->
+    <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(circle at 80% 20%, rgba(227,30,36,0.15) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(251,199,16,0.08) 0%, transparent 50%); opacity: 0.8; z-index: 1;"></div>
+    
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row align-items-center g-5">
+            <!-- Left Side: Heading & Call to Actions -->
+            <div class="col-lg-6">
+                <!-- QS/Ranking badges at top -->
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <span style="background: rgba(227,30,36,0.2); border: 1px solid rgba(227,30,36,0.5); color: #fff; font-size: 0.78rem; font-weight: 700; padding: 6px 14px; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px;">QS World Ranking #1</span>
+                    <span style="background: rgba(251,199,16,0.15); border: 1px solid rgba(251,199,16,0.4); color: #fbc710; font-size: 0.78rem; font-weight: 700; padding: 6px 14px; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px;">NAAC A+ Grade</span>
+                </div>
+                
+                <!-- Main Headings -->
+                <h1 style="font-family: 'CircularStd', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; color:#fff;">
+                    #1 Co-Curricular <br/>
+                    <span style="color: #fbc710;">Ecosystem</span> in India
+                </h1>
+                <p style="font-size: 1.15rem; color: #ccc; line-height: 1.6; margin-bottom: 35px; max-width: 520px;">
+                    Empowering students through 80+ active clubs, global societies, and national platforms. Shape your leadership, drive innovation, and join the elite league of national achievers.
+                </p>
+                
+                <!-- CTA buttons matching cuchd.in style -->
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="explore.html" style="background: #e31e24; color: #fff; padding: 16px 32px; font-weight: 800; border-radius: 8px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; border: 2px solid #e31e24; text-decoration: none;" onmouseover="this.style.background='#fff'; this.style.color='#e31e24';" onmouseout="this.style.background='#e31e24'; this.style.color='#fff';">
+                        <i class="fas fa-compass"></i> Explore Entities
+                    </a>
+                    <a href="#hp-impact" style="background: transparent; color: #fff; padding: 16px 32px; font-weight: 800; border-radius: 8px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; border: 2px solid rgba(255,255,255,0.3); text-decoration: none;" onmouseover="this.style.borderColor='#fff'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'; this.style.background='transparent';">
+                        <i class="fas fa-chart-line"></i> View Placements/Wins
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right Side: Achievers Showcase Grid & Badges -->
+            <div class="col-lg-6">
+                <div class="position-relative" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                    <!-- Full-width visual banner container -->
+                    <div style="width: 100%; border-radius: 16px; overflow: hidden; border: 4px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+                        <img src="logos/hersosection-5.webp" alt="Chandigarh University Co-curriculars" style="width: 100%; height: auto; object-fit: cover; display: block; filter: brightness(0.95);">
+                    </div>
+                    
+                    <!-- Floating badge: Student Achievement (Formula Student / SIH) -->
+                    <div style="position: absolute; bottom: -20px; right: 20px; background: #fff; color: #111; border-radius: 12px; padding: 16px 20px; border-left: 6px solid #e31e24; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); max-width: 280px; z-index: 10;">
+                        <span style="display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: #e31e24; font-weight: 800; margin-bottom: 4px;">SIH National Winners</span>
+                        <h4 style="font-family: 'CircularStd', sans-serif; font-size: 0.95rem; font-weight: 900; margin: 0; color: #111; line-height: 1.2;">
+                            Team CU Hackers wins Rs. 1 Lakh cash prize at Smart India Hackathon
+                        </h4>
+                    </div>
+                    
+                    <!-- Floating badge 2: Student Achievement 2 (Formula Student Racing) -->
+                    <div style="position: absolute; top: -20px; left: -20px; background: #fff; color: #111; border-radius: 12px; padding: 14px 18px; border-left: 6px solid #fbc710; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); max-width: 250px; z-index: 10;">
+                        <span style="display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: #b45309; font-weight: 800; margin-bottom: 4px;">Formula Student India</span>
+                        <h4 style="font-family: 'CircularStd', sans-serif; font-size: 0.92rem; font-weight: 900; margin: 0; color: #111; line-height: 1.2;">
+                            Best Electric Racecar Design &amp; Performance
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======= RANKINGS & ACCOLADES STRIP (Inspired by cuchd.in) ======= -->
+<section style="background: #fbc710; padding: 1.5rem 0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); position: relative; z-index: 5;">
+    <div class="container">
+        <div class="row align-items-center justify-content-center g-4 text-center">
+            <!-- Rank 1 -->
+            <div class="col-6 col-lg-3" style="border-right: 1px solid rgba(0,0,0,0.15);">
+                <div style="display: inline-flex; align-items: center; gap: 12px; text-align: left;">
+                    <i class="fas fa-award" style="font-size: 2.2rem; color: #e31e24;"></i>
+                    <div>
+                        <h4 style="font-family:'CircularStd',sans-serif; font-size: 1.35rem; font-weight: 900; color: #111; margin:0; line-height:1;">NAAC A+</h4>
+                        <span style="font-size: 0.75rem; color: #444; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Highest Accreditation Grade</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Rank 2 -->
+            <div class="col-6 col-lg-3" style="border-right: 1px solid rgba(0,0,0,0.15);">
+                <div style="display: inline-flex; align-items: center; gap: 12px; text-align: left;">
+                    <i class="fas fa-trophy" style="font-size: 2.2rem; color: #e31e24;"></i>
+                    <div>
+                        <h4 style="font-family:'CircularStd',sans-serif; font-size: 1.35rem; font-weight: 900; color: #111; margin:0; line-height:1;">QS Rank #1</h4>
+                        <span style="font-size: 0.75rem; color: #444; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Private University in India</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Rank 3 -->
+            <div class="col-6 col-lg-3" style="border-right: 1px solid rgba(0,0,0,0.15);">
+                <div style="display: inline-flex; align-items: center; gap: 12px; text-align: left;">
+                    <i class="fas fa-graduation-cap" style="font-size: 2.2rem; color: #e31e24;"></i>
+                    <div>
+                        <h4 style="font-family:'CircularStd',sans-serif; font-size: 1.35rem; font-weight: 900; color: #111; margin:0; line-height:1;">NIRF Rank 29</h4>
+                        <span style="font-size: 0.75rem; color: #444; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Top Academic Institution</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Rank 4 -->
+            <div class="col-6 col-lg-3">
+                <div style="display: inline-flex; align-items: center; gap: 12px; text-align: left;">
+                    <i class="fas fa-lightbulb" style="font-size: 2.2rem; color: #e31e24;"></i>
+                    <div>
+                        <h4 style="font-family:'CircularStd',sans-serif; font-size: 1.35rem; font-weight: 900; color: #111; margin:0; line-height:1;">WURI Rank</h4>
+                        <span style="font-size: 0.75rem; color: #444; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Top Global Innovative Uni</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- INTRODUCTION -->
 <section class="hp-section bg-white" style="padding-top: 4.5rem; padding-bottom: 4rem; border-bottom: 1px solid #eee;">
@@ -663,44 +771,80 @@
         </style>
     </div>
 </section>
-<!-- STATS STRIP -->
-<section class="stats-strip" id="hp-impact" aria-label="Our Impact">
+<!-- ======= CO-CURRICULAR PLACEMENT & LAURELS SHOWCASE ======= -->
+<section class="stats-strip" id="hp-impact" aria-label="Our Impact" style="background: linear-gradient(135deg, #1e0506 0%, #111111 100%); padding: 6rem 0; border-top: 5px solid #e31e24; border-bottom: 5px solid #e31e24;">
     <div class="container">
-        <div class="wthree_pvt_title1 text-center mb-5">
-            <div class="box box_three position-relative" style="display: inline-block;">
-                <h2 class="w3pvt-title position-relative" style="font-family: 'CircularStd', sans-serif; color: #fff;">
-                    Numbers That Tell Our Story
+        <div class="row align-items-center g-5">
+            <!-- Left Side: Massive Laurels Stats -->
+            <div class="col-lg-6">
+                <span style="font-size:0.85rem; font-weight:700; color:#fbc710; letter-spacing:2px; text-transform:uppercase; display:block; margin-bottom:10px;">Achievements & Laurels</span>
+                <h2 style="font-family:'CircularStd',sans-serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight:900; color:#fff; line-height:1.2; margin-bottom:30px;">
+                    Records That Set The <br/><span style="color:#e31e24;">Standard of Excellence</span>
                 </h2>
-            </div>
-            <p style="color: var(--cu-yellow); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Our Impact</p>
-        </div>
-        <div class="row">
-            <div class="col-6 col-md-3">
-                <div class="stat-item">
-                    <span class="stat-number">4</span>
-                    <div class="stat-label">Entity Categories</div>
-                    <div class="stat-desc">Student Clubs &middot; Student Communities &middot; Departmental Societies &middot; Professional Societies</div>
+                
+                <div class="row g-4">
+                    <!-- Project Funding -->
+                    <div class="col-sm-6">
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius:12px; padding:25px 20px; border-left: 4px solid #fbc710;">
+                            <div style="font-size: 2.2rem; font-weight:900; color:#fbc710; font-family:'CircularStd',sans-serif; line-height:1;">Rs. 1.2 Cr</div>
+                            <div style="font-size: 0.9rem; font-weight:800; color:#fff; margin-top:8px;">Sanctioned Project Funding</div>
+                            <div style="font-size: 0.8rem; color:#aaa; margin-top:4px;">Supported by Chandigarh University for student innovations.</div>
+                        </div>
+                    </div>
+                    <!-- National Awards -->
+                    <div class="col-sm-6">
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius:12px; padding:25px 20px; border-left: 4px solid #e31e24;">
+                            <div style="font-size: 2.2rem; font-weight:900; color:#e31e24; font-family:'CircularStd',sans-serif; line-height:1;">250+</div>
+                            <div style="font-size: 0.9rem; font-weight:800; color:#fff; margin-top:8px;">National & Global Wins</div>
+                            <div style="font-size: 0.8rem; color:#aaa; margin-top:4px;">Across technical, hackathons, formula student & cultural meets.</div>
+                        </div>
+                    </div>
+                    <!-- Total Members -->
+                    <div class="col-sm-6">
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius:12px; padding:25px 20px; border-left: 4px solid #fbc710;">
+                            <div style="font-size: 2.2rem; font-weight:900; color:#fbc710; font-family:'CircularStd',sans-serif; line-height:1;">12,000+</div>
+                            <div style="font-size: 0.9rem; font-weight:800; color:#fff; margin-top:8px;">Active Engagement</div>
+                            <div style="font-size: 0.8rem; color:#aaa; margin-top:4px;">One of India's largest student activity networks.</div>
+                        </div>
+                    </div>
+                    <!-- Categories -->
+                    <div class="col-sm-6">
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius:12px; padding:25px 20px; border-left: 4px solid #e31e24;">
+                            <div style="font-size: 2.2rem; font-weight:900; color:#e31e24; font-family:'CircularStd',sans-serif; line-height:1;">80+</div>
+                            <div style="font-size: 0.9rem; font-weight:800; color:#fff; margin-top:8px;">Student Entities</div>
+                            <div style="font-size: 0.8rem; color:#aaa; margin-top:4px;">Providing structured co-curricular leadership channels.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-item">
-                    <span class="stat-number">12,000+</span>
-                    <div class="stat-label">Active Members</div>
-                    <div class="stat-desc">One of India&#39;s largest university-led student engagement ecosystems.</div>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <div class="stat-label">Events Every Year</div>
-                    <div class="stat-desc">Hackathons, workshops, conferences, competitions, cultural festivals, and leadership programs.</div>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-item">
-                    <span class="stat-number">80+</span>
-                    <div class="stat-label">Student Entities</div>
-                    <div class="stat-desc">A diverse network of Clubs, Communities, Departmental Societies, and Professional Chapters.</div>
+            
+            <!-- Right Side: Top Platforms & Chapters Collaborations -->
+            <div class="col-lg-6">
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius:16px; padding:40px; text-align:center;">
+                    <h4 style="font-family:'CircularStd',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:15px;">Official Chapters & Platforms</h4>
+                    <p style="font-size:0.9rem; color:#aaa; margin-bottom:35px;">Our student entities are affiliated with leading global organizations and compete at prestigious platforms:</p>
+                    
+                    <!-- Collaborator grid logos (styled minimally using fontawesome or text to match brand identity) -->
+                    <div class="row g-4 align-items-center justify-content-center text-white">
+                        <div class="col-4 mb-3">
+                            <div style="background:rgba(255,255,255,0.05); padding:18px 10px; border-radius:10px; font-weight:800; font-size:0.9rem; color:#fff; letter-spacing:1px; border: 1px solid rgba(255,255,255,0.1);"><i class="fas fa-terminal" style="color:#fbc710; margin-right:5px;"></i> IEEE</div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div style="background:rgba(255,255,255,0.05); padding:18px 10px; border-radius:10px; font-weight:800; font-size:0.9rem; color:#fff; letter-spacing:1px; border: 1px solid rgba(255,255,255,0.1);"><i class="fas fa-code" style="color:#e31e24; margin-right:5px;"></i> ACM</div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div style="background:rgba(255,255,255,0.05); padding:18px 10px; border-radius:10px; font-weight:800; font-size:0.9rem; color:#fff; letter-spacing:1px; border: 1px solid rgba(255,255,255,0.1);"><i class="fas fa-cogs" style="color:#fbc710; margin-right:5px;"></i> ASME</div>
+                        </div>
+                        <div class="col-4">
+                            <div style="background:rgba(255,255,255,0.05); padding:18px 10px; border-radius:10px; font-weight:800; font-size:0.9rem; color:#fff; letter-spacing:1px; border: 1px solid rgba(255,255,255,0.1);"><i class="fas fa-car" style="color:#e31e24; margin-right:5px;"></i> SAE INDIA</div>
+                        </div>
+                        <div class="col-4">
+                            <div style="background:rgba(255,255,255,0.05); padding:18px 10px; border-radius:10px; font-weight:800; font-size:0.9rem; color:#fff; letter-spacing:1px; border: 1px solid rgba(255,255,255,0.1);"><i class="fas fa-microphone" style="color:#fbc710; margin-right:5px;"></i> TEDx</div>
+                        </div>
+                        <div class="col-4">
+                            <div style="background:rgba(255,255,255,0.05); padding:18px 10px; border-radius:10px; font-weight:800; font-size:0.9rem; color:#fff; letter-spacing:1px; border: 1px solid rgba(255,255,255,0.1);"><i class="fas fa-laptop-code" style="color:#e31e24; margin-right:5px;"></i> SIH</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1046,22 +1190,22 @@
             <div class="col-lg-6">
                 <div style="background:#fff;border-radius:var(--radius-lg);padding:38px;box-shadow:var(--shadow-md);border:1px solid var(--cu-border);">
                     <h3 style="font-family:'CircularStd',sans-serif;font-size:1.35rem;font-weight:800;color:var(--cu-black);margin-bottom:22px;border-bottom:2px solid var(--cu-yellow);padding-bottom:12px;">Explore By Category</h3>
-                    <a class="category-row" href="clubs.html" id="category-clubs">
+                    <a class="category-row" href="explore.html#clubs" id="category-clubs">
                         <div style="width:44px;height:44px;background:rgba(251,199,16,0.14);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#b45309;font-size:18px;flex-shrink:0;"><i class="fas fa-star"></i></div>
                         <div><div style="font-weight:800;color:var(--cu-black);font-size:0.95rem;font-family:'CircularStd',sans-serif;">Student Clubs</div><div style="font-size:0.8rem;color:var(--cu-muted);">Technology, Arts, Sports, Culture &amp; more</div></div>
                         <i class="fas fa-chevron-right" style="margin-left:auto;color:var(--cu-muted);font-size:11px;"></i>
                     </a>
-                    <a class="category-row" href="communities.html" id="category-communities">
+                    <a class="category-row" href="explore.html#communities" id="category-communities">
                         <div style="width:44px;height:44px;background:rgba(227,30,36,0.10);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--cu-blue);font-size:18px;flex-shrink:0;"><i class="fas fa-people-group"></i></div>
                         <div><div style="font-weight:800;color:var(--cu-black);font-size:0.95rem;font-family:'CircularStd',sans-serif;">Student Communities</div><div style="font-size:0.8rem;color:var(--cu-muted);">Culture, Diversity, Social Causes &amp; Belonging</div></div>
                         <i class="fas fa-chevron-right" style="margin-left:auto;color:var(--cu-muted);font-size:11px;"></i>
                     </a>
-                    <a class="category-row" href="departmental-societies.html" id="category-dept">
+                    <a class="category-row" href="explore.html#departmental-societies" id="category-dept">
                         <div style="width:44px;height:44px;background:rgba(17,17,17,0.07);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--cu-black);font-size:18px;flex-shrink:0;"><i class="fas fa-flask"></i></div>
                         <div><div style="font-weight:800;color:var(--cu-black);font-size:0.95rem;font-family:'CircularStd',sans-serif;">Departmental Societies</div><div style="font-size:0.8rem;color:var(--cu-muted);">Academic workshops, seminars &amp; research</div></div>
                         <i class="fas fa-chevron-right" style="margin-left:auto;color:var(--cu-muted);font-size:11px;"></i>
                     </a>
-                    <a class="category-row" href="professional-societies.html" id="category-prof">
+                    <a class="category-row" href="explore.html#professional-societies" id="category-prof">
                         <div style="width:44px;height:44px;background:rgba(227,30,36,0.10);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--cu-blue);font-size:18px;flex-shrink:0;"><i class="fas fa-globe"></i></div>
                         <div><div style="font-weight:800;color:var(--cu-black);font-size:0.95rem;font-family:'CircularStd',sans-serif;">Professional Societies</div><div style="font-size:0.8rem;color:var(--cu-muted);">IEEE, ACM, ASME, SAE, CSI &amp; global chapters</div></div>
                         <i class="fas fa-chevron-right" style="margin-left:auto;color:var(--cu-muted);font-size:11px;"></i>
@@ -1082,7 +1226,7 @@
             like-minded peers, participate in transformative experiences, and become part of a
             culture that celebrates leadership, innovation, collaboration, and excellence.
         </p>
-        <a class="cta-btn-primary" href="clubs.html" id="cta-explore-btn">
+        <a class="cta-btn-primary" href="explore.html" id="cta-explore-btn">
             <i class="fas fa-compass"></i> Explore All Student Entities
         </a>
     </div>
