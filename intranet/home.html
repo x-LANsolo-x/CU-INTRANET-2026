@@ -2004,28 +2004,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // ── LENIS SMOOTH SCROLL ──
-            const lenis = new Lenis({
-                duration: 1.2,
-                easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                smooth: true,
-                smoothTouch: false
-            });
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
-
-            // ── AOS ANIMATIONS ──
-            AOS.init({
-                duration: 800,
-                easing: 'ease-out-cubic',
-                once: true,
-                offset: 100
-            });
-
-            // ── WELCOME LETTER OVERLAY SCROLL LOCK ──
+            // ── WELCOME LETTER OVERLAY SCROLL LOCK & DISMISS ──
             const welcomePopup = document.getElementById('welcomePopup');
             const welcomeMsgBody = document.getElementById('welcomeMsgBody');
             const continueToSiteBtn = document.getElementById('continueToSiteBtn');
@@ -2036,41 +2015,52 @@
             // Prevent background scrolling while modal is open
             document.body.style.overflow = 'hidden';
 
-            welcomeMsgBody.addEventListener('scroll', () => {
-                const scrolledToBottom = welcomeMsgBody.scrollTop + welcomeMsgBody.clientHeight >= welcomeMsgBody.scrollHeight - 18;
-                if (scrolledToBottom) {
-                    continueToSiteBtn.classList.add('enabled');
-                    continueToSiteBtn.disabled = false;
-                    scrollIndicator.style.opacity = '0';
-                    scrollIndicator.textContent = '✓ Ready to continue';
-                    scrollIndicator.style.color = '#C9A24B';
-                    gsap.to(scrollIndicator, { opacity: 1, duration: 0.3 });
-                }
-            });
-
-            function closeSplash() {
-                welcomePopup.classList.add('fade-out');
-                document.body.style.overflow = 'auto';
-                setTimeout(() => {
-                    welcomePopup.style.display = 'none';
-                    // Show VC floating bubble
-                    openWelcomeLetter.classList.add('active');
-                    // Trigger hero animations
-                    animateHeroContent();
-                }, 500);
+            if (welcomeMsgBody) {
+                welcomeMsgBody.addEventListener('scroll', () => {
+                    const scrolledToBottom = welcomeMsgBody.scrollTop + welcomeMsgBody.clientHeight >= welcomeMsgBody.scrollHeight - 25;
+                    if (scrolledToBottom && continueToSiteBtn) {
+                        continueToSiteBtn.classList.add('enabled');
+                        continueToSiteBtn.disabled = false;
+                        if (scrollIndicator) {
+                            scrollIndicator.style.opacity = '0';
+                            scrollIndicator.textContent = '✓ Ready to continue';
+                            scrollIndicator.style.color = '#C9A24B';
+                            if (typeof gsap !== 'undefined') {
+                                gsap.to(scrollIndicator, { opacity: 1, duration: 0.3 });
+                            } else {
+                                scrollIndicator.style.opacity = '1';
+                            }
+                        }
+                    }
+                });
             }
 
-            continueToSiteBtn.addEventListener('click', closeSplash);
-            closeWelcomePopup.addEventListener('click', closeSplash);
+            function closeSplash() {
+                if (welcomePopup) {
+                    welcomePopup.classList.add('fade-out');
+                    document.body.style.overflow = 'auto';
+                    setTimeout(() => {
+                        welcomePopup.style.display = 'none';
+                        if (openWelcomeLetter) {
+                            openWelcomeLetter.classList.add('active');
+                        }
+                        animateHeroContent();
+                    }, 500);
+                }
+            }
 
-            // Floating trigger to reopen VC welcome letter
-            openWelcomeLetter.addEventListener('click', () => {
-                welcomePopup.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                setTimeout(() => {
-                    welcomePopup.classList.remove('fade-out');
-                }, 10);
-            });
+            if (continueToSiteBtn) continueToSiteBtn.addEventListener('click', closeSplash);
+            if (closeWelcomePopup) closeWelcomePopup.addEventListener('click', closeSplash);
+
+            if (openWelcomeLetter && welcomePopup) {
+                openWelcomeLetter.addEventListener('click', () => {
+                    welcomePopup.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(() => {
+                        welcomePopup.classList.remove('fade-out');
+                    }, 10);
+                });
+            }
 
             // ── HERO FOREGROUND GSAP LOAD ANIMATION ──
             function animateHeroContent() {
@@ -2094,13 +2084,41 @@
                 }
             }
 
+            // ── LENIS SMOOTH SCROLL ──
+            let lenis;
+            if (typeof Lenis !== 'undefined') {
+                lenis = new Lenis({
+                    duration: 1.2,
+                    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    smooth: true,
+                    smoothTouch: false
+                });
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+            }
+
+            // ── AOS ANIMATIONS ──
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-out-cubic',
+                    once: true,
+                    offset: 100
+                });
+            }
+
             // ── STICKY HEADER & NAV TRANSITION ──
             const mainHeader = document.getElementById('mainHeader');
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 80) {
-                    mainHeader.classList.add('scrolled');
-                } else {
-                    mainHeader.classList.remove('scrolled');
+                if (mainHeader) {
+                    if (window.scrollY > 80) {
+                        mainHeader.classList.add('scrolled');
+                    } else {
+                        mainHeader.classList.remove('scrolled');
+                    }
                 }
             });
 
@@ -2110,24 +2128,26 @@
             const dropdownToggle = document.querySelector('.dropdown > a');
             const dropdownParent = document.querySelector('.dropdown');
 
-            hamburgerMenu.addEventListener('click', () => {
-                hamburgerMenu.classList.toggle('active');
-                mainNav.classList.toggle('active');
-            });
+            if (hamburgerMenu && mainNav) {
+                hamburgerMenu.addEventListener('click', () => {
+                    hamburgerMenu.classList.toggle('active');
+                    mainNav.classList.toggle('active');
+                });
+            }
 
-            // Mobile dropdown click toggle
-            dropdownToggle.addEventListener('click', (e) => {
-                if (window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    dropdownParent.classList.toggle('active');
-                }
-            });
+            if (dropdownToggle && dropdownParent) {
+                dropdownToggle.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 1024) {
+                        e.preventDefault();
+                        dropdownParent.classList.toggle('active');
+                    }
+                });
+            }
 
-            // Close mobile menu on clicking links
             const menuLinks = document.querySelectorAll('.menu li a:not(javascript:void(0))');
             menuLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    if (window.innerWidth <= 1024) {
+                    if (window.innerWidth <= 1024 && hamburgerMenu && mainNav) {
                         hamburgerMenu.classList.remove('active');
                         mainNav.classList.remove('active');
                     }
@@ -2135,55 +2155,63 @@
             });
 
             // ── HIGHLIGHTS SWIPER CAROUSEL ──
-            new Swiper('.highlights-swiper-container', {
-                slidesPerView: 1.2,
-                spaceBetween: 24,
-                centeredSlides: false,
-                autoplay: {
-                    delay: 4500,
-                    disableOnInteraction: false,
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2.2,
+            if (typeof Swiper !== 'undefined') {
+                new Swiper('.highlights-swiper-container', {
+                    slidesPerView: 1.2,
+                    spaceBetween: 24,
+                    centeredSlides: false,
+                    autoplay: {
+                        delay: 4500,
+                        disableOnInteraction: false,
                     },
-                    1200: {
-                        slidesPerView: 3,
-                    }
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-next',
-                    prevEl: '.swiper-prev',
-                },
-            });
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2.2,
+                        },
+                        1200: {
+                            slidesPerView: 3,
+                        }
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-next',
+                        prevEl: '.swiper-prev',
+                    },
+                });
+            }
 
             // ── FAQ ACCORDION TRANSITION ──
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 const header = item.querySelector('.faq-q');
-                header.addEventListener('click', () => {
-                    const isOpen = item.classList.contains('open');
-                    
-                    // Close all opened items
-                    faqItems.forEach(i => i.classList.remove('open'));
-                    
-                    if (!isOpen) {
-                        item.classList.add('open');
-                    }
-                });
+                if (header) {
+                    header.addEventListener('click', () => {
+                        const isOpen = item.classList.contains('open');
+                        faqItems.forEach(i => i.classList.remove('open'));
+                        if (!isOpen) {
+                            item.classList.add('open');
+                        }
+                    });
+                }
             });
 
             // Scroll down chevron link
-            document.getElementById('scrollToIntro').addEventListener('click', () => {
-                const introEl = document.getElementById('intro');
-                if (introEl) {
-                    lenis.scrollTo(introEl, { duration: 1.2 });
-                }
-            });
+            const scrollToIntro = document.getElementById('scrollToIntro');
+            if (scrollToIntro) {
+                scrollToIntro.addEventListener('click', () => {
+                    const introEl = document.getElementById('intro');
+                    if (introEl) {
+                        if (lenis) {
+                            lenis.scrollTo(introEl, { duration: 1.2 });
+                        } else {
+                            introEl.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            }
         });
     </script>
 </body>
