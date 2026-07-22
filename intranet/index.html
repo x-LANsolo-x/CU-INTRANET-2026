@@ -1875,6 +1875,7 @@
     /* ── HERO IMAGE CARD STASH & SWIPE TRANSITION ── */
     const imgs = document.querySelectorAll('.hero-img-grid img');
     let cur = 0;
+    let swipeCount = 0; // Counter to track and alternate swipe directions
     if (imgs.length) {
         if (typeof gsap !== 'undefined') {
             // Initial positioning of top 3 cards in the deck
@@ -1893,10 +1894,16 @@
                 const third = imgs[(cur + 1) % imgs.length];
                 const fourth = imgs[(cur + 2) % imgs.length];
                 
-                // Swipe out current top card (flick to right)
+                // Alternate direction: even index swipes left, odd index swipes right
+                const swipeLeft = (swipeCount % 2 === 0);
+                const targetX = swipeLeft ? '-125%' : '125%';
+                const targetRot = swipeLeft ? -12 : 12;
+                swipeCount++;
+                
+                // Swipe out current top card (flick left or right)
                 gsap.to(prev, {
-                    x: '125%',
-                    rotation: 12,
+                    x: targetX,
+                    rotation: targetRot,
                     opacity: 0,
                     duration: 0.85,
                     ease: 'power2.inOut',
