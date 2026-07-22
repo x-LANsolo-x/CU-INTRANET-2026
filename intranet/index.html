@@ -611,37 +611,45 @@
         .ov-card {
             background: var(--white);
             border-radius: var(--radius-md);
-            padding: 22px 24px;
+            padding: 0;
             display: flex;
-            align-items: center;
-            gap: 0;
+            align-items: stretch;
             box-shadow: var(--shadow-xs);
             border: 1px solid var(--border);
             transition: var(--tr-med);
+            overflow: hidden;
         }
         .ov-card:hover {
             transform: translateX(6px);
             box-shadow: var(--shadow-sm);
-            gap: 18px;
             border-color: rgba(227,27,35,0.2);
         }
-        .ov-icon {
-            width: 0; height: 52px;
-            border-radius: var(--radius-sm);
-            background: rgba(227,27,35,0.08);
-            display: flex; align-items: center; justify-content: center;
+        .ov-img-wrap {
+            width: 130px;
+            position: relative;
             flex-shrink: 0;
             overflow: hidden;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: var(--tr-med);
+            background: var(--cream2);
         }
-        .ov-card:hover .ov-icon { width: 52px; opacity: 1; transform: scale(1); }
-        .ov-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+        .ov-img-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.7s var(--ease-spring);
+        }
+        .ov-card:hover .ov-img-wrap img {
+            transform: scale(1.07);
+        }
+        .ov-card-content {
+            padding: 18px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+        }
         .ov-card h4 {
             font-family: var(--font-head);
             font-size: 15px; font-weight: 700;
             margin-bottom: 5px;
+            color: var(--black);
         }
         .ov-card p { font-size: 13px; color: var(--grey); line-height: 1.55; }
 
@@ -1348,29 +1356,37 @@
             </div>
             <div class="overview-visual">
                 <div class="ov-card">
-                    <div class="ov-icon"><img src="media/Broken console/Screenshot From 2026-05-19 10-51-36.png" alt="icon" loading="lazy"></div>
-                    <div>
+                    <div class="ov-img-wrap">
+                        <img src="media/Broken console/Screenshot From 2026-05-19 10-51-36.png" alt="Governance" loading="lazy">
+                    </div>
+                    <div class="ov-card-content">
                         <h4>Student-Led Governance</h4>
                         <p>Students plan events, manage operations, coordinate teams, and make strategic decisions.</p>
                     </div>
                 </div>
                 <div class="ov-card">
-                    <div class="ov-icon"><img src="media/Broken console/Screenshot From 2026-05-19 10-51-24.png" alt="icon" loading="lazy"></div>
-                    <div>
+                    <div class="ov-img-wrap">
+                        <img src="media/Broken console/Screenshot From 2026-05-19 10-51-24.png" alt="Mentorship" loading="lazy">
+                    </div>
+                    <div class="ov-card-content">
                         <h4>Faculty Mentorship</h4>
                         <p>Dedicated Faculty Champions provide guidance, academic support, and quality assurance.</p>
                     </div>
                 </div>
                 <div class="ov-card">
-                    <div class="ov-icon"><img src="media/UpCycle/4b2e8bd0-98a0-4445-b1ff-ff4411698217.png" alt="icon" loading="lazy"></div>
-                    <div>
+                    <div class="ov-img-wrap">
+                        <img src="media/UpCycle/4b2e8bd0-98a0-4445-b1ff-ff4411698217.png" alt="Learning" loading="lazy">
+                    </div>
+                    <div class="ov-card-content">
                         <h4>Experiential Learning</h4>
                         <p>Structured annual calendars with hackathons, competitions, workshops, and industry interactions.</p>
                     </div>
                 </div>
                 <div class="ov-card">
-                    <div class="ov-icon"><img src="media/Broken console/Screenshot From 2026-05-19 10-50-30.png" alt="icon" loading="lazy"></div>
-                    <div>
+                    <div class="ov-img-wrap">
+                        <img src="media/Broken console/Screenshot From 2026-05-19 10-50-30.png" alt="Achievement" loading="lazy">
+                    </div>
+                    <div class="ov-card-content">
                         <h4>Recognition &amp; Achievement</h4>
                         <p>Official certifications, co-curricular credits, trophies, and institutional recognition.</p>
                     </div>
