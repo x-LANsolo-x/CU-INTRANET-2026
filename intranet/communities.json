@@ -1,0 +1,75 @@
+[
+  {
+    "id": "engineering-community",
+    "title": "Engineering Community",
+    "category": "Social Impact & Community Development & Community Development",
+    "categories": [
+      "CSE"
+    ],
+    "shortDesc": "Official Communitie under CSE.",
+    "longDesc": "The Engineering Community is an officially recognized Communitie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Not Assigned",
+    "contact": "N/A",
+    "phone": "N/A",
+    "members": "150+",
+    "owner": "CSE",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "ai-alliance-chandigarh-university-community",
+    "title": "AI-ALLIANCE CHANDIGARH UNIVERSITY COMMUNITY",
+    "category": "Social Impact & Community Development & Community Development",
+    "categories": [
+      "AIT CSE"
+    ],
+    "shortDesc": "Official Communitie under AIT CSE.",
+    "longDesc": "The AI-ALLIANCE CHANDIGARH UNIVERSITY COMMUNITY is an officially recognized Communitie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Er. Reshma",
+    "contact": "reshma.e4036@cumail.in",
+    "phone": "7888809322",
+    "members": "150+",
+    "owner": "AIT CSE",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "cbmp-chandigarh-university-community",
+    "title": "CBMP CHANDIGARH UNIVERSITY COMMUNITY",
+    "category": "Social Impact & Community Development & Community Development",
+    "categories": [
+      "USB",
+      "MBA"
+    ],
+    "shortDesc": "Official Communitie under MBA .",
+    "longDesc": "The CBMP CHANDIGARH UNIVERSITY COMMUNITY is an officially recognized Communitie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr Pardeep",
+    "contact": "N/A",
+    "phone": "9988006454",
+    "members": "150+",
+    "owner": "MBA",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "madhyastha-chandigarh-university-community",
+    "title": "MADHYASTHA CHANDIGARH UNIVERSITY COMMUNITY",
+    "category": "Social Impact & Community Development & Community Development",
+    "categories": [
+      "UILS"
+    ],
+    "shortDesc": "Official Communitie under UILS.",
+    "longDesc": "The MADHYASTHA CHANDIGARH UNIVERSITY COMMUNITY is an officially recognized Communitie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Prof. Seema Gupta",
+    "contact": "seema.e11622@cumail.in",
+    "phone": "9779059393",
+    "members": "150+",
+    "owner": "UILS",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  }
+]

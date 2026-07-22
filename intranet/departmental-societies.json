@@ -1,0 +1,1071 @@
+[
+  {
+    "id": "genztech-department-society",
+    "title": "GENZTECH DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE",
+      "ENGINEERING FOUNDATION 1"
+    ],
+    "shortDesc": "Official Departmental Societie under ENGINEERING FOUNDATION 1.",
+    "longDesc": "The GENZTECH DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms. Shivani Kwatra",
+    "contact": "shivani.e15367@cumail.in",
+    "phone": "8168213915",
+    "members": "150+",
+    "owner": "ENGINEERING FOUNDATION 1",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "minded-peers-department-society",
+    "title": "MINDED PEERS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE",
+      "ENGINEERING FOUNDATION 2"
+    ],
+    "shortDesc": "Official Departmental Societie under ENGINEERING FOUNDATION 2.",
+    "longDesc": "The MINDED PEERS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Kanika Rana",
+    "contact": "kanika.e16532@cumail.in",
+    "phone": "8264613173",
+    "members": "150+",
+    "owner": "ENGINEERING FOUNDATION 2",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "sdg-department-society",
+    "title": "SDG DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE",
+      "ENGINEERING FOUNDATION 3"
+    ],
+    "shortDesc": "Official Departmental Societie under ENGINEERING FOUNDATION 3.",
+    "longDesc": "The SDG DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr.Kamaldeep Kaur",
+    "contact": "kamaldeep.uis@cumail.in",
+    "phone": "9814498707",
+    "members": "150+",
+    "owner": "ENGINEERING FOUNDATION 3",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "terabyte-department-society",
+    "title": "TERABYTE DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE",
+      "ENGINEERING FOUNDATION 4"
+    ],
+    "shortDesc": "Official Departmental Societie under ENGINEERING FOUNDATION 4.",
+    "longDesc": "The TERABYTE DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms. Priyanka Rawat",
+    "contact": "priyanka.e10413@cumail.in",
+    "phone": "7455056130",
+    "members": "150+",
+    "owner": "ENGINEERING FOUNDATION 4",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "emergingsociety-chandigarh-university-department",
+    "title": "EMERGINGSOCIETY CHANDIGARH UNIVERSITY DEPARTMENT",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE",
+      "ENGINEERING FOUNDATION 5"
+    ],
+    "shortDesc": "Official Departmental Societie under ENGINEERING FOUNDATION 5.",
+    "longDesc": "The EMERGINGSOCIETY CHANDIGARH UNIVERSITY DEPARTMENT is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Er. Deepa Kumari",
+    "contact": "deepa.e9647@cumail.in",
+    "phone": "9459330206",
+    "members": "150+",
+    "owner": "ENGINEERING FOUNDATION 5",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "spardha-department-society",
+    "title": "SPARDHA DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CSE",
+      "ME",
+      "CSE"
+    ],
+    "shortDesc": "Official Departmental Societie under ME - CSE.",
+    "longDesc": "The SPARDHA DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Richa Sharma",
+    "contact": "Richa.e5774@cumail.in",
+    "phone": "9815152736",
+    "members": "150+",
+    "owner": "ME - CSE",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "research-academia-department-society",
+    "title": "RESEARCH-ACADEMIA DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CSE",
+      "CSE",
+      "2ND YEAR"
+    ],
+    "shortDesc": "Official Departmental Societie under CSE-2ND YEAR.",
+    "longDesc": "The RESEARCH-ACADEMIA DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Er. Dilshad Kaur",
+    "contact": "dilshad.e13682@cumail.in",
+    "phone": "9877529734",
+    "members": "150+",
+    "owner": "CSE-2ND YEAR",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "technophilies-department-society",
+    "title": "TECHNOPHILIES DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CSE",
+      "CSE",
+      "3RD YEAR"
+    ],
+    "shortDesc": "Official Departmental Societie under CSE-3RD YEAR.",
+    "longDesc": "The TECHNOPHILIES DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "ER. Jyoti Rani",
+    "contact": "jyoti.e13835@cumail.in",
+    "phone": "9530674321",
+    "members": "150+",
+    "owner": "CSE-3RD YEAR",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "innovate-tech-department-society",
+    "title": "INNOVATE TECH DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CSE",
+      "CSE",
+      "4TH YEAR"
+    ],
+    "shortDesc": "Official Departmental Societie under CSE-4TH YEAR.",
+    "longDesc": "The INNOVATE TECH DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Er. Vishal Sharma",
+    "contact": "vishal.e17978@cumail.in",
+    "phone": "7889011929",
+    "members": "150+",
+    "owner": "CSE-4TH YEAR",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "aero-nova-department-society",
+    "title": "AERO NOVA DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CORE",
+      "AEROSPACE ENG."
+    ],
+    "shortDesc": "Official Departmental Societie under AEROSPACE ENG..",
+    "longDesc": "The AERO NOVA DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Er. Karnilian Debbarma",
+    "contact": "karnilian.e19462@cumail.in",
+    "phone": "9362971892",
+    "members": "150+",
+    "owner": "AEROSPACE ENG.",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "mechminds-department-society",
+    "title": "MECHMINDS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CORE",
+      "MECHANICAL ENG."
+    ],
+    "shortDesc": "Official Departmental Societie under MECHANICAL ENG..",
+    "longDesc": "The MECHMINDS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. H S Lubana",
+    "contact": "brandingcoordinator.me@cumail.in",
+    "phone": "9463821870",
+    "members": "150+",
+    "owner": "MECHANICAL ENG.",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "mechatronics-engineering-department-society",
+    "title": "MECHATRONICS ENGINEERING DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CORE",
+      "MECHATRONICS ENG."
+    ],
+    "shortDesc": "Official Departmental Societie under MECHATRONICS ENG..",
+    "longDesc": "The MECHATRONICS ENGINEERING DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Anuj Gupta",
+    "contact": "anuj.e13929@cumail.in",
+    "phone": "8284996416",
+    "members": "150+",
+    "owner": "MECHATRONICS ENG.",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "automobile-engineers-department-society",
+    "title": "AUTOMOBILE ENGINEERS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CORE",
+      "AUTOMOBILE ENG."
+    ],
+    "shortDesc": "Official Departmental Societie under AUTOMOBILE ENG..",
+    "longDesc": "The AUTOMOBILE ENGINEERS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Balwant Singh",
+    "contact": "balwant.e1941@cumail.in",
+    "phone": "9988443001",
+    "members": "150+",
+    "owner": "AUTOMOBILE ENG.",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "society-of-vidyut-engineers-department-society",
+    "title": "SOCIETY OF VIDYUT ENGINEERS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CORE",
+      "ELECTRICAL ENG."
+    ],
+    "shortDesc": "Official Departmental Societie under ELECTRICAL ENG..",
+    "longDesc": "The SOCIETY OF VIDYUT ENGINEERS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Sarbjeet kaur",
+    "contact": "sarbjeet.ee@cumail.in",
+    "phone": "9872764863",
+    "members": "150+",
+    "owner": "ELECTRICAL ENG.",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "robotics-and-automation-department-society",
+    "title": "ROBOTICS AND AUTOMATION DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CORE",
+      "ELEC AND COMM. ENG."
+    ],
+    "shortDesc": "Official Departmental Societie under ELEC AND COMM. ENG..",
+    "longDesc": "The ROBOTICS AND AUTOMATION DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Bimal Raj Dutta",
+    "contact": "bimal.e12183@cumail.in",
+    "phone": "9719519830",
+    "members": "150+",
+    "owner": "ELEC AND COMM. ENG.",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "bio-innovator-department-society",
+    "title": "BIO INNOVATOR DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CORE",
+      "BIOTECH & FOOD ENG."
+    ],
+    "shortDesc": "Official Departmental Societie under BIOTECH & FOOD ENG..",
+    "longDesc": "The BIO INNOVATOR DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Ragini Raghav",
+    "contact": "ragini.e18462@cumail.in",
+    "phone": "8076690370",
+    "members": "150+",
+    "owner": "BIOTECH & FOOD ENG.",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "soch-society-of-chemical-engineering",
+    "title": "SOCH SOCIETY OF CHEMICAL ENGINEERING",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CORE",
+      "CHEMICAL ENG."
+    ],
+    "shortDesc": "Official Departmental Societie under CHEMICAL ENG..",
+    "longDesc": "The SOCH SOCIETY OF CHEMICAL ENGINEERING is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Navneet Kaur",
+    "contact": "navneet.chemical@cumail.in",
+    "phone": "8968588799",
+    "members": "150+",
+    "owner": "CHEMICAL ENG.",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "nav-nirman-department-society",
+    "title": "NAV NIRMAN DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIE-CORE",
+      "CIVIL ENG."
+    ],
+    "shortDesc": "Official Departmental Societie under CIVIL ENG..",
+    "longDesc": "The NAV NIRMAN DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Er. Prince Sharma",
+    "contact": "prince.e2573@cumail.in",
+    "phone": "7508404608",
+    "members": "150+",
+    "owner": "CIVIL ENG.",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "technexus-chandigarh-university-department",
+    "title": "TECHNEXUS CHANDIGARH UNIVERSITY DEPARTMENT",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "AIT",
+      "CSE"
+    ],
+    "shortDesc": "Official Departmental Societie under AIT-CSE.",
+    "longDesc": "The TECHNEXUS CHANDIGARH UNIVERSITY DEPARTMENT is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Mr.Anil Manohar Dogra",
+    "contact": "anil.e13431@cumail.in",
+    "phone": "8264017033",
+    "members": "150+",
+    "owner": "AIT-CSE",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "digital-wizard-department-society",
+    "title": "DIGITAL WIZARD DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIC",
+      "UIC_BCA"
+    ],
+    "shortDesc": "Official Departmental Societie under UIC_BCA.",
+    "longDesc": "The DIGITAL WIZARD DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms. Shuchi Sharma",
+    "contact": "cocurricular.bca@cumail.in",
+    "phone": "9780174757",
+    "members": "150+",
+    "owner": "UIC_BCA",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "digital-innovators-department-society",
+    "title": "DIGITAL INNOVATORS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIC",
+      "UIC_MCA"
+    ],
+    "shortDesc": "Official Departmental Societie under UIC_MCA.",
+    "longDesc": "The DIGITAL INNOVATORS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms. Prabjot Kaur",
+    "contact": "cocurricular.mca@cumail.in",
+    "phone": "7888941056",
+    "members": "150+",
+    "owner": "UIC_MCA",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "association-of-biologists-department-society",
+    "title": "ASSOCIATION OF BIOLOGISTS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIBT",
+      "BIO",
+      "SCIENCES"
+    ],
+    "shortDesc": "Official Departmental Societie under BIO-SCIENCES.",
+    "longDesc": "The ASSOCIATION OF BIOLOGISTS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Kamal Vatika",
+    "contact": "kamal.e13558@cumail.in",
+    "phone": "7018640812",
+    "members": "150+",
+    "owner": "BIO-SCIENCES",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "association-of-biotechnologists-department-society",
+    "title": "ASSOCIATION OF BIOTECHNOLOGISTS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIBT",
+      "BIO",
+      "TECHNOLOGY"
+    ],
+    "shortDesc": "Official Departmental Societie under BIO-TECHNOLOGY.",
+    "longDesc": "The ASSOCIATION OF BIOTECHNOLOGISTS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Swaati Sharma",
+    "contact": "swaati.e10067@cumail.in",
+    "phone": "8005744959",
+    "members": "150+",
+    "owner": "BIO-TECHNOLOGY",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "gcs-department-society",
+    "title": "GCS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIS",
+      "CHEMISTRY"
+    ],
+    "shortDesc": "Official Departmental Societie under CHEMISTRY.",
+    "longDesc": "The GCS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr.Deepika Jamwal",
+    "contact": "deepika.e15926@cumail.in",
+    "phone": "7814689414",
+    "members": "150+",
+    "owner": "CHEMISTRY",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "cu-mathematical-department-society",
+    "title": "CU MATHEMATICAL DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIS",
+      "MATHEMATICS"
+    ],
+    "shortDesc": "Official Departmental Societie under MATHEMATICS.",
+    "longDesc": "The CU MATHEMATICAL DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Sonia Bhalla",
+    "contact": "sonia.e8843@cumail.in",
+    "phone": "9876125505",
+    "members": "150+",
+    "owner": "MATHEMATICS",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "physics-department-society",
+    "title": "PHYSICS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIS",
+      "PHYSICS"
+    ],
+    "shortDesc": "Official Departmental Societie under PHYSICS.",
+    "longDesc": "The PHYSICS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr.Shivani Singla",
+    "contact": "shivani.e11423@cumail.in",
+    "phone": "9915735656",
+    "members": "150+",
+    "owner": "PHYSICS",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "eyecare-department-society",
+    "title": "EYECARE DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIAHS",
+      "OPTOMETRY"
+    ],
+    "shortDesc": "Official Departmental Societie under OPTOMETRY.",
+    "longDesc": "The EYECARE DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms. Shubhanjli Sharma",
+    "contact": "shubhanjli.e19383@cumail.in",
+    "phone": "7876927431",
+    "members": "150+",
+    "owner": "OPTOMETRY",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "physio-department-society",
+    "title": "PHYSIO DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIAHS",
+      "PHYSIOTHERAPY"
+    ],
+    "shortDesc": "Official Departmental Societie under PHYSIOTHERAPY.",
+    "longDesc": "The PHYSIO DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms Akrishti",
+    "contact": "akrishti.e17966@cumail.in",
+    "phone": "9877681368",
+    "members": "150+",
+    "owner": "PHYSIOTHERAPY",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "forensics-department-society",
+    "title": "FORENSICS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIAHS",
+      "FORENSIC SCIENCE"
+    ],
+    "shortDesc": "Official Departmental Societie under FORENSIC SCIENCE.",
+    "longDesc": "The FORENSICS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Sakshi Manhas",
+    "contact": "sakshi.e14722@cumail.in",
+    "phone": "8219324387",
+    "members": "150+",
+    "owner": "FORENSIC SCIENCE",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "learnoverse-department-society",
+    "title": "LEARNOVERSE DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIAHS",
+      "MEDICAL LAB TECHNOLOGY"
+    ],
+    "shortDesc": "Official Departmental Societie under MEDICAL LAB TECHNOLOGY.",
+    "longDesc": "The LEARNOVERSE DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms. Saristhi Mishra",
+    "contact": "saristhi.e17979@cumail.in",
+    "phone": "8219045940",
+    "members": "150+",
+    "owner": "MEDICAL LAB TECHNOLOGY",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "healthy-bites-department-society",
+    "title": "HEALTHY BITES DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIAHS",
+      "NUTRITION & DIETETICS"
+    ],
+    "shortDesc": "Official Departmental Societie under NUTRITION & DIETETICS .",
+    "longDesc": "The HEALTHY BITES DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Kanishka singh",
+    "contact": "kanishka.E18970@cumail.in",
+    "phone": "8171674378",
+    "members": "150+",
+    "owner": "NUTRITION & DIETETICS",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "cups-chandigarh-university-department-society",
+    "title": "CUPS CHANDIGARH UNIVERSITY DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIPS"
+    ],
+    "shortDesc": "Official Departmental Societie under UIPS.",
+    "longDesc": "The CUPS CHANDIGARH UNIVERSITY DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms. Neha Kumari",
+    "contact": "events.uips@cumail.in",
+    "phone": "8894998821",
+    "members": "150+",
+    "owner": "UIPS",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "collaborative-canvas-chandigarh-university-department-society",
+    "title": "COLLABORATIVE CANVAS CHANDIGARH UNIVERSITY DEPARTMENT SOCIETY",
+    "category": "Media, Culture & Communication",
+    "categories": [
+      "UID",
+      "FINE ARTS"
+    ],
+    "shortDesc": "Official Departmental Societie under FINE ARTS.",
+    "longDesc": "The COLLABORATIVE CANVAS CHANDIGARH UNIVERSITY DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Parmeet Kaur",
+    "contact": "parneet.e13615@cumail.in",
+    "phone": "9803707137",
+    "members": "150+",
+    "owner": "FINE ARTS",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "next-gen-design-hub-department-society",
+    "title": "NEXT GEN DESIGN HUB DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UID",
+      "INDUSTRIAL DESIGN"
+    ],
+    "shortDesc": "Official Departmental Societie under INDUSTRIAL DESIGN.",
+    "longDesc": "The NEXT GEN DESIGN HUB DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Mr.Sumit Kumar",
+    "contact": "sumit.e10320@cumail.in",
+    "phone": "8708610225",
+    "members": "150+",
+    "owner": "INDUSTRIAL DESIGN",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "sustainable-solutions-network-department-society",
+    "title": "SUSTAINABLE SOLUTIONS NETWORK DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UID",
+      "INTERIOR DESIGN"
+    ],
+    "shortDesc": "Official Departmental Societie under INTERIOR DESIGN.",
+    "longDesc": "The SUSTAINABLE SOLUTIONS NETWORK DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms.Tapsya Bhargav",
+    "contact": "tapsya.e19456@cumail.in",
+    "phone": "9023678009",
+    "members": "150+",
+    "owner": "INTERIOR DESIGN",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "design-inclusivity-department-society",
+    "title": "DESIGN INCLUSIVITY DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UID",
+      "FASHION & DESIGN"
+    ],
+    "shortDesc": "Official Departmental Societie under FASHION & DESIGN.",
+    "longDesc": "The DESIGN INCLUSIVITY DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms. Harjas Kaur",
+    "contact": "harjas.e18382@cumail.in",
+    "phone": "8427763923",
+    "members": "150+",
+    "owner": "FASHION & DESIGN",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "psychological-well-being-department-society",
+    "title": "PSYCHOLOGICAL WELL BEING DEPARTMENT SOCIETY",
+    "category": "Media, Culture & Communication",
+    "categories": [
+      "UILAH",
+      "PSYCHOLOGY"
+    ],
+    "shortDesc": "Official Departmental Societie under PSYCHOLOGY.",
+    "longDesc": "The PSYCHOLOGICAL WELL BEING DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms Diksha Vashisht",
+    "contact": "diksha.e18035@cumail.in",
+    "phone": "8219046050",
+    "members": "150+",
+    "owner": "PSYCHOLOGY",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "liberal-vibe-department-society",
+    "title": "LIBERAL VIBE DEPARTMENT SOCIETY",
+    "category": "Media, Culture & Communication",
+    "categories": [
+      "UILAH"
+    ],
+    "shortDesc": "Official Departmental Societie under UILAH.",
+    "longDesc": "The LIBERAL VIBE DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Parvanshi Sharma",
+    "contact": "parvanshi.e11582@cumail.in",
+    "phone": "8427981383",
+    "members": "150+",
+    "owner": "UILAH",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "the-communicators-department-society",
+    "title": "THE COMMUNICATORS DEPARTMENT SOCIETY",
+    "category": "Media, Culture & Communication",
+    "categories": [
+      "UIMS"
+    ],
+    "shortDesc": "Official Departmental Societie under UIMS.",
+    "longDesc": "The THE COMMUNICATORS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms. Shweta Chugh",
+    "contact": "shweta.e8969@cumail.in",
+    "phone": "6280300562",
+    "members": "150+",
+    "owner": "UIMS",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "animation-and-game-design-department-society",
+    "title": "ANIMATION AND GAME DESIGN DEPARTMENT SOCIETY",
+    "category": "Media, Culture & Communication",
+    "categories": [
+      "UIFVA",
+      "ANIMATION"
+    ],
+    "shortDesc": "Official Departmental Societie under ANIMATION.",
+    "longDesc": "The ANIMATION AND GAME DESIGN DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Prof. Partap",
+    "contact": "partap.e14185@cumail.in",
+    "phone": "7087463590",
+    "members": "150+",
+    "owner": "ANIMATION",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "health-and-wellness-department-society",
+    "title": "HEALTH AND WELLNESS DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIPES"
+    ],
+    "shortDesc": "Official Departmental Societie under UIPES.",
+    "longDesc": "The HEALTH AND WELLNESS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr.Dilpreet Kaur",
+    "contact": "dilpreet.e20158@cumail.in",
+    "phone": "9729489999",
+    "members": "150+",
+    "owner": "UIPES",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "educational-department-society",
+    "title": "EDUCATIONAL DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UITTR"
+    ],
+    "shortDesc": "Official Departmental Societie under UITTR.",
+    "longDesc": "The EDUCATIONAL DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Pooja Rani",
+    "contact": "pooja.e13986@cumail.in",
+    "phone": "9417739849",
+    "members": "150+",
+    "owner": "UITTR",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "heritage-department-society",
+    "title": "HERITAGE DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UIA",
+      "ARCHITECTURE"
+    ],
+    "shortDesc": "Official Departmental Societie under ARCHITECTURE.",
+    "longDesc": "The HERITAGE DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Manisha Jindal",
+    "contact": "manisha.e15713@cumail.in",
+    "phone": "8195811100",
+    "members": "150+",
+    "owner": "ARCHITECTURE",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "stratix-apex-forum",
+    "title": "STRATIX APEX FORUM",
+    "category": "Business & Management",
+    "categories": [
+      "AIT-MANAGEMENT",
+      "AIT",
+      "MBA"
+    ],
+    "shortDesc": "Official Departmental Societie under AIT- MBA.",
+    "longDesc": "The STRATIX APEX FORUM is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Kiran Shaswat",
+    "contact": "kiran.e12368@cumail.in",
+    "phone": "9899840847",
+    "members": "150+",
+    "owner": "AIT- MBA",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "industrohub-department-society",
+    "title": "INDUSTROHUB DEPARTMENT SOCIETY",
+    "category": "Business & Management",
+    "categories": [
+      "AIT-MANAGEMENT",
+      "BBA APEX"
+    ],
+    "shortDesc": "Official Departmental Societie under BBA APEX.",
+    "longDesc": "The INDUSTROHUB DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Shashank Sharma",
+    "contact": "shashank.e19004@cumail.in",
+    "phone": "8219411571",
+    "members": "150+",
+    "owner": "BBA APEX",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "barristers-department-society",
+    "title": "BARRISTERS DEPARTMENT SOCIETY",
+    "category": "Media, Culture & Communication",
+    "categories": [
+      "UILS",
+      "BA",
+      "LLB"
+    ],
+    "shortDesc": "Official Departmental Societie under BA-LLB.",
+    "longDesc": "The BARRISTERS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Tanvi Sharma",
+    "contact": "tanvi.e17062@cumail.in",
+    "phone": "7056052133",
+    "members": "150+",
+    "owner": "BA-LLB",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "nyaya-jana-department-society",
+    "title": "NYAYA JANA DEPARTMENT SOCIETY",
+    "category": "Media, Culture & Communication",
+    "categories": [
+      "UILS",
+      "BBA",
+      "LLB"
+    ],
+    "shortDesc": "Official Departmental Societie under BBA-LLB.",
+    "longDesc": "The NYAYA JANA DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr.Sumit Sharma",
+    "contact": "sumit.law@cumail.in",
+    "phone": "8219319274",
+    "members": "150+",
+    "owner": "BBA-LLB",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "nyaay-soch-department-society",
+    "title": "NYAAY SOCH DEPARTMENT SOCIETY",
+    "category": "Media, Culture & Communication",
+    "categories": [
+      "UILS",
+      "BCOMLL.B (Hons.)"
+    ],
+    "shortDesc": "Official Departmental Societie under BCOMLL.B (Hons.).",
+    "longDesc": "The NYAAY SOCH DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Harpreet Kaur",
+    "contact": "harpreet.e19203@cumail.in",
+    "phone": "8146843404",
+    "members": "150+",
+    "owner": "BCOMLL.B (Hons.)",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "vidhi-vichar-department-society",
+    "title": "VIDHI VICHAR DEPARTMENT SOCIETY",
+    "category": "Media, Culture & Communication",
+    "categories": [
+      "UILS",
+      "LLB",
+      "LLM"
+    ],
+    "shortDesc": "Official Departmental Societie under LLB-LLM.",
+    "longDesc": "The VIDHI VICHAR DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Mr. vimal",
+    "contact": "vimal.e16194@cumail.in",
+    "phone": "9815572329",
+    "members": "150+",
+    "owner": "LLB-LLM",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "udaan-department-society",
+    "title": "UDAAN DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UITHM",
+      "AIRLINES"
+    ],
+    "shortDesc": "Official Departmental Societie under AIRLINES.",
+    "longDesc": "The UDAAN DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms Simar Jeev Pal Kaur",
+    "contact": "simarjeev.e18011@cumail.in",
+    "phone": "9878614997",
+    "members": "150+",
+    "owner": "AIRLINES",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "bagel-chandigarh-university-department",
+    "title": "BAGEL CHANDIGARH UNIVERSITY DEPARTMENT",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UITHM",
+      "HHM"
+    ],
+    "shortDesc": "Official Departmental Societie under HHM.",
+    "longDesc": "The BAGEL CHANDIGARH UNIVERSITY DEPARTMENT is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Jagjit Singh",
+    "contact": "jagjitsingh.uithm@cumail.in",
+    "phone": "7827335816",
+    "members": "150+",
+    "owner": "HHM",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "yuva-tourism-department-society",
+    "title": "YUVA TOURISM DEPARTMENT SOCIETY",
+    "category": "Science, Technology & Innovation",
+    "categories": [
+      "UITHM",
+      "TTM"
+    ],
+    "shortDesc": "Official Departmental Societie under TTM.",
+    "longDesc": "The YUVA TOURISM DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms Aishwarya Khanna",
+    "contact": "aishwarya.e15799@cumail.in",
+    "phone": "9815544566",
+    "members": "150+",
+    "owner": "TTM",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "nextgen-department-society",
+    "title": "NEXTGEN DEPARTMENT SOCIETY",
+    "category": "Business & Management",
+    "categories": [
+      "USB",
+      "BBA"
+    ],
+    "shortDesc": "Official Departmental Societie under BBA.",
+    "longDesc": "The NEXTGEN DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Mr. Gunjan Munjal",
+    "contact": "gunjan.munjal@cumail.in",
+    "phone": "7837592170",
+    "members": "150+",
+    "owner": "BBA",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "ucc",
+    "title": "UCC",
+    "category": "Business & Management",
+    "categories": [
+      "USB",
+      "COMMERCE"
+    ],
+    "shortDesc": "Official Departmental Societie under COMMERCE.",
+    "longDesc": "The UCC is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Ms Kushal Preeti",
+    "contact": "kushal.e19212@cumail.in",
+    "phone": "9530643421",
+    "members": "150+",
+    "owner": "COMMERCE",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "ecozen-department-society",
+    "title": "ECOZEN DEPARTMENT SOCIETY",
+    "category": "Business & Management",
+    "categories": [
+      "USB",
+      "ECONOMICS"
+    ],
+    "shortDesc": "Official Departmental Societie under ECONOMICS.",
+    "longDesc": "The ECOZEN DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Harwinder Kaur",
+    "contact": "harwinder.e14557@cumail.in",
+    "phone": "9988430005",
+    "members": "150+",
+    "owner": "ECONOMICS",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  },
+  {
+    "id": "finance-fanatics-department-society",
+    "title": "FINANCE FANATICS DEPARTMENT SOCIETY",
+    "category": "Business & Management",
+    "categories": [
+      "USB",
+      "GSFA"
+    ],
+    "shortDesc": "Official Departmental Societie under GSFA.",
+    "longDesc": "The FINANCE FANATICS DEPARTMENT SOCIETY is an officially recognized Departmental Societie operating under the Office of Academic Affairs (OAA) at Chandigarh University. It aims to foster student learning, team building, and professional development in its field.",
+    "faculty": "Dr. Deepika Puri",
+    "contact": "deepika.e19137@cumail.in",
+    "phone": "97807 23182",
+    "members": "150+",
+    "owner": "GSFA",
+    "logo": "logos/default.png",
+    "media": [],
+    "hideMediaColumn": true
+  }
+]

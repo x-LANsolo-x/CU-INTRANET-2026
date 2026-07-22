@@ -2456,45 +2456,16 @@
 <li><a class="active" href="communities.html#portfolio" title="Communities">Communities</a></li>
 </ul>
 </div>
-<div class="row mt-4 mt-md-4">
-<div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-<a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-desc="A collaborative AI community focused on artificial intelligence, machine learning, innovation, and AI-driven projects." data-img="campus-life/images/cultural-champion-img-1.jpg" data-title="AI-ALLIANCE CHANDIGARH UNIVERSITY COMMUNITY" href="javascript:void(0);">
-<div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url(campus-life/images/cultural-champion-img-1.jpg);"></div>
-<div class="pxp-areas-1-item-details">
-<div class="pxp-areas-1-item-details-area">AI-ALLIANCE CHANDIGARH UNIVERSITY COMMUNITY</div>
-<div class="pxp-areas-1-item-details-city">A collaborative AI community focused on artificial intelligence, machine learning, innovation, and AI-driven projects.</div>
+<div class="testi-heading-new position-relative mt-3" id="domain-filters">
+<ul>
+<li><a class="active" data-filter="ALL" href="javascript:void(0);">All</a></li>
+<li><a data-filter="Science, Technology & Innovation" href="javascript:void(0);">Science, Technology & Innovation</a></li>
+<li><a data-filter="Media, Culture & Communication" href="javascript:void(0);">Media, Culture & Communication</a></li>
+<li><a data-filter="Social Impact & Community Development & Community Development" href="javascript:void(0);">Social Impact & Community Development</a></li>
+<li><a data-filter="Business & Management" href="javascript:void(0);">Business & Management</a></li>
+</ul>
 </div>
-</a>
-</div>
-<div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-<a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-desc="A community focused on business management, professional growth, leadership, and industry-oriented activities." data-img="campus-life/images/cultural-champion-img-1.jpg" data-title="CBMP CHANDIGARH UNIVERSITY COMMUNITY" href="javascript:void(0);">
-<div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url(campus-life/images/cultural-champion-img-1.jpg);"></div>
-<div class="pxp-areas-1-item-details">
-<div class="pxp-areas-1-item-details-area">CBMP CHANDIGARH UNIVERSITY COMMUNITY</div>
-<div class="pxp-areas-1-item-details-city">A community focused on business management, professional growth, leadership, and industry-oriented activities.</div>
-</div>
-</a>
-</div>
-<div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-<a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-desc="A community for engineering students to collaborate on technical projects, innovation, research, and skill development." data-img="campus-life/images/cultural-champion-img-1.jpg" data-title="ENGINEERING CHANDIGARH UNIVERSITY COMMUNITY" href="javascript:void(0);">
-<div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url(campus-life/images/cultural-champion-img-1.jpg);"></div>
-<div class="pxp-areas-1-item-details">
-<div class="pxp-areas-1-item-details-area">ENGINEERING CHANDIGARH UNIVERSITY COMMUNITY</div>
-<div class="pxp-areas-1-item-details-city">A community for engineering students to collaborate on technical projects, innovation, research, and skill development.</div>
-</div>
-</a>
-</div>
-<div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-<a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-desc="A community promoting harmony, mediation, ethical values, social awareness, and peaceful conflict resolution." data-img="campus-life/images/cultural-champion-img-1.jpg" data-title="MADHYASTHA CHANDIGARH UNIVERSITY COMMUNITY" href="javascript:void(0);">
-<div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url(campus-life/images/cultural-champion-img-1.jpg);"></div>
-<div class="pxp-areas-1-item-details">
-<div class="pxp-areas-1-item-details-area">MADHYASTHA CHANDIGARH UNIVERSITY COMMUNITY</div>
-<div class="pxp-areas-1-item-details-city">A community promoting harmony, mediation, ethical values, social awareness, and peaceful conflict resolution.</div>
-</div>
-</a>
-</div>
-
-</div>
+<div class="mt-4 mt-md-4" id="dynamic-clubs-container"></div>
 </div></section>
 </div>
 <!--- BODY --->
@@ -3250,6 +3221,99 @@
             }
         }, true);
     })();
+</script>
+<style>
+@keyframes fadeInUpCategory {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.category-show { animation: fadeInUpCategory 0.5s ease-out forwards; }
+</style>
+<script id="dynamic-clubs-script">
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('./communities.json')
+            .then(response => response.json())
+            .then(clubs => {
+                const container = document.getElementById('dynamic-clubs-container');
+                if(!container) return;
+
+                const CATEGORY_ORDER = [
+                    'Science, Technology & Innovation',
+                    'Media, Culture & Communication',
+                    'Social Impact & Community Development & Community Development',
+                    'Business & Management'
+                ];
+                
+                const grouped = {};
+                CATEGORY_ORDER.forEach(cat => grouped[cat] = []);
+                clubs.forEach(club => {
+                    const clubCat = club.category || '';
+                    const matchedCat = CATEGORY_ORDER.find(c => c.toLowerCase() === clubCat.trim().toLowerCase());
+                    if (matchedCat) {
+                        grouped[matchedCat].push(club);
+                    }
+                });
+
+                let html = '<div class="row w-100 m-0">';
+                CATEGORY_ORDER.forEach(cat => {
+                    const catClubs = grouped[cat];
+                    if (!catClubs || catClubs.length === 0) return;
+
+                    catClubs.forEach(club => {
+                        const logoUrl = club.logo ? (club.logo.startsWith('http') ? club.logo : 'https://cuchd-in-daa-page.vercel.app/' + club.logo) : 'https://via.placeholder.com/150';
+                        const categories = (club.categories || []).join(', ');
+                        const media = (club.media || []).map(m => m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m).join(',');
+
+                        html += '<div class="col-sm-12 col-md-6 col-lg-3 mb-4 club-card-wrapper" data-cat="' + cat + '">' +
+                            '<a class="pxp-areas-1-item rounded-lg" ' +
+                               'data-bs-target="#clubModal" ' +
+                               'data-bs-toggle="modal" ' +
+                               'data-categories="' + categories.replace(/"/g, '&quot;') + '" ' +
+                               'data-club-category="' + (club.category || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-contact="' + (club.contact || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-desc="' + (club.shortDesc || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-faculty="' + (club.faculty || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-img="' + logoUrl + '" ' +
+                               'data-longdesc="' + (club.longDesc || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-media="' + media + '" ' +
+                               'data-hidemedia="' + (club.hideMediaColumn === true) + '" ' +
+                               'data-members="' + (club.members || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-owner="' + (club.owner || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-title="' + (club.title || '').replace(/"/g, '&quot;') + '" ' +
+                               'href="javascript:void(0);">' +
+                                '<div class="pxp-areas-1-item-fig pxp-cover lazy-bg" style="background-image: url(\'' + logoUrl + '\'); background-color: #ffffff;"></div>' +
+                                '<div class="pxp-areas-1-item-details">' +
+                                    '<div class="pxp-areas-1-item-details-area">' + club.title + '</div>' +
+                                    '<div class="pxp-areas-1-item-details-city">' + (club.shortDesc || '') + '</div>' +
+                                '</div>' +
+                            '</a>' +
+                        '</div>';
+                    });
+                });
+                html += '</div>';
+
+                container.innerHTML = html;
+
+                // Wire filter tabs to show/hide individual cards
+                document.querySelectorAll('#domain-filters ul li a[data-filter]').forEach(function(tab) {
+                    tab.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        document.querySelectorAll('#domain-filters ul li a[data-filter]').forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                        var filterValue = this.getAttribute('data-filter');
+                        document.querySelectorAll('.club-card-wrapper').forEach(function(card) {
+                            if (filterValue === 'ALL' || card.getAttribute('data-cat') === filterValue) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    }, true);
+                });
+            })
+            .catch(err => console.error("Error loading communities:", err));
+    });
 </script>
 </body>
 </html>
