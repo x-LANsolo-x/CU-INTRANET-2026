@@ -163,9 +163,9 @@
         .reg-step.active .step-num { background: var(--red); }
         .reg-step.done .step-num { background: transparent; }
 
-        /* Section panels */
-        .reg-section { display: none; }
-        .reg-section.active { display: block; }
+        /* Section panels - Single Page unified layout */
+        .reg-section { display: block !important; margin-bottom: 48px; }
+        .reg-steps, .reg-progress { display: none !important; }
 
         /* Form card */
         .form-card {
@@ -707,12 +707,7 @@
                 </div>
             </div>
 
-            <div class="form-nav">
-                <div></div>
-                <button type="button" class="btn-next" id="btn1Next">
-                    Select Clubs <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
+<!-- Nav buttons removed -->
         </div>
 
         <!-- ══════════════════════════════════
@@ -783,14 +778,7 @@
                 </div>
             </div>
 
-            <div class="form-nav">
-                <button type="button" class="btn-prev" id="btn2Prev">
-                    <i class="fas fa-arrow-left"></i> Back
-                </button>
-                <button type="button" class="btn-next" id="btn2Next">
-                    Select Societies <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
+<!-- Nav buttons removed -->
         </div>
 
         <!-- ══════════════════════════════════
@@ -841,12 +829,9 @@
                 </div>
             </div>
 
-            <div class="form-nav">
-                <button type="button" class="btn-prev" id="btn3Prev">
-                    <i class="fas fa-arrow-left"></i> Back
-                </button>
-                <button type="submit" class="btn-submit-form" id="submitBtn">
-                    Submit Registration <i class="fas fa-paper-plane"></i>
+            <div class="form-nav" style="justify-content: center; margin-top: 40px; padding: 24px 0 0; border-top: 1px solid var(--border);">
+                <button type="submit" class="btn-submit-form" id="submitBtn" style="width: 100%; max-width: 480px; padding: 16px; font-size: 16px; margin: 0 auto; justify-content: center;">
+                    Submit Registration &amp; Confirm Interest <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
         </div>
@@ -925,18 +910,9 @@
     const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwjAKvelucSclzL0Ex0klPfC6pBARFbWERW9czTcQcQxygGCoMzmg-e8TqN0xFrIL1R/exec';
     const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfRL-59pvU46qiMANNxCjA2IkpBLTm2tM6-5OhP6AOwmfqXpA/formResponse';
 
-    const sections = [
-        document.getElementById('sec1'),
-        document.getElementById('sec2'),
-        document.getElementById('sec3'),
-    ];
-    const stepTabs = document.querySelectorAll('.reg-step');
-    const progressBar = document.getElementById('progressBar');
     const form = document.getElementById('regForm');
     const submitBtn = document.getElementById('submitBtn');
     const successOverlay = document.getElementById('successOverlay');
-
-    let currentStep = 0;
 
     // Entity selection tracking & validation rules (min 1, max 3 across all checkboxes)
     const MAX_SELECTION = 3;
@@ -987,23 +963,6 @@
     // Run initial state setup
     updateCheckboxStates();
 
-    function goTo(step) {
-        sections[currentStep].classList.remove('active');
-        stepTabs[currentStep].classList.remove('active');
-        stepTabs[currentStep].classList.add('done');
-
-        currentStep = step;
-
-        sections[currentStep].classList.add('active');
-        stepTabs[currentStep].classList.remove('done');
-        stepTabs[currentStep].classList.add('active');
-
-        const pct = [33, 66, 100][currentStep];
-        progressBar.style.width = pct + '%';
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
     function validateSection1() {
         const required = ['f_name', 'f_uid', 'f_dept', 'f_email', 'f_contact'];
         let valid = true;
@@ -1027,23 +986,50 @@
         return valid;
     }
 
-    document.getElementById('btn1Next').addEventListener('click', () => {
-        if (validateSection1()) goTo(1);
-    });
-    document.getElementById('btn2Prev').addEventListener('click', () => goTo(0));
-    document.getElementById('btn2Next').addEventListener('click', () => goTo(2));
-    document.getElementById('btn3Prev').addEventListener('click', () => goTo(1));
-
     // Live input border reset
     document.querySelectorAll('.finput').forEach(el => {
         el.addEventListener('input', () => { el.style.borderColor = ''; });
     });
 
+    // Parse URL parameter for pre-selection (e.g. ?entity=SKY%20HIGH%20CLUB)
+    const urlParams = new URLSearchParams(window.location.search);
+    const preselectedEntity = urlParams.get('entity');
+    if (preselectedEntity) {
+        let matched = false;
+        checkboxes.forEach(cb => {
+            if (cb.value.toLowerCase() === preselectedEntity.toLowerCase()) {
+                cb.checked = true;
+                matched = true;
+                
+                // Highlight and scroll to the selected checkbox
+                setTimeout(() => {
+                    const cbOpt = cb.closest('.check-opt');
+                    if (cbOpt) {
+                        cbOpt.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        cbOpt.style.outline = '2px dashed var(--red)';
+                        cbOpt.style.borderRadius = 'var(--radius-sm)';
+                        setTimeout(() => { cbOpt.style.outline = 'none'; }, 3500);
+                    }
+                }, 800);
+            }
+        });
+        if (matched) {
+            updateCheckboxStates();
+        }
+    }
+
     // Submit form logic (supports Google Apps Script & regular Google Forms fallback)
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Limit validation: check if at least 1 club/society is chosen
+        // 1. Validate personal info fields
+        if (!validateSection1()) {
+            alert('Please fill out all required personal information fields.');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        // 2. Limit validation: check if at least 1 club/society is chosen
         const totalSelected = getCheckedCount();
         if (totalSelected === 0) {
             alert('Please select at least 1 club or professional society before submitting.');
@@ -1097,13 +1083,13 @@
             .then(() => {
                 showSuccess();
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Submit Registration <i class="fas fa-paper-plane"></i>';
+                submitBtn.innerHTML = 'Submit Registration & Confirm Interest <i class="fas fa-paper-plane"></i>';
             })
             .catch(err => {
                 console.error('Fetch error:', err);
                 showSuccess(); // Fallback show success anyway to keep user experience smooth
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Submit Registration <i class="fas fa-paper-plane"></i>';
+                submitBtn.innerHTML = 'Submit Registration & Confirm Interest <i class="fas fa-paper-plane"></i>';
             });
         } else {
             // Default Google Forms submission (no-cors URLEncoded)

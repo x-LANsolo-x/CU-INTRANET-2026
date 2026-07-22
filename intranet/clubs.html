@@ -465,6 +465,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let carouselInterval;
 
     function openEntityModal(entity, logoUrl, mediaStr) {
+        const regBtn = document.querySelector('.sys-modal-body .btn-red') || document.querySelector('.btn-red');
+        if (regBtn) {
+            regBtn.href = `register?entity=${encodeURIComponent(entity.title)}`;
+        }
         modalLogo.src = logoUrl;
         modalLogo.onerror = () => { modalLogo.src = 'logos/default.png'; };
         modalTitle.textContent = entity.title;

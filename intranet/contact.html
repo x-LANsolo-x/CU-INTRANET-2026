@@ -406,13 +406,11 @@
 <body>
 
 <!-- PRELOADER -->
-<div id="preloader">
-    <div class="preloader-content">
+<div id="sys-preloader">
+    <div class="ring">
         <img src="loader.png?v=9.0" alt="Loading Logo">
-        <div class="preloader-bar">
-            <div class="preloader-progress"></div>
-        </div>
     </div>
+    <span class="label">Office of Academic Affairs</span>
 </div>
 
 <!-- FLOATING PILL HEADER -->
@@ -428,21 +426,22 @@
             <a href="explore">Explore Entities</a>
             <a href="register">Register Interest</a>
         </nav>
-        <div class="sys-nav-actions">
-            <a href="register" class="sys-cta">
-                <i class="fas fa-paper-plane"></i> Register Interest
-            </a>
-        </div>
-        <button class="sys-hamburger" id="hamburger" aria-label="Toggle menu">
+        <a href="register" class="sys-header-cta">
+            <i class="fas fa-paper-plane"></i> Register Now
+        </a>
+        <div class="sys-hamburger" id="menuToggle">
             <span></span><span></span><span></span>
-        </button>
-    </div>
-    <div class="sys-mobile-menu" id="mobileMenu">
-        <a href="./">Home</a>
-        <a href="explore">Explore Entities</a>
-        <a href="register">Register Interest</a>
+        </div>
     </div>
 </header>
+
+<!-- MOBILE NAV -->
+<div class="sys-mobile-overlay" id="mobileOverlay"></div>
+<nav class="sys-mobile-nav" id="mobileNav">
+    <a href="./">Home</a>
+    <a href="explore">Explore Entities</a>
+    <a href="register">Register Interest</a>
+</nav>
 
 <!-- HERO -->
 <section class="contact-hero">
