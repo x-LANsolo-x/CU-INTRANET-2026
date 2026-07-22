@@ -40,12 +40,12 @@
     --cu-muted: #777777;
     --cu-white: #ffffff;
     --cu-border: #e5e7eb;
-    --radius-md: 12px;
-    --radius-lg: 20px;
-    --shadow-sm: 0 2px 12px rgba(0,0,0,0.07);
-    --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
-    --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
-    --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.1);
+    --transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
 }
 
 /* ----- HEADER NAV OVERRIDES ----- */
@@ -121,16 +121,16 @@
     font-weight: 800;
     font-size: 1rem;
     padding: 14px 38px;
-    border-radius: 50px;
+    border-radius: var(--radius-md);
     text-decoration: none;
     transition: var(--transition);
-    box-shadow: 0 4px 22px rgba(251,199,16,0.38);
+    box-shadow: var(--shadow-sm);
     margin-top: 12px;
 }
 .hp-hero .hero-cta:hover {
     background: #fff; color: var(--cu-blue);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(251,199,16,0.48);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
     text-decoration: none;
 }
 
@@ -261,17 +261,15 @@
 .pillar-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
 .pillar-icon {
     width: 76px; height: 76px;
-    margin: 0 auto 18px; border-radius: 50%;
+    margin: 0 auto 18px; border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
     font-size: 28px;
     background: linear-gradient(135deg, var(--cu-yellow), #f59e0b);
     color: var(--cu-black);
-    box-shadow: 0 6px 20px rgba(251,199,16,0.28);
 }
 .pillar-card.blue-pillar .pillar-icon {
     background: linear-gradient(135deg, var(--cu-blue), #003d82);
     color: #fff;
-    box-shadow: 0 6px 20px rgba(0,86,179,0.28);
 }
 .pillar-card h4 {
     font-family: 'CircularStd', sans-serif;
@@ -279,7 +277,7 @@
     color: var(--cu-black); margin-bottom: 10px;
 }
 .pillar-card p { font-size: 0.88rem; color: var(--cu-muted); line-height: 1.7; margin: 0; }
-
+ 
 /* ----- CORE VALUES ----- */
 .value-item {
     display: flex; align-items: flex-start; gap: 16px;
@@ -288,13 +286,12 @@
     border: 1px solid var(--cu-border); height: 100%;
     transition: var(--transition);
 }
-.value-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--cu-yellow); }
+.value-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--cu-yellow); }
 .value-icon {
-    width: 48px; height: 48px; border-radius: 12px;
+    width: 48px; height: 48px; border-radius: 8px;
     background: linear-gradient(135deg, var(--cu-yellow), #f59e0b);
     display: flex; align-items: center; justify-content: center;
     font-size: 18px; color: var(--cu-black); flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(251,199,16,0.22);
 }
 .value-content h5 {
     font-family: 'CircularStd', sans-serif;
@@ -346,14 +343,14 @@
     display: inline-flex; align-items: center; gap: 10px;
     background: var(--cu-yellow); color: var(--cu-black);
     font-weight: 800; font-size: 1.05rem;
-    padding: 16px 46px; border-radius: 50px;
+    padding: 16px 46px; border-radius: var(--radius-md);
     text-decoration: none; transition: var(--transition);
-    box-shadow: 0 6px 26px rgba(251,199,16,0.42);
+    box-shadow: var(--shadow-sm);
 }
 .cta-btn-primary:hover {
     background: #fff; color: var(--cu-blue);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 42px rgba(251,199,16,0.48);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
     text-decoration: none;
 }
 
