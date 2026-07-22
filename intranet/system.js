@@ -118,18 +118,21 @@
         // Stagger list elements
         gsap.utils.toArray('[data-stagger]').forEach(group => {
             const items = group.querySelectorAll('[data-stagger-item]');
-            gsap.from(items, {
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: group,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
+            gsap.fromTo(items, 
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: group,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    }
                 }
-            });
+            );
         });
 
         // Standard fade reveals
