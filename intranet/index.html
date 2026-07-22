@@ -137,7 +137,7 @@
 /* ----- SECTION BASE ----- */
 .hp-section { padding: 72px 0; }
 .hp-section.alt-bg { background: var(--cu-grey); }
-.hp-section.dark-bg { background: var(--cu-dark); color: #fff; }
+.hp-section.dark-bg { background: #ffffff; color: var(--cu-black); border-top: 1px solid var(--cu-border); }
 
 .section-label {
     font-size: 11px; font-weight: 700;
@@ -307,35 +307,36 @@
     gap: 18px; margin-top: 36px;
 }
 .award-item {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: #f8f9fa;
+    border: 1px solid var(--cu-border);
     border-radius: var(--radius-md);
     padding: 22px 18px;
     display: flex; align-items: center; gap: 14px;
     transition: var(--transition);
 }
-.award-item:hover { background: rgba(251,199,16,0.10); border-color: var(--cu-yellow); }
-.award-item i { font-size: 22px; color: var(--cu-yellow); flex-shrink: 0; }
-.award-item span { font-size: 0.88rem; color: #d1d5db; line-height: 1.5; }
-.award-item span strong { display: block; color: #fff; font-size: 0.95rem; margin-bottom: 2px; }
+.award-item:hover { background: rgba(251,199,16,0.06); border-color: var(--cu-yellow); }
+.award-item i { font-size: 22px; color: var(--cu-blue); flex-shrink: 0; }
+.award-item span { font-size: 0.88rem; color: var(--cu-muted); line-height: 1.5; }
+.award-item span strong { display: block; color: var(--cu-black); font-size: 0.95rem; margin-bottom: 2px; }
 
 /* ----- CTA SECTION ----- */
 .cta-section {
-    background: linear-gradient(135deg, var(--cu-blue) 0%, #003d82 50%, var(--cu-black) 100%);
+    background: #f8f9fa;
+    border-top: 1px solid var(--cu-border);
     padding: 84px 0; text-align: center; position: relative; overflow: hidden;
 }
 .cta-section::before {
     content: ''; position: absolute;
     top: 0; left: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, var(--cu-yellow), #fff, var(--cu-yellow));
+    background: linear-gradient(90deg, var(--cu-yellow), var(--cu-blue), var(--cu-yellow));
 }
 .cta-section h2 {
     font-family: 'CircularStd', sans-serif;
     font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 900; color: #fff; margin-bottom: 10px;
+    font-weight: 900; color: var(--cu-black); margin-bottom: 10px;
 }
 .cta-section .cta-sub {
-    font-size: 1.05rem; color: #93c5fd;
+    font-size: 1.05rem; color: var(--cu-muted);
     margin-bottom: 32px; max-width: 680px;
     margin-left: auto; margin-right: auto;
 }
@@ -348,7 +349,7 @@
     box-shadow: var(--shadow-sm);
 }
 .cta-btn-primary:hover {
-    background: #fff; color: var(--cu-blue);
+    background: var(--cu-blue); color: #fff;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
     text-decoration: none;
@@ -607,35 +608,43 @@
 <!-- ======= PAGE CONTENT ======= -->
 <div class="m-wrapper">
 
-<!-- HERO -->
-<section class="hp-hero" id="hp-hero" aria-label="Home Hero">
+<!-- BANNER -->
+<div class="banner cult-banner" style="background: none; height: auto;">
+    <img alt="University Banner" class="img-fluid w-100" decoding="async" loading="eager" fetchpriority="high" src="logos/hersosection-5.webp" style="object-fit: cover; display: block;">
+</div>
+
+<!-- INTRODUCTION -->
+<section class="hp-section bg-white" style="padding-top: 4rem; padding-bottom: 3rem; border-bottom: 1px solid #eee;">
     <div class="container">
-        <h1>The Co-Curricular Ecosystem at<br/><span class="accent-yellow">Chandigarh University</span></h1>
-        <p class="tagline">Learn &nbsp;&middot;&nbsp; Lead &nbsp;&middot;&nbsp; Create &nbsp;&middot;&nbsp; Transform</p>
-        <p class="hero-desc">
-            Welcome to the Co-Curricular Ecosystem of Chandigarh University &mdash; a thriving network of
-            <strong>80+ officially recognized student entities</strong> operating under the
-            <strong>Office of Academic Affairs (OAA)</strong>. Designed to complement academic learning,
-            our ecosystem empowers students to discover their passions, cultivate leadership, build
-            professional competencies, and create meaningful impact through experiential learning.
-        </p>
-        <p class="hero-desc" style="font-size:0.98rem; margin-top:-8px;">
-            From technology and innovation to arts, entrepreneurship, social impact, culture, and
-            professional development &mdash; every student has an opportunity to grow beyond the
-            classroom and become a future-ready leader.
-        </p>
-        <a class="hero-cta" href="clubs.html" id="hero-explore-btn">
-            <i class="fas fa-compass"></i> Explore All Student Entities
-        </a>
+        <div class="wthree_pvt_title1 text-center">
+            <div class="box box_three position-relative" style="display: inline-block; margin-bottom: 15px;">
+                <h1 class="w3pvt-title position-relative" style="font-family: 'CircularStd', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: #111;">
+                    The Co-Curricular Ecosystem at Chandigarh University
+                </h1>
+            </div>
+            <p style="font-size: 1.1rem; color: #e31e24; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">
+                Learn &nbsp;&middot;&nbsp; Lead &nbsp;&middot;&nbsp; Create &nbsp;&middot;&nbsp; Transform
+            </p>
+            <p class="text-muted mt-3 mx-auto" style="max-width: 900px; font-size: 1.05rem; line-height: 1.8;">
+                Welcome to the Co-Curricular Ecosystem of Chandigarh University — a thriving network of 80+ officially recognized student entities operating under the Office of Academic Affairs (OAA). Designed to complement academic learning, our ecosystem empowers students to discover their passions, cultivate leadership, build professional competencies, and create meaningful impact through experiential learning.
+            </p>
+            <p class="text-muted mx-auto" style="max-width: 900px; font-size: 1.05rem; line-height: 1.8; margin-top: 10px;">
+                From technology and innovation to arts, entrepreneurship, social impact, culture, and professional development — every student has an opportunity to grow beyond the classroom and become a future-ready leader.
+            </p>
+        </div>
     </div>
 </section>
 
 <!-- STATS STRIP -->
 <section class="stats-strip" id="hp-impact" aria-label="Our Impact">
     <div class="container">
-        <div class="text-center mb-5">
-            <span class="section-label" style="color:var(--cu-yellow);">Our Impact</span>
-            <h2 class="section-title" style="color:#fff; margin-bottom:0;">Numbers That Tell Our Story</h2>
+        <div class="wthree_pvt_title1 text-center mb-5">
+            <div class="box box_three position-relative" style="display: inline-block;">
+                <h2 class="w3pvt-title position-relative" style="font-family: 'CircularStd', sans-serif; color: #fff;">
+                    Numbers That Tell Our Story
+                </h2>
+            </div>
+            <p style="color: var(--cu-yellow); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Our Impact</p>
         </div>
         <div class="row">
             <div class="col-6 col-md-3">
@@ -675,9 +684,14 @@
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <span class="section-label">Overview</span>
-                <div class="section-divider"></div>
-                <h2 class="section-title">A Platform Where Ideas Become <span class="txt-yellow">Actions</span></h2>
+                <div class="wthree_pvt_title1 mb-4" style="text-align: left;">
+                    <div class="box box_three position-relative" style="display: inline-block;">
+                        <h2 class="w3pvt-title position-relative" style="font-family: 'CircularStd', sans-serif; color: #111; margin-left: 0; padding-left: 0; text-align: left;">
+                            A Platform Where Ideas Become <span style="color: var(--cu-blue);">Actions</span>
+                        </h2>
+                    </div>
+                    <p style="color: var(--cu-yellow); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; margin-bottom: 0;">Overview</p>
+                </div>
                 <p class="section-desc" style="margin-bottom:18px;">
                     The Chandigarh University Co-Curricular Ecosystem serves as a platform where students
                     transform ideas into action. Every entity functions through a <strong>structured governance
@@ -729,56 +743,57 @@
 <!-- OUR IDENTITY -->
 <section class="hp-section alt-bg" id="hp-identity" aria-label="Our Identity">
     <div class="container">
-        <div class="center-content mb-5">
-            <span class="section-label">Our Identity</span>
-            <div class="section-divider"></div>
-            <h2 class="section-title">Four Pillars of the <span class="txt-blue">Ecosystem</span></h2>
-            <p class="section-desc">
-                The Co-Curricular Ecosystem represents Chandigarh University&#39;s commitment to holistic
-                education &mdash; integrating classroom learning with leadership, innovation, creativity,
-                and community engagement through four distinct entity categories.
+        <div class="wthree_pvt_title1 text-center mb-5">
+            <div class="box box_three position-relative" style="display: inline-block; margin-bottom: 15px;">
+                <h2 class="w3pvt-title position-relative" style="font-family: 'CircularStd', sans-serif; color: #111;">
+                    Four Pillars of the Ecosystem
+                </h2>
+            </div>
+            <p style="color: var(--cu-blue); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">Our Identity</p>
+            <p class="text-muted mt-2 mx-auto" style="max-width: 800px; font-size: 1rem; line-height: 1.7;">
+                The Co-Curricular Ecosystem represents Chandigarh University's commitment to holistic education — integrating classroom learning with leadership, innovation, creativity, and community engagement through four distinct entity categories.
             </p>
         </div>
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6 d-flex">
-                <div class="entity-card">
-                    <div class="entity-card-top">
-                        <div class="entity-card-icon icon-yellow"><i class="fas fa-star"></i></div>
-                        <h3>Student Clubs</h3>
-                        <p>Interest-driven organizations focused on technology, innovation, entrepreneurship, arts, media, photography, gaming, literature, sports, public speaking, design, and countless other passions.</p>
+        <div class="row mt-4 mt-md-4 justify-content-center">
+            <!-- Student Clubs -->
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+                <a class="pxp-areas-1-item rounded-lg" href="clubs.html" style="text-decoration: none;">
+                    <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('campus-life/images/cultural-champion-img-1.jpg'); background-color: #ffffff;"></div>
+                    <div class="pxp-areas-1-item-details">
+                        <div class="pxp-areas-1-item-details-area">Student Clubs</div>
+                        <div class="pxp-areas-1-item-details-city">Interest-driven organizations focused on technology, innovation, entrepreneurship, arts, media, photography, gaming, literature, sports, public speaking, design, and countless other passions.</div>
                     </div>
-                    <div class="entity-card-footer"><a class="entity-link" href="clubs.html" id="explore-clubs-link">Explore Student Clubs <i class="fas fa-arrow-right"></i></a></div>
-                </div>
+                </a>
             </div>
-            <div class="col-lg-3 col-md-6 d-flex">
-                <div class="entity-card">
-                    <div class="entity-card-top">
-                        <div class="entity-card-icon icon-blue"><i class="fas fa-people-group"></i></div>
-                        <h3>Student Communities</h3>
-                        <p>Inclusive communities that connect students through shared cultures, regions, languages, interests, and social causes while promoting diversity, collaboration, and belonging.</p>
+            <!-- Student Communities -->
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+                <a class="pxp-areas-1-item rounded-lg" href="communities.html" style="text-decoration: none;">
+                    <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('campus-life/images/cultural-champion-img-1.jpg'); background-color: #ffffff;"></div>
+                    <div class="pxp-areas-1-item-details">
+                        <div class="pxp-areas-1-item-details-area">Student Communities</div>
+                        <div class="pxp-areas-1-item-details-city">Inclusive communities that connect students through shared cultures, regions, languages, interests, and social causes while promoting diversity, collaboration, and belonging.</div>
                     </div>
-                    <div class="entity-card-footer"><a class="entity-link" href="communities.html" id="explore-communities-link">Explore Communities <i class="fas fa-arrow-right"></i></a></div>
-                </div>
+                </a>
             </div>
-            <div class="col-lg-3 col-md-6 d-flex">
-                <div class="entity-card">
-                    <div class="entity-card-top">
-                        <div class="entity-card-icon icon-black"><i class="fas fa-flask"></i></div>
-                        <h3>Departmental Societies</h3>
-                        <p>Academic societies affiliated with departments that organize technical workshops, seminars, industrial visits, coding competitions, innovation challenges, research activities, and flagship events.</p>
+            <!-- Departmental Societies -->
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+                <a class="pxp-areas-1-item rounded-lg" href="departmental-societies.html" style="text-decoration: none;">
+                    <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('campus-life/images/cultural-champion-img-1.jpg'); background-color: #ffffff;"></div>
+                    <div class="pxp-areas-1-item-details">
+                        <div class="pxp-areas-1-item-details-area">Departmental Societies</div>
+                        <div class="pxp-areas-1-item-details-city">Academic societies affiliated with departments that organize technical workshops, seminars, industrial visits, coding competitions, innovation challenges, research activities, and flagship events.</div>
                     </div>
-                    <div class="entity-card-footer"><a class="entity-link" href="departmental-societies.html" id="explore-dept-link">Explore Departmental Societies <i class="fas fa-arrow-right"></i></a></div>
-                </div>
+                </a>
             </div>
-            <div class="col-lg-3 col-md-6 d-flex">
-                <div class="entity-card">
-                    <div class="entity-card-top">
-                        <div class="entity-card-icon icon-green"><i class="fas fa-globe"></i></div>
-                        <h3>Professional Societies</h3>
-                        <p>Internationally affiliated chapters &mdash; IEEE, ACM, ASME, ASCE, SAE, CSI &mdash; providing certifications, expert lectures, conferences, networking, research collaborations, and global exposure.</p>
+            <!-- Professional Societies -->
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+                <a class="pxp-areas-1-item rounded-lg" href="professional-societies.html" style="text-decoration: none;">
+                    <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('campus-life/images/cultural-champion-img-1.jpg'); background-color: #ffffff;"></div>
+                    <div class="pxp-areas-1-item-details">
+                        <div class="pxp-areas-1-item-details-area">Professional Societies</div>
+                        <div class="pxp-areas-1-item-details-city">Internationally affiliated chapters — IEEE, ACM, ASME, ASCE, SAE, CSI — providing certifications, expert lectures, conferences, networking, research collaborations, and global exposure.</div>
                     </div>
-                    <div class="entity-card-footer"><a class="entity-link" href="professional-societies.html" id="explore-prof-link">Explore Professional Societies <i class="fas fa-arrow-right"></i></a></div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -787,10 +802,13 @@
 <!-- VISION AND MISSION -->
 <section class="hp-section" id="hp-vision-mission" aria-label="Vision and Mission">
     <div class="container">
-        <div class="center-content mb-5">
-            <span class="section-label">Vision &amp; Mission</span>
-            <div class="section-divider"></div>
-            <h2 class="section-title">Our <span class="txt-yellow">Purpose</span> &amp; <span class="txt-blue">Direction</span></h2>
+        <div class="wthree_pvt_title1 text-center mb-5">
+            <div class="box box_three position-relative" style="display: inline-block;">
+                <h2 class="w3pvt-title position-relative" style="font-family: 'CircularStd', sans-serif; color: #111;">
+                    Our Purpose &amp; Direction
+                </h2>
+            </div>
+            <p style="color: var(--cu-blue); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Vision &amp; Mission</p>
         </div>
         <div class="row g-4">
             <div class="col-lg-5 d-flex">
@@ -819,11 +837,16 @@
 <!-- PILLARS -->
 <section class="hp-section alt-bg" id="hp-pillars" aria-label="What Powers Our Ecosystem">
     <div class="container">
-        <div class="center-content mb-5">
-            <span class="section-label">Our Foundation</span>
-            <div class="section-divider"></div>
-            <h2 class="section-title">What Powers Our <span class="txt-yellow">Ecosystem</span></h2>
-            <p class="section-desc">Every entity under the Office of Academic Affairs operates through four foundational pillars that ensure meaningful student engagement and measurable impact.</p>
+        <div class="wthree_pvt_title1 text-center mb-5">
+            <div class="box box_three position-relative" style="display: inline-block; margin-bottom: 15px;">
+                <h2 class="w3pvt-title position-relative" style="font-family: 'CircularStd', sans-serif; color: #111;">
+                    What Powers Our Ecosystem
+                </h2>
+            </div>
+            <p style="color: var(--cu-blue); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">Our Foundation</p>
+            <p class="text-muted mt-2 mx-auto" style="max-width: 800px; font-size: 1rem; line-height: 1.7;">
+                Every entity under the Office of Academic Affairs operates through four foundational pillars that ensure meaningful student engagement and measurable impact.
+            </p>
         </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6 d-flex">
@@ -861,10 +884,13 @@
 <!-- CORE VALUES -->
 <section class="hp-section" id="hp-values" aria-label="Core Values">
     <div class="container">
-        <div class="center-content mb-5">
-            <span class="section-label">Core Values</span>
-            <div class="section-divider"></div>
-            <h2 class="section-title">The Values That <span class="txt-blue">Guide Us</span></h2>
+        <div class="wthree_pvt_title1 text-center mb-5">
+            <div class="box box_three position-relative" style="display: inline-block;">
+                <h2 class="w3pvt-title position-relative" style="font-family: 'CircularStd', sans-serif; color: #111;">
+                    The Values That Guide Us
+                </h2>
+            </div>
+            <p style="color: var(--cu-blue); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Core Values</p>
         </div>
         <div class="row g-3">
             <div class="col-lg-3 col-md-6 d-flex">
@@ -960,9 +986,14 @@
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <span class="section-label">A Platform for Every Passion</span>
-                <div class="section-divider"></div>
-                <h2 class="section-title">More Than Just<br/><span class="txt-yellow">Student Organizations</span></h2>
+                <div class="wthree_pvt_title1 mb-4" style="text-align: left;">
+                    <div class="box box_three position-relative" style="display: inline-block;">
+                        <h2 class="w3pvt-title position-relative" style="font-family: 'CircularStd', sans-serif; color: #111; margin-left: 0; padding-left: 0; text-align: left;">
+                            More Than Just Student Organizations
+                        </h2>
+                    </div>
+                    <p style="color: var(--cu-blue); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; margin-bottom: 0;">A Platform for Every Passion</p>
+                </div>
                 <p class="section-desc" style="margin-bottom:18px;">
                     Whether you&#39;re a programmer, designer, artist, entrepreneur, researcher, performer, photographer,
                     writer, volunteer, public speaker, or aspiring leader &mdash; you&#39;ll find a community where
