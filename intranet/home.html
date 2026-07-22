@@ -294,28 +294,32 @@
         @media (max-width: 991px) {
             .hamburger {
                 display: flex;
+                z-index: 9995;
+                position: relative;
             }
             .nav-menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 320px;
+                width: min(320px, 86vw);
                 height: 100vh;
-                background: var(--color-card-bg);
+                background: #fff;
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
                 padding: 60px 40px;
                 gap: 30px;
                 border-left: 1px solid var(--color-border);
-                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.05);
-                transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.08);
+                transition: right 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 9990;
             }
             .nav-menu.active {
                 right: 0;
             }
             .nav-link {
                 font-size: 18px;
+                color: var(--color-text);
             }
             .hamburger.active span:nth-child(1) {
                 transform: translateY(7px) rotate(45deg);
@@ -327,6 +331,17 @@
                 transform: translateY(-7px) rotate(-45deg);
             }
         }
+
+        /* Mobile nav overlay backdrop */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(4px);
+            z-index: 9985;
+        }
+        .nav-overlay.active { display: block; }
 
         /* ── HERO SECTION ── */
         .hero {
@@ -1412,6 +1427,9 @@
         </div>
     </header>
 
+    <!-- NAV OVERLAY -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
@@ -1934,21 +1952,30 @@
             // ── RESPONSIVE MOBILE DRAWER MENU ──
             const hamburgerMenu = document.getElementById('hamburgerMenu');
             const navMenu = document.getElementById('navMenu');
+            const navOverlay = document.getElementById('navOverlay');
+
+            function openMobileNav() {
+                hamburgerMenu.classList.add('active');
+                navMenu.classList.add('active');
+                if (navOverlay) navOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMobileNav() {
+                hamburgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+                if (navOverlay) navOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
 
             if (hamburgerMenu && navMenu) {
                 hamburgerMenu.addEventListener('click', () => {
-                    hamburgerMenu.classList.toggle('active');
-                    navMenu.classList.toggle('active');
+                    navMenu.classList.contains('active') ? closeMobileNav() : openMobileNav();
                 });
             }
+            if (navOverlay) navOverlay.addEventListener('click', closeMobileNav);
 
             document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (hamburgerMenu && navMenu) {
-                        hamburgerMenu.classList.remove('active');
-                        navMenu.classList.remove('active');
-                    }
-                });
+                link.addEventListener('click', closeMobileNav);
             });
 
             // ── SWIPER SLIDER HIGHLIGHTS ──
