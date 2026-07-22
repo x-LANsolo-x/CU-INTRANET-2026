@@ -280,28 +280,65 @@
         });
     }
 
-    // ── LINK HOVER PREFETCHING ──
+    // ── ZERO-LATENCY PREFETCH ENGINE ──
     function setupPrefetching() {
-        const prefLinks = [
-            { path: 'clubs', url: './clubs.json' },
-            { path: 'communities', url: './communities.json' },
-            { path: 'departmental', url: './departmental-societies.json' },
-            { path: 'professional', url: './professional-societies.json' }
+        // 1. Pre-cache all 4 entity JSON datasets immediately during idle
+        const jsonUrls = [
+            './clubs.json',
+            './communities.json',
+            './departmental-societies.json',
+            './professional-societies.json'
         ];
-        
-        prefLinks.forEach(item => {
-            document.querySelectorAll(`a[href*="${item.path}"]`).forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    if (!localStorage.getItem('cache_' + item.url)) {
-                        fetch(item.url)
-                            .then(res => res.json())
-                            .then(data => localStorage.setItem('cache_' + item.url, JSON.stringify(data)))
-                            .catch(() => {});
-                    }
-                }, { once: true });
+
+        const preCacheAll = () => {
+            jsonUrls.forEach(url => {
+                if (window.fetchWithCache) {
+                    window.fetchWithCache(url).catch(() => {});
+                }
             });
-        });
+        };
+
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(preCacheAll, { timeout: 1500 });
+        } else {
+            setTimeout(preCacheAll, 300);
+        }
+
+        // 2. Instant link prefetching on hover, focus, or touch
+        const prefetchedUrls = new Set();
+
+        function prefetchTarget(href) {
+            if (!href || prefetchedUrls.has(href)) return;
+            prefetchedUrls.add(href);
+
+            // Add rel=prefetch tag to browser head
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.href = href;
+            document.head.appendChild(link);
+
+            // Also trigger background fetch for JSON assets if linking to explore
+            if (href.includes('explore')) {
+                jsonUrls.forEach(u => {
+                    if (window.fetchWithCache) window.fetchWithCache(u).catch(() => {});
+                });
+            }
+        }
+
+        const handleLinkInteraction = (e) => {
+            const a = e.target.closest('a');
+            if (!a) return;
+            const href = a.getAttribute('href');
+            if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+                prefetchTarget(href.split('#')[0]);
+            }
+        };
+
+        document.addEventListener('mouseover', handleLinkInteraction, { passive: true });
+        document.addEventListener('touchstart', handleLinkInteraction, { passive: true });
+        document.addEventListener('focusin', handleLinkInteraction, { passive: true });
     }
+
 
     // ── SYSTEM-WIDE AUTOMATED IMAGE LOAD OPTIMIZATION ──
     function optimizeImage(img) {
