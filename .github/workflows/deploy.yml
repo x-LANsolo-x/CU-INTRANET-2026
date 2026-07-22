@@ -38,3 +38,23 @@ jobs:
             # Restart or start Express server using PM2
             pm2 describe cu-intranet-backend > /dev/null && pm2 restart cu-intranet-backend || pm2 start server.js --name cu-intranet-backend
           EOF
+
+      - name: Patch Nginx for Clean URL support (try_files $uri $uri.html)
+        run: |
+          ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} << 'NGINXEOF'
+            # Find the active Nginx site config file
+            NGINX_CONF=$(grep -rl "try_files" /etc/nginx/sites-enabled/ 2>/dev/null | head -1)
+            if [ -z "$NGINX_CONF" ]; then
+              NGINX_CONF=$(grep -rl "try_files" /etc/nginx/nginx.conf 2>/dev/null | head -1)
+            fi
+            
+            if [ -n "$NGINX_CONF" ]; then
+              echo "Patching Nginx config: $NGINX_CONF"
+              # Replace try_files $uri $uri/ /index.html with version that also checks .html
+              sudo sed -i 's|try_files \$uri \$uri/ /index.html;|try_files $uri $uri.html $uri/ /index.html;|g' "$NGINX_CONF"
+              # Test config validity
+              sudo nginx -t && sudo systemctl reload nginx && echo "Nginx reloaded successfully with clean URL support"
+            else
+              echo "No Nginx config with try_files found - skipping patch"
+            fi
+          NGINXEOF
