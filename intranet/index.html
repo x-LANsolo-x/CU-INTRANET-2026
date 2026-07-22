@@ -1841,6 +1841,8 @@
     /* ── NATIVE SCROLL REVEALS & ANIMATIONS ── */
     // 1. Word reveal using local observer
     document.querySelectorAll('.word-reveal').forEach(el => {
+        if (el.querySelector('.word') || el.getAttribute('data-word-reveal-processed')) return;
+        el.setAttribute('data-word-reveal-processed', 'true');
         el.innerHTML = el.innerHTML
             .replace(/<br>/gi, ' <br> ')
             .replace(/([^<>\s][^<>]*?)(?=\s|$|<)/g, w => `<span class="word" style="opacity: 0.15; transition: opacity 0.4s ease;">${w}</span>`);
