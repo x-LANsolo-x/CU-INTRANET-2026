@@ -851,3 +851,45 @@ body::before {
     .sys-stats-bar { grid-template-columns: repeat(2, 1fr); }
     .sys-footer-bottom { flex-direction: column; text-align: center; }
 }
+
+/* ── MOBILE NAVIGATION MENU ── */
+.sys-mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%; left: 20px; right: 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+    z-index: 9999;
+}
+
+.sys-mobile-menu.open {
+    display: flex;
+    animation: sysSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sys-mobile-menu a {
+    font-family: var(--font-head);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+    padding: 10px 16px;
+    border-radius: 10px;
+    transition: var(--tr-fast);
+}
+
+.sys-mobile-menu a:hover,
+.sys-mobile-menu a.active {
+    background: var(--red-tint);
+    color: var(--red);
+}
+
+@keyframes sysSlideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
