@@ -12,6 +12,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/", "destination": "/home.html" },
     { "source": "/clubs", "destination": "/index.html" },
     { "source": "/clubs.html", "destination": "/index.html" },
     { "source": "/clubv2", "destination": "/index.html" },

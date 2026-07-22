@@ -141,6 +141,7 @@ app.post('/api/upload', async (req, res) => {
 });
 
 // Serve static files fallback
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'home.html')));
 app.use(express.static(path.join(__dirname)));
 
 // HTML routes fallbacks

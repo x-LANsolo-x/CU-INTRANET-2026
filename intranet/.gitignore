@@ -5,3 +5,4 @@ erp_clubs_only_portal.zip
 # Private keys and local environment variables
 *.pem
 *.env
+node_modules/
