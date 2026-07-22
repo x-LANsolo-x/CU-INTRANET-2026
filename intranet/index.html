@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // Synchronous Nginx Routing Fallback Redirect
+        (function() {
+            const path = window.location.pathname;
+            const cleanPath = path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
+            const routes = {
+                '/explore': '/explore.html',
+                '/register': '/register.html',
+                '/clubs': '/clubs.html',
+                '/communities': '/communities.html',
+                '/departmental-societies': '/departmental-societies.html',
+                '/professional-societies': '/professional-societies.html'
+            };
+            if (routes[cleanPath]) {
+                window.location.replace(routes[cleanPath] + window.location.hash + window.location.search);
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Co-Curricular Ecosystem — Chandigarh University</title>
