@@ -6,26 +6,29 @@
     <title>Registration Form | CU Co-Curricular Intranet</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --red: #E31E24;
-            --red-hover: #b81318;
-            --yellow: #ffb900;
-            --cream: #FAF6EC;
-            --cream2: #F3ECE0;
-            --black: #0F1012;
-            --grey: #5A5E66;
-            --border: rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            --radius-lg: 20px;
-            --radius-md: 12px;
-            --shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
+            --color-bg: #FAF9F6;           /* Premium editorial warm cream background */
+            --color-bg-secondary: #F4F3EF;  /* Structural cream accent */
+            --color-card-bg: #FFFFFF;      /* Pure white container bg */
+            --color-text: #111111;         /* Off-black text */
+            --color-text-muted: #555555;   /* Secondary gray text */
+            --color-red: #FF4D4D;          /* Signature bright red accent */
+            --color-red-hover: #E03C3C;
+            --color-border: #E5E5E5;       /* Thin neutral border lines */
+            
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-lg: 16px;
+            --radius-md: 8px;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+            --shadow-hover: 0 20px 40px rgba(255, 77, 77, 0.06);
         }
 
         * {
@@ -35,9 +38,9 @@
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--cream);
-            color: var(--black);
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
             line-height: 1.6;
             overflow-x: hidden;
             display: flex;
@@ -47,9 +50,10 @@
 
         /* ── HEADER ── */
         .header {
-            background: rgba(250, 246, 236, 0.85);
+            background: rgba(250, 249, 246, 0.85);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
             padding: 16px 40px;
             display: flex;
             align-items: center;
@@ -61,19 +65,14 @@
         }
 
         .header-logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
-        .header-logo img {
-            height: 48px;
-        }
-
-        .header-logo .divider {
-            width: 1px;
-            height: 36px;
-            background: rgba(0, 0, 0, 0.15);
+        .header-logo span.red {
+            color: var(--color-red);
         }
 
         .btn-back {
@@ -81,18 +80,21 @@
             align-items: center;
             gap: 8px;
             text-decoration: none;
-            color: var(--black);
-            font-weight: 600;
-            font-size: 15px;
+            color: var(--color-text);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 14px;
             padding: 10px 18px;
             border-radius: var(--radius-md);
-            background: var(--cream2);
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
             transition: var(--transition);
         }
 
         .btn-back:hover {
-            background: var(--black);
-            color: #fff;
+            background: var(--color-text);
+            color: var(--color-bg);
+            border-color: var(--color-text);
             transform: translateX(-4px);
         }
 
@@ -100,44 +102,44 @@
         .main-container {
             flex: 1;
             width: 100%;
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 760px;
+            margin: 60px auto;
             padding: 0 24px;
         }
 
         .form-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .form-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 38px;
-            font-weight: 700;
+            font-family: var(--font-heading);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 900;
+            letter-spacing: -1.5px;
             margin-bottom: 12px;
-            color: var(--black);
+            color: var(--color-text);
+            line-height: 1.1;
         }
 
-        .form-header h1 em {
-            color: var(--red);
-            font-style: normal;
-            position: relative;
+        .form-header h1 span.text-red {
+            color: var(--color-red);
         }
 
         .form-header p {
-            color: var(--grey);
+            color: var(--color-text-muted);
             font-size: 16px;
-            max-width: 550px;
+            max-width: 520px;
             margin: 0 auto;
         }
 
         /* ── FORM CARD ── */
         .form-card {
-            background: #ffffff;
+            background: var(--color-card-bg);
             border-radius: var(--radius-lg);
             padding: 48px;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--color-border);
             position: relative;
             overflow: hidden;
             transition: var(--transition);
@@ -145,6 +147,7 @@
 
         .form-card:hover {
             box-shadow: var(--shadow-hover);
+            border-color: rgba(255, 77, 77, 0.3);
         }
 
         .form-group {
@@ -154,14 +157,15 @@
 
         .form-group label {
             display: block;
+            font-family: var(--font-heading);
             font-size: 15px;
-            font-weight: 600;
-            color: var(--black);
+            font-weight: 700;
+            color: var(--color-text);
             margin-bottom: 10px;
         }
 
         .form-group label span.required {
-            color: var(--red);
+            color: var(--color-red);
             margin-left: 4px;
         }
 
@@ -169,20 +173,20 @@
         .input-text {
             width: 100%;
             padding: 16px 20px;
-            font-family: 'Outfit', sans-serif;
+            font-family: var(--font-body);
             font-size: 15px;
-            color: var(--black);
-            background: var(--cream);
-            border: 1px solid transparent;
+            color: var(--color-text);
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
             border-radius: var(--radius-md);
             outline: none;
             transition: var(--transition);
         }
 
         .input-text:focus {
-            background: #ffffff;
-            border-color: var(--red);
-            box-shadow: 0 0 0 4px rgba(227, 27, 36, 0.08);
+            background: var(--color-card-bg);
+            border-color: var(--color-red);
+            box-shadow: 0 0 0 4px rgba(255, 77, 77, 0.08);
         }
 
         /* ── RADIO GRID ── */
@@ -208,20 +212,21 @@
             align-items: center;
             gap: 12px;
             padding: 16px 20px;
-            background: var(--cream);
-            border: 1px solid transparent;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
             border-radius: var(--radius-md);
             cursor: pointer;
-            font-weight: 500;
+            font-family: var(--font-heading);
+            font-weight: 600;
             font-size: 15px;
             transition: var(--transition);
         }
 
         .radio-option input[type="radio"]:checked + .radio-label {
-            background: #ffffff;
-            border-color: var(--red);
-            box-shadow: 0 0 0 4px rgba(227, 27, 36, 0.08);
-            color: var(--red);
+            background: var(--color-card-bg);
+            border-color: var(--color-red);
+            box-shadow: 0 0 0 4px rgba(255, 77, 77, 0.08);
+            color: var(--color-red);
         }
 
         .radio-label::before {
@@ -229,32 +234,32 @@
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            border: 2px solid var(--grey);
+            border: 2px solid var(--color-border);
             display: inline-block;
             flex-shrink: 0;
             transition: var(--transition);
         }
 
         .radio-option input[type="radio"]:checked + .radio-label::before {
-            border-color: var(--red);
-            background: var(--red);
-            box-shadow: inset 0 0 0 4px #ffffff;
+            border-color: var(--color-red);
+            background: var(--color-red);
+            box-shadow: inset 0 0 0 4px var(--color-card-bg);
         }
 
         /* ── SELECT GROUP ── */
         .select-input {
             width: 100%;
             padding: 16px 20px;
-            font-family: 'Outfit', sans-serif;
+            font-family: var(--font-body);
             font-size: 15px;
-            color: var(--black);
-            background: var(--cream);
-            border: 1px solid transparent;
+            color: var(--color-text);
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
             border-radius: var(--radius-md);
             outline: none;
             cursor: pointer;
             appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235A5E66' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position: right 20px center;
             background-size: 16px;
@@ -262,9 +267,9 @@
         }
 
         .select-input:focus {
-            background-color: #ffffff;
-            border-color: var(--red);
-            box-shadow: 0 0 0 4px rgba(227, 27, 36, 0.08);
+            background-color: var(--color-card-bg);
+            border-color: var(--color-red);
+            box-shadow: 0 0 0 4px rgba(255, 77, 77, 0.08);
         }
 
         /* ── CONDITIONAL FIELD CONTAINER ── */
@@ -289,29 +294,30 @@
             width: 100%;
             padding: 18px;
             border: none;
-            background: var(--red);
-            color: #ffffff;
-            font-family: 'Outfit', sans-serif;
+            background: var(--color-red);
+            color: #FFFFFF;
+            font-family: var(--font-heading);
             font-size: 16px;
-            font-weight: 700;
+            font-weight: 750;
             border-radius: var(--radius-md);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 12px rgba(227, 27, 36, 0.15);
+            box-shadow: 0 4px 14px rgba(255, 77, 77, 0.15);
             transition: var(--transition);
         }
 
         .btn-submit:hover {
-            background: var(--red-hover);
+            background: var(--color-red-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(227, 27, 36, 0.25);
+            box-shadow: 0 8px 24px rgba(255, 77, 77, 0.25);
         }
 
         .btn-submit:disabled {
-            background: var(--grey);
+            background: var(--color-border);
+            color: var(--color-text-muted);
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
@@ -322,7 +328,7 @@
         .success-overlay {
             position: fixed;
             inset: 0;
-            background: var(--cream);
+            background: var(--color-bg);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -339,13 +345,13 @@
 
         .success-card {
             text-align: center;
-            background: #ffffff;
+            background: var(--color-card-bg);
             border-radius: var(--radius-lg);
             padding: 60px 40px;
             max-width: 500px;
             width: 90%;
             box-shadow: var(--shadow-hover);
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--color-border);
             transform: scale(0.9);
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -378,14 +384,15 @@
         }
 
         .success-card h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-heading);
             font-size: 30px;
+            font-weight: 850;
             margin-bottom: 12px;
-            color: var(--black);
+            color: var(--color-text);
         }
 
         .success-card p {
-            color: var(--grey);
+            color: var(--color-text-muted);
             font-size: 15px;
             line-height: 1.6;
             margin-bottom: 32px;
@@ -394,20 +401,20 @@
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             .header {
-                padding: 16px 20px;
+                padding: 16px 24px;
             }
             .main-container {
-                margin: 20px auto;
+                margin: 40px auto;
             }
             .form-card {
-                padding: 30px 20px;
+                padding: 32px 24px;
             }
             .form-header h1 {
-                font-size: 30px;
+                font-size: 32px;
             }
             .radio-grid {
                 grid-template-columns: 1fr;
-                gap: 10px;
+                gap: 12px;
             }
         }
     </style>
@@ -417,20 +424,18 @@
     <!-- HEADER -->
     <header class="header">
         <div class="header-logo">
-            <img src="https://www.cuchd.in/includes/assets/images/header-footer/cu-logo-dark-new.webp" alt="Chandigarh University Logo">
-            <div class="divider"></div>
-            <img src="logos/oaa-logo.png" alt="OAA Logo">
+            co-curricular<span class="red">.</span>
         </div>
-        <a href="index.html" class="btn-back">
-            <i class="fa-solid fa-arrow-left"></i> Home
+        <a href="home.html" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Back to Portal
         </a>
     </header>
 
     <!-- FORM LAYOUT -->
     <main class="main-container">
         <div class="form-header">
-            <h1>Register Your <em>Interest</em></h1>
-            <p>Join the Chandigarh University co-curricular clubs, departmental societies, and student communities under the Office of Academic Affairs.</p>
+            <h1>Register Your <span class="text-red">Interest.</span></h1>
+            <p>Select your preferred clubs, communities, and societies. Our faculty and student panel will connect with onboarding guidelines.</p>
         </div>
 
         <div class="form-card">
@@ -549,9 +554,9 @@
                 <i class="fa-solid fa-check"></i>
             </div>
             <h2>Registration Successful!</h2>
-            <p>Thank you for showing interest in Chandigarh University co-curricular activities. Your response has been securely submitted to the Office of Academic Affairs.</p>
-            <a href="index.html" class="btn-back" style="background: var(--red); color: #fff; display: inline-flex; justify-content: center; padding: 14px 28px;">
-                Back to Home
+            <p>Thank you for registering interest. Your preferences have been forwarded to the Office of Academic Affairs co-curricular committee.</p>
+            <a href="home.html" class="btn-back" style="background: var(--color-red); color: #fff; border-color: var(--color-red); display: inline-flex; justify-content: center; padding: 14px 28px; width: 100%;">
+                Back to Portal
             </a>
         </div>
     </div>
