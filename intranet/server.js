@@ -140,14 +140,25 @@ app.post('/api/upload', async (req, res) => {
     }
 });
 
+// Auto route extensionless HTML requests (Clean URLs) for local dev
+app.use((req, res, next) => {
+    if (req.method === 'GET' && !path.extname(req.path)) {
+        // Handle root / or empty paths
+        if (req.path === '/' || req.path === '') {
+            return next();
+        }
+        const potentialHtmlPath = path.join(__dirname, req.path + '.html');
+        if (fs.existsSync(potentialHtmlPath)) {
+            return res.sendFile(potentialHtmlPath);
+        }
+    }
+    next();
+});
+
 // Serve static files fallback
 app.use(express.static(path.join(__dirname)));
 
-// HTML routes fallbacks
-app.get('/communities', (req, res) => res.sendFile(path.join(__dirname, 'communities.html')));
-app.get('/departmental-societies', (req, res) => res.sendFile(path.join(__dirname, 'departmental-societies.html')));
-app.get('/professional-societies', (req, res) => res.sendFile(path.join(__dirname, 'professional-societies.html')));
-app.get('/clubs', (req, res) => res.sendFile(path.join(__dirname, 'clubs.html')));
+// Legacy route manual overrides
 app.get('/clubv2', (req, res) => res.sendFile(path.join(__dirname, 'clubs.html')));
 
 app.listen(PORT, () => {
