@@ -640,12 +640,17 @@
 
         /* ── OVERVIEW ── */
         .overview-section { background: var(--cream); }
-        .overview-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
+                .overview-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            align-items: stretch;
             margin-top: 64px;
+        }
+        .overview-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
         .overview-text p {
             font-size: 17px;
@@ -653,16 +658,47 @@
             color: var(--grey);
             margin-bottom: 22px;
         }
+        .overview-text .btn-primary {
+            margin: 28px auto 0;
+        }
         .overview-visual {
-            background: var(--cream2);
-            border-radius: var(--radius-xl);
-            padding: 40px;
+            background: transparent;
+            border: none;
+            padding: 24px 0;
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        /* Soft horizontal edges gradient masks */
+        .overview-visual::before, .overview-visual::after {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 120px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .overview-visual::before {
+            left: 0;
+            background: linear-gradient(to right, var(--cream), transparent);
+        }
+        .overview-visual::after {
+            right: 0;
+            background: linear-gradient(to left, var(--cream), transparent);
+        }
+        .ov-marquee-track {
             display: flex;
-            flex-direction: column;
-            gap: 16px;
-            border: 1px solid var(--border);
+            gap: 24px;
+            width: max-content;
+            animation: ovMarquee 26s linear infinite;
+        }
+        .ov-marquee-track:hover {
+            animation-play-state: paused;
         }
         .ov-card {
+            width: 440px;
+            flex-shrink: 0;
             background: var(--white);
             border-radius: var(--radius-md);
             padding: 0;
@@ -674,9 +710,13 @@
             overflow: hidden;
         }
         .ov-card:hover {
-            transform: translateX(6px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-sm);
             border-color: rgba(227,27,35,0.2);
+        }
+        @keyframes ovMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         .ov-img-wrap {
             width: 130px;
@@ -1240,6 +1280,7 @@
             }
         }
         @media (max-width: 600px) {
+            .ov-card { width: 320px !important; }
             .section { padding: 50px 20px; }
             .stats-section { padding: 50px 20px; }
             .stats-inner { grid-template-columns: 1fr; gap: 24px; }
@@ -1248,14 +1289,26 @@
             .cta-section { padding: 50px 20px; }
             .hero-h1 { font-size: 32px !important; line-height: 1.25 !important; }
         }
-    </style>
+    
+/* Footer Logos Background Fix */
+.sys-footer-logo, .footer-logo {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.sys-footer-logo img, .footer-logo img {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+</style>
 </head>
 <body>
 
 <!-- PRELOADER -->
 <div id="preloader">
     <div id="preloader-ring">
-        <img src="loader.png" alt="Loading Logo">
+        <img src="loader.png?v=8.0" alt="Loading Logo">
     </div>
     <span id="preloader-label">Office of Academic Affairs</span>
 </div>
@@ -1264,9 +1317,9 @@
 <header class="header" id="mainHeader">
     <div class="header-pill">
         <div class="header-logo">
-            <img src="logos/cu-logo-dark-transparent.png?v=7.0" alt="Chandigarh University Logo">
+            <img src="logos/cu-logo-dark-transparent.png?v=8.0" alt="Chandigarh University Logo">
             <div class="divider"></div>
-            <img src="logos/oaa-logo.png?v=7.0" alt="OAA Logo">
+            <img src="logos/oaa-logo.png?v=8.0" alt="OAA Logo">
         </div>
         <nav class="header-nav">
             <ul>
@@ -1420,41 +1473,80 @@
                     Explore Entities <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-            <div class="overview-visual">
-                <div class="ov-card">
-                    <div class="ov-img-wrap">
-                        <img src="media/Broken console/Screenshot From 2026-05-19 10-51-36.png" class="blur-image" onload="this.classList.add('loaded')" alt="Governance" loading="lazy">
+                        <div class="overview-visual">
+                <div class="ov-marquee-track">
+                    <div class="ov-card">
+                        <div class="ov-img-wrap">
+                            <img src="media/Broken console/Screenshot From 2026-05-19 10-51-36.png" class="blur-image" onload="this.classList.add('loaded')" alt="Governance" loading="lazy">
+                        </div>
+                        <div class="ov-card-content">
+                            <h4>Student-Led Governance</h4>
+                            <p>Students plan events, manage operations, coordinate teams, and make strategic decisions.</p>
+                        </div>
                     </div>
-                    <div class="ov-card-content">
-                        <h4>Student-Led Governance</h4>
-                        <p>Students plan events, manage operations, coordinate teams, and make strategic decisions.</p>
+                    <div class="ov-card">
+                        <div class="ov-img-wrap">
+                            <img src="media/Broken console/Screenshot From 2026-05-19 10-51-24.png" class="blur-image" onload="this.classList.add('loaded')" alt="Mentorship" loading="lazy">
+                        </div>
+                        <div class="ov-card-content">
+                            <h4>Faculty Mentorship</h4>
+                            <p>Dedicated Faculty Champions provide guidance, academic support, and quality assurance.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="ov-card">
-                    <div class="ov-img-wrap">
-                        <img src="media/Broken console/Screenshot From 2026-05-19 10-51-24.png" class="blur-image" onload="this.classList.add('loaded')" alt="Mentorship" loading="lazy">
+                    <div class="ov-card">
+                        <div class="ov-img-wrap">
+                            <img src="media/UpCycle/4b2e8bd0-98a0-4445-b1ff-ff4411698217.png" class="blur-image" onload="this.classList.add('loaded')" alt="Learning" loading="lazy">
+                        </div>
+                        <div class="ov-card-content">
+                            <h4>Experiential Learning</h4>
+                            <p>Structured annual calendars with hackathons, competitions, workshops, and industry interactions.</p>
+                        </div>
                     </div>
-                    <div class="ov-card-content">
-                        <h4>Faculty Mentorship</h4>
-                        <p>Dedicated Faculty Champions provide guidance, academic support, and quality assurance.</p>
+                    <div class="ov-card">
+                        <div class="ov-img-wrap">
+                            <img src="media/Broken console/Screenshot From 2026-05-19 10-50-30.png" class="blur-image" onload="this.classList.add('loaded')" alt="Achievement" loading="lazy">
+                        </div>
+                        <div class="ov-card-content">
+                            <h4>Recognition &amp; Achievement</h4>
+                            <p>Official certifications, co-curricular credits, trophies, and institutional recognition.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="ov-card">
-                    <div class="ov-img-wrap">
-                        <img src="media/UpCycle/4b2e8bd0-98a0-4445-b1ff-ff4411698217.png" class="blur-image" onload="this.classList.add('loaded')" alt="Learning" loading="lazy">
+                    <!-- Duplicate for seamless looping -->
+                    <div class="ov-card">
+                        <div class="ov-img-wrap">
+                            <img src="media/Broken console/Screenshot From 2026-05-19 10-51-36.png" class="blur-image" onload="this.classList.add('loaded')" alt="Governance" loading="lazy">
+                        </div>
+                        <div class="ov-card-content">
+                            <h4>Student-Led Governance</h4>
+                            <p>Students plan events, manage operations, coordinate teams, and make strategic decisions.</p>
+                        </div>
                     </div>
-                    <div class="ov-card-content">
-                        <h4>Experiential Learning</h4>
-                        <p>Structured annual calendars with hackathons, competitions, workshops, and industry interactions.</p>
+                    <div class="ov-card">
+                        <div class="ov-img-wrap">
+                            <img src="media/Broken console/Screenshot From 2026-05-19 10-51-24.png" class="blur-image" onload="this.classList.add('loaded')" alt="Mentorship" loading="lazy">
+                        </div>
+                        <div class="ov-card-content">
+                            <h4>Faculty Mentorship</h4>
+                            <p>Dedicated Faculty Champions provide guidance, academic support, and quality assurance.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="ov-card">
-                    <div class="ov-img-wrap">
-                        <img src="media/Broken console/Screenshot From 2026-05-19 10-50-30.png" class="blur-image" onload="this.classList.add('loaded')" alt="Achievement" loading="lazy">
+                    <div class="ov-card">
+                        <div class="ov-img-wrap">
+                            <img src="media/UpCycle/4b2e8bd0-98a0-4445-b1ff-ff4411698217.png" class="blur-image" onload="this.classList.add('loaded')" alt="Learning" loading="lazy">
+                        </div>
+                        <div class="ov-card-content">
+                            <h4>Experiential Learning</h4>
+                            <p>Structured annual calendars with hackathons, competitions, workshops, and industry interactions.</p>
+                        </div>
                     </div>
-                    <div class="ov-card-content">
-                        <h4>Recognition &amp; Achievement</h4>
-                        <p>Official certifications, co-curricular credits, trophies, and institutional recognition.</p>
+                    <div class="ov-card">
+                        <div class="ov-img-wrap">
+                            <img src="media/Broken console/Screenshot From 2026-05-19 10-50-30.png" class="blur-image" onload="this.classList.add('loaded')" alt="Achievement" loading="lazy">
+                        </div>
+                        <div class="ov-card-content">
+                            <h4>Recognition &amp; Achievement</h4>
+                            <p>Official certifications, co-curricular credits, trophies, and institutional recognition.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1776,8 +1868,8 @@
 <!-- FOOTER -->
 <footer class="footer" id="contact">
     <div class="footer-logo">
-        <img src="logos/cu-logo-white-transparent.png?v=7.0" alt="CU Logo">
-        <img src="logos/oaa-logo-white.png?v=7.0" alt="OAA Logo" style="height:44px;">
+        <img src="logos/cu-logo-white-transparent.png?v=8.0" alt="CU Logo">
+        <img src="logos/oaa-logo-white.png?v=8.0" alt="OAA Logo" style="height:44px;">
     </div>
     <p>Chandigarh University — Student Co-Curricular Ecosystem</p>
     <p>NH-05, Chandigarh-Ludhiana Highway, Mohali, Punjab, India</p>
@@ -2085,6 +2177,6 @@
 
 })();
 </script>
-<script src="system.js?v=7.0"></script>
+<script src="system.js?v=8.0"></script>
 </body>
 </html>

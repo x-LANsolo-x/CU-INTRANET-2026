@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="https://www.cuchd.in/latest-assets/images/fevicon.png" type="image/x-icon">
 
     <!-- Unified Stylesheet -->
-    <link rel="stylesheet" href="system.css?v=7.0">
+    <link rel="stylesheet" href="system.css?v=8.0">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -494,7 +494,7 @@
 <!-- PRELOADER -->
 <div id="sys-preloader">
     <div class="ring">
-        <img src="loader.png" alt="Loading Logo">
+        <img src="loader.png?v=8.0" alt="Loading Logo">
     </div>
     <span class="label">Office of Academic Affairs</span>
 </div>
@@ -503,9 +503,9 @@
 <header class="sys-header" id="mainHeader">
     <div class="sys-header-pill">
         <div class="sys-logo">
-            <img src="logos/cu-logo-dark-transparent.png?v=7.0" alt="Chandigarh University Logo">
+            <img src="logos/cu-logo-dark-transparent.png?v=8.0" alt="Chandigarh University Logo">
             <div class="divider"></div>
-            <img src="logos/oaa-logo.png?v=7.0" alt="OAA Logo">
+            <img src="logos/oaa-logo.png?v=8.0" alt="OAA Logo">
         </div>
         <nav class="sys-nav">
             <a href="./">Home</a>
@@ -605,8 +605,66 @@
                 </div>
 
                 <div class="fgroup">
-                    <label for="f_dept">DEPARTMENT <span class="req">*</span></label>
-                    <input type="text" id="f_dept" name="entry.1369769838" class="finput" placeholder="e.g. Computer Science & Engineering" required>
+                    <label for="f_dept">DEPARTMENT / BRANCH <span class="req">*</span></label>
+                        <select id="f_dept" name="entry.1369769838" class="finput" required>
+                            <option value="" disabled selected>Select your Department / Branch</option>
+                            <option value="ENGINEERING FOUNDATION 1">ENGINEERING FOUNDATION 1</option>
+                            <option value="ENGINEERING FOUNDATION 2">ENGINEERING FOUNDATION 2</option>
+                            <option value="ENGINEERING FOUNDATION 3">ENGINEERING FOUNDATION 3</option>
+                            <option value="ENGINEERING FOUNDATION 4">ENGINEERING FOUNDATION 4</option>
+                            <option value="ENGINEERING FOUNDATION 5">ENGINEERING FOUNDATION 5</option>
+                            <option value="ME - CSE">ME - CSE</option>
+                            <option value="CSE-2ND YEAR">CSE-2ND YEAR</option>
+                            <option value="CSE-3RD YEAR">CSE-3RD YEAR</option>
+                            <option value="CSE-4TH YEAR">CSE-4TH YEAR</option>
+                            <option value="AEROSPACE ENG.">AEROSPACE ENG.</option>
+                            <option value="MECHANICAL ENG.">MECHANICAL ENG.</option>
+                            <option value="MECHATRONICS ENG.">MECHATRONICS ENG.</option>
+                            <option value="AUTOMOBILE ENG.">AUTOMOBILE ENG.</option>
+                            <option value="ELECTRICAL ENG.">ELECTRICAL ENG.</option>
+                            <option value="ELEC AND COMM. ENG.">ELEC AND COMM. ENG.</option>
+                            <option value="BIOTECH & FOOD ENG.">BIOTECH & FOOD ENG.</option>
+                            <option value="CHEMICAL ENG.">CHEMICAL ENG.</option>
+                            <option value="CIVIL ENG.">CIVIL ENG.</option>
+                            <option value="AIT-CSE">AIT-CSE</option>
+                            <option value="UIC_BCA">UIC_BCA</option>
+                            <option value="UIC_MCA">UIC_MCA</option>
+                            <option value="BIO-SCIENCES">BIO-SCIENCES</option>
+                            <option value="BIO-TECHNOLOGY">BIO-TECHNOLOGY</option>
+                            <option value="CHEMISTRY">CHEMISTRY</option>
+                            <option value="MATHEMATICS">MATHEMATICS</option>
+                            <option value="PHYSICS">PHYSICS</option>
+                            <option value="OPTOMETRY">OPTOMETRY</option>
+                            <option value="PHYSIOTHERAPY">PHYSIOTHERAPY</option>
+                            <option value="FORENSIC SCIENCE">FORENSIC SCIENCE</option>
+                            <option value="MEDICAL LAB TECHNOLOGY">MEDICAL LAB TECHNOLOGY</option>
+                            <option value="NUTRITION & DIETETICS">NUTRITION & DIETETICS</option>
+                            <option value="UIPS">UIPS</option>
+                            <option value="FINE ARTS">FINE ARTS</option>
+                            <option value="INDUSTRIAL DESIGN">INDUSTRIAL DESIGN</option>
+                            <option value="INTERIOR DESIGN">INTERIOR DESIGN</option>
+                            <option value="FASHION & DESIGN">FASHION & DESIGN</option>
+                            <option value="PSYCHOLOGY">PSYCHOLOGY</option>
+                            <option value="UILAH">UILAH</option>
+                            <option value="UIMS">UIMS</option>
+                            <option value="ANIMATION">ANIMATION</option>
+                            <option value="UIPES">UIPES</option>
+                            <option value="UITTR">UITTR</option>
+                            <option value="ARCHITECTURE">ARCHITECTURE</option>
+                            <option value="AIT- MBA">AIT- MBA</option>
+                            <option value="BBA APEX">BBA APEX</option>
+                            <option value="BA-LLB">BA-LLB</option>
+                            <option value="BBA-LLB">BBA-LLB</option>
+                            <option value="BCOMLL.B (Hons.)">BCOMLL.B (Hons.)</option>
+                            <option value="LLB-LLM">LLB-LLM</option>
+                            <option value="AIRLINES">AIRLINES</option>
+                            <option value="HHM">HHM</option>
+                            <option value="TTM">TTM</option>
+                            <option value="BBA">BBA</option>
+                            <option value="COMMERCE">COMMERCE</option>
+                            <option value="MBA & ECONOMICS">MBA & ECONOMICS</option>
+                            <option value="GSFA">GSFA</option>
+                        </select>
                 </div>
 
                 <div class="fgrid-2">
@@ -662,8 +720,9 @@
         ══════════════════════════════════ -->
         <div class="reg-section" id="sec2">
             <div class="form-card">
-                <div class="form-card-title">
-                    <i class="fas fa-flag"></i> Student Clubs
+                <div class="form-card-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <span><i class="fas fa-flag"></i> Student Clubs</span>
+                    <span class="reg-stat-pill" style="margin-top: 0; margin-bottom: 0; background: var(--black); color: var(--white); border-color: var(--black); font-size: 12px; padding: 6px 14px;" id="selectedCountBadgeSec2">Selected Entities (Max 3): 0 / 3</span>
                 </div>
                 <div class="form-card-desc">Select one or more clubs you'd like to join. You may choose across categories.</div>
 
@@ -739,8 +798,9 @@
         ══════════════════════════════════ -->
         <div class="reg-section" id="sec3">
             <div class="form-card">
-                <div class="form-card-title">
-                    <i class="fas fa-award"></i> Professional Societies
+                <div class="form-card-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <span><i class="fas fa-award"></i> Professional Societies</span>
+                    <span class="reg-stat-pill" style="margin-top: 0; margin-bottom: 0; background: var(--black); color: var(--white); border-color: var(--black); font-size: 12px; padding: 6px 14px;" id="selectedCountBadgeSec3">Selected Entities (Max 3): 0 / 3</span>
                 </div>
                 <div class="form-card-desc">Select the professional societies you'd like to join.</div>
 
@@ -814,8 +874,8 @@
         <div class="sys-footer-inner">
             <div class="sys-footer-brand">
                 <div class="sys-footer-logo">
-                    <img src="logos/cu-logo-white-transparent.png?v=7.0" alt="CU Logo">
-                    <img src="logos/oaa-logo-white.png?v=7.0" alt="OAA Logo">
+                    <img src="logos/cu-logo-white-transparent.png?v=8.0" alt="CU Logo">
+                    <img src="logos/oaa-logo-white.png?v=8.0" alt="OAA Logo">
                 </div>
                 <p>Empowering students to lead with confidence, responsibility, and vision under Chandigarh University's Office of Academic Affairs.</p>
                 <div class="sys-footer-socials">
@@ -856,9 +916,13 @@
     </div>
 </footer>
 
-<script src="system.js?v=7.0"></script>
+<script src="system.js?v=8.0"></script>
 <script>
 (function() {
+    // Configuration URLs:
+    // If you deployed a Google Apps Script Web App, paste its URL in WEB_APP_URL.
+    // If WEB_APP_URL is empty, it will fall back to FORM_URL (Google Forms submission).
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwjAKvelucSclzL0Ex0klPfC6pBARFbWERW9czTcQcQxygGCoMzmg-e8TqN0xFrIL1R/exec';
     const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfRL-59pvU46qiMANNxCjA2IkpBLTm2tM6-5OhP6AOwmfqXpA/formResponse';
 
     const sections = [
@@ -873,6 +937,55 @@
     const successOverlay = document.getElementById('successOverlay');
 
     let currentStep = 0;
+
+    // Entity selection tracking & validation rules (min 1, max 3 across all checkboxes)
+    const MAX_SELECTION = 3;
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    const badgeSec2 = document.getElementById('selectedCountBadgeSec2');
+    const badgeSec3 = document.getElementById('selectedCountBadgeSec3');
+
+    function getCheckedCount() {
+        let count = 0;
+        checkboxes.forEach(cb => {
+            if (cb.checked) count++;
+        });
+        return count;
+    }
+
+    function updateCheckboxStates() {
+        const checkedCount = getCheckedCount();
+        
+        // Update badges text
+        const badgeText = `Selected Entities (Max 3): ${checkedCount} / ${MAX_SELECTION}`;
+        if (badgeSec2) badgeSec2.textContent = badgeText;
+        if (badgeSec3) badgeSec3.textContent = badgeText;
+        
+        checkboxes.forEach(cb => {
+            const label = cb.nextElementSibling;
+            if (checkedCount >= MAX_SELECTION) {
+                if (!cb.checked) {
+                    cb.disabled = true;
+                    if (label) {
+                        label.style.opacity = '0.5';
+                        label.style.cursor = 'not-allowed';
+                    }
+                }
+            } else {
+                cb.disabled = false;
+                if (label) {
+                    label.style.opacity = '';
+                    label.style.cursor = '';
+                }
+            }
+        });
+    }
+
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', updateCheckboxStates);
+    });
+
+    // Run initial state setup
+    updateCheckboxStates();
 
     function goTo(step) {
         sections[currentStep].classList.remove('active');
@@ -926,9 +1039,16 @@
         el.addEventListener('input', () => { el.style.borderColor = ''; });
     });
 
-    // Submit
+    // Submit form logic (supports Google Apps Script & regular Google Forms fallback)
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        // Limit validation: check if at least 1 club/society is chosen
+        const totalSelected = getCheckedCount();
+        if (totalSelected === 0) {
+            alert('Please select at least 1 club or professional society before submitting.');
+            return;
+        }
 
         submitBtn.disabled = true;
         submitBtn.innerHTML = 'Submitting… <i class="fas fa-spinner fa-spin"></i>';
@@ -947,14 +1067,55 @@
             }
         }
 
-        fetch(FORM_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: params.toString()
-        })
-        .then(() => showSuccess())
-        .catch(() => showSuccess()); // no-cors always resolves, not rejects
+        const targetUrl = WEB_APP_URL && WEB_APP_URL.trim() !== '' ? WEB_APP_URL : FORM_URL;
+        
+        if (targetUrl === WEB_APP_URL) {
+            // Apps Script requires standard JSON POST request for CORS and clean execution
+            const jsonObj = {};
+            for (const [key, value] of formData.entries()) {
+                if (key.startsWith('entry.')) {
+                    if (jsonObj[key]) {
+                        if (Array.isArray(jsonObj[key])) {
+                            jsonObj[key].push(value);
+                        } else {
+                            jsonObj[key] = [jsonObj[key], value];
+                        }
+                    } else {
+                        jsonObj[key] = value;
+                    }
+                } else {
+                    jsonObj[key] = value;
+                }
+            }
+
+            fetch(WEB_APP_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(jsonObj)
+            })
+            .then(() => {
+                showSuccess();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Submit Registration <i class="fas fa-paper-plane"></i>';
+            })
+            .catch(err => {
+                console.error('Fetch error:', err);
+                showSuccess(); // Fallback show success anyway to keep user experience smooth
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Submit Registration <i class="fas fa-paper-plane"></i>';
+            });
+        } else {
+            // Default Google Forms submission (no-cors URLEncoded)
+            fetch(FORM_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: params.toString()
+            })
+            .then(() => showSuccess())
+            .catch(() => showSuccess());
+        }
     });
 
     function showSuccess() {

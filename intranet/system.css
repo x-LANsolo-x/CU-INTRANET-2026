@@ -962,3 +962,15 @@ body::before {
     transform: none !important;
     box-shadow: none !important;
 }
+
+/* Footer Logos Background Fix */
+.sys-footer-logo, .footer-logo {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.sys-footer-logo img, .footer-logo img {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
