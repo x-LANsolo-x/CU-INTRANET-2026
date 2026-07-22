@@ -398,13 +398,35 @@
         observer.observe(document.body, { childList: true, subtree: true });
     }
 
+    // ── ENFORCE SINGLE-DOMAIN SAME-TAB ROUTING ──
+    function enforceSingleDomainTabs() {
+        document.querySelectorAll('a[href]').forEach(a => {
+            const href = a.getAttribute('href') || '';
+            const isExternal = href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//');
+            if (!isExternal) {
+                // Internal route: remove target="_blank" to ensure single tab navigation
+                if (a.getAttribute('target') === '_blank') {
+                    a.removeAttribute('target');
+                }
+            } else {
+                // External webservice link: secure with noopener noreferrer
+                if (a.getAttribute('target') === '_blank' && !a.getAttribute('rel')) {
+                    a.setAttribute('rel', 'noopener noreferrer');
+                }
+            }
+        });
+    }
+
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
         setupPrefetching();
         setupImageOptimization();
+        enforceSingleDomainTabs();
     } else {
         document.addEventListener('DOMContentLoaded', () => {
             setupPrefetching();
             setupImageOptimization();
+            enforceSingleDomainTabs();
         });
     }
 })();
+
