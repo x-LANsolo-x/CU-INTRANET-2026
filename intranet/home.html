@@ -1046,6 +1046,76 @@
             }
         }
 
+        /* ── FAQ ACCORDION ── */
+        .faq-section {
+            background: var(--color-white);
+        }
+
+        .faq-accordion {
+            max-width: 820px;
+            margin: 50px auto 0;
+        }
+
+        .faq-item {
+            background: var(--color-light-bg);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--color-light-border);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: var(--color-accent-gold);
+        }
+
+        .faq-q {
+            padding: 24px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--color-primary-dark);
+            user-select: none;
+        }
+
+        .faq-icon {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+            color: var(--color-accent-gold);
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-a {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 0 30px;
+            color: var(--color-muted-text);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .faq-item.open {
+            background: var(--color-white);
+            border-color: var(--color-accent-gold);
+            box-shadow: 0 10px 30px rgba(122, 31, 43, 0.05);
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 250px;
+            opacity: 1;
+            padding-bottom: 24px;
+        }
+
         /* ── FOOTER ── */
         .footer {
             background: var(--color-dark);
@@ -1204,27 +1274,69 @@
     <section class="hero">
         <div class="hero-collage">
             <div class="collage-col up">
+                <!-- Col 1 items (Duplicated for infinite scroll loop) -->
+                <img src="media/kalaverse/ANI-20260410052139.jpg" alt="Campus">
+                <img src="media/campustocorporate/c2c_17.jpg" alt="Students">
+                <img src="media/Vision Velocity/fb-2022-day2-2048x1365.jpg" alt="Launch">
+                <img src="media/cysecsphere/cysec_13.jpg" alt="Activity">
+                <!-- Duplicated set -->
                 <img src="media/kalaverse/ANI-20260410052139.jpg" alt="Campus">
                 <img src="media/campustocorporate/c2c_17.jpg" alt="Students">
                 <img src="media/Vision Velocity/fb-2022-day2-2048x1365.jpg" alt="Launch">
                 <img src="media/cysecsphere/cysec_13.jpg" alt="Activity">
             </div>
             <div class="collage-col down">
+                <!-- Col 2 items (Duplicated) -->
                 <img src="media/kalaverse/films-lab-2.jpg" alt="Lab">
                 <img src="media/campustocorporate/c2c_31.jpg" alt="Events">
-                <img src="media/Vision Velocity/kev-1369-scaled.jpg" alt="Orientation">
+                <img src="media/Vision Velocity/kev-1369-scaled.jpg" alt="CU Campus">
                 <img src="media/cysecsphere/cysec_6.jpg" alt="Interactive">
+                <!-- Duplicated set -->
+                <img src="media/kalaverse/films-lab-2.jpg" alt="Lab">
+                <img src="media/campustocorporate/c2c_31.jpg" alt="Events">
+                <img src="media/Vision Velocity/kev-1369-scaled.jpg" alt="CU Campus">
+                <img src="media/cysecsphere/cysec_6.jpg" alt="Interactive">
+            </div>
+            <div class="collage-col up">
+                <!-- Col 3 items (Duplicated) -->
+                <img src="media/kalaverse/Hitube_49R5NfXhSi_2026_05_21_10_54_22.jpg" alt="Festival">
+                <img src="media/campustocorporate/c2c_21.jpg" alt="Awards">
+                <img src="media/Vision Velocity/fb2019-img5-scaled.jpg" alt="Auditorium">
+                <img src="media/cysecsphere/cysec_9.jpg" alt="Session">
+                <!-- Duplicated set -->
+                <img src="media/kalaverse/Hitube_49R5NfXhSi_2026_05_21_10_54_22.jpg" alt="Festival">
+                <img src="media/campustocorporate/c2c_21.jpg" alt="Awards">
+                <img src="media/Vision Velocity/fb2019-img5-scaled.jpg" alt="Auditorium">
+                <img src="media/cysecsphere/cysec_9.jpg" alt="Session">
+            </div>
+            <div class="collage-col down">
+                <!-- Col 4 items (Duplicated) -->
+                <img src="media/kalaverse/Hitube_uc06Us2gqX_2026_05_21_10_54_28.jpg" alt="Community">
+                <img src="media/campustocorporate/c2c_27.jpg" alt="Ecosystem">
+                <img src="media/cysecsphere/cysec_17.jpg" alt="Labs">
+                <img src="media/cysecsphere/cysec_26.jpg" alt="Exhibition">
+                <!-- Duplicated set -->
+                <img src="media/kalaverse/Hitube_uc06Us2gqX_2026_05_21_10_54_28.jpg" alt="Community">
+                <img src="media/campustocorporate/c2c_27.jpg" alt="Ecosystem">
+                <img src="media/cysecsphere/cysec_17.jpg" alt="Labs">
+                <img src="media/cysecsphere/cysec_26.jpg" alt="Exhibition">
             </div>
         </div>
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
             <span class="date-badge">CU Co-Curricular Ecosystem 2026</span>
-            <h1>Unlock Your Potential <span>Beyond Classrooms</span></h1>
+            <h1 id="heroHeadline">Unlock Your Potential <span>Beyond Classrooms</span></h1>
             <p>From arts and tech to sports and social impact, join 80+ student-led communities designed to shape your leadership, creativity, and professional network.</p>
             <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
                 <a href="explore.html" class="btn-primary">Explore Communities <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#intro" class="btn-secondary" style="color: var(--color-white); border-color: rgba(255,255,255,0.4);">Learn More</a>
             </div>
+        </div>
+
+        <div class="scroll-down" id="scrollToIntro">
+            Scroll Down
+            <i class="fa-solid fa-chevron-down"></i>
         </div>
     </section>
 
@@ -1235,7 +1347,12 @@
                 <div class="ticker-item"><i class="fa-solid fa-users"></i> 80+ Active Student Clubs &amp; Communities</div>
                 <div class="ticker-item"><i class="fa-solid fa-trophy"></i> 200+ National &amp; International Awards Won</div>
                 <div class="ticker-item"><i class="fa-solid fa-circle-check"></i> Membership Registrations Open</div>
-                <div class="ticker-item"><i class="fa-solid fa-star"></i> Arts · Tech · Sports · Innovation · Business</div>
+                <div class="ticker-item"><i class="fa-solid fa-star"></i> Arts &middot; Tech &middot; Sports &middot; Innovation &middot; Business</div>
+                <!-- Duplicated for seamless loop -->
+                <div class="ticker-item"><i class="fa-solid fa-users"></i> 80+ Active Student Clubs &amp; Communities</div>
+                <div class="ticker-item"><i class="fa-solid fa-trophy"></i> 200+ National &amp; International Awards Won</div>
+                <div class="ticker-item"><i class="fa-solid fa-circle-check"></i> Membership Registrations Open</div>
+                <div class="ticker-item"><i class="fa-solid fa-star"></i> Arts &middot; Tech &middot; Sports &middot; Innovation &middot; Business</div>
             </div>
         </div>
     </div>
