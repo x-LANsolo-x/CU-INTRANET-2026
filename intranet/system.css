@@ -850,6 +850,10 @@ body::before {
     .sys-modal-info-grid { grid-template-columns: 1fr; }
     .sys-stats-bar { grid-template-columns: repeat(2, 1fr); }
     .sys-footer-bottom { flex-direction: column; text-align: center; }
+    .sys-logo img:first-child { height: 30px; }
+    .sys-logo img:last-child { height: 28px; }
+    .sys-logo .divider { height: 22px; }
+    .sys-logo { gap: 8px; }
 }
 
 /* ── MOBILE NAVIGATION MENU ── */
