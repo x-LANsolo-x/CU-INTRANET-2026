@@ -853,6 +853,7 @@ body::before {
 }
 
 /* ── MOBILE NAVIGATION MENU ── */
+/* ── MOBILE NAVIGATION MENU ── */
 .sys-mobile-menu {
     display: none;
     position: absolute;
@@ -902,5 +903,18 @@ body::before {
     background: transparent !important;
     background-color: transparent !important;
     border: none !important;
+    box-shadow: none !important;
+}
+
+/* ── OVERRIDE MARQUEE CAROUSEL CACHE ── */
+.logos-section {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+.logos-track img {
+    opacity: 1 !important;
+    filter: none !important;
+    pointer-events: none !important;
+    transform: none !important;
     box-shadow: none !important;
 }
