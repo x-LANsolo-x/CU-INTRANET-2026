@@ -141,15 +141,14 @@ app.post('/api/upload', async (req, res) => {
 });
 
 // Serve static files fallback
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'home.html')));
 app.use(express.static(path.join(__dirname)));
 
 // HTML routes fallbacks
 app.get('/communities', (req, res) => res.sendFile(path.join(__dirname, 'communities.html')));
 app.get('/departmental-societies', (req, res) => res.sendFile(path.join(__dirname, 'departmental-societies.html')));
 app.get('/professional-societies', (req, res) => res.sendFile(path.join(__dirname, 'professional-societies.html')));
-app.get('/clubs', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-app.get('/clubv2', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+app.get('/clubs', (req, res) => res.sendFile(path.join(__dirname, 'clubs.html')));
+app.get('/clubv2', (req, res) => res.sendFile(path.join(__dirname, 'clubs.html')));
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

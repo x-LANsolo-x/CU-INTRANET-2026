@@ -12,11 +12,10 @@
     }
   ],
   "rewrites": [
-    { "source": "/", "destination": "/home.html" },
-    { "source": "/clubs", "destination": "/index.html" },
-    { "source": "/clubs.html", "destination": "/index.html" },
-    { "source": "/clubv2", "destination": "/index.html" },
-    { "source": "/clubv2.html", "destination": "/index.html" },
+    { "source": "/clubs", "destination": "/clubs.html" },
+    { "source": "/clubs.html", "destination": "/clubs.html" },
+    { "source": "/clubv2", "destination": "/clubs.html" },
+    { "source": "/clubv2.html", "destination": "/clubs.html" },
     { "source": "/communities", "destination": "/communities.html" },
     { "source": "/departmental-societies", "destination": "/departmental-societies.html" },
     { "source": "/professional-societies", "destination": "/professional-societies.html" }
