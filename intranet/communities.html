@@ -374,22 +374,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
+            card.style.transitionDelay = `${(idx % 8) * 0.05}s`;
             card.addEventListener('click', () => openEntityModal(e, logoUrl, mediaStr));
             container.appendChild(card);
         });
 
-        if (typeof gsap !== 'undefined') {
-            gsap.fromTo(container.querySelectorAll('.entity-card'), 
-                { opacity: 0, scale: 0.94, y: 20 },
-                { 
-                    opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.05, ease: 'power2.out',
-                    onComplete: () => {
-                        if (typeof ScrollTrigger !== 'undefined') {
-                            setTimeout(() => { ScrollTrigger.refresh(); }, 50);
-                        }
-                    }
-                }
-            );
+        if (window.observeNewElements) {
+            window.observeNewElements(container.querySelectorAll('.entity-card'));
         }
     }
 

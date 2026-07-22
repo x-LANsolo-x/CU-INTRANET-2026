@@ -1095,8 +1095,32 @@
         #goTop.show { display: flex; animation: fadeIn 0.3s; }
 
         /* ── SCROLL ANIMATION CLASSES ── */
-        .word-reveal .word { opacity: 0.08; }
-        .fade-up { opacity: 0; transform: translateY(50px); }
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .fade-up.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-group .stagger-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .stagger-group.revealed .stagger-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-group.revealed .stagger-item:nth-child(1) { transition-delay: 0.0s; }
+        .stagger-group.revealed .stagger-item:nth-child(2) { transition-delay: 0.1s; }
+        .stagger-group.revealed .stagger-item:nth-child(3) { transition-delay: 0.2s; }
+        .stagger-group.revealed .stagger-item:nth-child(4) { transition-delay: 0.3s; }
+        .stagger-group.revealed .stagger-item:nth-child(5) { transition-delay: 0.4s; }
+        .stagger-group.revealed .stagger-item:nth-child(6) { transition-delay: 0.5s; }
+        .stagger-group.revealed .stagger-item:nth-child(7) { transition-delay: 0.6s; }
+        .stagger-group.revealed .stagger-item:nth-child(8) { transition-delay: 0.7s; }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
@@ -1680,56 +1704,86 @@
         }
     }
 
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-
-        /* ── WORD REVEAL ── */
-        document.querySelectorAll('.word-reveal').forEach(el => {
-            el.innerHTML = el.innerHTML
-                .replace(/<br>/gi, ' <br> ')
-                .replace(/([^<>\s][^<>]*?)(?=\s|$|<)/g, w => `<span class="word">${w}</span>`);
-            gsap.to(el.querySelectorAll('.word'), {
-                opacity: 1, stagger: 0.06, ease: 'none',
-                scrollTrigger: { trigger: el, start: 'top 88%', end: 'bottom 55%', scrub: 0.4 }
+    /* ── NATIVE SCROLL REVEALS & ANIMATIONS ── */
+    // 1. Word reveal using local observer
+    document.querySelectorAll('.word-reveal').forEach(el => {
+        el.innerHTML = el.innerHTML
+            .replace(/<br>/gi, ' <br> ')
+            .replace(/([^<>\s][^<>]*?)(?=\s|$|<)/g, w => `<span class="word" style="opacity: 0.15; transition: opacity 0.4s ease;">${w}</span>`);
+        
+        const wordObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const words = el.querySelectorAll('.word');
+                    words.forEach((w, idx) => {
+                        w.style.transitionDelay = `${idx * 0.03}s`;
+                        w.style.opacity = '1';
+                    });
+                    observer.unobserve(el);
+                }
             });
-        });
+        }, { threshold: 0.15 });
+        wordObserver.observe(el);
+    });
 
-        /* ── FADE UP ── */
-        gsap.utils.toArray('.fade-up').forEach(el => {
-            gsap.to(el, {
-                opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
-                scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
-            });
+    // 2. Fade up and stagger group observers
+    const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
         });
+    };
 
-        /* ── STAGGER CARD GROUPS ── */
-        gsap.utils.toArray('.stagger-group').forEach(group => {
-            gsap.from(group.querySelectorAll('.stagger-item'), {
-                y: 60, opacity: 0, duration: 0.75, stagger: 0.12, ease: 'power2.out',
-                scrollTrigger: { trigger: group, start: 'top 82%' }
-            });
-        });
+    const revealObserver = new IntersectionObserver(revealCallback, {
+        root: null,
+        threshold: 0.08,
+        rootMargin: '0px 0px -50px 0px'
+    });
 
-        /* ── COUNT-UP NUMBERS ── */
-        document.querySelectorAll('.stat-num, .rstat-num').forEach(el => {
-            const text = el.textContent;
-            const targetVal = parseInt(text.replace(/[^0-9]/g, ''));
-            const suffix = text.replace(/[0-9]/g, '');
-            if (isNaN(targetVal)) return;
-            const countObj = { val: 0 };
-            gsap.to(countObj, {
-                val: targetVal, duration: 2, ease: 'power2.out',
-                scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none' },
-                onUpdate: () => { el.textContent = Math.floor(countObj.val) + suffix; }
-            });
-        });
+    document.querySelectorAll('.fade-up, .stagger-group').forEach(el => {
+        revealObserver.observe(el);
+    });
 
-        /* ── VM CARDS ENTRANCE ── */
-        gsap.from('.vm-card', {
-            y: 50, opacity: 0, stagger: 0.18, duration: 0.9, ease: 'power3.out',
-            scrollTrigger: { trigger: '.vm-grid', start: 'top 82%' }
+    // 3. Count-up numbers using native performance timer loop
+    const countCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const text = el.textContent;
+                const targetVal = parseInt(text.replace(/[^0-9]/g, ''));
+                const suffix = text.replace(/[0-9]/g, '');
+                if (isNaN(targetVal)) return;
+
+                const duration = 1800;
+                const startTime = performance.now();
+
+                const animate = (now) => {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeProgress = progress * (2 - progress); // Ease out quad
+                    const curVal = Math.floor(easeProgress * targetVal);
+                    el.textContent = curVal + suffix;
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        el.textContent = text;
+                    }
+                };
+                requestAnimationFrame(animate);
+                observer.unobserve(el);
+            }
         });
-    }
+    };
+
+    const countObserver = new IntersectionObserver(countCallback, {
+        threshold: 0.15
+    });
+
+    document.querySelectorAll('.stat-num, .rstat-num').forEach(el => {
+        countObserver.observe(el);
+    });
 
     /* ── HERO IMAGE KEN-BURNS CROSSFADE ── */
     const imgs = document.querySelectorAll('.hero-img-grid img');

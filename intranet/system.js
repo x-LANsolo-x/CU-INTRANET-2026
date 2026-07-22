@@ -87,79 +87,60 @@
 
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             lenis.on('scroll', ScrollTrigger.update);
-            gsap.ticker.add(time => lenis.raf(time * 1000));
-            gsap.ticker.lagSmoothing(0);
         }
     }
 
     /* ── SCROLL TRIGGER REVEALS ── */
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Word reveal
-        document.querySelectorAll('.word-reveal').forEach(el => {
-            el.innerHTML = el.innerHTML
-                .replace(/<br>/gi, ' <br> ')
-                .replace(/([^<>\s][^<>]*?)(?=\s|$|<)/g, w => `<span class="word" style="opacity: 0.1; transition: opacity 0.15s ease;">${w}</span>`);
-            
-            gsap.to(el.querySelectorAll('.word'), {
-                opacity: 1,
-                stagger: 0.05,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 88%',
-                    end: 'bottom 60%',
-                    scrub: 0.3
+    /* ── NATIVE SCROLL REVEALS & ANIMATIONS ── */
+    // 1. Word reveal using local observer
+    document.querySelectorAll('.word-reveal').forEach(el => {
+        el.innerHTML = el.innerHTML
+            .replace(/<br>/gi, ' <br> ')
+            .replace(/([^<>\s][^<>]*?)(?=\s|$|<)/g, w => `<span class="word" style="opacity: 0.15; transition: opacity 0.4s ease;">${w}</span>`);
+        
+        const wordObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const words = el.querySelectorAll('.word');
+                    words.forEach((w, idx) => {
+                        w.style.transitionDelay = `${idx * 0.03}s`;
+                        w.style.opacity = '1';
+                    });
+                    observer.unobserve(el);
                 }
             });
-        });
+        }, { threshold: 0.15 });
+        wordObserver.observe(el);
+    });
 
-        // Stagger list elements
-        gsap.utils.toArray('[data-stagger]').forEach(group => {
-            const items = group.querySelectorAll('[data-stagger-item]');
-            gsap.fromTo(items, 
-                { y: 50, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    stagger: 0.1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: group,
-                        start: 'top 85%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-        });
-
-        // Standard fade reveals
-        gsap.utils.toArray('[data-reveal]').forEach(el => {
-            const revealType = el.getAttribute('data-reveal');
-            let vars = {
-                opacity: 1,
-                duration: 0.9,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 88%',
-                    toggleActions: 'play none none none'
-                }
-            };
-
-            if (revealType === 'left') {
-                gsap.fromTo(el, { x: -40, opacity: 0 }, { x: 0, ...vars });
-            } else if (revealType === 'right') {
-                gsap.fromTo(el, { x: 40, opacity: 0 }, { x: 0, ...vars });
-            } else if (revealType === 'scale') {
-                gsap.fromTo(el, { scale: 0.92, opacity: 0 }, { scale: 1, ...vars });
-            } else {
-                gsap.fromTo(el, { y: 40, opacity: 0 }, { y: 0, ...vars });
+    // 2. data-reveal and data-stagger observers
+    const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
             }
         });
-    }
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, {
+        root: null,
+        threshold: 0.06,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('[data-reveal], [data-stagger]').forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    window.observeNewElements = (selectorOrElements) => {
+        const elements = typeof selectorOrElements === 'string'
+            ? document.querySelectorAll(selectorOrElements)
+            : selectorOrElements;
+        if (elements && elements.forEach) {
+            elements.forEach(el => revealObserver.observe(el));
+        }
+    };
 
     /* ── STICKY & HIDING HEADER ── */
     const header = document.getElementById('mainHeader');
