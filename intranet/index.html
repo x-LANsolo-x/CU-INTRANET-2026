@@ -34,10 +34,11 @@
             --font-body: 'Inter', 'Segoe UI', sans-serif;
 
             --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-out:    cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --tr-fast:  all 0.25s var(--ease-out);
-            --tr-med:   all 0.45s var(--ease-spring);
-            --tr-slow:  all 0.7s  var(--ease-spring);
+            --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+            --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+            --tr-fast:     transform 0.16s var(--ease-out), opacity 0.16s var(--ease-out), background-color 0.16s var(--ease-out), border-color 0.16s var(--ease-out), box-shadow 0.16s var(--ease-out);
+            --tr-med:      transform 0.35s var(--ease-spring), opacity 0.35s var(--ease-spring), border-color 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-spring);
+            --tr-slow:     transform 0.6s var(--ease-spring), opacity 0.6s var(--ease-spring), clip-path 0.6s var(--ease-spring);
 
             --radius-sm: 10px;
             --radius-md: 16px;
