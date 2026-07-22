@@ -339,19 +339,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Load active type
+    // Load active type with stale-while-revalidate cache
     async function loadType(type) {
         try {
-            const res = await fetch(`./${type}.json`);
-            allEntities = await res.json();
+            const url = `./${type}.json`;
+            if (window.fetchWithCache) {
+                allEntities = await window.fetchWithCache(url);
+            } else {
+                const res = await fetch(url);
+                allEntities = await res.json();
+            }
             
-            // Recalculate stats/counts
             updateCounts();
             filterAndRender();
+
+            // Background preloading of card images
+            if (window.preloadImages) {
+                const imgsToPreload = [];
+                allEntities.forEach(e => {
+                    if (e.logo) imgsToPreload.push(e.logo.startsWith('http') ? e.logo : 'https://cuchd-in-daa-page.vercel.app/' + e.logo);
+                    if (e.media && e.media.length) {
+                        e.media.forEach(m => imgsToPreload.push(m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m));
+                    }
+                });
+                window.preloadImages(imgsToPreload.slice(0, 16)); // Preload first 16 assets immediately
+            }
         } catch (e) {
             console.error('Error loading entities:', e);
         }
     }
+
+    // Listen to background cache updates and re-render if data has changed
+    window.addEventListener('cache_updated', (e) => {
+        if (e.detail.url.includes(currentType)) {
+            allEntities = e.detail.data;
+            updateCounts();
+            filterAndRender();
+        }
+    });
 
     function updateCounts() {
         const counts = {

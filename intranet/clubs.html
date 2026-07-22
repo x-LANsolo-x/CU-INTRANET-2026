@@ -325,17 +325,43 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentCategory = 'ALL';
     let searchQuery = '';
 
-    // Load clubs
+    // Load clubs with stale-while-revalidate cache
     async function loadClubs() {
         try {
-            const res = await fetch(`./clubs.json`);
-            allEntities = await res.json();
+            const url = `./clubs.json`;
+            if (window.fetchWithCache) {
+                allEntities = await window.fetchWithCache(url);
+            } else {
+                const res = await fetch(url);
+                allEntities = await res.json();
+            }
             updateCounts();
             filterAndRender();
+
+            // Background preloading of card images
+            if (window.preloadImages) {
+                const imgsToPreload = [];
+                allEntities.forEach(e => {
+                    if (e.logo) imgsToPreload.push(e.logo.startsWith('http') ? e.logo : 'https://cuchd-in-daa-page.vercel.app/' + e.logo);
+                    if (e.media && e.media.length) {
+                        e.media.forEach(m => imgsToPreload.push(m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m));
+                    }
+                });
+                window.preloadImages(imgsToPreload.slice(0, 16));
+            }
         } catch (e) {
             console.error('Error loading clubs:', e);
         }
     }
+
+    // Listen to background cache updates and re-render if data has changed
+    window.addEventListener('cache_updated', (e) => {
+        if (e.detail.url.includes('clubs.json')) {
+            allEntities = e.detail.data;
+            updateCounts();
+            filterAndRender();
+        }
+    });
 
     function updateCounts() {
         const counts = {

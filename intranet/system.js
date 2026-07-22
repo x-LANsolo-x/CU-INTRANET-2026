@@ -6,7 +6,7 @@
 (function () {
     let preloaderDismissed = false;
 
-    // ── DISMISS PRELOADER ──
+    // ── DISMISS PRELOADER (Snappy Instant Display) ──
     function dismissPreloader() {
         if (preloaderDismissed) return;
         preloaderDismissed = true;
@@ -16,9 +16,9 @@
         if (typeof gsap !== 'undefined') {
             gsap.to(preloader, {
                 opacity: 0,
-                y: -40,
-                duration: 0.8,
-                ease: 'power4.inOut',
+                y: -20,
+                duration: 0.35,
+                ease: 'power2.out',
                 onComplete: () => {
                     preloader.style.display = 'none';
                     runPageEntrances();
@@ -28,17 +28,63 @@
             preloader.style.opacity = '0';
             setTimeout(() => {
                 preloader.style.display = 'none';
-            }, 800);
+            }, 350);
             runPageEntrances();
         }
     }
 
-    // Safety timeout
-    setTimeout(dismissPreloader, 2000);
+    // Safety timeout - trigger immediately when DOM is interactive to feel zero loading
+    setTimeout(dismissPreloader, 100);
     window.addEventListener('load', dismissPreloader);
+    document.addEventListener('DOMContentLoaded', dismissPreloader);
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
         dismissPreloader();
     }
+
+    // ── STALE-WHILE-REVALIDATE CACHE & PREFETCH ──
+    window.fetchWithCache = async function (url) {
+        const cacheKey = 'cache_' + url;
+        const cached = localStorage.getItem(cacheKey);
+        
+        if (cached) {
+            try {
+                const parsed = JSON.parse(cached);
+                
+                // Return cache instantly, fetch updates silently in background
+                fetch(url)
+                    .then(res => res.json())
+                    .then(freshData => {
+                        localStorage.setItem(cacheKey, JSON.stringify(freshData));
+                        if (JSON.stringify(parsed) !== JSON.stringify(freshData)) {
+                            // Dispatch event if content changed
+                            window.dispatchEvent(new CustomEvent('cache_updated', { 
+                                detail: { url, data: freshData } 
+                            }));
+                        }
+                    })
+                    .catch(() => {});
+                return parsed;
+            } catch (e) {
+                localStorage.removeItem(cacheKey);
+            }
+        }
+        
+        const res = await fetch(url);
+        const data = await res.json();
+        localStorage.setItem(cacheKey, JSON.stringify(data));
+        return data;
+    };
+
+    // Preload list of key images in background
+    window.preloadImages = function (imageUrls) {
+        if (!imageUrls || !imageUrls.length) return;
+        setTimeout(() => {
+            imageUrls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+        }, 100);
+    };
 
     // ── PAGE ENTRANCES ──
     function runPageEntrances() {
@@ -208,5 +254,34 @@
 
         mobileOverlay.addEventListener('click', closeMenu);
         mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    }
+
+    // ── LINK HOVER PREFETCHING ──
+    function setupPrefetching() {
+        const prefLinks = [
+            { path: 'clubs', url: './clubs.json' },
+            { path: 'communities', url: './communities.json' },
+            { path: 'departmental', url: './departmental-societies.json' },
+            { path: 'professional', url: './professional-societies.json' }
+        ];
+        
+        prefLinks.forEach(item => {
+            document.querySelectorAll(`a[href*="${item.path}"]`).forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    if (!localStorage.getItem('cache_' + item.url)) {
+                        fetch(item.url)
+                            .then(res => res.json())
+                            .then(data => localStorage.setItem('cache_' + item.url, JSON.stringify(data)))
+                            .catch(() => {});
+                    }
+                }, { once: true });
+            });
+        });
+    }
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setupPrefetching();
+    } else {
+        document.addEventListener('DOMContentLoaded', setupPrefetching);
     }
 })();
