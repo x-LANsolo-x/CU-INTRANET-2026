@@ -371,12 +371,40 @@ body::before {
 .entity-card:active {
     transform: scale(0.98);
 }
+.entity-card .card-img, .ov-img-wrap, .pillar-img-wrap {
+    position: relative; overflow: hidden;
+    background: #f0f0f4;
+}
 .entity-card .card-img {
-    position: relative; overflow: hidden; height: 200px;
+    height: 200px;
+}
+/* Shimmer wave effect */
+.entity-card .card-img::before, .entity-card .card-logo-wrap::before, .ov-img-wrap::before, .pillar-img-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+    transform: translateX(-100%);
+    animation: sysImgShimmer 1.5s infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+@keyframes sysImgShimmer {
+    100% { transform: translateX(100%); }
+}
+/* Blur-up transition */
+.blur-image {
+    filter: blur(15px);
+    transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0;
+}
+.blur-image.loaded {
+    filter: blur(0);
+    opacity: 1;
 }
 .entity-card .card-img img {
     width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.7s var(--ease-spring);
+    transition: transform 0.7s var(--ease-spring), filter 0.4s, opacity 0.4s;
 }
 .entity-card .card-img .card-badge {
     position: absolute; top: 14px; left: 14px;
@@ -386,6 +414,7 @@ body::before {
     font-family: var(--font-head); font-size: 10px; font-weight: 700;
     letter-spacing: 1.5px; text-transform: uppercase;
     padding: 5px 12px; border-radius: var(--radius-pill);
+    z-index: 2;
 }
 /* Logo wrap card tops (clubs, communities, societies) */
 .entity-card .card-logo-wrap {
@@ -395,7 +424,7 @@ body::before {
 }
 .entity-card .card-logo-wrap img {
     width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.7s var(--ease-spring);
+    transition: transform 0.7s var(--ease-spring), filter 0.4s, opacity 0.4s;
 }
 
 @media (hover: hover) and (pointer: fine) {

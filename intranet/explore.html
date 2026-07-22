@@ -444,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             card.innerHTML = `
                 <div class="card-img">
-                    <img src="${logoUrl}" alt="${e.title}" onerror="this.src='logos/default.png'">
+                    <img src="${logoUrl}" class="blur-image" onload="this.classList.add('loaded')" onerror="this.src='logos/default.png'; this.classList.add('loaded');" alt="${e.title}">
                     <span class="card-badge">${mainTag}</span>
                 </div>
                 <div class="card-body">

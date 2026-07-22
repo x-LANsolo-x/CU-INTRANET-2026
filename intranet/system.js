@@ -279,9 +279,68 @@
         });
     }
 
+    // ── SYSTEM-WIDE AUTOMATED IMAGE LOAD OPTIMIZATION ──
+    function optimizeImage(img) {
+        if (img.classList.contains('blur-image')) return;
+        
+        // Skip tiny icons, decorations, or SVGs
+        const src = img.getAttribute('src') || '';
+        if (src.includes('favicon') || src.endsWith('.svg') || (img.width > 0 && img.width < 32)) return;
+        
+        img.classList.add('blur-image');
+        
+        // Ensure parent shows shimmer placeholder
+        const parent = img.parentElement;
+        if (parent) {
+            const parentStyles = window.getComputedStyle(parent);
+            if (parentStyles.position === 'static') {
+                parent.style.position = 'relative';
+            }
+            parent.style.overflow = 'hidden';
+            if (!parent.classList.contains('ov-img-wrap') && 
+                !parent.classList.contains('pillar-img-wrap') && 
+                !parent.classList.contains('card-img') && 
+                !parent.classList.contains('card-logo-wrap') &&
+                parentStyles.backgroundColor === 'rgba(0, 0, 0, 0)') {
+                parent.style.backgroundColor = '#f0f0f4';
+            }
+        }
+
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+            img.addEventListener('error', () => img.classList.add('loaded'), { once: true });
+        }
+    }
+
+    function setupImageOptimization() {
+        // Optimize existing images
+        document.querySelectorAll('img').forEach(optimizeImage);
+
+        // Listen for new images added to DOM dynamically
+        const observer = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (node.nodeName === 'IMG') {
+                        optimizeImage(node);
+                    } else if (node.querySelectorAll) {
+                        node.querySelectorAll('img').forEach(optimizeImage);
+                    }
+                });
+            });
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
         setupPrefetching();
+        setupImageOptimization();
     } else {
-        document.addEventListener('DOMContentLoaded', setupPrefetching);
+        document.addEventListener('DOMContentLoaded', () => {
+            setupPrefetching();
+            setupImageOptimization();
+        });
     }
 })();
