@@ -491,14 +491,6 @@
 </head>
 <body>
 
-<!-- PRELOADER -->
-<div id="sys-preloader">
-    <div class="ring">
-        <img src="loader.png?v=9.0" alt="Loading Logo">
-    </div>
-    <span class="label">Office of Academic Affairs</span>
-</div>
-
 <!-- FLOATING PILL HEADER -->
 <header class="sys-header" id="mainHeader">
     <div class="sys-header-pill">
@@ -512,19 +504,22 @@
             <a href="explore">Explore Entities</a>
             <a href="register" class="active">Register Interest</a>
         </nav>
-        <a href="register" class="sys-header-cta active">
-            <i class="fas fa-paper-plane"></i> Register Interest
+        <a href="register" class="sys-header-cta">
+            <i class="fas fa-paper-plane"></i> Register Now
         </a>
-        <button class="sys-hamburger" id="hamburger" aria-label="Toggle menu">
+        <div class="sys-hamburger" id="menuToggle">
             <span></span><span></span><span></span>
-        </button>
-    </div>
-    <div class="sys-mobile-menu" id="mobileMenu">
-        <a href="./">Home</a>
-        <a href="explore">Explore Entities</a>
-        <a href="register" class="active">Register Interest</a>
+        </div>
     </div>
 </header>
+
+<!-- MOBILE NAV -->
+<div class="sys-mobile-overlay" id="mobileOverlay"></div>
+<nav class="sys-mobile-nav" id="mobileNav">
+    <a href="./">Home</a>
+    <a href="explore">Explore Entities</a>
+    <a href="register" class="active">Register Interest</a>
+</nav>
 
 <!-- HERO -->
 <section class="reg-hero">
@@ -1103,8 +1098,20 @@
         const targetUrl = WEB_APP_URL && WEB_APP_URL.trim() !== '' ? WEB_APP_URL : FORM_URL;
         
         if (targetUrl === WEB_APP_URL) {
-            // Apps Script requires standard JSON POST request for CORS and clean execution
-            const jsonObj = {};
+            const jsonObj = {
+                type: 'register',
+                name: document.getElementById('f_name').value.trim(),
+                uid: document.getElementById('f_uid').value.trim(),
+                dept: document.getElementById('f_dept').value.trim(),
+                email: document.getElementById('f_email').value.trim(),
+                contact: document.getElementById('f_contact').value.trim(),
+                gender: document.querySelector('input[name="entry.570413037"]:checked')?.value || '',
+                boarding: document.querySelector('input[name="entry.1101553007"]:checked')?.value || '',
+                clubs: Array.from(document.querySelectorAll('#sec2 input[type="checkbox"]:checked')).map(cb => cb.value).join(', '),
+                societies: Array.from(document.querySelectorAll('#sec3 input[type="checkbox"]:checked')).map(cb => cb.value).join(', ')
+            };
+
+            // Copy entry.xxxxx keys for fallback direct mapping
             for (const [key, value] of formData.entries()) {
                 if (key.startsWith('entry.')) {
                     if (jsonObj[key]) {
@@ -1116,8 +1123,6 @@
                     } else {
                         jsonObj[key] = value;
                     }
-                } else {
-                    jsonObj[key] = value;
                 }
             }
 
