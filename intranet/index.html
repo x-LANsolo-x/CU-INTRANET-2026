@@ -190,6 +190,34 @@
         }
         .header-nav ul a:hover { color: var(--black); }
         .header-nav ul a:hover::after { width: 100%; }
+
+        /* Navbar dropdown styling */
+        .header-nav ul li { position: relative; list-style: none; }
+        .header-nav ul li.dropdown:hover .dropdown-menu { 
+            opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; 
+        }
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 50%; 
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+            border: 1px solid rgba(0,0,0,0.06); border-radius: 8px;
+            padding: 10px; width: 200px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            opacity: 0; pointer-events: none; 
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 9999; display: flex; flex-direction: column; gap: 4px;
+            margin-top: 10px;
+        }
+        .dropdown-menu a {
+            font-size: 13px !important; font-weight: 600 !important; color: var(--grey) !important; 
+            padding: 8px 12px !important; border-radius: 6px !important; 
+            transition: var(--tr-fast) !important; display: block !important;
+            text-align: left !important; width: 100%; box-sizing: border-box;
+        }
+        .dropdown-menu a::after { display: none !important; }
+        .dropdown-menu a:hover {
+            background: rgba(227,27,35,0.05) !important; color: var(--red) !important;
+        }
         .header-cta {
             background: var(--red);
             color: #fff;
@@ -1209,14 +1237,21 @@
         <nav class="header-nav">
             <ul>
                 <li><a href="./">Home</a></li>
-                <li><a href="explore#clubs">Student Clubs</a></li>
-                <li><a href="explore#communities">Communities</a></li>
-                <li><a href="explore#departmental-societies">Dept. Societies</a></li>
-                <li><a href="explore#professional-societies">Prof. Societies</a></li>
+                <li><a href="explore">Explore</a></li>
+                <li class="dropdown">
+                    <a href="#entities" style="display:inline-flex; align-items:center; gap:4px;">Entities <i class="fas fa-chevron-down" style="font-size:9px; opacity:0.7;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="explore#clubs">Student Clubs</a>
+                        <a href="explore#communities">Communities</a>
+                        <a href="explore#departmental-societies">Dept. Societies</a>
+                        <a href="explore#professional-societies">Prof. Societies</a>
+                    </div>
+                </li>
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
-        <a href="explore" class="header-cta">
-            <i class="fas fa-compass"></i> Explore Entities
+        <a href="register" class="header-cta">
+            <i class="fas fa-paper-plane"></i> Register Interest
         </a>
         <div class="hamburger" id="menuToggle">
             <span></span><span></span><span></span>
@@ -1228,12 +1263,11 @@
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <nav class="mobile-nav" id="mobileNav">
     <a href="./">Home</a>
-    <a href="explore#clubs">Student Clubs</a>
-    <a href="explore#communities">Communities</a>
-    <a href="explore#departmental-societies">Dept. Societies</a>
-    <a href="explore#professional-societies">Prof. Societies</a>
-    <a href="explore" class="btn-primary" style="margin-top:16px; justify-content:center;">
-        <i class="fas fa-compass"></i> Explore Entities
+    <a href="explore">Explore</a>
+    <a href="#entities">Entities</a>
+    <a href="#contact">Contact Us</a>
+    <a href="register" class="btn-primary" style="margin-top:16px; justify-content:center;">
+        <i class="fas fa-paper-plane"></i> Register Interest
     </a>
 </nav>
 
@@ -1716,7 +1750,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer" id="contact">
     <div class="footer-logo">
         <img src="https://www.cuchd.in/includes/assets/images/header-footer/cu-logo-white.webp" alt="CU Logo">
         <img src="logos/oaa-logo.png" alt="OAA Logo" style="height:44px;filter:brightness(0) invert(1);">
