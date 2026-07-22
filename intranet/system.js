@@ -334,13 +334,37 @@
         observer.observe(document.body, { childList: true, subtree: true });
     }
 
+    // ── LOCAL DEV ROUTE POLYFILL (Supports both clean URLs in prod and raw files in local dev) ──
+    function setupRoutePolyfill() {
+        const isLocalFile = window.location.protocol === 'file:';
+        const isStaticLocal = window.location.hostname === 'localhost' && window.location.port !== '3000' && window.location.port !== '5000';
+        const isIpLocal = (window.location.hostname === '127.0.0.1' || window.location.hostname === '::1') && window.location.port !== '3000' && window.location.port !== '5000';
+
+        if (isLocalFile || isStaticLocal || isIpLocal) {
+            document.querySelectorAll('a[href]').forEach(el => {
+                let href = el.getAttribute('href');
+                if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('javascript')) {
+                    const parts = href.split('#');
+                    let path = parts[0];
+                    const hash = parts[1] ? '#' + parts[1] : '';
+                    
+                    if (path && !path.includes('.') && path !== './' && path !== '/') {
+                        el.setAttribute('href', path + '.html' + hash);
+                    }
+                }
+            });
+        }
+    }
+
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
         setupPrefetching();
         setupImageOptimization();
+        setupRoutePolyfill();
     } else {
         document.addEventListener('DOMContentLoaded', () => {
             setupPrefetching();
             setupImageOptimization();
+            setupRoutePolyfill();
         });
     }
 })();
