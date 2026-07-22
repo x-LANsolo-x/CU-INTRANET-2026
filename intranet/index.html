@@ -1181,7 +1181,6 @@
 <section class="hero" id="home">
     <div class="hero-container">
         <div class="hero-left">
-            <div class="hero-tag"><span></span> Office of Academic Affairs · CU</div>
             <h1 class="hero-h1 word-reveal">The Co-Curricular<br><em>Ecosystem</em> at<br>Chandigarh University</h1>
             <p class="hero-tagline">Explore · Engage · Excel · Empower</p>
             <p class="hero-desc">
@@ -1678,8 +1677,6 @@
         requestAnimationFrame(raf);
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             lenis.on('scroll', ScrollTrigger.update);
-            gsap.ticker.add(time => lenis.raf(time * 1000));
-            gsap.ticker.lagSmoothing(0);
         }
     }
 
