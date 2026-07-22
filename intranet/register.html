@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -859,9 +859,8 @@
                 </div>
                 <p>Empowering students to lead with confidence, responsibility, and vision under Chandigarh University's Office of Academic Affairs.</p>
                 <div class="sys-footer-socials">
-                    <a href="https://www.facebook.com/chandigarhuniversityofficial/" target="_blank" class="sys-social-btn"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/chandigarhuniversity/" target="_blank" class="sys-social-btn"><i class="fab fa-instagram"></i></a>
-                    <a href="https://in.linkedin.com/school/chandigarh-university/" target="_blank" class="sys-social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/daa_chandigarhuniversity" target="_blank" class="sys-social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/academics-cu/" target="_blank" class="sys-social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="sys-footer-col">
@@ -885,7 +884,8 @@
                 <h4>Contact Office</h4>
                 <ul class="sys-footer-contact">
                     <li><i class="fas fa-map-marker-alt"></i> <span>Office of Academic Affairs,<br>Chandigarh University, Mohali</span></li>
-                    <li><i class="fas fa-envelope"></i> <span><strong>cocurr.csc@cumail.in</strong></span></li>
+                    <li><i class="fas fa-envelope"></i> <span><a href="mailto:cocurr.csc@cumail.in" style="color:inherit"><strong>cocurr.csc@cumail.in</strong></a></span></li>
+                    <li><i class="fas fa-phone"></i> <span><a href="tel:+918368865078" style="color:inherit"><strong>+91 83688 65078</strong></a></span></li>
                 </ul>
             </div>
         </div>
@@ -1096,41 +1096,31 @@
         }
 
         const targetUrl = WEB_APP_URL && WEB_APP_URL.trim() !== '' ? WEB_APP_URL : FORM_URL;
-        
-        if (targetUrl === WEB_APP_URL) {
-            const jsonObj = {
-                type: 'register',
-                name: document.getElementById('f_name').value.trim(),
-                uid: document.getElementById('f_uid').value.trim(),
-                dept: document.getElementById('f_dept').value.trim(),
-                email: document.getElementById('f_email').value.trim(),
-                contact: document.getElementById('f_contact').value.trim(),
-                gender: document.querySelector('input[name="entry.570413037"]:checked')?.value || '',
-                boarding: document.querySelector('input[name="entry.1101553007"]:checked')?.value || '',
-                clubs: Array.from(document.querySelectorAll('#sec2 input[type="checkbox"]:checked')).map(cb => cb.value).join(', '),
-                societies: Array.from(document.querySelectorAll('#sec3 input[type="checkbox"]:checked')).map(cb => cb.value).join(', ')
-            };
 
-            // Copy entry.xxxxx keys for fallback direct mapping
-            for (const [key, value] of formData.entries()) {
-                if (key.startsWith('entry.')) {
-                    if (jsonObj[key]) {
-                        if (Array.isArray(jsonObj[key])) {
-                            jsonObj[key].push(value);
-                        } else {
-                            jsonObj[key] = [jsonObj[key], value];
-                        }
-                    } else {
-                        jsonObj[key] = value;
-                    }
-                }
-            }
+        if (targetUrl === WEB_APP_URL) {
+            // Build a flat key=value payload GAS can read via e.postData.contents
+            const payload = new URLSearchParams();
+            payload.set('type', 'register');
+            payload.set('name', document.getElementById('f_name').value.trim());
+            payload.set('uid', document.getElementById('f_uid').value.trim());
+            payload.set('dept', document.getElementById('f_dept').value.trim());
+            payload.set('email', document.getElementById('f_email').value.trim());
+            payload.set('contact', document.getElementById('f_contact').value.trim());
+            const genderEl = document.querySelector('input[name="entry.570413037"]:checked');
+            payload.set('gender', genderEl ? genderEl.value : '');
+            const boardingEl = document.querySelector('input[name="entry.1101553007"]:checked');
+            payload.set('boarding', boardingEl ? boardingEl.value : '');
+            const clubsChecked = Array.from(document.querySelectorAll('#sec2 input[type="checkbox"]:checked')).map(cb => cb.value);
+            payload.set('clubs', clubsChecked.join(', '));
+            const societiesChecked = Array.from(document.querySelectorAll('#sec3 input[type="checkbox"]:checked')).map(cb => cb.value);
+            payload.set('societies', societiesChecked.join(', '));
+            payload.set('timestamp', new Date().toISOString());
 
             fetch(WEB_APP_URL, {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(jsonObj)
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: payload.toString()
             })
             .then(() => {
                 showSuccess();
@@ -1139,12 +1129,15 @@
             })
             .catch(err => {
                 console.error('Fetch error:', err);
-                showSuccess(); // Fallback show success anyway to keep user experience smooth
+                // Fallback: GET request via image beacon so GAS still logs data
+                const beaconUrl = WEB_APP_URL + '?' + payload.toString();
+                new Image().src = beaconUrl;
+                showSuccess();
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = 'Submit Registration & Confirm Interest <i class="fas fa-paper-plane"></i>';
             });
         } else {
-            // Default Google Forms submission (no-cors URLEncoded)
+            // Default Google Forms URL-encoded submission
             fetch(FORM_URL, {
                 method: 'POST',
                 mode: 'no-cors',
