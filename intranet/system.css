@@ -871,6 +871,7 @@ body::before {
 @media (max-width: 600px) {
     .container { padding: 0 16px; }
     .sys-section { padding: 50px 0; }
+    .sys-section-sm { padding: 40px 0; }
     .sys-footer-inner { grid-template-columns: 1fr; gap: 32px; }
     .cards-grid-4, .cards-grid-3 { grid-template-columns: 1fr; }
     .sys-filter-bar { flex-direction: column; align-items: stretch; gap: 16px; }
@@ -880,16 +881,31 @@ body::before {
     .sys-modal-info-grid { grid-template-columns: 1fr; }
     .sys-stats-bar { grid-template-columns: 1fr; }
     .sys-footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
-    
+
+    /* Full-screen modal on phone */
+    .sys-modal-backdrop {
+        padding: 0;
+        align-items: flex-start;
+    }
+    .sys-modal {
+        width: 100vw;
+        max-width: 100vw;
+        max-height: 100dvh;
+        min-height: 100dvh;
+        border-radius: 0;
+        transform: none;
+    }
+    .sys-modal-backdrop.open .sys-modal { transform: none; }
+
     /* Responsive logos for mobile */
     .sys-logo img:first-child { height: 28px; }
     .sys-logo img:last-child { height: 26px; }
     .sys-logo .divider { height: 20px; }
     .sys-logo { gap: 8px; }
-    
+
     /* Header padding optimization */
     .sys-header-pill { padding: 8px 12px 8px 16px; }
-    
+
     /* Typography optimizations for mobile */
     h1, .sys-page-title { font-size: 28px !important; line-height: 1.25 !important; }
     h2, .sys-h2 { font-size: 22px !important; }

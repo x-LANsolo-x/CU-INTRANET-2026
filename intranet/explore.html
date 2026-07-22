@@ -39,6 +39,7 @@
             cursor: pointer;
             transition: var(--tr-fast);
             display: flex; align-items: center; gap: 8px;
+            white-space: nowrap;
         }
         .type-tab.active {
             background: var(--black);
@@ -74,7 +75,107 @@
         .modal-carousel-dot.active {
             background: var(--white); width: 24px; border-radius: 4px;
         }
+
+        /* ── MOBILE RESPONSIVE ── */
+
+        /* Tablet: make type-tabs scrollable */
+        @media (max-width: 900px) {
+            .type-tabs-container {
+                margin-top: -20px;
+                margin-bottom: 32px;
+                /* allow horizontal scroll but hide bar */
+                overflow-x: auto;
+                overflow-y: visible;
+                justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding: 0 16px;
+            }
+            .type-tabs-container::-webkit-scrollbar { display: none; }
+            .type-tabs {
+                flex-shrink: 0; /* keep pills from squishing */
+            }
+            .type-tab {
+                padding: 9px 18px;
+                font-size: 12.5px;
+            }
+        }
+
+        /* Phone: compact type-tabs and search/filter */
+        @media (max-width: 600px) {
+            .type-tabs-container {
+                margin-top: -10px;
+                margin-bottom: 24px;
+                padding: 0 12px;
+            }
+            .type-tab {
+                padding: 8px 14px;
+                font-size: 12px;
+                gap: 6px;
+            }
+            .type-tab i { font-size: 12px; }
+
+            /* Filter bar: stack vertically */
+            .sys-filter-bar {
+                padding: 16px;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+            .sys-filter-tabs {
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+            .sys-filter-tab {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+
+            /* Cards: single column */
+            .cards-grid-4 {
+                grid-template-columns: 1fr !important;
+                gap: 16px;
+            }
+
+            /* Modal: full-screen on phone */
+            .sys-modal-backdrop .sys-modal {
+                margin: 0;
+                width: 100vw;
+                min-height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+                overflow-y: auto;
+            }
+            .modal-carousel {
+                height: 220px;
+            }
+            .sys-modal-body {
+                padding: 20px 16px;
+            }
+            .sys-modal-header {
+                padding: 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .sys-modal-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .sys-modal-info-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .sys-modal-tags { gap: 6px; }
+            .sys-modal-tag { font-size: 11px; padding: 4px 10px; }
+        }
+
+        /* Very small phones */
+        @media (max-width: 400px) {
+            .type-tab { padding: 7px 12px; font-size: 11px; }
+            .cards-grid-4 { gap: 12px; }
+        }
     </style>
+
 </head>
 <body>
 
