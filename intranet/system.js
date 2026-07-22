@@ -291,6 +291,9 @@
     function optimizeImage(img) {
         if (img.classList.contains('blur-image')) return;
         
+        // Skip header/footer logos and icons
+        if (img.closest('.sys-logo') || img.closest('.sys-footer-logo') || img.closest('.sys-header') || img.closest('.sys-footer')) return;
+        
         // Skip tiny icons, decorations, or SVGs
         const src = img.getAttribute('src') || '';
         if (src.includes('favicon') || src.endsWith('.svg') || (img.width > 0 && img.width < 32)) return;
