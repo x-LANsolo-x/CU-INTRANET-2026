@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Your Interest — CU Co-Curricular Intranet</title>
-    <meta name="description" content="Register your interest in Student Clubs, Professional Societies, Departmental Societies, and Communities at Chandigarh University.">
+    <meta name="description" content="Register your interest in Student Clubs, Professional Societys, Departmental Societys, and Communitys at Chandigarh University.">
     <link rel="shortcut icon" href="https://www.cuchd.in/latest-assets/images/fevicon.png" type="image/x-icon">
 
     <!-- Unified Stylesheet -->
@@ -527,9 +527,9 @@
     <p>Join Chandigarh University's vibrant co-curricular community. Select your preferred clubs, societies, and communities.</p>
     <div class="reg-stats">
         <div class="reg-stat-pill"><strong>36</strong> Student Clubs</div>
-        <div class="reg-stat-pill"><strong>36</strong> Professional Societies</div>
-        <div class="reg-stat-pill"><strong>57</strong> Departmental Societies</div>
-        <div class="reg-stat-pill"><strong>4</strong> Communities</div>
+        <div class="reg-stat-pill"><strong>36</strong> Professional Societys</div>
+        <div class="reg-stat-pill"><strong>57</strong> Departmental Societys</div>
+        <div class="reg-stat-pill"><strong>4</strong> Communitys</div>
     </div>
 </section>
 
@@ -572,7 +572,7 @@
         </div>
         <div class="reg-step" data-step="3">
             <span class="step-num">3</span>
-            <span class="step-label">Societies</span>
+            <span class="step-label">Societys</span>
         </div>
     </div>
 
@@ -777,12 +777,12 @@
         </div>
 
         <!-- ══════════════════════════════════
-             SECTION 3 — Professional Societies
+             SECTION 3 — Professional Societys
         ══════════════════════════════════ -->
         <div class="reg-section" id="sec3">
             <div class="form-card">
                 <div class="form-card-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                    <span><i class="fas fa-award"></i> Professional Societies</span>
+                    <span><i class="fas fa-award"></i> Professional Societys</span>
                     <span class="reg-stat-pill" style="margin-top: 0; margin-bottom: 0; background: var(--black); color: var(--white); border-color: var(--black); font-size: 12px; padding: 6px 14px;" id="selectedCountBadgeSec3">Selected Entities (Max 3): 0 / 3</span>
                 </div>
                 <div class="form-card-desc">Select the professional societies you'd like to join.</div>
@@ -868,8 +868,8 @@
                 <ul>
                     <li><a href="./">Portal Home</a></li>
                     <li><a href="explore.html#clubs">Student Clubs</a></li>
-                    <li><a href="explore.html#communities">Communities</a></li>
-                    <li><a href="explore.html#departmental-societies">Dept. Societies</a></li>
+                    <li><a href="explore.html#communities">Communitys</a></li>
+                    <li><a href="explore.html#departmental-societies">Dept. Societys</a></li>
                 </ul>
             </div>
             <div class="sys-footer-col">
@@ -922,17 +922,17 @@
         return clubCheckboxes.filter(cb => cb.checked).length;
     }
 
-    function getCheckedCountSocieties() {
+    function getCheckedCountSocietys() {
         return societyCheckboxes.filter(cb => cb.checked).length;
     }
 
     function updateCheckboxStates() {
         const checkedClubs = getCheckedCountClubs();
-        const checkedSocieties = getCheckedCountSocieties();
+        const checkedSocietys = getCheckedCountSocietys();
         
         // Update badges text
         if (badgeSec2) badgeSec2.textContent = `Selected Clubs (Max 2): ${checkedClubs} / ${MAX_CLUBS}`;
-        if (badgeSec3) badgeSec3.textContent = `Selected Societies (Max 2): ${checkedSocieties} / ${MAX_SOCIETIES}`;
+        if (badgeSec3) badgeSec3.textContent = `Selected Societys (Max 2): ${checkedSocietys} / ${MAX_SOCIETIES}`;
         
         // Handle club selection limits
         clubCheckboxes.forEach(cb => {
@@ -957,7 +957,7 @@
         // Handle society selection limits
         societyCheckboxes.forEach(cb => {
             const label = cb.nextElementSibling;
-            if (checkedSocieties >= MAX_SOCIETIES) {
+            if (checkedSocietys >= MAX_SOCIETIES) {
                 if (!cb.checked) {
                     cb.disabled = true;
                     if (label) {
@@ -1072,8 +1072,8 @@
 
         // 2. Limit validation: check if at least 1 club or society is chosen
         const totalClubs = getCheckedCountClubs();
-        const totalSocieties = getCheckedCountSocieties();
-        if (totalClubs === 0 && totalSocieties === 0) {
+        const totalSocietys = getCheckedCountSocietys();
+        if (totalClubs === 0 && totalSocietys === 0) {
             alert('Please select at least 1 Club or Professional Society before submitting.');
             return;
         }

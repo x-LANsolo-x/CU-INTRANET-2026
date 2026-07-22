@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Communities — Chandigarh University</title>
+    <title>Student Communitys — Chandigarh University</title>
     <meta name="description" content="Explore regional, cultural, and interest-based student communities under Chandigarh University's Office of Academic Affairs.">
     <link rel="shortcut icon" href="https://www.cuchd.in/latest-assets/images/fevicon.png" type="image/x-icon">
 
@@ -123,9 +123,9 @@
                 <span class="sep">/</span>
                 <a href="explore.html">Explore</a>
                 <span class="sep">/</span>
-                <span class="current">Communities</span>
+                <span class="current">Communitys</span>
             </div>
-            <h1 class="sys-page-title">Student <em>Communities</em></h1>
+            <h1 class="sys-page-title">Student <em>Communitys</em></h1>
             <p class="sys-page-desc">Connecting students through regional heritage, language circles, social causes, and diverse culture groups across Chandigarh University.</p>
         </div>
     </section>
@@ -139,13 +139,13 @@
                         <i class="fas fa-rocket"></i> Student Clubs
                     </a>
                     <a href="communities.html" class="type-tab active">
-                        <i class="fas fa-users"></i> Communities
+                        <i class="fas fa-users"></i> Communitys
                     </a>
                     <a href="departmental-societies.html" class="type-tab">
-                        <i class="fas fa-graduation-cap"></i> Dept. Societies
+                        <i class="fas fa-graduation-cap"></i> Dept. Societys
                     </a>
                     <a href="professional-societies.html" class="type-tab">
-                        <i class="fas fa-certificate"></i> Prof. Societies
+                        <i class="fas fa-certificate"></i> Prof. Societys
                     </a>
                 </div>
             </div>
@@ -259,8 +259,8 @@
                 <ul>
                     <li><a href="./">Portal Home</a></li>
                     <li><a href="explore.html#clubs">Student Clubs</a></li>
-                    <li><a href="explore.html#communities">Communities</a></li>
-                    <li><a href="explore.html#departmental-societies">Dept. Societies</a></li>
+                    <li><a href="explore.html#communities">Communitys</a></li>
+                    <li><a href="explore.html#departmental-societies">Dept. Societys</a></li>
                 </ul>
             </div>
             <div class="sys-footer-col">
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let searchQuery = '';
 
     // Load communities with stale-while-revalidate cache
-    async function loadCommunities() {
+    async function loadCommunitys() {
         try {
             const url = `./communities.json`;
             if (window.fetchWithCache) {
@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
         filterAndRender();
     });
 
-    loadCommunities();
+    loadCommunitys();
 });
 </script>
 </body>
