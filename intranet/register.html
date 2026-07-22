@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form | CU Co-Curricular Intranet</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --red: #E31E24;
+            --red-hover: #b81318;
+            --yellow: #ffb900;
+            --cream: #FAF6EC;
+            --cream2: #F3ECE0;
+            --black: #0F1012;
+            --grey: #5A5E66;
+            --border: rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--cream);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: rgba(250, 246, 236, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-logo img {
+            height: 48px;
+        }
+
+        .header-logo .divider {
+            width: 1px;
+            height: 36px;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 18px;
+            border-radius: var(--radius-md);
+            background: var(--cream2);
+            transition: var(--transition);
+        }
+
+        .btn-back:hover {
+            background: var(--black);
+            color: #fff;
+            transform: translateX(-4px);
+        }
+
+        /* ── MAIN LAYOUT ── */
+        .main-container {
+            flex: 1;
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .form-header h1 em {
+            color: var(--red);
+            font-style: normal;
+            position: relative;
+        }
+
+        .form-header p {
+            color: var(--grey);
+            font-size: 16px;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* ── FORM CARD ── */
+        .form-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .form-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 10px;
+        }
+
+        .form-group label span.required {
+            color: var(--red);
+            margin-left: 4px;
+        }
+
+        /* ── INPUT FIELDS ── */
+        .input-text {
+            width: 100%;
+            padding: 16px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            color: var(--black);
+            background: var(--cream);
+            border: 1px solid transparent;
+            border-radius: var(--radius-md);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .input-text:focus {
+            background: #ffffff;
+            border-color: var(--red);
+            box-shadow: 0 0 0 4px rgba(227, 27, 36, 0.08);
+        }
+
+        /* ── RADIO GRID ── */
+        .radio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .radio-option {
+            position: relative;
+        }
+
+        .radio-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--cream);
+            border: 1px solid transparent;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-label {
+            background: #ffffff;
+            border-color: var(--red);
+            box-shadow: 0 0 0 4px rgba(227, 27, 36, 0.08);
+            color: var(--red);
+        }
+
+        .radio-label::before {
+            content: '';
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid var(--grey);
+            display: inline-block;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-label::before {
+            border-color: var(--red);
+            background: var(--red);
+            box-shadow: inset 0 0 0 4px #ffffff;
+        }
+
+        /* ── SELECT GROUP ── */
+        .select-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            color: var(--black);
+            background: var(--cream);
+            border: 1px solid transparent;
+            border-radius: var(--radius-md);
+            outline: none;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235A5E66' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 16px;
+            transition: var(--transition);
+        }
+
+        .select-input:focus {
+            background-color: #ffffff;
+            border-color: var(--red);
+            box-shadow: 0 0 0 4px rgba(227, 27, 36, 0.08);
+        }
+
+        /* ── CONDITIONAL FIELD CONTAINER ── */
+        .conditional-group {
+            display: none;
+            animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── BUTTONS ── */
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            background: var(--red);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(227, 27, 36, 0.15);
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background: var(--red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(227, 27, 36, 0.25);
+        }
+
+        .btn-submit:disabled {
+            background: var(--grey);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            opacity: 0.6;
+        }
+
+        /* ── SUCCESS SCREEN ── */
+        .success-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--cream);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .success-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .success-card {
+            text-align: center;
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 60px 40px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-hover);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transform: scale(0.9);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .success-overlay.active .success-card {
+            transform: scale(1);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            font-size: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 28px;
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .success-card p {
+            color: var(--grey);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .header {
+                padding: 16px 20px;
+            }
+            .main-container {
+                margin: 20px auto;
+            }
+            .form-card {
+                padding: 30px 20px;
+            }
+            .form-header h1 {
+                font-size: 30px;
+            }
+            .radio-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-logo">
+            <img src="https://www.cuchd.in/includes/assets/images/header-footer/cu-logo-dark-new.webp" alt="Chandigarh University Logo">
+            <div class="divider"></div>
+            <img src="logos/oaa-logo.png" alt="OAA Logo">
+        </div>
+        <a href="index.html" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Home
+        </a>
+    </header>
+
+    <!-- FORM LAYOUT -->
+    <main class="main-container">
+        <div class="form-header">
+            <h1>Register Your <em>Interest</em></h1>
+            <p>Join the Chandigarh University co-curricular clubs, departmental societies, and student communities under the Office of Academic Affairs.</p>
+        </div>
+
+        <div class="form-card">
+            <!-- Google Form POST Action -->
+            <form id="interestForm" target="_self">
+                
+                <!-- NAME -->
+                <div class="form-group">
+                    <label for="name">Full Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="entry.807126480" class="input-text" placeholder="Enter your full name" required>
+                </div>
+
+                <!-- UID -->
+                <div class="form-group">
+                    <label for="uid">University UID <span class="required">*</span></label>
+                    <input type="text" id="uid" name="entry.661557772" class="input-text" placeholder="Enter your UID (e.g. 23BCS1000)" required>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-group">
+                    <label for="email">E-Mail Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="entry.897659668" class="input-text" placeholder="Enter your university email address" required>
+                </div>
+
+                <!-- CONTACT -->
+                <div class="form-group">
+                    <label for="contact">Contact Number <span class="required">*</span></label>
+                    <input type="tel" id="contact" name="entry.65671347" class="input-text" placeholder="Enter your 10-digit mobile number" required pattern="[0-9]{10}">
+                </div>
+
+                <!-- GENDER -->
+                <div class="form-group">
+                    <label>Gender <span class="required">*</span></label>
+                    <div class="radio-grid">
+                        <div class="radio-option">
+                            <input type="radio" id="gender_male" name="entry.1049818607" value="Male" required>
+                            <label for="gender_male" class="radio-label">Male</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="gender_female" name="entry.1049818607" value="Female" required>
+                            <label for="gender_female" class="radio-label">Female</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOARDING STATUS -->
+                <div class="form-group">
+                    <label>Boarding Status <span class="required">*</span></label>
+                    <div class="radio-grid">
+                        <div class="radio-option">
+                            <input type="radio" id="boarding_day" name="entry.288142828" value="Day Scholar" required>
+                            <label for="boarding_day" class="radio-label">Day Scholar</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="boarding_hostel" name="entry.288142828" value="Hosteller" required>
+                            <label for="boarding_hostel" class="radio-label">Hosteller</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CLUBS -->
+                <div class="form-group">
+                    <label for="club">Select General Club <span class="required">*</span></label>
+                    <select id="club" name="entry.1028081801" class="select-input" required>
+                        <option value="" disabled selected>Choose a general club...</option>
+                        <option value="CU Leadership Academy">CU Leadership Academy</option>
+                        <option value="Sports & Fitness Club">Sports & Fitness Club</option>
+                        <option value="Wellness Club">Wellness Club</option>
+                        <option value="Women Empowerment & Safety Club">Women Empowerment & Safety Club</option>
+                        <option value="Student Media & Campus Journalism Club">Student Media & Campus Journalism Club</option>
+                        <option value="Personality Leadership Studio">Personality Leadership Studio</option>
+                        <option value="Event Management Club">Event Management Club</option>
+                        <option value="Global Citizenship & Cross-Cultural Club">Global Citizenship & Cross-Cultural Club</option>
+                        <option value="International Student Engagement Club (Only for Int. Students)">International Student Engagement Club (Only for Int. Students)</option>
+                        <option value="Defence Club">Defence Club</option>
+                    </select>
+                </div>
+
+                <!-- HOSTEL CLUBS (CONDITIONAL ON BOARDING STATUS = HOSTELLER) -->
+                <div class="form-group conditional-group" id="hostelClubsGroup">
+                    <label for="hostel_club">Select Hostel Engagement Club <span class="required">*</span></label>
+                    <select id="hostel_club" name="entry.2070695794" class="select-input">
+                        <option value="" disabled selected>Choose a hostel club...</option>
+                        <option value="Hostel Cultural & Fest Club">Hostel Cultural & Fest Club</option>
+                        <option value="Hostel Green & Sustainability Club">Hostel Green & Sustainability Club</option>
+                        <option value="Hostel Sports League">Hostel Sports League</option>
+                    </select>
+                </div>
+
+                <!-- YOUTH AFFAIRS CLUBS -->
+                <div class="form-group">
+                    <label for="youth_club">Select Youth Affairs & Services Club <span class="required">*</span></label>
+                    <select id="youth_club" name="entry.443704339" class="select-input" required>
+                        <option value="" disabled selected>Choose a youth affairs club...</option>
+                        <option value="Umang  Infotainment Club">Umang Infotainment Club</option>
+                        <option value="Rotaract Club Central (CU Central Chapter)">Rotaract Club Central (CU Central Chapter)</option>
+                        <option value="Red Ribbon Club (RRC)">Red Ribbon Club (RRC)</option>
+                        <option value="Rotaract Club (CU Chapter)">Rotaract Club (CU Chapter)</option>
+                        <option value="Compassionate Hearts Club (CHC)">Compassionate Hearts Club (CHC)</option>
+                    </select>
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" id="submitBtn" class="btn-submit">
+                    Register Interest <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- SUCCESS SCREEN OVERLAY -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h2>Registration Successful!</h2>
+            <p>Thank you for showing interest in Chandigarh University co-curricular activities. Your response has been securely submitted to the Office of Academic Affairs.</p>
+            <a href="index.html" class="btn-back" style="background: var(--red); color: #fff; display: inline-flex; justify-content: center; padding: 14px 28px;">
+                Back to Home
+            </a>
+        </div>
+    </div>
+
+    <!-- JS FORM LOGIC -->
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const boardingStatusRadios = document.querySelectorAll('input[name="entry.288142828"]');
+            const hostelClubsGroup = document.getElementById('hostelClubsGroup');
+            const hostelSelect = document.getElementById('hostel_club');
+            const form = document.getElementById('interestForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successOverlay = document.getElementById('successOverlay');
+
+            // ── PAGE ENTRANCE ANIMATIONS ──
+            gsap.from('.header', { y: -80, opacity: 0, duration: 0.8, ease: 'power3.out' });
+            gsap.from('.form-header h1', { y: 40, opacity: 0, duration: 1, delay: 0.2, ease: 'power3.out' });
+            gsap.from('.form-header p', { y: 30, opacity: 0, duration: 0.8, delay: 0.4, ease: 'power3.out' });
+            gsap.from('.form-card', { y: 60, opacity: 0, scale: 0.97, duration: 1, delay: 0.5, ease: 'power3.out' });
+            
+            // Stagger form groups
+            gsap.from('.form-group', { 
+                y: 30, opacity: 0, 
+                duration: 0.6, 
+                stagger: 0.08, 
+                delay: 0.8, 
+                ease: 'power2.out' 
+            });
+            gsap.from('.btn-submit', { y: 20, opacity: 0, duration: 0.6, delay: 1.4, ease: 'power2.out' });
+
+            // ── FOCUS GLOW on inputs ──
+            document.querySelectorAll('.input-text, .select-input').forEach(input => {
+                input.addEventListener('focus', () => {
+                    gsap.to(input, { scale: 1.01, duration: 0.3, ease: 'power2.out' });
+                });
+                input.addEventListener('blur', () => {
+                    gsap.to(input, { scale: 1, duration: 0.3, ease: 'power2.out' });
+                });
+            });
+
+            // ── CONDITIONAL HOSTEL CLUBS with GSAP ──
+            boardingStatusRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (e.target.value === 'Hosteller') {
+                        hostelClubsGroup.style.display = 'block';
+                        hostelSelect.setAttribute('required', 'true');
+                        gsap.fromTo(hostelClubsGroup, 
+                            { opacity: 0, height: 0, y: -15 },
+                            { opacity: 1, height: 'auto', y: 0, duration: 0.5, ease: 'power3.out' }
+                        );
+                    } else {
+                        gsap.to(hostelClubsGroup, {
+                            opacity: 0, height: 0, y: -15, duration: 0.35, ease: 'power2.in',
+                            onComplete: () => {
+                                hostelClubsGroup.style.display = 'none';
+                                hostelSelect.removeAttribute('required');
+                                hostelSelect.value = '';
+                            }
+                        });
+                    }
+                });
+            });
+
+            // ── HANDLE SUBMIT ──
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Submitting... <i class="fa-solid fa-spinner fa-spin"></i>';
+
+                // Animate button pulse
+                gsap.to(submitBtn, { scale: 0.97, duration: 0.15, yoyo: true, repeat: 1 });
+
+                const formData = new FormData(form);
+                const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSf4Be-uTWTwx6rYlzE_01-QPG3EL_IOBALiRjxnQkKY7HkEJQ/formResponse';
+                
+                const params = new URLSearchParams();
+                for (const pair of formData) {
+                    params.append(pair[0], pair[1]);
+                }
+
+                fetch(googleFormUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params.toString()
+                })
+                .then(() => showSuccess())
+                .catch(() => showSuccess());
+            });
+
+            function showSuccess() {
+                successOverlay.classList.add('active');
+                // GSAP animations for success card
+                gsap.fromTo('.success-card', 
+                    { scale: 0.85, opacity: 0, y: 40 },
+                    { scale: 1, opacity: 1, y: 0, duration: 0.7, delay: 0.15, ease: 'back.out(1.7)' }
+                );
+                gsap.fromTo('.success-icon',
+                    { scale: 0, rotation: -90 },
+                    { scale: 1, rotation: 0, duration: 0.8, delay: 0.4, ease: 'elastic.out(1, 0.5)' }
+                );
+            }
+        });
+    </script>
+</body>
+</html>

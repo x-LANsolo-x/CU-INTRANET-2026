@@ -300,9 +300,39 @@
         /* ── SECTION FADE-UP ── */
         .fade-up { opacity: 0; transform: translateY(50px); }
 
+        /* ── PRELOADER & FLOATS ── */
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.95); opacity: 0.85; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes textPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        .hero-img-badge {
+            animation: floatBadge 5s infinite ease-in-out;
+        }
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
     </style>
 </head>
 <body>
+
+<!-- PRELOADER -->
+<div id="preloader" style="position: fixed; inset: 0; background: var(--cream); z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+    <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+        <img src="loader.png" alt="Loading Logo" style="height: 80px; animation: pulse 2s infinite ease-in-out;">
+        <div style="position: absolute; width: 110px; height: 110px; border: 3px solid rgba(227, 27, 36, 0.1); border-top: 3px solid var(--red); border-radius: 50%; animation: spin 1s infinite linear;"></div>
+    </div>
+    <span style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-top: 10px; animation: textPulse 1.5s infinite ease-in-out;">Office of Academic Affairs</span>
+</div>
 
 <!-- HEADER -->
 <header class="header" id="mainHeader">
@@ -777,16 +807,101 @@
     gsap.ticker.add(time => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
 
-    /* ── HERO IMAGE CAROUSEL ── */
+    /* ── PRELOADER & INTRO ENTRANCE ── */
+    window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        gsap.to(preloader, {
+            opacity: 0,
+            y: -50,
+            duration: 0.8,
+            ease: 'power4.inOut',
+            onComplete: () => {
+                preloader.style.display = 'none';
+                
+                // Animate hero left content stagger
+                gsap.from('.hero-left > *', {
+                    y: 40,
+                    opacity: 0,
+                    stagger: 0.12,
+                    duration: 1,
+                    ease: 'power3.out'
+                });
+                
+                // Animate hero grid slide & scale
+                gsap.from('.hero-img-grid', {
+                    scale: 0.9,
+                    opacity: 0,
+                    duration: 1.4,
+                    ease: 'power3.out'
+                });
+                
+                // Animate badge popup
+                gsap.from('.hero-img-badge', {
+                    scale: 0,
+                    rotation: -10,
+                    duration: 1,
+                    delay: 0.5,
+                    ease: 'back.out(1.7)'
+                });
+            }
+        });
+    });
+
+    /* ── HERO IMAGE CAROUSEL (KEN BURNS CROSS-FADE) ── */
     const imgs = document.querySelectorAll('.hero-img-grid img');
     let cur = 0;
     if (imgs.length) {
-        imgs[0].classList.add('active');
+        gsap.set(imgs, { opacity: 0, scale: 1.15 });
+        gsap.set(imgs[0], { opacity: 1, scale: 1 });
+        
         setInterval(() => {
-            imgs[cur].classList.remove('active');
+            const prev = imgs[cur];
             cur = (cur + 1) % imgs.length;
-            imgs[cur].classList.add('active');
-        }, 2200);
+            const next = imgs[cur];
+            
+            // Fade out previous
+            gsap.to(prev, {
+                opacity: 0,
+                scale: 1.15,
+                duration: 1.5,
+                ease: 'power2.inOut'
+            });
+            
+            // Fade in and zoom next
+            gsap.fromTo(next, 
+                { opacity: 0, scale: 1.2 },
+                { opacity: 1, scale: 1, duration: 1.8, ease: 'power2.out' }
+            );
+        }, 3600);
+    }
+
+    /* ── MOUSE PARALLAX ON HERO GRID ── */
+    const heroRight = document.querySelector('.hero-right');
+    const heroGrid = document.querySelector('.hero-img-grid');
+    if (heroRight && heroGrid) {
+        heroRight.addEventListener('mousemove', (e) => {
+            const rect = heroRight.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            gsap.to(heroGrid, {
+                x: x * 0.04,
+                y: y * 0.04,
+                rotationY: x * 0.015,
+                rotationX: -y * 0.015,
+                duration: 0.6,
+                ease: 'power2.out'
+            });
+        });
+        heroRight.addEventListener('mouseleave', () => {
+            gsap.to(heroGrid, {
+                x: 0,
+                y: 0,
+                rotationY: 0,
+                rotationX: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+        });
     }
 
     /* ── HEADER: hide on scroll-down, show on scroll-up ── */
@@ -812,7 +927,6 @@
 
     /* ── WORD-BY-WORD REVEAL ── */
     document.querySelectorAll('.word-reveal').forEach(el => {
-        // wrap each word in a span
         el.innerHTML = el.innerHTML.replace(/<br>/gi, ' <br> ')
             .replace(/([^<>\s][^<>]*?)(?=\s|$|<)/g, w => `<span class="word">${w}</span>`);
         const words = el.querySelectorAll('.word');
@@ -848,14 +962,37 @@
     gsap.utils.toArray('.stagger-group').forEach(group => {
         const items = group.querySelectorAll('.stagger-item');
         gsap.from(items, {
-            y: 50,
+            y: 55,
             opacity: 0,
-            duration: 0.65,
+            duration: 0.7,
             stagger: 0.12,
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: group,
                 start: 'top 82%',
+            }
+        });
+    });
+
+    /* ── STATISTICS COUNT-UP ── */
+    document.querySelectorAll('.stat-num, .rstat-num').forEach(el => {
+        const text = el.textContent;
+        const targetVal = parseInt(text.replace(/[^0-9]/g, ''));
+        const suffix = text.replace(/[0-9]/g, '');
+        if (isNaN(targetVal)) return;
+        
+        const countObj = { val: 0 };
+        gsap.to(countObj, {
+            val: targetVal,
+            duration: 1.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 92%',
+                toggleActions: 'play none none none'
+            },
+            onUpdate: () => {
+                el.textContent = Math.floor(countObj.val) + suffix;
             }
         });
     });
