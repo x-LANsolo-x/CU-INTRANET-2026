@@ -262,6 +262,22 @@
         
         const links = (mobileNav ? Array.from(mobileNav.querySelectorAll('a')) : []).concat(mobileMenu ? Array.from(mobileMenu.querySelectorAll('a')) : []);
         links.forEach(a => a.addEventListener('click', closeMenu));
+
+        // Close mobile nav on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const isOpen = (mobileNav && mobileNav.classList.contains('open')) || (mobileMenu && mobileMenu.classList.contains('open'));
+                if (isOpen) { e.preventDefault(); closeMenu(); menuToggle.focus(); }
+            }
+        });
+
+        // Make hamburger button accessible
+        menuToggle.setAttribute('role', 'button');
+        menuToggle.setAttribute('tabindex', '0');
+        menuToggle.setAttribute('aria-label', 'Toggle navigation menu');
+        menuToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); menuToggle.click(); }
+        });
     }
 
     // ── LINK HOVER PREFETCHING ──

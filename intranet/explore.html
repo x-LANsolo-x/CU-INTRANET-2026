@@ -322,9 +322,9 @@
 </div>
 
 <!-- DETAIL MODAL -->
-<div class="sys-modal-backdrop" id="entityModalBackdrop">
-    <div class="sys-modal">
-        <button class="sys-modal-close" id="modalCloseBtn"><i class="fas fa-times"></i></button>
+<div class="sys-modal-backdrop" id="entityModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+    <div class="sys-modal" tabindex="-1">
+        <button class="sys-modal-close" id="modalCloseBtn" aria-label="Close entity details"><i class="fas fa-times" aria-hidden="true"></i></button>
         <div class="sys-modal-header">
             <img src="" alt="Logo" class="sys-modal-logo" id="modalLogo">
             <div class="sys-modal-meta">
@@ -337,9 +337,9 @@
         <div class="sys-modal-body">
             <div class="modal-carousel" id="modalCarousel" style="margin-bottom: 30px; display: none;">
                 <!-- Slides injected by JS -->
-                <button class="mc-btn mc-prev" id="mcPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                <button class="mc-btn mc-next" id="mcNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-                <div class="modal-carousel-nav" id="modalCarouselNav"></div>
+                <button class="mc-btn mc-prev" id="mcPrev" aria-label="Previous image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                <button class="mc-btn mc-next" id="mcNext" aria-label="Next image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                <div class="modal-carousel-nav" id="modalCarouselNav" role="tablist" aria-label="Carousel navigation"></div>
             </div>
 
             <p class="section-label">Detailed Description</p>
@@ -613,8 +613,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.addEventListener('mouseleave', () => clearInterval(mcTimer));
             }
 
+            // Keyboard + focus support for cards
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', `View details for ${e.title}`);
             card.style.transitionDelay = `${(idx % 8) * 0.05}s`;
-            card.addEventListener('click', () => openEntityModal(e, logoUrl));
+            const openFn = () => { _lastFocusedCard = card; openEntityModal(e, logoUrl); };
+            card.addEventListener('click', openFn);
+            card.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openFn(); }
+            });
             container.appendChild(card);
         });
 
@@ -713,17 +721,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modalBackdrop.classList.add('open');
         document.body.style.overflow = 'hidden';
+        // Move keyboard focus into modal
+        setTimeout(() => { const closeBtn = document.getElementById('modalCloseBtn'); if (closeBtn) closeBtn.focus(); }, 60);
     }
+
+    let _lastFocusedCard = null;
 
     function closeEntityModal() {
         modalBackdrop.classList.remove('open');
         document.body.style.overflow = '';
         clearInterval(carouselInterval);
+        // Return focus to the card that opened the modal
+        if (_lastFocusedCard) _lastFocusedCard.focus();
+        _lastFocusedCard = null;
     }
 
     modalCloseBtn.addEventListener('click', closeEntityModal);
     modalBackdrop.addEventListener('click', (e) => {
         if (e.target === modalBackdrop) closeEntityModal();
+    });
+
+    // ── KEYBOARD SUPPORT ──
+    // Global: Escape closes modal, arrow keys navigate carousel
+    document.addEventListener('keydown', (e) => {
+        const isModalOpen = modalBackdrop.classList.contains('open');
+
+        if (e.key === 'Escape') {
+            if (isModalOpen) { e.preventDefault(); closeEntityModal(); }
+        }
+
+        if (isModalOpen && modalCarousel.style.display !== 'none') {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                document.getElementById('mcPrev').click();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                document.getElementById('mcNext').click();
+            }
+        }
+    });
+
+    // Focus trap inside modal when open
+    modalBackdrop.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        const focusable = Array.from(modalBackdrop.querySelectorAll(
+            'button:not([disabled]), a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )).filter(el => el.offsetParent !== null);
+        if (!focusable.length) return;
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+            if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
     });
 
     // Wire up Search Input
@@ -742,15 +792,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Wire up Entity Type Tabs
+    // Wire up Entity Type Tabs — keyboard support
     typeTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            typeTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('tabindex', '0');
+        const activate = () => {
+            typeTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+            tab.classList.add('active'); tab.setAttribute('aria-selected','true');
             currentType = tab.getAttribute('data-type');
             window.location.hash = currentType;
             loadType(currentType);
-        });
+        };
+        tab.addEventListener('click', activate);
+        tab.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     });
 
     // Initial load
