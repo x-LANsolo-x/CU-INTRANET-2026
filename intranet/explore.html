@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -75,6 +75,31 @@
         .modal-carousel-dot.active {
             background: var(--white); width: 24px; border-radius: 4px;
         }
+
+        /* Carousel arrow buttons */
+        .mc-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(255,255,255,0.9); border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 11; color: var(--black);
+            transition: var(--tr-fast); font-size: 13px;
+        }
+        .mc-btn:hover { background: var(--red); color: #fff; }
+        .mc-prev { left: 12px; }
+        .mc-next { right: 12px; }
+
+        /* Mini card carousel (no-logo cards) */
+        .card-mini-carousel {
+            width: 100%; height: 100%; position: relative; overflow: hidden;
+        }
+        .card-mini-carousel img {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .card-mini-carousel img.active { opacity: 1; }
 
         /* ── MOBILE RESPONSIVE ── */
 
@@ -311,7 +336,9 @@
         </div>
         <div class="sys-modal-body">
             <div class="modal-carousel" id="modalCarousel" style="margin-bottom: 30px; display: none;">
-                <!-- Slides will be injected here -->
+                <!-- Slides injected by JS -->
+                <button class="mc-btn mc-prev" id="mcPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <button class="mc-btn mc-next" id="mcNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
                 <div class="modal-carousel-nav" id="modalCarouselNav"></div>
             </div>
 
@@ -534,18 +561,25 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'entity-card';
             card.setAttribute('data-reveal', 'scale');
 
-            // Format logo path
-            const logoUrl = e.logo ? (e.logo) : 'logos/default.png';
-            
-            // Format media array for modal passing
-            const mediaStr = (e.media || []).map(m => m).join(',');
-
-            // Tag badges
+            const hasLogo = !!e.logo;
+            const logoUrl = hasLogo ? e.logo : 'logos/default.png';
+            const mediaList = (e.media || []).filter(m => m && m.trim());
             const mainTag = e.categories && e.categories[0] ? e.categories[0] : 'General';
+
+            // If no logo but has media — show mini image carousel on the card
+            let cardImgHtml;
+            if (!hasLogo && mediaList.length > 0) {
+                const imgTags = mediaList.map((m, i) =>
+                    `<img src="${m}" class="${i === 0 ? 'active' : ''}" alt="${e.title}" loading="lazy">`
+                ).join('');
+                cardImgHtml = `<div class="card-mini-carousel" data-idx="0">${imgTags}</div>`;
+            } else {
+                cardImgHtml = `<img src="${logoUrl}" class="blur-image" onload="this.classList.add('loaded')" onerror="this.src='logos/default.png'; this.classList.add('loaded');" alt="${e.title}">`;
+            }
 
             card.innerHTML = `
                 <div class="card-img">
-                    <img src="${logoUrl}" class="blur-image" onload="this.classList.add('loaded')" onerror="this.src='logos/default.png'; this.classList.add('loaded');" alt="${e.title}">
+                    ${cardImgHtml}
                     <span class="card-badge">${mainTag}</span>
                 </div>
                 <div class="card-body">
@@ -562,12 +596,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
+            // Auto-cycle mini carousel on card hover
+            if (!hasLogo && mediaList.length > 1) {
+                const mc = card.querySelector('.card-mini-carousel');
+                let mcTimer;
+                card.addEventListener('mouseenter', () => {
+                    mcTimer = setInterval(() => {
+                        const imgs = mc.querySelectorAll('img');
+                        let i = parseInt(mc.dataset.idx) || 0;
+                        imgs[i].classList.remove('active');
+                        i = (i + 1) % imgs.length;
+                        imgs[i].classList.add('active');
+                        mc.dataset.idx = i;
+                    }, 1400);
+                });
+                card.addEventListener('mouseleave', () => clearInterval(mcTimer));
+            }
+
             card.style.transitionDelay = `${(idx % 8) * 0.05}s`;
-            card.addEventListener('click', () => openEntityModal(e, logoUrl, mediaStr));
+            card.addEventListener('click', () => openEntityModal(e, logoUrl));
             container.appendChild(card);
         });
 
-        // Trigger animations natively
         if (window.observeNewElements) {
             window.observeNewElements(container.querySelectorAll('.entity-card'));
         }
@@ -589,11 +639,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let carouselInterval;
 
-    function openEntityModal(entity, logoUrl, mediaStr) {
+    function openEntityModal(entity, logoUrl) {
         const regBtn = document.querySelector('.sys-modal-body .btn-red') || document.querySelector('.btn-red');
-        if (regBtn) {
-            regBtn.href = `register?entity=${encodeURIComponent(entity.title)}`;
-        }
+        if (regBtn) regBtn.href = `register?entity=${encodeURIComponent(entity.title)}`;
+
         modalLogo.src = logoUrl;
         modalLogo.onerror = () => { modalLogo.src = 'logos/default.png'; };
         modalTitle.textContent = entity.title;
@@ -603,7 +652,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalFaculty.textContent = entity.faculty || 'Not Assigned';
         modalContact.textContent = entity.contact || 'N/A';
 
-        // Set tags
+        // Tags
         modalTags.innerHTML = '';
         if (entity.categories) {
             entity.categories.forEach(t => {
@@ -614,44 +663,50 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Set Carousel Media
-        modalCarousel.innerHTML = '';
-        modalCarouselNav.innerHTML = '';
+        // Carousel
         clearInterval(carouselInterval);
+        // Clear only injected images (keep buttons + nav)
+        Array.from(modalCarousel.querySelectorAll('img')).forEach(img => img.remove());
+        modalCarouselNav.innerHTML = '';
 
-        const mediaSources = mediaStr ? mediaStr.split(',').filter(s => s.trim() !== '') : [];
+        const mediaSources = (entity.media || []).filter(s => s && s.trim());
         if (mediaSources.length > 0) {
             modalCarousel.style.display = 'block';
-            
+            let slideIdx = 0;
+
             mediaSources.forEach((src, idx) => {
                 const img = document.createElement('img');
-                img.src = src;
+                img.src = src.trim();
+                img.alt = `${entity.title} media ${idx + 1}`;
                 if (idx === 0) img.classList.add('active');
-                modalCarousel.appendChild(img);
+                // Insert before the first button
+                modalCarousel.insertBefore(img, modalCarousel.querySelector('.mc-prev'));
 
                 const dot = document.createElement('div');
-                dot.className = `modal-carousel-dot${idx === 0 ? ' active' : ''}`;
-                dot.addEventListener('click', () => setSlide(idx));
+                dot.className = 'modal-carousel-dot' + (idx === 0 ? ' active' : '');
+                dot.addEventListener('click', () => { clearInterval(carouselInterval); setSlide(idx); startAuto(); });
                 modalCarouselNav.appendChild(dot);
             });
 
-            modalCarousel.appendChild(modalCarouselNav);
-
-            let slideIdx = 0;
             function setSlide(i) {
                 const slides = modalCarousel.querySelectorAll('img');
                 const dots = modalCarouselNav.querySelectorAll('.modal-carousel-dot');
                 slides.forEach(s => s.classList.remove('active'));
                 dots.forEach(d => d.classList.remove('active'));
-
-                slideIdx = i;
+                slideIdx = ((i % mediaSources.length) + mediaSources.length) % mediaSources.length;
                 if (slides[slideIdx]) slides[slideIdx].classList.add('active');
                 if (dots[slideIdx]) dots[slideIdx].classList.add('active');
             }
+            function startAuto() {
+                if (mediaSources.length > 1) {
+                    carouselInterval = setInterval(() => setSlide(slideIdx + 1), 3200);
+                }
+            }
 
-            carouselInterval = setInterval(() => {
-                setSlide((slideIdx + 1) % mediaSources.length);
-            }, 3000);
+            document.getElementById('mcPrev').onclick = () => { clearInterval(carouselInterval); setSlide(slideIdx - 1); startAuto(); };
+            document.getElementById('mcNext').onclick = () => { clearInterval(carouselInterval); setSlide(slideIdx + 1); startAuto(); };
+
+            startAuto();
         } else {
             modalCarousel.style.display = 'none';
         }
