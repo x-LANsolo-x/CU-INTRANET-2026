@@ -288,11 +288,7 @@
             .values-grid { grid-template-columns: 1fr 1fr; }
         }
         /* ── WORD REVEAL ── */
-        .word-reveal .word { opacity: 0.1; transition: opacity 0.2s; }
-
-        /* ── SMOOTH WRAPPER ── */
-        #smooth-wrapper { overflow: hidden; position: fixed; inset: 0; }
-        #smooth-content { will-change: transform; }
+        .word-reveal .word { opacity: 0.1; }
 
         /* ── SECTION FADE-UP ── */
         .fade-up { opacity: 0; transform: translateY(50px); }
@@ -324,10 +320,6 @@
         <span></span><span></span><span></span>
     </div>
 </header>
-
-<!-- SMOOTH WRAPPER (matches orientation page structure) -->
-<div id="smooth-wrapper">
-<div id="smooth-content">
 
 <!-- HERO -->
 <section class="hero">
@@ -754,27 +746,29 @@
     </svg>
 </button>
 
-</div><!-- end smooth-content -->
-</div><!-- end smooth-wrapper -->
-
-<!-- GSAP CDN -->
+<!-- Lenis (free, no license needed) -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+<!-- GSAP + ScrollTrigger (free) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollSmoother.min.js"></script>
 
 <script>
 (function () {
 
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    gsap.registerPlugin(ScrollTrigger);
 
-    /* ── SCROLL SMOOTHER (exact orientation page setup) ── */
-    const smoother = ScrollSmoother.create({
-        wrapper:  '#smooth-wrapper',
-        content:  '#smooth-content',
-        smooth:   1.4,
-        effects:  true,
-        smoothTouch: 0.1,
+    /* ── LENIS SMOOTH SCROLL ── */
+    const lenis = new Lenis({
+        duration: 1.4,
+        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+        smoothTouch: false,
     });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
 
     /* ── HERO IMAGE CAROUSEL ── */
     const imgs = document.querySelectorAll('.hero-img-grid img');
@@ -788,45 +782,42 @@
         }, 2200);
     }
 
-    /* ── HEADER: hide on scroll-down, show on scroll-up (orientation style) ── */
-    const header  = document.getElementById('mainHeader');
+    /* ── HEADER: hide on scroll-down, show on scroll-up ── */
+    const header = document.getElementById('mainHeader');
     let lastScroll = 0;
-    const delta    = 10;
-    ScrollTrigger.create({
-        onUpdate: (self) => {
-            const y = smoother.scrollTop();
-            if (y > 100) header.classList.add('sticky');
-            else header.classList.remove('sticky');
-            if (Math.abs(y - lastScroll) <= delta) return;
-            if (y <= 100) {
-                header.classList.remove('header-hide');
-                header.classList.add('header-show');
-            } else if (y > lastScroll) {
-                header.classList.add('header-hide');
-                header.classList.remove('header-show');
-            } else {
-                header.classList.remove('header-hide');
-                header.classList.add('header-show');
-            }
-            lastScroll = y;
+    lenis.on('scroll', ({ scroll }) => {
+        if (scroll > 100) header.classList.add('sticky');
+        else header.classList.remove('sticky');
+
+        if (Math.abs(scroll - lastScroll) < 8) return;
+        if (scroll <= 100) {
+            header.classList.remove('header-hide');
+            header.classList.add('header-show');
+        } else if (scroll > lastScroll) {
+            header.classList.add('header-hide');
+            header.classList.remove('header-show');
+        } else {
+            header.classList.remove('header-hide');
+            header.classList.add('header-show');
         }
+        lastScroll = scroll;
     });
 
-    /* ── WORD-BY-WORD REVEAL (orientation page signature effect) ── */
+    /* ── WORD-BY-WORD REVEAL ── */
     document.querySelectorAll('.word-reveal').forEach(el => {
-        const raw = el.innerHTML;
-        el.innerHTML = raw.replace(/\S+/g, w => `<span class="word">${w}</span>`);
+        // wrap each word in a span
+        el.innerHTML = el.innerHTML.replace(/<br>/gi, ' <br> ')
+            .replace(/([^<>\s][^<>]*?)(?=\s|$|<)/g, w => `<span class="word">${w}</span>`);
         const words = el.querySelectorAll('.word');
         gsap.to(words, {
             opacity: 1,
-            stagger: 0.04,
+            stagger: 0.06,
             ease: 'none',
             scrollTrigger: {
                 trigger: el,
-                start: 'top 85%',
-                end:   'bottom 60%',
-                scrub: true,
-                containerAnimation: null,
+                start: 'top 88%',
+                end:   'bottom 55%',
+                scrub: 0.5,
             }
         });
     });
@@ -840,41 +831,39 @@
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: el,
-                start: 'top 85%',
+                start: 'top 88%',
                 toggleActions: 'play none none none',
             }
         });
     });
 
-    /* ── STAGGER CARDS ── */
+    /* ── STAGGER CARD GROUPS ── */
     gsap.utils.toArray('.stagger-group').forEach(group => {
-        const cards = group.querySelectorAll('.stagger-item');
-        gsap.from(cards, {
+        const items = group.querySelectorAll('.stagger-item');
+        gsap.from(items, {
             y: 50,
             opacity: 0,
-            duration: 0.6,
+            duration: 0.65,
             stagger: 0.12,
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: group,
-                start: 'top 80%',
+                start: 'top 82%',
             }
         });
     });
 
     /* ── GO TOP ── */
     const goTop = document.getElementById('goTop');
-    ScrollTrigger.create({
-        start: 400,
-        onEnter:      () => goTop.classList.add('show'),
-        onLeaveBack:  () => goTop.classList.remove('show'),
+    lenis.on('scroll', ({ scroll }) => {
+        goTop.classList.toggle('show', scroll > 400);
     });
-    goTop.addEventListener('click', () => smoother.scrollTo(0, true));
+    goTop.addEventListener('click', () => lenis.scrollTo(0, { duration: 1.4 }));
 
     /* ── MOBILE MENU ── */
     document.getElementById('menuToggle').addEventListener('click', function () {
         this.classList.toggle('active');
-        const nav   = document.querySelector('.header-nav');
+        const nav = document.querySelector('.header-nav');
         const isOpen = nav.style.display === 'block';
         nav.style.cssText = isOpen
             ? 'display:none;'
