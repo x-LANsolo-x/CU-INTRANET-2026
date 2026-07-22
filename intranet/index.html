@@ -47,6 +47,8 @@
             backdrop-filter: blur(18px);
             border-bottom-color: rgba(0,0,0,0.08);
         }
+        .header-hide  { transform: translateY(-100%); }
+        .header-show  { transform: translateY(0); }
         .header-logo { display: flex; align-items: center; gap: 14px; }
         .header-logo img { height: 52px; }
         .header-logo .divider { width: 1px; height: 40px; background: rgba(0,0,0,0.2); }
@@ -107,7 +109,7 @@
         }
         .hero-img-grid img {
             position: absolute; inset: 0; width: 100%; height: 100%;
-            object-fit: contain; background: var(--cream2); padding: 30px;
+            object-fit: cover;
             opacity: 0;
         }
         .hero-img-grid img.active {
@@ -285,6 +287,16 @@
             .stats-inner { grid-template-columns: repeat(2,1fr); gap: 24px; }
             .values-grid { grid-template-columns: 1fr 1fr; }
         }
+        /* ── WORD REVEAL ── */
+        .word-reveal .word { opacity: 0.1; transition: opacity 0.2s; }
+
+        /* ── SMOOTH WRAPPER ── */
+        #smooth-wrapper { overflow: hidden; position: fixed; inset: 0; }
+        #smooth-content { will-change: transform; }
+
+        /* ── SECTION FADE-UP ── */
+        .fade-up { opacity: 0; transform: translateY(50px); }
+
     </style>
 </head>
 <body>
@@ -313,12 +325,16 @@
     </div>
 </header>
 
+<!-- SMOOTH WRAPPER (matches orientation page structure) -->
+<div id="smooth-wrapper">
+<div id="smooth-content">
+
 <!-- HERO -->
 <section class="hero">
     <div class="hero-container">
         <div class="hero-left">
             <div class="hero-tag"><span></span> Office of Academic Affairs · CU</div>
-            <h1 class="hero-h1">The Co-Curricular<br><em>Ecosystem</em> at<br>Chandigarh University</h1>
+            <h1 class="hero-h1 word-reveal">The Co-Curricular<br><em>Ecosystem</em> at<br>Chandigarh University</h1>
             <p class="hero-tagline">Explore · Engage · Excel · Empower</p>
             <p class="hero-desc">
                 A thriving network of 80+ officially recognized student entities empowering students to discover passions, cultivate leadership, build professional competencies, and create meaningful impact through experiential learning.
@@ -335,17 +351,17 @@
         <div class="hero-right">
             <div style="position:relative;">
                 <div class="hero-img-grid">
-                    <img src="logos/AEROMODELLING.webp" alt="Aeromodelling Club">
-                    <img src="logos/BIOSPHERE.webp" alt="Biosphere Club">
-                    <img src="logos/COGNIX CLUB.webp" alt="Cognix Club">
-                    <img src="logos/VISION VELOCITY CLUB.webp" alt="Vision Velocity Club">
-                    <img src="logos/RAMANUJAN CLUB.webp" alt="Ramanujan Club">
-                    <img src="logos/NANOVERSE.webp" alt="Nanoverse Club">
-                    <img src="logos/UPCYCLE.webp" alt="Upcycle Club">
-                    <img src="logos/ASTRONOMY CLUB.webp" alt="Astronomy Club">
-                    <img src="logos/DEFENCE CLUB.webp" alt="Defence Club">
-                    <img src="logos/SOCRATIC-CIRCLE CLUB.webp" alt="Socratic Circle">
-                    <img src="logos/TECH TATVA CLUB.webp" alt="Tech Tatva Club">
+                    <img src="media/Aeromeodelling/aeromodelling_high_quality.png" alt="Aeromodelling Club">
+                    <img src="media/biosphere/a6b0b238-56e1-4a30-9636-1307fe19ec9f.png" alt="Biosphere Club">
+                    <img src="media/Cognix/cognix_2.jpg" alt="Cognix Club">
+                    <img src="media/Vision Velocity/kev-1369-scaled.jpg" alt="Vision Velocity Club">
+                    <img src="media/ramanujan/ramanujan_12.jpg" alt="Ramanujan Club">
+                    <img src="media/nanoverse/a5f15c85-0a76-41c2-8c24-15b7a44eb4ac.png" alt="Nanoverse Club">
+                    <img src="media/UpCycle/2f89aade-6e33-41b7-8308-925228a6be03.png" alt="UpCycle Club">
+                    <img src="media/astronomy/IMG_1464.JPG" alt="Astronomy Club">
+                    <img src="media/kalaverse/films-lab-2.jpg" alt="Kalaverse Club">
+                    <img src="media/tech tatva/WhatsApp Image 2025-07-25 at 22.27.56_f1c9ef83.jpg" alt="Tech Tatva Club">
+                    <img src="media/cloudstack/36df914b-807f-45d8-84f6-4ebd2892180b.png" alt="CloudStack Club">
                 </div>
                 <div class="hero-img-badge">
                     <div class="num">80+</div>
@@ -376,20 +392,20 @@
 
 <!-- STATS -->
 <section class="stats-section">
-    <div class="stats-inner">
-        <div class="stat-item">
+    <div class="stats-inner stagger-group">
+        <div class="stat-item stagger-item">
             <div class="stat-num">80+</div>
             <div class="stat-label"><strong>Student Entities</strong>Clubs, Communities, Departmental & Professional Societies</div>
         </div>
-        <div class="stat-item">
+        <div class="stat-item stagger-item">
             <div class="stat-num">12K+</div>
             <div class="stat-label"><strong>Active Members</strong>One of India's largest university-led student engagement ecosystems</div>
         </div>
-        <div class="stat-item">
+        <div class="stat-item stagger-item">
             <div class="stat-num">500+</div>
             <div class="stat-label"><strong>Events Every Year</strong>Hackathons, workshops, conferences, cultural festivals & more</div>
         </div>
-        <div class="stat-item">
+        <div class="stat-item stagger-item">
             <div class="stat-num">4</div>
             <div class="stat-label"><strong>Entity Categories</strong>Clubs · Communities · Dept. Societies · Prof. Societies</div>
         </div>
@@ -399,9 +415,9 @@
 <!-- OVERVIEW -->
 <section class="section overview-section" id="overview">
     <div class="section-inner">
-        <p class="section-tag">Overview</p>
-        <h2 class="section-h2">A Platform Where<br><em>Ideas Become Action</em></h2>
-        <p class="section-lead">The Chandigarh University Co-Curricular Ecosystem serves as a platform where students transform ideas into action through structured governance, faculty mentorship, and outcome-based experiential learning.</p>
+        <p class="section-tag fade-up">Overview</p>
+        <h2 class="section-h2 word-reveal">A Platform Where<br><em>Ideas Become Action</em></h2>
+        <p class="section-lead fade-up">The Chandigarh University Co-Curricular Ecosystem serves as a platform where students transform ideas into action through structured governance, faculty mentorship, and outcome-based experiential learning.</p>
         <div class="overview-grid">
             <div class="overview-text">
                 <p>Every entity functions through a structured governance model supported by faculty mentorship, annual activity planning, leadership opportunities, and outcome-based learning.</p>
@@ -448,12 +464,12 @@
 <!-- ENTITY CATEGORIES -->
 <section class="section entities-section" id="entities">
     <div class="section-inner">
-        <p class="section-tag">Our Identity</p>
-        <h2 class="section-h2">Four Distinct<br><em>Entity Categories</em></h2>
-        <p class="section-lead">Our ecosystem consists of four categories, each with a unique focus, purpose, and impact — united by a common goal of holistic student development.</p>
-        <div class="entity-grid">
+        <p class="section-tag fade-up">Our Identity</p>
+        <h2 class="section-h2 word-reveal">Four Distinct<br><em>Entity Categories</em></h2>
+        <p class="section-lead fade-up">Our ecosystem consists of four categories, each with a unique focus, purpose, and impact — united by a common goal of holistic student development.</p>
+        <div class="entity-grid stagger-group">
 
-            <div class="entity-card">
+            <div class="entity-card stagger-item">
                 <div class="entity-card-top">
                     <div class="entity-card-num">01</div>
                     <h3>Student Clubs</h3>
@@ -471,7 +487,7 @@
                 </div>
             </div>
 
-            <div class="entity-card">
+            <div class="entity-card stagger-item">
                 <div class="entity-card-top alt">
                     <div class="entity-card-num">02</div>
                     <h3>Student Communities</h3>
@@ -488,7 +504,7 @@
                 </div>
             </div>
 
-            <div class="entity-card">
+            <div class="entity-card stagger-item">
                 <div class="entity-card-top alt">
                     <div class="entity-card-num">03</div>
                     <h3>Departmental Societies</h3>
@@ -505,7 +521,7 @@
                 </div>
             </div>
 
-            <div class="entity-card">
+            <div class="entity-card stagger-item">
                 <div class="entity-card-top">
                     <div class="entity-card-num">04</div>
                     <h3>Professional Societies</h3>
@@ -532,7 +548,7 @@
 <section class="section vm-section" id="vision">
     <div class="section-inner">
         <p class="section-tag">Vision & Mission</p>
-        <h2 class="section-h2" style="color:#fff;">Building <em>Future Leaders</em><br>Through Co-Curricular Excellence</h2>
+        <h2 class="section-h2 word-reveal" style="color:#fff;">Building <em>Future Leaders</em><br>Through Co-Curricular Excellence</h2>
         <div class="vm-grid">
             <div class="vm-card">
                 <h3>Our Vision</h3>
@@ -556,26 +572,26 @@
 <!-- PILLARS -->
 <section class="section pillars-section" id="pillars">
     <div class="section-inner">
-        <p class="section-tag">What Powers Our Ecosystem</p>
-        <h2 class="section-h2">Four Foundational<br><em>Pillars</em> of Engagement</h2>
-        <p class="section-lead">Every entity under the Office of Academic Affairs operates through four foundational pillars that ensure meaningful student engagement and measurable impact.</p>
-        <div class="pillars-grid">
-            <div class="pillar-card" data-num="01">
+        <p class="section-tag fade-up">What Powers Our Ecosystem</p>
+        <h2 class="section-h2 word-reveal">Four Foundational<br><em>Pillars</em> of Engagement</h2>
+        <p class="section-lead fade-up">Every entity under the Office of Academic Affairs operates through four foundational pillars that ensure meaningful student engagement and measurable impact.</p>
+        <div class="pillars-grid stagger-group">
+            <div class="pillar-card stagger-item" data-num="01">
                 <div class="pillar-icon"><i class="fas fa-users-cog"></i></div>
                 <h3>Student-Led Governance</h3>
                 <p>Students lead their own organizations by planning events, managing operations, coordinating teams, and making strategic decisions while developing real-world leadership and management skills.</p>
             </div>
-            <div class="pillar-card" data-num="02">
+            <div class="pillar-card stagger-item" data-num="02">
                 <div class="pillar-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                 <h3>Faculty Mentorship</h3>
                 <p>Dedicated Faculty Champions and Advisors provide strategic guidance, academic support, quality assurance, and mentorship to ensure sustainable growth and excellence.</p>
             </div>
-            <div class="pillar-card" data-num="03">
+            <div class="pillar-card stagger-item" data-num="03">
                 <div class="pillar-icon"><i class="fas fa-flask"></i></div>
                 <h3>Experiential Learning</h3>
                 <p>Structured annual calendars include workshops, hackathons, competitions, research initiatives, community outreach, innovation challenges, and interdisciplinary collaborations bridging theory with practice.</p>
             </div>
-            <div class="pillar-card" data-num="04">
+            <div class="pillar-card stagger-item" data-num="04">
                 <div class="pillar-icon"><i class="fas fa-trophy"></i></div>
                 <h3>Recognition & Achievement</h3>
                 <p>Students receive official certifications, leadership appointments, awards, trophies, co-curricular credits, and institutional recognition that enhance both academic and professional portfolios.</p>
@@ -588,44 +604,44 @@
 <section class="section values-section" id="values">
     <div class="section-inner">
         <p class="section-tag">Core Values</p>
-        <h2 class="section-h2">The <em>Values</em> That Drive Us</h2>
-        <div class="values-grid">
-            <div class="value-card">
+        <h2 class="section-h2 word-reveal">The <em>Values</em> That Drive Us</h2>
+        <div class="values-grid stagger-group">
+            <div class="value-card stagger-item">
                 <div class="value-icon"><i class="fas fa-crown"></i></div>
                 <h4>Leadership</h4>
                 <p>Empowering students to lead with confidence, responsibility, and vision.</p>
             </div>
-            <div class="value-card">
+            <div class="value-card stagger-item">
                 <div class="value-icon"><i class="fas fa-star"></i></div>
                 <h4>Excellence</h4>
                 <p>Striving for the highest standards in every initiative and achievement.</p>
             </div>
-            <div class="value-card">
+            <div class="value-card stagger-item">
                 <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
                 <h4>Innovation</h4>
                 <p>Encouraging creativity, research, entrepreneurship, and problem-solving.</p>
             </div>
-            <div class="value-card">
+            <div class="value-card stagger-item">
                 <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
                 <h4>Integrity</h4>
                 <p>Building a culture of ethics, transparency, professionalism, and accountability.</p>
             </div>
-            <div class="value-card">
+            <div class="value-card stagger-item">
                 <div class="value-icon"><i class="fas fa-handshake"></i></div>
                 <h4>Collaboration</h4>
                 <p>Promoting teamwork across students, faculty, industry, alumni, and society.</p>
             </div>
-            <div class="value-card">
+            <div class="value-card stagger-item">
                 <div class="value-icon"><i class="fas fa-heart"></i></div>
                 <h4>Inclusivity</h4>
                 <p>Creating equal opportunities where every student can learn, contribute, and grow.</p>
             </div>
-            <div class="value-card">
+            <div class="value-card stagger-item">
                 <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
                 <h4>Service</h4>
                 <p>Making meaningful contributions to society through community engagement.</p>
             </div>
-            <div class="value-card">
+            <div class="value-card stagger-item">
                 <div class="value-icon"><i class="fas fa-rocket"></i></div>
                 <h4>Growth</h4>
                 <p>Continuously evolving through learning, feedback, and courageous ambition.</p>
@@ -639,25 +655,25 @@
     <div class="section-inner">
         <div class="recognition-inner">
             <div>
-                <p class="section-tag">Awards & Recognition</p>
-                <h2 class="section-h2">One of India's Most<br><em>Vibrant</em> Student Engagement<br>Platforms</h2>
+                <p class="section-tag fade-up">Awards & Recognition</p>
+                <h2 class="section-h2 word-reveal">One of India's Most<br><em>Vibrant</em> Student Engagement<br>Platforms</h2>
                 <p style="font-size:16px;color:var(--grey);line-height:1.75;margin-top:20px;margin-bottom:36px;">Each entity contributes to the University's growing reputation by consistently delivering excellence, innovation, and student impact across multiple domains.</p>
                 <a href="explore.html" class="btn-primary">Discover All Entities <i class="fas fa-compass"></i></a>
             </div>
-            <div class="recognition-stats">
-                <div class="rstat">
+            <div class="recognition-stats stagger-group">
+                <div class="rstat stagger-item">
                     <div class="rstat-num">80+</div>
                     <div class="rstat-label"><strong>Active Student Entities</strong>Across all four entity categories under OAA</div>
                 </div>
-                <div class="rstat">
+                <div class="rstat stagger-item">
                     <div class="rstat-num">12K+</div>
                     <div class="rstat-label"><strong>Student Members</strong>Engaged across clubs, societies & communities</div>
                 </div>
-                <div class="rstat">
+                <div class="rstat stagger-item">
                     <div class="rstat-num">500+</div>
                     <div class="rstat-label"><strong>Annual Activities & Events</strong>National & international competitions, conferences, workshops</div>
                 </div>
-                <div class="rstat">
+                <div class="rstat stagger-item">
                     <div class="rstat-num">4</div>
                     <div class="rstat-label"><strong>Entity Categories</strong>Clubs · Communities · Dept. Societies · Prof. Societies</div>
                 </div>
@@ -738,39 +754,135 @@
     </svg>
 </button>
 
+</div><!-- end smooth-content -->
+</div><!-- end smooth-wrapper -->
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollSmoother.min.js"></script>
+
 <script>
-    // Hero image carousel
+(function () {
+
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    /* ── SCROLL SMOOTHER (exact orientation page setup) ── */
+    const smoother = ScrollSmoother.create({
+        wrapper:  '#smooth-wrapper',
+        content:  '#smooth-content',
+        smooth:   1.4,
+        effects:  true,
+        smoothTouch: 0.1,
+    });
+
+    /* ── HERO IMAGE CAROUSEL ── */
     const imgs = document.querySelectorAll('.hero-img-grid img');
-    let current = 0;
+    let cur = 0;
     if (imgs.length) {
         imgs[0].classList.add('active');
         setInterval(() => {
-            imgs[current].classList.remove('active');
-            current = (current + 1) % imgs.length;
-            imgs[current].classList.add('active');
-        }, 2000);
+            imgs[cur].classList.remove('active');
+            cur = (cur + 1) % imgs.length;
+            imgs[cur].classList.add('active');
+        }, 2200);
     }
 
-    // Sticky header
-    const header = document.getElementById('mainHeader');
-    window.addEventListener('scroll', () => {
-        header.classList.toggle('sticky', window.scrollY > 60);
-        document.getElementById('goTop').classList.toggle('show', window.scrollY > 400);
+    /* ── HEADER: hide on scroll-down, show on scroll-up (orientation style) ── */
+    const header  = document.getElementById('mainHeader');
+    let lastScroll = 0;
+    const delta    = 10;
+    ScrollTrigger.create({
+        onUpdate: (self) => {
+            const y = smoother.scrollTop();
+            if (y > 100) header.classList.add('sticky');
+            else header.classList.remove('sticky');
+            if (Math.abs(y - lastScroll) <= delta) return;
+            if (y <= 100) {
+                header.classList.remove('header-hide');
+                header.classList.add('header-show');
+            } else if (y > lastScroll) {
+                header.classList.add('header-hide');
+                header.classList.remove('header-show');
+            } else {
+                header.classList.remove('header-hide');
+                header.classList.add('header-show');
+            }
+            lastScroll = y;
+        }
     });
 
-    // Go top
-    document.getElementById('goTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    /* ── WORD-BY-WORD REVEAL (orientation page signature effect) ── */
+    document.querySelectorAll('.word-reveal').forEach(el => {
+        const raw = el.innerHTML;
+        el.innerHTML = raw.replace(/\S+/g, w => `<span class="word">${w}</span>`);
+        const words = el.querySelectorAll('.word');
+        gsap.to(words, {
+            opacity: 1,
+            stagger: 0.04,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+                end:   'bottom 60%',
+                scrub: true,
+                containerAnimation: null,
+            }
+        });
+    });
 
-    // Mobile menu
-    document.getElementById('menuToggle').addEventListener('click', function() {
+    /* ── FADE-UP SECTIONS ── */
+    gsap.utils.toArray('.fade-up').forEach(el => {
+        gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+                toggleActions: 'play none none none',
+            }
+        });
+    });
+
+    /* ── STAGGER CARDS ── */
+    gsap.utils.toArray('.stagger-group').forEach(group => {
+        const cards = group.querySelectorAll('.stagger-item');
+        gsap.from(cards, {
+            y: 50,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.12,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: group,
+                start: 'top 80%',
+            }
+        });
+    });
+
+    /* ── GO TOP ── */
+    const goTop = document.getElementById('goTop');
+    ScrollTrigger.create({
+        start: 400,
+        onEnter:      () => goTop.classList.add('show'),
+        onLeaveBack:  () => goTop.classList.remove('show'),
+    });
+    goTop.addEventListener('click', () => smoother.scrollTo(0, true));
+
+    /* ── MOBILE MENU ── */
+    document.getElementById('menuToggle').addEventListener('click', function () {
         this.classList.toggle('active');
-        const nav = document.querySelector('.header-nav');
+        const nav   = document.querySelector('.header-nav');
         const isOpen = nav.style.display === 'block';
         nav.style.cssText = isOpen
             ? 'display:none;'
-            : 'display:block;position:absolute;top:76px;left:0;width:100%;background:var(--cream);padding:20px 40px;border-top:1px solid rgba(0,0,0,0.08);z-index:9998;box-shadow:0 8px 24px rgba(0,0,0,0.08);';
+            : 'display:block;position:fixed;top:76px;left:0;width:100%;background:var(--cream);padding:20px 40px;border-top:1px solid rgba(0,0,0,0.08);z-index:9998;box-shadow:0 8px 24px rgba(0,0,0,0.08);';
         if (!isOpen) nav.querySelector('ul').style.cssText = 'flex-direction:column;gap:20px;';
     });
+
+})();
 </script>
 </body>
 </html>
