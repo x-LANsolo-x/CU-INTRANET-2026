@@ -22,7 +22,7 @@
             --white: #fff;
             --grey: #555;
         }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: auto; }
         body {
             font-family: "Google Sans", "Segoe UI", sans-serif;
             background: var(--cream);
@@ -108,21 +108,11 @@
         .hero-img-grid img {
             position: absolute; inset: 0; width: 100%; height: 100%;
             object-fit: contain; background: var(--cream2); padding: 30px;
-            opacity: 0; animation: cycleImg 14s linear infinite;
+            opacity: 0; transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1), transform 1.2s cubic-bezier(0.4,0,0.2,1);
+            transform: scale(0.96);
         }
-        .hero-img-grid img:nth-child(1){animation-delay:0s}
-        .hero-img-grid img:nth-child(2){animation-delay:1.2s}
-        .hero-img-grid img:nth-child(3){animation-delay:2.4s}
-        .hero-img-grid img:nth-child(4){animation-delay:3.6s}
-        .hero-img-grid img:nth-child(5){animation-delay:4.8s}
-        .hero-img-grid img:nth-child(6){animation-delay:6.0s}
-        .hero-img-grid img:nth-child(7){animation-delay:7.2s}
-        .hero-img-grid img:nth-child(8){animation-delay:8.4s}
-        .hero-img-grid img:nth-child(9){animation-delay:9.6s}
-        .hero-img-grid img:nth-child(10){animation-delay:10.8s}
-        .hero-img-grid img:nth-child(11){animation-delay:12.0s}
-        @keyframes cycleImg {
-            0%{opacity:0} 5%{opacity:1} 9%{opacity:1} 11%{opacity:0} 100%{opacity:0}
+        .hero-img-grid img.active {
+            opacity: 1; transform: scale(1);
         }
         .hero-img-badge {
             position: absolute; bottom: -20px; left: -20px;
@@ -237,9 +227,10 @@
         /* ── LOGOS MARQUEE ── */
         .logos-section { background: var(--cream); padding: 60px 0; overflow: hidden; }
         .logos-title { text-align: center; margin-bottom: 40px; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); }
-        .logos-track { display: flex; animation: marqueeAnim 20s linear infinite; width: max-content; }
-        .logos-track img { height: 70px; width: 70px; object-fit: contain; margin: 0 30px; opacity: 0.7; filter: grayscale(30%); transition: 0.3s; border-radius: 12px; }
-        .logos-track img:hover { opacity: 1; filter: none; transform: scale(1.1); }
+        .logos-track { display: flex; animation: marqueeAnim 25s linear infinite; width: max-content; }
+        .logos-track:hover { animation-play-state: paused; }
+        .logos-track img { height: 80px; width: 80px; object-fit: contain; margin: 0 28px; opacity: 0.65; filter: grayscale(20%); transition: 0.4s cubic-bezier(0.34,1.56,0.64,1); border-radius: 14px; }
+        .logos-track img:hover { opacity: 1; filter: none; transform: scale(1.18) translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
 
         /* ── CTA ── */
         .cta-section { background: var(--red); padding: 120px 40px; text-align: center; }
@@ -264,6 +255,17 @@
         .footer-links a { color: rgba(255,255,255,0.5); font-size: 13px; transition: 0.3s; }
         .footer-links a:hover { color: #fff; }
 
+        /* ── REVEAL ANIMATIONS ── */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+        .reveal-left.in-view { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(50px); transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+        .reveal-right.in-view { opacity: 1; transform: translateX(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.88); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+        .reveal-scale.in-view { opacity: 1; transform: scale(1); }
+        .stagger-child { opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+        .stagger-child.in-view { opacity: 1; transform: translateY(0); }
         /* ── GO TOP ── */
         #goTop {
             position: fixed; bottom: 30px; right: 30px; z-index: 9998;
@@ -273,6 +275,13 @@
         }
         #goTop.show { display: flex; }
         #goTop:hover { transform: translateY(-3px); }
+        /* ── CURSOR GLOW ── */
+        .cursor-glow {
+            position: fixed; width: 280px; height: 280px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(227,27,35,0.06) 0%, transparent 70%);
+            pointer-events: none; z-index: 0; transform: translate(-50%,-50%);
+            transition: left 0.12s ease, top 0.12s ease;
+        }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
@@ -330,7 +339,7 @@
         <div class="hero-left">
             <div class="hero-tag"><span></span> Office of Academic Affairs · CU</div>
             <h1 class="hero-h1">The Co-Curricular<br><em>Ecosystem</em> at<br>Chandigarh University</h1>
-            <p class="hero-tagline">Learn · Lead · Create · Transform</p>
+            <p class="hero-tagline">Explore · Engage · Excel · Empower</p>
             <p class="hero-desc">
                 A thriving network of 80+ officially recognized student entities empowering students to discover passions, cultivate leadership, build professional competencies, and create meaningful impact through experiential learning.
             </p>
@@ -749,28 +758,192 @@
     </svg>
 </button>
 
+<!-- Lenis Smooth Scroll -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
 <script>
-    // Sticky header
+(function() {
+
+    /* ── LENIS SMOOTH SCROLL ── */
+    const lenis = new Lenis({
+        duration: 1.4,
+        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+        smoothTouch: false,
+    });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+
+    /* ── GSAP + ScrollTrigger ── */
+    gsap.registerPlugin(ScrollTrigger);
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    /* ── HERO ENTRANCE ── */
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.from('.hero-tag',     { y: 30, opacity: 0, duration: 0.7, delay: 0.2 })
+      .from('.hero-h1',      { y: 50, opacity: 0, duration: 0.9 }, '-=0.4')
+      .from('.hero-tagline', { y: 30, opacity: 0, duration: 0.7 }, '-=0.5')
+      .from('.hero-desc',    { y: 30, opacity: 0, duration: 0.7 }, '-=0.5')
+      .from('.hero-btns',    { y: 24, opacity: 0, duration: 0.6 }, '-=0.4')
+      .from('.hero-scroll',  { y: 20, opacity: 0, duration: 0.5 }, '-=0.3')
+      .from('.hero-right',   { x: 60, opacity: 0, duration: 1.0, ease: 'power2.out' }, '-=1.0');
+
+    /* ── HERO IMAGE CAROUSEL ── */
+    const imgs = document.querySelectorAll('.hero-img-grid img');
+    let current = 0;
+    if (imgs.length) {
+        imgs[0].classList.add('active');
+        setInterval(() => {
+            imgs[current].classList.remove('active');
+            current = (current + 1) % imgs.length;
+            imgs[current].classList.add('active');
+        }, 1800);
+    }
+
+    /* ── UNIVERSAL REVEAL on SCROLL ── */
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('in-view'), i * 60);
+                revealObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    /* ── STAGGER CHILDREN ── */
+    document.querySelectorAll('.stagger-parent').forEach(parent => {
+        const children = parent.querySelectorAll('.stagger-child');
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    children.forEach((child, i) => {
+                        setTimeout(() => child.classList.add('in-view'), i * 120);
+                    });
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        obs.observe(parent);
+    });
+
+    /* ── ANIMATED COUNTERS ── */
+    function animateCount(el) {
+        const target = el.dataset.target;
+        const isK = target.includes('K');
+        const isPlus = target.includes('+');
+        const num = parseFloat(target.replace(/[^0-9.]/g, ''));
+        const dur = 1800;
+        const step = 16;
+        const steps = dur / step;
+        const inc = num / steps;
+        let current = 0;
+        const timer = setInterval(() => {
+            current += inc;
+            if (current >= num) { current = num; clearInterval(timer); }
+            el.textContent = (isK ? Math.floor(current) + 'K' : Math.floor(current)) + (isPlus ? '+' : '');
+        }, step);
+    }
+    const counterObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                animateCount(e.target);
+                counterObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.count-up').forEach(el => counterObs.observe(el));
+
+    /* ── GSAP PARALLAX on SECTIONS ── */
+    gsap.utils.toArray('.gsap-parallax').forEach(el => {
+        gsap.to(el, {
+            y: -60,
+            ease: 'none',
+            scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+    });
+
+    /* ── GSAP HORIZONTAL SCROLL for pillars on desktop ── */
+    const pillarsGrid = document.querySelector('.pillars-grid');
+    if (pillarsGrid && window.innerWidth > 1024) {
+        gsap.from('.pillar-card', {
+            y: 60, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out',
+            scrollTrigger: { trigger: '.pillars-grid', start: 'top 80%' }
+        });
+    }
+
+    /* ── GSAP STATS REVEAL ── */
+    gsap.from('.stat-item', {
+        y: 50, opacity: 0, duration: 0.6, stagger: 0.12, ease: 'back.out(1.5)',
+        scrollTrigger: { trigger: '.stats-section', start: 'top 75%' }
+    });
+
+    /* ── GSAP VALUE CARDS ── */
+    gsap.from('.value-card', {
+        y: 40, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out',
+        scrollTrigger: { trigger: '.values-grid', start: 'top 80%' }
+    });
+
+    /* ── GSAP ENTITY CARDS ── */
+    gsap.from('.entity-card', {
+        y: 60, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power3.out',
+        scrollTrigger: { trigger: '.entity-grid', start: 'top 75%' }
+    });
+
+    /* ── GSAP RSTAT CARDS ── */
+    gsap.from('.rstat', {
+        x: 50, opacity: 0, duration: 0.6, stagger: 0.12, ease: 'power2.out',
+        scrollTrigger: { trigger: '.recognition-stats', start: 'top 80%' }
+    });
+
+    /* ── STICKY HEADER + SCROLL ── */
     const header = document.getElementById('mainHeader');
     window.addEventListener('scroll', () => {
         header.classList.toggle('sticky', window.scrollY > 60);
         document.getElementById('goTop').classList.toggle('show', window.scrollY > 400);
     });
 
-    // Go top
-    document.getElementById('goTop').addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+    /* ── GO TOP ── */
+    document.getElementById('goTop').addEventListener('click', () => lenis.scrollTo(0, { duration: 1.6 }));
 
-    // Mobile menu toggle
+    /* ── CURSOR GLOW ── */
+    const glow = document.getElementById('cursorGlow');
+    document.addEventListener('mousemove', e => {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top  = e.clientY + 'px';
+    });
+
+    /* ── MAGNETIC BUTTONS ── */
+    document.querySelectorAll('.btn-primary, .btn-outline, .btn-white').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+            const r = btn.getBoundingClientRect();
+            const x = (e.clientX - r.left - r.width/2)  * 0.25;
+            const y = (e.clientY - r.top  - r.height/2) * 0.25;
+            btn.style.transform = `translate(${x}px, ${y}px) translateY(-2px)`;
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+
+    /* ── MOBILE MENU ── */
     document.getElementById('menuToggle').addEventListener('click', function() {
         this.classList.toggle('active');
         const nav = document.querySelector('.header-nav');
-        if (nav.style.display === 'block') {
-            nav.style.display = 'none';
-        } else {
-            nav.style.cssText = 'display:block;position:absolute;top:80px;left:0;width:100%;background:var(--cream);padding:20px 40px;border-top:1px solid rgba(0,0,0,0.08);z-index:9998;';
-            nav.querySelector('ul').style.cssText = 'flex-direction:column;gap:16px;';
-        }
+        const isOpen = nav.style.display === 'block';
+        nav.style.cssText = isOpen
+            ? 'display:none;'
+            : 'display:block;position:absolute;top:76px;left:0;width:100%;background:var(--cream);padding:20px 40px;border-top:1px solid rgba(0,0,0,0.08);z-index:9998;box-shadow:0 12px 30px rgba(0,0,0,0.1);';
+        if (!isOpen) nav.querySelector('ul').style.cssText = 'flex-direction:column;gap:20px;';
     });
+
+})();
 </script>
 </body>
 </html>
