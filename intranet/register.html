@@ -914,31 +914,55 @@
     const submitBtn = document.getElementById('submitBtn');
     const successOverlay = document.getElementById('successOverlay');
 
-    // Entity selection tracking & validation rules (min 1, max 3 across all checkboxes)
-    const MAX_SELECTION = 3;
+    // Entity selection tracking & validation rules (max 2 clubs, max 2 societies)
+    const MAX_CLUBS = 2;
+    const MAX_SOCIETIES = 2;
     const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    const clubCheckboxes = Array.from(form.querySelectorAll('#sec2 input[type="checkbox"]'));
+    const societyCheckboxes = Array.from(form.querySelectorAll('#sec3 input[type="checkbox"]'));
     const badgeSec2 = document.getElementById('selectedCountBadgeSec2');
     const badgeSec3 = document.getElementById('selectedCountBadgeSec3');
 
-    function getCheckedCount() {
-        let count = 0;
-        checkboxes.forEach(cb => {
-            if (cb.checked) count++;
-        });
-        return count;
+    function getCheckedCountClubs() {
+        return clubCheckboxes.filter(cb => cb.checked).length;
+    }
+
+    function getCheckedCountSocieties() {
+        return societyCheckboxes.filter(cb => cb.checked).length;
     }
 
     function updateCheckboxStates() {
-        const checkedCount = getCheckedCount();
+        const checkedClubs = getCheckedCountClubs();
+        const checkedSocieties = getCheckedCountSocieties();
         
         // Update badges text
-        const badgeText = `Selected Entities (Max 3): ${checkedCount} / ${MAX_SELECTION}`;
-        if (badgeSec2) badgeSec2.textContent = badgeText;
-        if (badgeSec3) badgeSec3.textContent = badgeText;
+        if (badgeSec2) badgeSec2.textContent = `Selected Clubs (Max 2): ${checkedClubs} / ${MAX_CLUBS}`;
+        if (badgeSec3) badgeSec3.textContent = `Selected Societies (Max 2): ${checkedSocieties} / ${MAX_SOCIETIES}`;
         
-        checkboxes.forEach(cb => {
+        // Handle club selection limits
+        clubCheckboxes.forEach(cb => {
             const label = cb.nextElementSibling;
-            if (checkedCount >= MAX_SELECTION) {
+            if (checkedClubs >= MAX_CLUBS) {
+                if (!cb.checked) {
+                    cb.disabled = true;
+                    if (label) {
+                        label.style.opacity = '0.5';
+                        label.style.cursor = 'not-allowed';
+                    }
+                }
+            } else {
+                cb.disabled = false;
+                if (label) {
+                    label.style.opacity = '';
+                    label.style.cursor = '';
+                }
+            }
+        });
+
+        // Handle society selection limits
+        societyCheckboxes.forEach(cb => {
+            const label = cb.nextElementSibling;
+            if (checkedSocieties >= MAX_SOCIETIES) {
                 if (!cb.checked) {
                     cb.disabled = true;
                     if (label) {
@@ -1051,10 +1075,11 @@
             return;
         }
 
-        // 2. Limit validation: check if at least 1 club/society is chosen
-        const totalSelected = getCheckedCount();
-        if (totalSelected === 0) {
-            alert('Please select at least 1 club or professional society before submitting.');
+        // 2. Limit validation: check if at least 1 club or society is chosen
+        const totalClubs = getCheckedCountClubs();
+        const totalSocieties = getCheckedCountSocieties();
+        if (totalClubs === 0 && totalSocieties === 0) {
+            alert('Please select at least 1 Club or Professional Society before submitting.');
             return;
         }
 
