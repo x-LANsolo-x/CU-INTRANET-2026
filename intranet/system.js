@@ -1,5 +1,5 @@
 // Configurable Google Apps Script Web App URL for Live Feedback Form
-window.FEEDBACK_WEB_APP_URL = window.FEEDBACK_WEB_APP_URL || 'https://script.google.com/macros/s/AKfycbz_xIUrqFvA0FTOJCoFyo_jZu3I_iInp8DSWe53sD09ZnnIbggC8TvJhfjdTaPBSy5s/exec';
+window.FEEDBACK_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxTbbj8Jif3WQAoY3NI2ZCWfS0KVDco_TN6VYEPl6NfwYToubEfwB4jR7zc7sLrFLytaA/exec';
 
 (function () {
     let preloaderDismissed = false;
