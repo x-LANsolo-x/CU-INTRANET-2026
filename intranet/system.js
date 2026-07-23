@@ -856,6 +856,31 @@
                     return;
                 }
 
+                const commentsVal = (document.getElementById('fb-comments')?.value || '').trim();
+
+                // Send Feedback Data to Google Apps Script Web App (Same endpoint as Register Interest)
+                const WEB_APP_URL = window.FEEDBACK_WEB_APP_URL || 'https://script.google.com/macros/s/AKfycbz_xIUrqFvA0FTOJCoFyo_jZu3I_iInp8DSWe53sD09ZnnIbggC8TvJhfjdTaPBSy5s/exec';
+                const payload = new URLSearchParams();
+                payload.set('type', 'feedback');
+                payload.set('sheet', 'Feedback');
+                payload.set('stallsRating', ratings.stalls);
+                payload.set('activitiesRating', ratings.activities);
+                payload.set('cocurricularRating', ratings.cocurricular);
+                payload.set('likedCategory', catSelect.value);
+                payload.set('comments', commentsVal);
+                payload.set('timestamp', new Date().toISOString());
+
+                fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: payload.toString()
+                }).catch(() => {
+                    // Fallback GET beacon if POST is blocked
+                    const beaconUrl = WEB_APP_URL + '?' + payload.toString();
+                    new Image().src = beaconUrl;
+                });
+
                 form.style.display = 'none';
                 if (successView) successView.classList.add('active');
 
