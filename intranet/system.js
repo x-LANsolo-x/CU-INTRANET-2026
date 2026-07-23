@@ -1,7 +1,5 @@
-/* ═══════════════════════════════════════════════════════
-   SYSTEM.JS — CU Co-Curricular Intranet Interactions
-   Shared across all pages for smooth scrolling & animations
-   ═══════════════════════════════════════════════════════ */
+// Configurable Google Apps Script Web App URL for Live Feedback Form
+window.FEEDBACK_WEB_APP_URL = window.FEEDBACK_WEB_APP_URL || 'https://script.google.com/macros/s/AKfycbz_xIUrqFvA0FTOJCoFyo_jZu3I_iInp8DSWe53sD09ZnnIbggC8TvJhfjdTaPBSy5s/exec';
 
 (function () {
     let preloaderDismissed = false;
