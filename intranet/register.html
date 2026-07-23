@@ -1141,6 +1141,11 @@
 
     function showSuccess() {
         successOverlay.classList.add('active');
+        setTimeout(() => {
+            if (typeof window.openFeedbackForm === 'function') {
+                window.openFeedbackForm();
+            }
+        }, 1200);
     }
 
     successOverlay.addEventListener('click', (e) => {

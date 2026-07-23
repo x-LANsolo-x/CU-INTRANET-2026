@@ -417,16 +417,222 @@
         });
     }
 
+    // ── LIVE FEEDBACK POPUP SYSTEM ──
+    function initLiveFeedbackModal() {
+        if (document.getElementById('fb-modal-overlay')) return;
+
+        const modalHTML = `
+            <button id="fb-trigger-btn" aria-label="Open Live Feedback Form">
+                <span class="fb-pulse"></span>
+                <i class="fas fa-comments fb-icon"></i>
+                <span>Live Feedback</span>
+            </button>
+
+            <div id="fb-modal-overlay" aria-hidden="true">
+                <div id="fb-modal-card" role="dialog" aria-modal="true" aria-labelledby="fb-modal-title">
+                    <div class="fb-header">
+                        <h3 id="fb-modal-title"><i class="fas fa-star-half-alt"></i> Freshman 2026 Feedback</h3>
+                        <p>Share your experience about Freshman 2026 stalls & activities</p>
+                        <button class="fb-close-btn" id="fb-close-btn" aria-label="Close Feedback Form">&times;</button>
+                    </div>
+                    <div class="fb-body">
+                        <form id="fb-live-form">
+                            <div class="fb-q-group">
+                                <label class="fb-q-label">1. Rate the Co-curricular Stalls <span class="req">*</span></label>
+                                <div class="fb-stars-wrapper" data-rating-id="stalls">
+                                    <div class="fb-stars">
+                                        <i class="fas fa-star fb-star" data-val="1"></i>
+                                        <i class="fas fa-star fb-star" data-val="2"></i>
+                                        <i class="fas fa-star fb-star" data-val="3"></i>
+                                        <i class="fas fa-star fb-star" data-val="4"></i>
+                                        <i class="fas fa-star fb-star" data-val="5"></i>
+                                    </div>
+                                    <span class="fb-rating-hint">Tap to rate</span>
+                                </div>
+                            </div>
+
+                            <div class="fb-q-group">
+                                <label class="fb-q-label">2. Rate Freshman 2026 Activities <span class="req">*</span></label>
+                                <div class="fb-stars-wrapper" data-rating-id="activities">
+                                    <div class="fb-stars">
+                                        <i class="fas fa-star fb-star" data-val="1"></i>
+                                        <i class="fas fa-star fb-star" data-val="2"></i>
+                                        <i class="fas fa-star fb-star" data-val="3"></i>
+                                        <i class="fas fa-star fb-star" data-val="4"></i>
+                                        <i class="fas fa-star fb-star" data-val="5"></i>
+                                    </div>
+                                    <span class="fb-rating-hint">Tap to rate</span>
+                                </div>
+                            </div>
+
+                            <div class="fb-q-group">
+                                <label class="fb-q-label">3. Overall Co-curricular Experience <span class="req">*</span></label>
+                                <div class="fb-stars-wrapper" data-rating-id="cocurricular">
+                                    <div class="fb-stars">
+                                        <i class="fas fa-star fb-star" data-val="1"></i>
+                                        <i class="fas fa-star fb-star" data-val="2"></i>
+                                        <i class="fas fa-star fb-star" data-val="3"></i>
+                                        <i class="fas fa-star fb-star" data-val="4"></i>
+                                        <i class="fas fa-star fb-star" data-val="5"></i>
+                                    </div>
+                                    <span class="fb-rating-hint">Tap to rate</span>
+                                </div>
+                            </div>
+
+                            <div class="fb-q-group">
+                                <label class="fb-q-label" for="fb-stall-cat">4. Which category stall did you like the most? <span class="req">*</span></label>
+                                <select id="fb-stall-cat" class="fb-select" required>
+                                    <option value="" disabled selected>-- Select Stall Category --</option>
+                                    <option value="Science Innovation and Technology">Science Innovation and Technology</option>
+                                    <option value="Social Impact and Development">Social Impact and Development</option>
+                                    <option value="Business Media and Management">Business Media and Management</option>
+                                    <option value="E-sport and Game Development">E-sport and Game Development</option>
+                                </select>
+                            </div>
+
+                            <div class="fb-q-group">
+                                <label class="fb-q-label" for="fb-comments">5. Any suggestions or comments?</label>
+                                <textarea id="fb-comments" class="fb-textarea" placeholder="Share your suggestions or feedback..."></textarea>
+                            </div>
+
+                            <button type="submit" class="fb-submit-btn" id="fb-submit-btn">
+                                <span>Submit Feedback</span> <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+
+                        <div class="fb-success-view" id="fb-success-view">
+                            <div class="fb-success-icon"><i class="fas fa-check"></i></div>
+                            <h4>Thank You for Your Feedback!</h4>
+                            <p>Your feedback for Freshman 2026 has been submitted successfully.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+        const overlay = document.getElementById('fb-modal-overlay');
+        const triggerBtn = document.getElementById('fb-trigger-btn');
+        const closeBtn = document.getElementById('fb-close-btn');
+        const form = document.getElementById('fb-live-form');
+        const successView = document.getElementById('fb-success-view');
+
+        const ratings = { stalls: 0, activities: 0, cocurricular: 0 };
+        const hints = ['', 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent!'];
+
+        // Rating Stars Handler
+        document.querySelectorAll('.fb-stars-wrapper').forEach(wrapper => {
+            const groupKey = wrapper.getAttribute('data-rating-id');
+            const stars = wrapper.querySelectorAll('.fb-star');
+            const hintEl = wrapper.querySelector('.fb-rating-hint');
+
+            stars.forEach(star => {
+                star.addEventListener('mouseenter', () => {
+                    const val = parseInt(star.getAttribute('data-val'), 10);
+                    stars.forEach((s, idx) => {
+                        s.classList.toggle('active', idx < val);
+                    });
+                    if (hintEl) hintEl.textContent = hints[val];
+                });
+
+                wrapper.addEventListener('mouseleave', () => {
+                    const currentVal = ratings[groupKey];
+                    stars.forEach((s, idx) => {
+                        s.classList.toggle('active', idx < currentVal);
+                    });
+                    if (hintEl) hintEl.textContent = currentVal ? hints[currentVal] : 'Tap to rate';
+                });
+
+                star.addEventListener('click', () => {
+                    const val = parseInt(star.getAttribute('data-val'), 10);
+                    ratings[groupKey] = val;
+                    stars.forEach((s, idx) => {
+                        s.classList.toggle('active', idx < val);
+                    });
+                    if (hintEl) hintEl.textContent = hints[val];
+                });
+            });
+        });
+
+        // Open & Close
+        window.openFeedbackForm = function () {
+            if (overlay) {
+                overlay.classList.add('active');
+                overlay.setAttribute('aria-hidden', 'false');
+            }
+        };
+
+        window.closeFeedbackForm = function () {
+            if (overlay) {
+                overlay.classList.remove('active');
+                overlay.setAttribute('aria-hidden', 'true');
+            }
+        };
+
+        if (triggerBtn) {
+            triggerBtn.addEventListener('click', window.openFeedbackForm);
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', window.closeFeedbackForm);
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) window.closeFeedbackForm();
+            });
+        }
+
+        // Form Submit
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                if (!ratings.stalls || !ratings.activities || !ratings.cocurricular) {
+                    alert('Please rate all 3 rating questions before submitting.');
+                    return;
+                }
+
+                const catSelect = document.getElementById('fb-stall-cat');
+                if (!catSelect || !catSelect.value) {
+                    alert('Please select which category stall you liked the most.');
+                    return;
+                }
+
+                form.style.display = 'none';
+                if (successView) successView.classList.add('active');
+
+                setTimeout(() => {
+                    window.closeFeedbackForm();
+                    setTimeout(() => {
+                        form.reset();
+                        form.style.display = 'block';
+                        if (successView) successView.classList.remove('active');
+                        ratings.stalls = 0;
+                        ratings.activities = 0;
+                        ratings.cocurricular = 0;
+                        document.querySelectorAll('.fb-star').forEach(s => s.classList.remove('active'));
+                        document.querySelectorAll('.fb-rating-hint').forEach(h => h.textContent = 'Tap to rate');
+                    }, 400);
+                }, 2500);
+            });
+        }
+    }
+
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
         setupPrefetching();
         setupImageOptimization();
         enforceSingleDomainTabs();
+        initLiveFeedbackModal();
     } else {
         document.addEventListener('DOMContentLoaded', () => {
             setupPrefetching();
             setupImageOptimization();
             enforceSingleDomainTabs();
+            initLiveFeedbackModal();
         });
     }
 })();
+
 
