@@ -428,7 +428,7 @@ window.FEEDBACK_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyQyHpyWC
                     position: fixed !important;
                     bottom: 28px !important;
                     right: 28px !important;
-                    z-index: 99990 !important;
+                    z-index: 2147483647 !important;
                     display: inline-flex !important;
                     align-items: center !important;
                     gap: 10px !important;
@@ -670,6 +670,39 @@ window.FEEDBACK_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyQyHpyWC
                     color: #0F0F0F !important; margin-bottom: 8px !important;
                 }
                 .fb-success-view p { font-size: 14px !important; color: #5A5A5A !important; }
+
+                /* ── MOBILE PHONE RESPONSIVENESS ── */
+                @media (max-width: 768px) {
+                    #fb-trigger-btn {
+                        bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+                        right: 14px !important;
+                        z-index: 2147483647 !important;
+                        padding: 10px 15px !important;
+                        font-size: 13px !important;
+                        gap: 6px !important;
+                        box-shadow: 0 6px 24px rgba(0,0,0,0.4), 0 0 14px rgba(227,27,35,0.3) !important;
+                    }
+                    #fb-modal-card {
+                        width: 94% !important;
+                        max-height: 85vh !important;
+                        border-radius: 20px !important;
+                    }
+                    .fb-header {
+                        padding: 18px 20px 16px !important;
+                    }
+                    .fb-header h3 {
+                        font-size: 18px !important;
+                    }
+                    .fb-body {
+                        padding: 18px 20px 24px !important;
+                    }
+                    .fb-stars-wrapper {
+                        padding: 8px 12px !important;
+                    }
+                    .fb-star {
+                        font-size: 24px !important;
+                    }
+                }
             `;
             document.head.appendChild(styleTag);
         }
