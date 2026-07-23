@@ -426,26 +426,30 @@ window.FEEDBACK_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyQyHpyWC
             styleTag.textContent = `
                 #fb-trigger-btn {
                     position: fixed !important;
-                    bottom: 28px !important;
-                    right: 28px !important;
+                    bottom: 24px !important;
+                    right: 20px !important;
                     z-index: 2147483647 !important;
-                    display: inline-flex !important;
+                    display: flex !important;
                     align-items: center !important;
-                    gap: 10px !important;
-                    padding: 12px 20px !important;
+                    justify-content: center !important;
+                    gap: 8px !important;
+                    padding: 12px 18px !important;
                     background: #0F0F0F !important;
                     color: #FFFFFF !important;
-                    border: 1.5px solid rgba(227, 27, 35, 0.45) !important;
+                    border: 1.5px solid #E31B23 !important;
                     border-radius: 100px !important;
-                    font-family: 'Outfit', 'Segoe UI', sans-serif !important;
+                    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
                     font-size: 14px !important;
                     font-weight: 700 !important;
                     cursor: pointer !important;
-                    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28), 0 0 15px rgba(227, 27, 35, 0.2) !important;
-                    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+                    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(227, 27, 35, 0.3) !important;
+                    transition: transform 0.25s ease, background-color 0.25s ease !important;
+                    -webkit-transform: translateZ(0) !important;
+                    transform: translateZ(0) !important;
+                    -webkit-backface-visibility: hidden !important;
                 }
                 #fb-trigger-btn:hover {
-                    transform: translateY(-3px) scale(1.03) !important;
+                    transform: translateY(-3px) scale(1.03) translateZ(0) !important;
                     border-color: #E31B23 !important;
                     box-shadow: 0 12px 35px rgba(227, 27, 35, 0.4) !important;
                     background: #171717 !important;
